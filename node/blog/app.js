@@ -6,6 +6,7 @@ var express=require("express");
 var path=require("path");
 var app=express();
 var router=require("./router");
+var bodyParser=require("body-parser");
 
 /**
  * 
@@ -37,6 +38,8 @@ app.use('/node_modules/',express.static(path.join(_dirname,'./node_modules/')));
 
 app.engine('html',require('express-art-template'));
 app.set('views',path.join(_dirname,'./views/'));
+
+app.use(bodyParser.json());
 
 //把路由挂在到app中
 app.use(router);

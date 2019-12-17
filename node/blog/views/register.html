@@ -43,8 +43,10 @@
   </div>
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <script>
+    //表单提交
     $('#register_form').on('submit', function (e) {
       e.preventDefault()
+      //表单序列化
       var formData = $(this).serialize()
       $.ajax({
         url: '/register',
