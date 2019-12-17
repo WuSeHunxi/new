@@ -72,7 +72,7 @@ p1.then(function(data){
     return p3;
 }).then(function(data){
     console.log(data);
-    console.log(data);
+    console.log("ending...");
 })
 
 
