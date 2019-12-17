@@ -1,3 +1,5 @@
+<!-- 模板页 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,16 +7,22 @@
   <meta charset="UTF-8">
   <title>{{block 'title'}}默认标题{{/block}}</title>
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  
   {{block 'head'}}{{/block}}
 </head>
 
 <body>
   <!--使用公共的头部和底部-->
   {{include '../_partials/header.html'}}
+  <!-- 填坑 -->
+
+
   {{block 'body'}}{{/block}}
   {{include '../_partials/footer.html'}}
+  <!-- 下面两行引入的都是公共部分 -->
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- 留坑 -->
   {{block 'script'}}{{/block}}
 </body>
 
