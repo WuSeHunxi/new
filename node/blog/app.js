@@ -14,7 +14,10 @@ var app=express();
  */
 
 /**
- * _dirname
+ * Node中的其他成员
+ *      在每个模块中，除了require,exports等模块相关的API之外，还有两个特殊的成员：
+ *             _dirname-->获取当前模块的(获取路径是动态的)
+ *             _filename-->获取当前文件的绝对路径(获取路径是动态的)
  */
 
 //path.join()-->将相对路径改成绝对路径
