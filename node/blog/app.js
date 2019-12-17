@@ -5,6 +5,7 @@
 var express=require("express");
 var path=require("path");
 var app=express();
+var router=require("./router");
 
 /**
  * 
@@ -37,11 +38,8 @@ app.use('/node_modules/',express.static(path.join(_dirname,'./node_modules/')));
 app.engine('html',require('express-art-template'));
 app.set('views',path.join(_dirname,'./views/'));
 
-app.get('/',function(req,res){
-    res.render('index.html',{
-        name:'哈根三'
-    })
-})
+//把路由挂在到app中
+app.use(router);
 
 app.listen(3000,function(){
     console.log('running......');
