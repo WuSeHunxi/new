@@ -3,12 +3,16 @@
  */
 var fs = require('fs')
 
+//Promise一旦创建，就会立即执行
 var p1 = new Promise(function (resolve, reject) {
-  //异步任务
+  //异步任务，不能及时执行
   fs.readFile('./data/a.txt', 'utf8', function (err, data) {
+    //任务失败
     if (err) {
       reject(err)
-    } else {
+    } 
+    //任务成功
+    else {
       resolve(data)
     }
   })
