@@ -1,6 +1,10 @@
+/**
+ * es6中新增的一个构造函数
+ */
 var fs = require('fs')
 
 var p1 = new Promise(function (resolve, reject) {
+  //异步任务
   fs.readFile('./data/a.txt', 'utf8', function (err, data) {
     if (err) {
       reject(err)
