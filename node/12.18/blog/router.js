@@ -62,8 +62,9 @@ router.post('/register', function (req, res) {
   //    如果已存在，不允许注册
   //    如果不存在，注册新建用户
   // 3. 发送响应
-  var body = req.body
+  var body = req.body//获取表单提交的数据
   User.findOne({
+    //表示或者条件
     $or: [{
         email: body.email
       },
@@ -72,17 +73,20 @@ router.post('/register', function (req, res) {
       }
     ]
   }, function (err, data) {
+    //通过前端的操作处理响应结果
     if (err) {
+      //express的json()方法-->将对象转成字符串，发送给浏览器
       return res.status(500).json({
-        success: false,
+        success: false,//程序错误
         message: '服务端错误'
       })
     }
     // console.log(data)
     if (data) {
-      // 邮箱或者昵称已存在
-      return res.status(200).json({
+      // 邮箱或者昵称已存在 为了和服务端同步使用json，方便ajax对响应处理
+      return res.status(200).json({//业务成功，但是提交的内容存在
         err_code: 1,
+        //利用服务端渲染提交表单之后的结果，这种方法比使用ajax安全
         message: 'Email or nickname aleady exists.'
       })
       return res.send(`邮箱或者密码已存在，请重试`)

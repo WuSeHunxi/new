@@ -100,7 +100,7 @@ router.post('/students/edit', function (req, res) {
   // 2. 更新
   //    Student.updateById()
   // 3. 发送响应
-  var id = req.body.id.replace(/"/g, '')
+  var id = req.body.id.replace(/"/g, '')//在mongodb中的id字段中内容有"
   Student.findByIdAndUpdate(id, req.body, function (err) {
     if (err) {
       return res.status(500).send('Server error.')

@@ -16,7 +16,7 @@ var Cat = mongoose.model('Cat', {
   name: String
 });
 
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 3; i++) {
   // 实例化一个 Cat--->表名
   var kitty = new Cat({
     name: '喵喵' + i //设计表

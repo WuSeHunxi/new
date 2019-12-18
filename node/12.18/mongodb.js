@@ -10,7 +10,11 @@
  * 
  * 基本命令：
  *      show dbs-->查看显示所有数据库
- *      db-->查看当前连接的数据库
+ *      db-->查看当前连接的数据库(默认连接的是test)
  *      use 数据库名称-->切换到指定的数据库(如果没有的话会新建)
- *      
+ *      db.students.insertOne({"name":"jack"})-->插入数据
+ *      db.students.find()-->查找所有的
+ * 
+ * 
+ * node与MongoDB
  */

@@ -19,8 +19,11 @@
     <!-- 
       表单具有默认的提交行为，默认是同步的，同步表单提交，浏览器会锁死（转圈儿）等待服务端的响应结果。
       表单的同步提交之后，无论服务端响应的是什么，都会直接把响应的结果覆盖掉当前页面。
+      同步提交，浏览器会将响应的结果直接渲染到页面上
 
       后来有人想到了一种办法，来解决这个问题。
+
+      同步提交的提示信息以来的是服务端；异步提交的提示信息依赖的就是响应的结果
      -->
     <form id="register_form" method="post" action="/register">
       <div class="form-group">
@@ -43,6 +46,12 @@
   </div>
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <script>
+    /**
+     * 
+     * 以前没有ajax的时候，表单提交的数据能够显示在输入框是因为表单的value属性存放的就是提交的内容
+     * 这种方法较为安全，但是处理起来较为复杂
+     * 
+    */
     $('#register_form').on('submit', function (e) {
       e.preventDefault()
       var formData = $(this).serialize()
