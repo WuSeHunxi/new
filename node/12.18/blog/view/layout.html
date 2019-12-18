@@ -1,5 +1,7 @@
 <!-- 布局 设计 -->
 
+<!-- 模板页：将公共的内容都放在模板页当中，其他页继承模板页，进行填充 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- 引入一些公共的第三方文件 -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    {{block 'head'}}{{/block}}
 </head>
 <body>
     <!-- 在渲染index.html的时候，同时渲染header.html -->
@@ -15,5 +20,9 @@
     <!--如果没有填坑，就会显示模板页的默认内容-->
     {{block 'content'}} <h1>默认内容</h1> {{/block}}
     {{include './footer.html' }}
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    {{block 'script'}} {{/block}}
 </body>
 </html>

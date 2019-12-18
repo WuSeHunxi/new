@@ -1,6 +1,14 @@
 <!-- 继承layout.html -->
 {{extend './layout.html'}}
 
+{{block 'head'}}
+    <style>
+        body{
+            background-color: pink;
+        }
+    </style>
+{{/block}}
+
 <!--填坑，和挖坑的语法一样-->
 {{block 'content'}}
     <div>
