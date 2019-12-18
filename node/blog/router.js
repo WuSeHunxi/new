@@ -25,7 +25,8 @@ router.post('/register',function(req,res){
     //获取表单提交的数据
     //操作数据库
     //发送响应
-    console.log(req.body);
+    // console.log(req.body);//get的时候请求，post的时候提交
+    
 })
 
 module.exports=router;

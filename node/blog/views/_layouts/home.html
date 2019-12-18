@@ -18,11 +18,13 @@
 
 
   {{block 'body'}}{{/block}}
+
+  <!-- 头部和底部都只包含元素标签 -->
   {{include '../_partials/footer.html'}}
   <!-- 下面两行引入的都是公共部分 -->
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <!-- 留坑 -->
+  <!-- 留坑'script' -->
   {{block 'script'}}{{/block}}
 </body>
 

@@ -4,14 +4,14 @@
 
 var express=require("express");
 var path=require("path");
-var app=express();
 var router=require("./router");
 var bodyParser=require("body-parser");
+var app=express();
 
 /**
  * 
  * path路径操作模块
- * path.basename-->获取文件名部分(包含后缀名)
+ * path.basename-->获取文件名部分(包含后缀名) --> xx.xx
  * path.dirname-->获取路径中的目录部分
  * path.extname-->获得后缀名
  * path.isAbsolute-->判断是否是绝对路径

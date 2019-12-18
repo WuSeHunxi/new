@@ -38,6 +38,9 @@ var p3 = new Promise(function (resolve, reject) {
   })
 })
 
+/**
+ * then()函数中有两个回调函数做参数，第一个是正确的，第二个是错误的
+ */
 p1
   .then(function (data) {
     console.log(data)

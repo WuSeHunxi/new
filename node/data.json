@@ -1,9 +1,16 @@
 {
     "users":[
         {
+            "id":1,
             "username":"admin",
             "age":18,
-            "job":
+            "job":2
+        },
+        {
+            "id":1,
+            "username":"admin",
+            "age":18,
+            "job":2
         }
     ],
     "job":[

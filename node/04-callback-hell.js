@@ -1,5 +1,10 @@
 var fs = require('fs')
 
+/**
+ * 读完a读b然后再读c
+ * 下面的代码是回调地狱
+ */
+
 fs.readFile('./data/a.txt', 'utf8', function (err, data) {
   if (err) {
     // return console.log('读取失败')

@@ -1,5 +1,10 @@
 var fs = require('fs')
 
+/**
+ * 将实例化Promise封装成一个函数，直接return即可
+ * @param {*} filePath 要读取的文件路径
+ */
+
 function pReadFile(filePath) {
   return new Promise(function (resolve, reject) {
     fs.readFile(filePath, 'utf8', function (err, data) {
