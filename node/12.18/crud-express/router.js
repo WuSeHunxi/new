@@ -28,6 +28,7 @@ router.get('/students', function (req, res) {
     if (err) {
       return res.status(500).send('Server error.')
     }
+    //使用模板字符串
     res.render('index.html', {
       fruits: [
         '苹果',
@@ -58,6 +59,7 @@ router.post('/students/new', function (req, res) {
     if (err) {
       return res.status(500).send('Server error.')
     }
+    //跳转回开始页面
     res.redirect('/students')
   })
 })
