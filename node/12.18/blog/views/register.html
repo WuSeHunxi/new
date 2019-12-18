@@ -23,7 +23,7 @@
 
       后来有人想到了一种办法，来解决这个问题。
 
-      同步提交的提示信息以来的是服务端；异步提交的提示信息依赖的就是响应的结果
+      同步提交的提示信息依赖的是服务端；异步提交的提示信息依赖的就是响应的结果
      -->
     <form id="register_form" method="post" action="/register">
       <div class="form-group">
@@ -52,6 +52,8 @@
      * 这种方法较为安全，但是处理起来较为复杂
      * 
     */
+
+    //客户端的处理
     $('#register_form').on('submit', function (e) {
       e.preventDefault()
       var formData = $(this).serialize()
@@ -64,7 +66,7 @@
           var err_code = data.err_code
           if (err_code === 0) {
             // window.alert('注册成功！')
-            // 服务端重定向针对异步请求无效
+            // 服务端重定向针对异步请求无效，所以使用客户端进行跳转
             window.location.href = '/'
           } else if (err_code === 1) {
             window.alert('邮箱已存在！')

@@ -1,5 +1,6 @@
 var express = require('express')
 var User = require('./models/user')
+//加密-->防止数据库泄露被人知道密码
 var md5 = require('blueimp-md5')
 
 var router = express.Router()
@@ -85,6 +86,7 @@ router.post('/register', function (req, res) {
     if (data) {
       // 邮箱或者昵称已存在 为了和服务端同步使用json，方便ajax对响应处理
       return res.status(200).json({//业务成功，但是提交的内容存在
+        //业务状态码，为了方便辨别是哪种操作
         err_code: 1,
         //利用服务端渲染提交表单之后的结果，这种方法比使用ajax安全
         message: 'Email or nickname aleady exists.'
@@ -92,13 +94,13 @@ router.post('/register', function (req, res) {
       return res.send(`邮箱或者密码已存在，请重试`)
     }
 
-    // 对密码进行 md5 重复加密
+    // 对密码进行 md5 重复加密  两层加密
     body.password = md5(md5(body.password))
 
     new User(body).save(function (err, user) {
       if (err) {
         return res.status(500).json({
-          err_code: 500,
+          err_code: 500,//服务端错误
           message: 'Internal error.'
         })
       }

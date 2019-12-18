@@ -6,6 +6,7 @@ var router = require('./router')
 
 var app = express()
 
+//静态文件的使用的是path.join()来进行字符串的拼接，将相对路径改为绝对路径
 app.use('/public/', express.static(path.join(__dirname, './public/')))
 app.use('/node_modules/', express.static(path.join(__dirname, './node_modules/')))
 
