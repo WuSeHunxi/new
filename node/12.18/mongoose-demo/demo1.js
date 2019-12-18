@@ -1,24 +1,25 @@
 var mongoose = require('mongoose');
 
 // 连接 MongoDB 数据库   指定连接的数据库不需要存在
-mongoose.connect('mongodb://localhost/itest', {
+mongoose.connect('mongodb://localhost/st', {
   useNewUrlParser: true
 });
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 // 创建一个模型
 // 就是在设计数据库
 // MongoDB 是动态的，非常灵活，只需要在代码中设计你的数据库就可以了
 // mongoose 这个包就可以让你的设计编写过程变的非常的简单
+//Cat(cats)--->表名
 var Cat = mongoose.model('Cat', {
   name: String
 });
 
 for (var i = 0; i < 100; i++) {
-  // 实例化一个 Cat
+  // 实例化一个 Cat--->表名
   var kitty = new Cat({
-    name: '喵喵' + i
+    name: '喵喵' + i //设计表
   });
 
   // 持久化保存 kitty 实例
