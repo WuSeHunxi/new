@@ -1,5 +1,6 @@
 var express = require('express')
 var path = require('path')
+//导入POST请求的包
 var bodyParser = require('body-parser')
 var session = require('express-session')
 var router = require('./router')

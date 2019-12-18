@@ -1,3 +1,8 @@
+/**
+ * 
+ * 设计数据模型
+ * 
+ */
 var mongoose = require('mongoose')
 
 // 连接数据库
@@ -27,7 +32,7 @@ var userSchema = new Schema({
   },
   last_modified_time: {
     type: Date,
-    default: Date.now
+    default: Date.now//当前的最新时间
   },
   avatar: {
     type: String,
@@ -55,4 +60,5 @@ var userSchema = new Schema({
   }
 })
 
+//导出集合
 module.exports = mongoose.model('User', userSchema)

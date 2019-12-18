@@ -53,9 +53,9 @@
      * 
     */
 
-    //客户端的处理
+    //客户端的处理  异步提交(可以在客户端做更多的处理)
     $('#register_form').on('submit', function (e) {
-      e.preventDefault()
+      e.preventDefault()//阻止表单默认的同步提交事件
       var formData = $(this).serialize()
       $.ajax({
         url: '/register',

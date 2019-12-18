@@ -1,3 +1,9 @@
+/**
+ * 
+ * 路由处理 router
+ * 
+ */
+
 var express = require('express')
 var User = require('./models/user')
 //加密-->防止数据库泄露被人知道密码
