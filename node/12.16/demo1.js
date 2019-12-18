@@ -3,6 +3,7 @@ var mysql=require("mysql");
 //创建链接
 var connection=mysql.createConnection({
     host:'localhost',
+    //数据库的用户名和密码
     user:'me',
     pssword:'secret',
     database:'users' //数据库名和表名一样
@@ -20,7 +21,7 @@ connection.connect();
 //     console.log(results);
 // });
 
-//执行添加数据
+//执行添加数据   connection.query()-->就是执行SQL语句的操作
 connection.query(`INSERT INTO users VALUES(NULL,"admin","123")`,function(error,results,fields){
     if(error){
         throw error;
