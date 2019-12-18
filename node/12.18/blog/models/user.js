@@ -1,6 +1,7 @@
 /**
  * 
  * 设计数据模型
+ * 用户注册，登录所需的数据模型设计
  * 
  */
 var mongoose = require('mongoose')
@@ -56,6 +57,7 @@ var userSchema = new Schema({
   birthday: {
     type: Date//生日没有默认值
   },
+  //用户状态权限设置
   status: {
     type: Number,
     // 0 没有权限限制
@@ -66,5 +68,5 @@ var userSchema = new Schema({
   }
 })
 
-//导出集合
+//将users导出集合
 module.exports = mongoose.model('User', userSchema)

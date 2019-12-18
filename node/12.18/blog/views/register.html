@@ -11,6 +11,7 @@
 <body>
   <div class="main">
     <div class="header">
+      <!-- <p>{{err_message}}</p> 和router.js中的129行相对应-->
       <a href="/">
         <img src="/public/img/logo3.png" alt="">
       </a>
@@ -61,7 +62,8 @@
         url: '/register',
         type: 'post',
         data: formData,
-        dataType: 'json',
+        //客户端要接收的是json格式的数据，所以要求服务端发送回来的响应数据必须是json格式的字符串才能够解析出来
+        dataType: 'json',//将接收到的json格式的字符串直接转成json对象
         success: function (data) {
           var err_code = data.err_code
           if (err_code === 0) {

@@ -70,8 +70,10 @@ router.post('/register', function (req, res) {
   //    如果不存在，注册新建用户
   // 3. 发送响应
   var body = req.body//获取表单提交的数据
-  User.findOne({
-    //表示或者条件
+  //使用find进行查找
+  User.findOne({//只能查出来一个
+    //表示或者条件，二者有一个满足条件就行
+    //MongoDB的语法
     $or: [{
         email: body.email
       },
@@ -83,16 +85,17 @@ router.post('/register', function (req, res) {
     //通过前端的操作处理响应结果
     if (err) {
       //express的json()方法-->将对象转成字符串，发送给浏览器
+      //给客户端发送500，表示服务端异常
       return res.status(500).json({
-        success: false,//程序错误
-        message: '服务端错误'
+        err_code: 500,//程序错误
+        message: 'Internal error.'
       })
     }
     // console.log(data)
-    if (data) {
+    if (data) {//data存在，则表示已经注册完了
       // 邮箱或者昵称已存在 为了和服务端同步使用json，方便ajax对响应处理
       return res.status(200).json({//业务成功，但是提交的内容存在
-        //业务状态码，为了方便辨别是哪种操作
+        //业务状态码，为了注册成功还是失败
         err_code: 1,
         //利用服务端渲染提交表单之后的结果，这种方法比使用ajax安全
         message: 'Email or nickname aleady exists.'
@@ -105,6 +108,7 @@ router.post('/register', function (req, res) {
 
     new User(body).save(function (err, user) {
       if (err) {
+        //下面返回的是json格式的字符串
         return res.status(500).json({
           err_code: 500,//服务端错误
           message: 'Internal error.'
@@ -121,7 +125,10 @@ router.post('/register', function (req, res) {
         message: 'OK'
       })
 
-      // 服务端重定向只针对同步请求才有效，异步请求无效
+      // 服务端重定向只针对同步请求才有效，异步请求无效，所以回到最开始的页面不能使用重定向
+      // return res.render('register.html',{
+      //   err_message:"邮箱或密码已存在"
+      // })
       // res.redirect('/')
     })
   })
