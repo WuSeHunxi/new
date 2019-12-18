@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <!-- 在渲染index.html的时候，同时渲染header.html -->
-    {{include './header.html' }}
-    <h1>{{name}}</h1>
-    {{include './footer.html' }}
-</body>
-</html>
+<!-- 继承layout.html -->
+{{extend './layout.html'}}
+
+<!--填坑，和挖坑的语法一样-->
+{{block 'content'}}
+    <div>
+        <h1>index页面填坑内容</h1>
+    </div>
+{{/block}}

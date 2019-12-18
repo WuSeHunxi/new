@@ -1,0 +1,19 @@
+<!-- 布局 设计 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在渲染index.html的时候，同时渲染header.html -->
+    {{include './header.html' }}
+    <!--挖坑 留坑，将来要填坑-->
+    <!--如果没有填坑，就会显示模板页的默认内容-->
+    {{block 'content'}} <h1>默认内容</h1> {{/block}}
+    {{include './footer.html' }}
+</body>
+</html>
