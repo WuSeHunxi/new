@@ -4,7 +4,7 @@
  * 请求网址：request.url
  * 获得请求路径名：request.url.pathname
  * response.end("xxx") -->相应返回的结果（没用模板的时候是end(xxx)）
- * 使用模板字符串template：template.render(data.toString(),{对象})-->使用的是express-str-tmplate模板
+ * 使用模板字符串template：template.render(data.toString(),{对象})-->使用的是express-str-template模板
  * 对于静态文件，自己规定是否可以进行访问，项目的html文件访问的外部文件路径就是静态文件的路径
  *     对于静态文件来说，是不需要在网址中进行访问的，它是网页内部(例如：index.html等)link的资源文件
  * 接收表单提交的数据：request.url.query
