@@ -29,8 +29,8 @@ var comments = [{
 }
 ];
 
-http.createServer('request',function(req,res){
-    var pathname=url.parse(req.url,true);
+http.createServer(function(req,res){
+    var pathname=url.parse(req.url,true).pathname;
     if(pathname==='/'){
         fs.readFile('./views/index.html','utf8',function(err,data){
             if(err){
