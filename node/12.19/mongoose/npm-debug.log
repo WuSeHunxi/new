@@ -1,0 +1,97 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   'mongoose' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData mongoose
+8 silly fetchNamedPackageData mongoose
+9 silly mapToRegistry name mongoose
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'mongoose',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'mongoose',
+12 silly mapToRegistry   name: 'mongoose',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/mongoose
+14 verbose request uri https://registry.npmjs.org/mongoose
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 16:02:22
+17 verbose request id 447b09f7c0aff6de
+18 verbose etag W/"1174c01ccf8d59f4e3fd2566743e3aca"
+19 verbose lastModified Thu, 12 Dec 2019 23:50:47 GMT
+20 http request GET https://registry.npmjs.org/mongoose
+21 http 304 https://registry.npmjs.org/mongoose
+22 verbose headers { date: 'Thu, 19 Dec 2019 08:02:24 GMT',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'set-cookie': [ '__cfduid=dd7a1970ac4594bb2ae2ba51d525ff4be1576742544; expires=Sat, 18-Jan-20 08:02:24 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+22 verbose headers   'cf-ray': '5477daa43c32eb08-LAX',
+22 verbose headers   age: '3353',
+22 verbose headers   'cache-control': 'public, max-age=300',
+22 verbose headers   etag: '"1174c01ccf8d59f4e3fd2566743e3aca"',
+22 verbose headers   'last-modified': 'Thu, 12 Dec 2019 23:50:47 GMT',
+22 verbose headers   vary: 'Accept-Encoding',
+22 verbose headers   'cf-cache-status': 'HIT',
+22 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 verbose headers   server: 'cloudflare' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Thu, 19 Dec 2019 08:02:24 GMT',
+23 silly get     connection: 'keep-alive',
+23 silly get     'set-cookie': [ '__cfduid=dd7a1970ac4594bb2ae2ba51d525ff4be1576742544; expires=Sat, 18-Jan-20 08:02:24 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+23 silly get     'cf-ray': '5477daa43c32eb08-LAX',
+23 silly get     age: '3353',
+23 silly get     'cache-control': 'public, max-age=300',
+23 silly get     etag: '"1174c01ccf8d59f4e3fd2566743e3aca"',
+23 silly get     'last-modified': 'Thu, 12 Dec 2019 23:50:47 GMT',
+23 silly get     vary: 'Accept-Encoding',
+23 silly get     'cf-cache-status': 'HIT',
+23 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+23 silly get     server: 'cloudflare' } ]
+24 verbose etag https://registry.npmjs.org/mongoose from cache
+25 verbose get saving mongoose to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\mongoose\.cache.json
+26 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly rollbackFailedOptional Starting
+40 silly rollbackFailedOptional Finishing
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Refusing to install mongoose as a dependency of itself
+43 verbose stack     at checkSelf (F:\dev\nvm\v6.10.3\node_modules\npm\lib\install\validate-args.js:53:14)
+43 verbose stack     at Array.<anonymous> (F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+43 verbose stack     at LOOP (F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+43 verbose stack     at chain (F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+43 verbose stack     at F:\dev\nvm\v6.10.3\node_modules\npm\lib\install\validate-args.js:16:5
+43 verbose stack     at F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\async-map.js:52:35
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\async-map.js:52:11
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at asyncMap (F:\dev\nvm\v6.10.3\node_modules\npm\node_modules\slide\lib\async-map.js:51:8)
+44 verbose cwd F:\TEST\node\12.19\mongoose
+45 error Windows_NT 10.0.17763
+46 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i" "mongoose"
+47 error node v6.10.3
+48 error npm  v3.10.10
+49 error code ENOSELF
+50 error Refusing to install mongoose as a dependency of itself
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]
