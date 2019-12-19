@@ -1,0 +1,23 @@
+<!-- 继承layout.html -->
+{{extend './layout.html'}}
+
+{{block 'head'}}
+    <style>
+        body{
+            background-color: pink;
+        }
+    </style>
+{{/block}}
+
+<!--填坑，和挖坑的语法一样-->
+{{block 'content'}}
+    <div>
+        <h1>index页面填坑内容</h1>
+    </div>
+{{/block}}
+
+{{block 'script'}}
+    <script>
+        console.log("papap");
+    </script>
+{{/block}}

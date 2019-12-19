@@ -1,0 +1,10 @@
+<!-- 该页面也index.html页面的结果相似 -->
+<!-- 模板继承用来解决公共部分的问题 -->
+
+{{extend './layout.html'}}
+
+{{block 'content'}}
+    <div>
+        <h1>列表页自己的内容</h1>
+    </div>
+{{/block}}

@@ -37,8 +37,9 @@
 
 
 var mongoose=require("mongoose");
-mongoose.connect("mongodb://localhost/ST");
-var adSchema=new adSchema({
+var Schema=mongoose.Schema;
+mongoose.connect("mongodb://localhost/STA");
+var adSchema=new Schema({
     name:{
         type:String,
         required:true
