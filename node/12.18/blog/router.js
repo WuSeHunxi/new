@@ -126,10 +126,15 @@ router.post('/register', function (req, res) {
       })
 
       // 服务端重定向只针对同步请求才有效，异步请求无效，所以回到最开始的页面不能使用重定向
+      // res.redirect('/')
+
+
+      /**
+       * 该处处理的代码是同步的，完全都是服务端处理的
+       */
       // return res.render('register.html',{
       //   err_message:"邮箱或密码已存在"
       // })
-      // res.redirect('/')
     })
   })
 })

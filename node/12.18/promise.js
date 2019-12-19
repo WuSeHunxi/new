@@ -1,6 +1,12 @@
 // var fs=require("fs");
 // var path=require("path");
 
+
+/**
+ * 
+ * Promise：用来解决回调地狱
+ * 
+ */
 // new Promise(function(){
 //     fs.readFile('./a.txt','utf8',function(err,data){
 //         if(err){

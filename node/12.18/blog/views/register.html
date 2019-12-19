@@ -11,6 +11,7 @@
 <body>
   <div class="main">
     <div class="header">
+      <!--第15行显示的错误结果是同步提交得到的-->
       <!-- <p>{{err_message}}</p> 和router.js中的129行相对应-->
       <a href="/">
         <img src="/public/img/logo3.png" alt="">
@@ -24,7 +25,7 @@
 
       后来有人想到了一种办法，来解决这个问题。
 
-      同步提交的提示信息依赖的是服务端；异步提交的提示信息依赖的就是响应的结果
+      同步提交的提示信息依赖的是服务端；异步提交的提示信息依赖的就是交互的响应结果
      -->
     <form id="register_form" method="post" action="/register">
       <div class="form-group">

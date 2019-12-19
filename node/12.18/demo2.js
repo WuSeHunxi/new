@@ -71,7 +71,7 @@ var User = mongoose.model('User', userSchema)
 // })
 
 // User.find({
-//   username: 'zs'
+//   username: 'zs'//查询所有的username是zs的人
 // }, function (err, ret) {
 //   if (err) {
 //     console.log('查询失败')
@@ -116,6 +116,7 @@ var User = mongoose.model('User', userSchema)
 // **********************
 // #region /更新数据
 // **********************
+//根据id值进行更新
 // User.findByIdAndUpdate('5a001b23d219eb00c8581184', {
 //   password: '123'
 // }, function (err, ret) {
