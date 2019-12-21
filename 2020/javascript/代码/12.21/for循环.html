@@ -9,12 +9,55 @@
 <body>
     <script>
         var n=parseInt(window.prompt('input'));
-        var result=1;
-        for(var i=0;i<n;i++){
-            result=result*2;
-        }    
-        console.log(result);
+        // var result=1;
+        // for(var i=0;i<n;i++){
+        //     result=result*2;
+        // }    
+        // console.log(result);
 
+        //计算n的阶乘
+        // var sum=1;
+        // for(var i=1;i<=n;i++){
+        //     sum=sum*i;
+        // }
+        // console.log(sum);
+
+
+
+        //斐波那契数列
+        // f s t
+        // 1 1 2 3
+        //   f s t
+        var first=1,
+            second=1,
+            third;
+        if(n>2){
+            //i控制的是循环的次数
+            for(var i=0;i<n-2;i++){
+                third=second+first;
+                first=second;
+                second=third;          
+            }
+            console.log(third);//求第三个数的值
+        }else{
+            console.log(1);
+        }
+
+
+        //打印100以内的质数
+        var count=0;
+        for(var i=0;i<100;i++){
+            //看每一个i是否是质数-->相除之后得0的次数是几
+            for(var j=1;j<=i;j++){
+                if(i%j==0){
+                    count++;
+                }
+            }
+            if(count==2){
+                console.log(i);
+            }
+            count=0;//每一次循环对应一个count
+        }
     </script>
 </body>
 </html>
