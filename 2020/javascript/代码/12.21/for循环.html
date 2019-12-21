@@ -58,6 +58,34 @@
             }
             count=0;//每一次循环对应一个count
         }
+
+
+        /**
+         * 引用值和null返回的是object
+         * undefined-->undefined
+         * 
+         * 
+         * 显示类型转换
+         *      var num=Number('123');
+         *      console.log(typeof(num)+":"+num);
+         *      转不成数字的结果是NaN
+         *          var num=Number('8s');
+         *          console.log(typeof(num));
+         * 
+         * 
+         * parseInt()-->转换成整型
+         *      var num=false;
+         *      console.log(typeof(num));-->NaN
+         *    以目标进制为基底转换成十进制
+         *         var demo="10";
+         *         var num=parseInt(demo,16);-->以16进制为基底转换成十进制的值
+         *         console.log(typeof(num)+":"+num);
+         * 
+         * 
+         * 
+        */
+
+        
     </script>
 </body>
 </html>
