@@ -28,6 +28,73 @@
         }
         var ret=jieCheng(4);
         console.log(ret);
+
+
+        function fieBo(n){
+            var first=1;
+            var second=1;
+            var third;
+            for(var i=2;i<=n-2;i++){
+                third=first+second;
+                first=second;
+                second=third;
+            }
+            console.log(third);
+        }
+        fieBo(4);
+
+        function reverse(){
+            var num=window.prompt("input");
+            for(var i=num.length-1;i>=0;i--){
+                //在逆转的时候就进行汉字转换
+                str+=transfer(num[i]);
+            }
+            console.log(str);
+        }
+        //将转成汉字的功能处理出来
+        function transfer(target){
+            switch (target){
+                case '1':return '一';                   
+                case '2':return '二';
+                case '3':return '三';
+                case '4':return '四';
+                case '5':return '五';
+                case '6':return '六';
+                case '7':return '七';
+                case '8':return '八';
+                case '9':return '九';
+            }
+        }
+        // var num=window.prompt("input");
+        function niZhuan(){
+            var str='';
+            while(num!=0){
+                num=num%10;
+                switch (num){
+                case '1':str+='一'
+                    break;
+                case '2':str+='二'
+                    break;
+                case '3':str+='三'
+                    break;
+                case '4':str+='四'
+                    break;
+                case '5':str+='五'
+                    break;
+                case '6':str+='六'
+                    break;
+                case '7':str+='七'
+                    break;
+                case '8':str+='八'
+                    break;
+                case '9':str+='九'
+                    break;
+                }  
+                         
+            }            
+            console.log(str);
+        }
+        // niZhuan();
     </script>
 </body>
 </html>
