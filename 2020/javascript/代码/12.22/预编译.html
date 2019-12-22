@@ -115,13 +115,66 @@
          *      GO:{
          *          a:function a(){} --> 123
          *      }
-         * 
+         *  window===GO 
         */
         var a=123;
         function a(){
 
         }
 
+        /**
+         * 先生成GO，再生成AO
+         *  GO{
+         *     test:undefined-->function test(){xxx}
+         *  }
+        */
+        console.log(test);
+        function test(test){
+            console.log(test);//function(){}
+            var test=234;
+            console.log(test);//234
+            function test(){
+
+            }
+        }
+        // AO{
+        //     test:1-->function(){}
+
+        // }
+        test(1);
+        var test=123;//本例子中没123啥事
+
+
+        var global=100;
+        function fn(){
+            var global=200;
+            console.log(global);
+        }
+        fn();
+
+
+        global=100;
+        function fn(){
+            console.log(global);//undefined
+            global=200;
+            console.log(global);//
+            var global=300;
+        }
+        fn();
+        var global;
+
+
+        function test(){
+            console.log(b);
+            if(a){
+                var b=100;
+            }
+            c=234;
+            console.log(c);
+        }
+        var a;
+        test();
+        console.log(c);
     </script>
 </body>
 </html>
