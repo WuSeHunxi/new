@@ -83,8 +83,25 @@
             return [a,b];
         }
         var myArr=test();
+        //101 100
+        //二者共用的是一个作用域，即：test()的执行期上下文
         myArr[0]();//函数a()
         myArr[1]();//函数b()
+
+
+        //缓存
+        function eater(){
+            var food="";
+            var obj={
+                eat:function(){
+                    console.log("i am eating "+food);
+                },  
+                push:function(myFood){
+                    food=myFood;
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
