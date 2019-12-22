@@ -96,17 +96,32 @@
          * 例子
         */
         function test(a,b){
-            console.log(a);//3
+            console.log(a);//1
             c=0;
             var c;
             a=3;
             b=2;
-            console.log(b);//function b(){}
+            //打印在赋值之后
+            console.log(b);//2
             function b(){}
             function d(){}
             console.log(b);//2
         }
         test(1);
+
+        /**
+         * 全局的作用域：
+         *      1.生成GO对象
+         *      GO:{
+         *          a:function a(){} --> 123
+         *      }
+         * 
+        */
+        var a=123;
+        function a(){
+
+        }
+
     </script>
 </body>
 </html>
