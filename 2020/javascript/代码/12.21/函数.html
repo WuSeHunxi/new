@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /**
+         * 
+         * 编程的思想：高内聚 低耦合
+         * 
+         * 函数声明：
+         *      function xx(){}
+         *      var xxx=function(){}
+         * 
+         * 
+        */
+        function sum(a,b){//形参
+            var c=a+b;
+            console.log(c);
+        }
+        sum(1,2);//实参
+
+       /**
+        arguments-->实参列表
+
+       */
+       function sum(a,b,c,d){
+           if(sum.length>arguments.length){
+               console.log("形参多了");
+           }else if(sum.length<arguments.length){
+               console.log("实参多了");
+           }else{
+               console.log("相等");
+            }
+       }
+       sum(1,2,3,4,5);
+
+
+       /**
+        实现任意个数求和-->将实参列表中的每一位相加
+       */
+       function sum(){
+           var result=0;
+           for(var i=0;i<arguments.length;i++){
+               result=result+arguments[i];
+           }
+           console.log(result);
+       }
+       sum(1,2,3,4,5,6,7);
+
+
+       //形参和arguments相互影响，一个变另一个也变
+       //实参列表开始有几个就有几个，当实参和形参的个数不相等的时候。多出来的位置不能映射
+       function sum(a,b){
+           b=2;
+           console.log(arguments[1]);//没有办法映射，实参和形参的个数不相等-->undefined
+       }
+       sum(1);
+    </script>
+</body>
+</html>
