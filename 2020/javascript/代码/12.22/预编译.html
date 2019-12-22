@@ -164,17 +164,39 @@
         var global;
 
 
+
+        // GO{
+        //     a:undefined-->10
+        //     c:234
+        // }
         function test(){
-            console.log(b);
-            if(a){
+            console.log(b);//undefined
+            if(a){// 这个if在预编译的时候不用看它，预编译的时候没有进行函数执行，只有test()的时候才会进行if判断
                 var b=100;
             }
+            console.log(b);//undefined
             c=234;
             console.log(c);
         }
-        var a;
+        var a; 
+        // AO{
+        //     b:undefined
+        // }
         test();
+       
         console.log(c);
+        
+
+
+        function bar(){
+            return foo;
+            foo=10;
+            function foo(){
+
+            }
+            var foo=11;
+        }
+        console.log(bar());
     </script>
 </body>
 </html>
