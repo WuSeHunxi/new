@@ -11,6 +11,7 @@
         /**
             闭包：内部的函数被保存到了外部就会生成闭包
             此时a没有办法将自己的执行器上下文AO{}当成垃圾处理掉，因为b在外部还在使用它
+            闭包导致的现象：作用域链不释放，造成内存泄漏(剩余内存越来越少)
         */
         function a(){
             function b(){
@@ -42,6 +43,48 @@
         //      第二次demo()的时候，aAO{num=102}      
         demo();//101--->
         demo();//102--->
+
+
+
+        /**
+            闭包的作用：
+                实现共有变量
+                可以做缓存
+                可以实现封装，属性私有化
+                模块化开发，防止全局变量的污染
+        */
+
+        //实现累加器
+        function add(){
+            var count=0;
+            function demo(){
+                count++;
+                console.log(count)
+                return demo;
+            }
+        }
+        var counter=add();
+        //调用一次，就在原始的基础上加一次
+        counter();
+        counter();
+        counter();
+
+        //可以做缓存
+        function test(){
+            var num=100;
+            function a(){
+                num++;
+                console.log(num);
+            }
+            function b(){
+                num--;
+                console.log(num);
+            }
+            return [a,b];
+        }
+        var myArr=test();
+        myArr[0]();//函数a()
+        myArr[1]();//函数b()
     </script>
 </body>
 </html>
