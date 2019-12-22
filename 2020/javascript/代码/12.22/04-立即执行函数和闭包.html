@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+            闭包：内部的函数被保存到了外部就会生成闭包
+            此时a没有办法将自己的执行器上下文AO{}当成垃圾处理掉，因为b在外部还在使用它
+        */
+        function a(){
+            function b(){
+                var bbb=234;
+                console.log(aaa);
+            }
+            var aaa=123;
+            return b;
+        }
+        var glob=100;
+        var demo=a();
+        demo();
+
+
+        /**
+            闭包的应用
+        */
+        function a(){
+            var num=100;
+            function b(){
+                num++;
+                console.log(num);
+            }
+            return b;
+        }
+        var demo=a();
+        //b每次执行的时候都在自己的执行期上下文上面形成一个新的AO{}，销毁的也是自己新生成的AO{}，但是每次执行操作的都是aAO{}，aAO会被修改
+        //所以在第一次demo()的时候，aAO{num=101}
+        //      第二次demo()的时候，aAO{num=102}      
+        demo();//101--->
+        demo();//102--->
+    </script>
+</body>
+</html>
