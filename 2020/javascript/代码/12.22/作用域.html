@@ -27,6 +27,7 @@
         a();
 
         /**
+          函数作用域：
             找变量的时候，一定是函数执行时产生的作用域链
             a defined -- a.[[scope]]-->0:GO{}
             a doing   -- a.[[scope]]-->0:AO{}
@@ -43,7 +44,9 @@
                                        1:bAO{}
                                        2:aAO{}
                                        3.GO{}
+            当c执行完，就会扔掉cAO{} 
         */
+
     </script>
 </body>
 </html>
