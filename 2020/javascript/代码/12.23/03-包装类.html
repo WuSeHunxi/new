@@ -71,12 +71,26 @@
             return n=n+1;
         }
         y=add(x);
-        function add(n){
+        function add(n){//将上一个函数声明覆盖
             return n=n+3;
         }
         z=add(x);
-        // x= ,y= ,z= 
+        // x=1 ,y=4 ,z=4 
+
+
+        /**
+            例题
+        */
+        console.log(parseInt(3,0));//-->当基底是0的时候就相当于没写
+        console.log(parseInt(3,8));//以8为基底，转化成10进制的数
+    
+        //汉字的字节长度为2，英文的字节长度为1
+
+        //返回UniCode编码
+        var str="hello 我爱你"
+        str.charCodeAt(0);
     </script>
+
 
 </body>
 </html>
