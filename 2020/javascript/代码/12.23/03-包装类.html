@@ -34,6 +34,31 @@
         //new Number(3).len
         console.log(num.len);//-->undefined
 
+
+        /**
+            例题
+        */
+        var str="abcd";
+        str.length=2;
+        //new String("abcd").length=2; --> delete
+        console.log(str);
+
+        //系统规定的String类型的对象是有length属性的
+        //new String("abcd").length=4
+        console.log(str.length);// --> 4
+
+
+
+        /**
+            例题
+        */
+        var str="abc";
+        str+=1;
+        var test=typeof(str);
+        if(test.length==6){
+            test.sign="typeof的返回结果可能是String";
+        }
+        console.log(test.sign);
     </script>
 </body>
 </html>
