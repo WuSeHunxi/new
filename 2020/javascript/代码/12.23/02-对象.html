@@ -20,6 +20,36 @@
             }
         };
         mrDeng.smoke();
+        //添加属性
+        mrDeng.wife="xiaoliu";
+        //删除对象的属性-->delete+属性名/方法名
+        delete name;
+        //当一个对象的额属性没有就访问的时候会返回undefined
+
+
+
+        /**
+            对象的创建方法
+                1.对象字面量
+                2.构造函数：系统自带的构造函数；自定义的构造函数
+                3.
+        */
+
+        //自定义构造函数 --大驼峰式命名规则
+        function Car(color){
+            //如果属性的值可变的话就传参
+            this.name="BMW";
+            this.height="1400";
+            this.weight=1000;
+            this.long="4900";
+            this.color=color;
+            this.run=function(){
+
+            }
+        }
+        //生产出来的对象彼此独立
+        var car=new Car("red");
+
 
 
     </script>
