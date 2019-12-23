@@ -100,8 +100,50 @@
                     food=myFood;
                 }
             }
+            return obj;
         }
+        var eater1=eater();
+        eater1.push('babab');
+        eater1.eat();
 
+
+        /**
+            立即执行函数-->只执行一次，执行完就销毁
+                针对初始化功能的函数
+                只有表达式才能被执行符号执行，并且能被执行符号执行的表达式都会变成立即执行函数，立即执行函数没有名字
+        */
+
+        //num接收到的就是该立即执行函数的返回值
+        var num=(function(a,b,c){
+            var d=a+b+c*2-2;
+            return d;
+        }(1,2,3));
+
+        //下方的代码会报语法错误，function test(){}是函数声明，不是表达式，因此不能直接执行
+        // function test(){
+        //     var sa=12;
+        // }()
+
+        //var test=xxx是一个函数表达式，此时可以直接执行，并且执行之后test的值为undefined
+        var test=function (){
+            console.log("aka");
+        }();
+
+        /**
+            下面两种方法都变成了立即执行函数
+        */
+        +function test(){
+            console.log("lala");
+        }();
+
+        -function test(){
+            console.log("lsll");
+        }();
+
+        //立即执行函数
+        (function test(){
+            console.log("lslsl");
+        })();
     </script>
 </body>
 </html>

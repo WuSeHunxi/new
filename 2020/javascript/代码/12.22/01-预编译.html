@@ -16,8 +16,9 @@
          *      执行
         */
 
-        test()
+        test();
         function test(){
+            var a=1;
             console.log(a);
         }
         // test();
@@ -26,6 +27,7 @@
         var a=123;
 
         /**
+         * 未经声明的变量通常会在函数中的变量连等赋值
          * 未经声明的变量归window所有，全局的window也归window所有
          * window是全局的域
          * 
@@ -113,7 +115,7 @@
          * 全局的作用域：
          *      1.生成GO对象
          *      GO:{
-         *          a:function a(){} --> 123
+         *          a:undefined-->function a(){} --> 123
          *      }
          *  window===GO 
         */
@@ -128,7 +130,7 @@
          *     test:undefined-->function test(){xxx}
          *  }
         */
-        console.log(test);
+        console.log(test);//function(){}
         function test(test){
             console.log(test);//function(){}
             var test=234;
@@ -157,7 +159,7 @@
         function fn(){
             console.log(global);//undefined
             global=200;
-            console.log(global);//
+            console.log(global);//200
             var global=300;
         }
         fn();
@@ -196,7 +198,18 @@
             }
             var foo=11;
         }
-        console.log(bar());
+        console.log(bar());//function(){}
+
+
+        console.log(bar());//11
+        function bar(){
+            foo=10;
+            function foo(){
+
+            }
+            var foo=11;
+            return foo;
+        }
     </script>
 </body>
 </html>
