@@ -8,12 +8,32 @@
 </head>
 <body>
     <script>
-        //包装类
+        /**
+            包装类
+        */
+
         var num=123;//原始类型的值
 
         var n=new Number(123);
         //当包装类进行运算之后就会变成原始类型的值
         console.log(n*2);
+
+
+        //字符串对象
+        var str=new String("abcd");
+
+
+        //包装类
+        var num=3;
+        //new Number(3)
+        //此时通过包装类转成一个对象，并添加len属性，但是系统觉得这不合常理，要将其删除，但是他并没有报错
+        //new Number(3).len=3; -->delete
+        num.len=3;
+
+        //因为你又想访问num.len,所以系统有将num--->new Number(3),但是此时这个新new出来的Number对象没有len属性，所以得到的值为undefined
+        //new Number(3).len
+        console.log(num.len);//-->undefined
+
     </script>
 </body>
 </html>
