@@ -144,6 +144,11 @@
         (function test(){
             console.log("lslsl");
         })();
+
+        //下面的代码不会报错，但是也不会执行
+        function test(a,b,c,d){
+            console.log(a+b+c+d);
+        }(1,2,3,4);
     </script>
 </body>
 </html>
