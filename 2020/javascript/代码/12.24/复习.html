@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4];
+        arr.length=1;
+        console.log(arr);
+
+        //第13行和第18行得到的结果一个是被截取了，另一个是没变
+        /**
+            这是因为arr是一个数组，本身就有这个length属性，
+            但是str.length=3是先被new出来的,然后又将其删除，这对原本就有的length没有影响
+        */
+        var str="abcdbs";
+        str.length=3;
+        console.log(str.length);
+        console.log(str);
+
+
+        console.log(new Array());
+        console.log(new String());
+    </script>
+</body>
+</html>
