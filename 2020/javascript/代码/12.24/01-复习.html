@@ -51,7 +51,8 @@
 
         var str="asbd,你好a";
         function bytesLength(str){
-            // var count=str.length;
+            //方法一
+            // var count=str.length;//将原字符串的长度作为基准值，如果有汉字的话就再+1
             // for(var i=0;i<str.length;i++){
             //     if(str.charCodeAt(i)>255){
             //         count++;
@@ -68,8 +69,9 @@
                     count++;
                 }
             }
+            return  count;
         }
-
+        var ret=bytesLength(str);
 
     </script>
 </body>
