@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /**
+            原型：
+        */
+
+        Person.prototype={
+            height:400,
+            lang:12,
+            name:"lal"
+        };
+        function Person(){
+
+        }
+        var person=new Person();
+        console.log(person.name);
+
+        //构造器-->返回构造对象的构造函数
+        //可以查看对象的构造函数
+        console.log(Person.prototype.constructor);
+
+        /**
+            __proto__:XXX.prototype-->存放的是对象的原型
+        */
+
+        Person.prototype.name='sunny';
+        function Person(){
+
+        }
+        var person=new Person();
+        // Person.prototype.name='cherry';
+        // console.log(person.name);
+        Person.prototype={
+            name:"cherry"
+        };
+
+    </script>
+</body>
+</html>
