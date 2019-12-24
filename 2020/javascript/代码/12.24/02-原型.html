@@ -10,19 +10,33 @@
     <script>
         
         /**
-            原型：
+            原型：function对象的一个属性，是构造函数制造出来的对象的祖先
+                特点：可以提取共有的属性
+                对象如何查看原型：__proto__-->里面存放的是原型
+                对象如何查看对象的构造函数：car.constructor
         */
 
-        Person.prototype={
+        //Person.prototype -->原型，是一个对象，是person的祖先
+        Person.prototype={//抽取共有的属性和方法
             height:400,
             lang:12,
             name:"lal"
         };
         function Person(){
-
+            /**
+                var this={
+                    __proto__:Person.prototype
+                }
+            */
         }
         var person=new Person();
+        var obj={
+            name:"sunny"
+        };
+        person.__proto__=obj;
+
         console.log(person.name);
+        //生成的对象不能更改原型上的属性
 
         //构造器-->返回构造对象的构造函数
         //可以查看对象的构造函数
@@ -43,6 +57,11 @@
             name:"cherry"
         };
 
+        // function Car(){
+
+        // }
+        // var car=new Car();
+        // console.log(car);
     </script>
 </body>
 </html>
