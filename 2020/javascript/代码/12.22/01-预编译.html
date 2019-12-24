@@ -44,6 +44,7 @@
             var a=b=133;//b未声明
         }
         test();
+        //b是全局变量
         console.log(window.b);//133
 
 
@@ -52,7 +53,7 @@
          * 重要例题
         */
        /**
-        * 预编译发生在函数执行的前一刻
+        * 预编译发生在函数执行的前一刻，并产生执行器上下文
         *       1.创建AO对象(执行期上下文)
         *           AO:{
         *           
@@ -147,6 +148,10 @@
         var test=123;//本例子中没123啥事
 
 
+
+
+
+
         var global=100;
         function fn(){
             var global=200;
@@ -178,15 +183,15 @@
             }
             console.log(b);//undefined
             c=234;
-            console.log(c);
+            console.log(c);//234
         }
         var a; 
         // AO{
         //     b:undefined
         // }
         test();
-       
-        console.log(c);
+        //c是全局作用域
+        console.log(c);//234
         
 
 
@@ -198,7 +203,7 @@
             }
             var foo=11;
         }
-        console.log(bar());//function(){}
+        console.log(bar());//function(){}-->执行完return就得返回了，此时的foo=function(){}
 
 
         console.log(bar());//11

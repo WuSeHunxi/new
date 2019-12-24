@@ -15,7 +15,7 @@
         //第13行和第18行得到的结果一个是被截取了，另一个是没变
         /**
             这是因为arr是一个数组，本身就有这个length属性，
-            但是str.length=3是先被new出来的,然后又将其删除，这对原本就有的length没有影响
+            但是String是一个包装类，即str.length=3是先被new出来的,然后又将其删除，这对原本就有的length没有影响
         */
         var str="abcdbs";
         str.length=3;
