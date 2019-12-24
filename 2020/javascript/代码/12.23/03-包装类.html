@@ -16,7 +16,7 @@
 
         var n=new Number(123);
         //当包装类进行运算之后就会变成原始类型的值
-        console.log(n*2);
+        console.log(n*2);//此时得到的246是Number类型的原始值
 
 
         //字符串对象
@@ -41,7 +41,7 @@
         var str="abcd";
         str.length=2;
         //new String("abcd").length=2; --> delete
-        console.log(str);
+        console.log(str);//-->abcd
 
         //系统规定的String类型的对象是有length属性的
         //new String("abcd").length=4
@@ -59,6 +59,7 @@
             test.sign="typeof的返回结果可能是String";
             //new String(test).sign='xxx' --->delete
         }
+        //sign属性创建之后会被系统直接删除掉的
         console.log(test.sign);//undefined
 
 
@@ -81,8 +82,8 @@
         /**
             例题
         */
-        console.log(parseInt(3,0));//-->当基底是0的时候就相当于没写
-        console.log(parseInt(3,8));//以8为基底，转化成10进制的数
+        console.log(parseInt(3,0));//-->当基底是0的时候就相当于没写-->3
+        console.log(parseInt(3,8));//以8为基底，转化成10进制的数-->3
     
         //汉字的字节长度为2，英文的字节长度为1
 

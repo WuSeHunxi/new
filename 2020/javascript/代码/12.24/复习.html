@@ -25,6 +25,52 @@
 
         console.log(new Array());
         console.log(new String());
+
+
+        /**
+            函数预编译
+                在函数执行的前一刻产生执行期上下文
+            函数作用域
+                Go{} 和 AO{}
+            函数闭包
+                必报的应用和坏处
+            对象
+                对象的创建，属性和方法的体添加
+            包装类
+                原始值隐式转换成包装类对象
+                通过包装类添加的属性会被系统直接删除掉的，再次访问的话得到的值是undefined
+        */
+
+
+
+        /**
+            封装一个方法，然后根据该方法返回传入的字符串的字节长度
+            当前字符位的unicode>255，那么该字符的字节长度为2
+                       unicode<255，那么该字符的字节长度为1
+        */
+
+        var str="asbd,你好a";
+        function bytesLength(str){
+            // var count=str.length;
+            // for(var i=0;i<str.length;i++){
+            //     if(str.charCodeAt(i)>255){
+            //         count++;
+            //     }
+            // }
+
+
+            //方法二
+            var count=0;
+            for(var i=0;i<str.length;i++){
+                if(str.charCodeAt(i)>255){
+                    count+=2;
+                }else{
+                    count++;
+                }
+            }
+        }
+
+
     </script>
 </body>
 </html>
