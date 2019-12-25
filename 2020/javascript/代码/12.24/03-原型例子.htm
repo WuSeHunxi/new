@@ -8,13 +8,35 @@
 </head>
 <body>
     <script>
+
         Person.prototype.name="sunny";
+        function Person(){
+            //var this={--->这句话只有当new一个对象的时候才会有效
+                // __proto__:Person.prototype
+            // }
+        }
+        // Person.prototype.name='cherry'; //cherry
+        var person=new Person();
+        // Person.prototype.name="cherry"; //cherry
+
+        //修改了原型
+        Person.prototype={
+            name:"cherry" //sunny，虽然Person.prototype的指向改变了，但是person.__proto__并没有改变
+        };
+        console.log(person.name);
+
+
+
+
         function Person(){
 
         }
+        Person.prototype.name='sunny';
+        Person.prototype={
+            name:'cherry'
+        }
         var person=new Person();
-        Person.prototype.name="cherry";
-        console.log(person.name);
+
     </script>
 </body>
 </html>
