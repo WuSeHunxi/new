@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        /**
+            原型链的连接点就是__proto__
+            只要是对象就有__proto这个属性
+            Grand.prototypr.__proto__=Object.prototype
+            Object.prototype是原型链的终端
+        */
+        Grand.prototype.lastName='Deng';
+        function Grand(){
+
+        }
+        var grand=new Grand();
+        Father.prototype=grand;
+        function Father(){
+            this.name="lalal";
+            this.num=100;
+        }
+        var father=new Father();
+        Son.prototype=father;
+        function Son(){
+            this.hobbies="smoke";
+            
+        }
+        var son=new Son();
+
+
+
+
+
+
+        Person.prototype={
+            name:'a',
+            sayName:function(){
+                console.log(this.name);//this指向的是Person.prototype
+            }
+        }
+
+        //谁调用this，this指向的就是谁
+        function Person(){
+            this.name="b";//this指向的是person
+        }
+
+        var person=new Person();
+
+
+        /**
+            绝大多数对象最终都会继承Object.prototype，但是通过Object.create(原型)创建出来的对象可以不指向，只要create中的原型为null即可
+        */
+        //创建对象，create中的参数只能是对象和null
+        var obj={
+            name:"lalal"
+        }
+        var obj1=Object.create(obj);
+
+
+        var o=Object.create(null);//得到的是一个空对象，可以给该对象添加方法和属性
+        //但是其实也可以手动给o这个空对象添加原型：o.__protto__=Object.prototype
+        
+
+
+        //函数重写
+        Number.prototype.toString=function(){
+            console.log("lalal");
+        }
+
+
+        //document.write()不是真整的打印，而是将括号内的东西.toString()的结果
+        var ooo=Object.create(null);
+        // document.write(ooo);//此时的结果会报错，因为创建出来的ooo对象没有toString()方法
+
+        //给ooo对象添加toString()方法
+        ooo.toString=function () {
+            return "lalalkdha";
+        }
+        document.write(ooo);
+    </script>
+</body>
+</html>
