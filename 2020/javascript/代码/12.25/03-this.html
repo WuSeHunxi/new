@@ -118,13 +118,56 @@
             a:"002"
         }
         function print(){
-            bar.a='a';
+            bar.a='a';//{a:"a"}
             Object.prototype.b='b';
             return function inner(){
-                console.log(bar.a);
-                console.log(bar.b);
+                console.log(bar.a);//a
+                console.log(bar.b);//b
             }
         }
+        print()();
+
+
+        //克隆--->深度拷贝：引用值和原始值相互独立
+        var obj={
+            name:"abc",
+            age:123,
+            card:['visa','master'],
+            wife:{
+                name:"bcd",
+                son:{
+                    name:"lalal"
+                }
+            }
+        }
+        var obj1={};
+
+        //1.先判断是不是原始值
+        //2.如果是原始值的话需要判断是数组还是对象
+        //3.建立相应的空数组或空对象
+        function deepClone(origin,target){
+            var target=target||{};
+            var arrStr="[object Array]";
+            var toStr=Object.prototype.toString();
+            for(var prop in origin){
+                //原型上的属性不拷贝
+                if(origin.hasOwnPrototype(prop)){
+                    if(typeof(origin[prop])=='object'){
+                        if(toStr.call(origin[prop])==arrStr){
+                            target[prop]=[];
+                        }else{
+                            target[prop]={};
+                        }
+                        seepClone(origin[prop],target[prop]);
+                    }else{
+                        target[prop]=origin[prop];
+                    }
+                }
+            }
+            return target;
+        }
+        var ret=deepClone(obj,obj1);
+        console.log(ret);
 
 
     </script>
