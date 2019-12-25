@@ -84,6 +84,24 @@
             return "lalalkdha";
         }
         document.write(ooo);
+
+
+
+        /**
+            call和apply的区别：传参列表不同
+                二者的作用：改变this指向
+        */
+        function Person(name,sex){
+            this.name=name;
+            this.sez=sex;
+        }
+        function Student(name,age,sex,tel){
+            //Person调用call方法就相当于给Person传入一个参数student 
+            Person.call(this,name,sex);
+            this.age=age;
+            this.tel=tel;
+        }
+        var Student=new Student("lal",12,'male','1233323');
     </script>
 </body>
 </html>
