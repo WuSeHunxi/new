@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+            继承：原型链   借用构造函数   共享原型   圣杯模式
+        */
+
+        //共享原型
+        Father.prototype.lastName="lal";
+        function Father(){
+
+        }
+        function Son(){
+
+        }
+        //多个构造函数可以公用一个原型
+        Son.prototype=Father.prototype;
+        var son=new Son();
+        var father=new Father();
+
+
+        Father.prototype.lastName="deng";
+        function Father(){
+
+        }
+        function inherit(Target,Origin){
+            Target.prototype=Origin.prototype;
+        }
+        inherit(Son,Father)
+        var son=new Son();
+        var father=new Father();
+    </script>
+</body>
+</html>
