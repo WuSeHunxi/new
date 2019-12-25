@@ -21,21 +21,30 @@
 
         //修改了原型
         Person.prototype={
-            name:"cherry" //sunny，虽然Person.prototype的指向改变了，但是person.__proto__并没有改变
+            name:"cherry" //sunny，虽然Person.prototype的指向改变了，但是person.__proto__指向的是原来的Person.prototype,并没有改变
         };
         console.log(person.name);
 
 
 
-
+        /**
+            例题
+        */
+        
+        Person.prototype.name='sunny';
+        //构造函数声明提前
         function Person(){
 
         }
-        Person.prototype.name='sunny';
         Person.prototype={
             name:'cherry'
         }
-        var person=new Person();
+
+        var person=new Person();//在构造函数内部生成一个this{
+                                        //__proto__:Person.prototype
+                                // }，此时Person.prototype已经改变了,此时__prototype指向的是Person.prototype新指向的值
+
+        console.log(person.name);//cherry
 
     </script>
 </body>
