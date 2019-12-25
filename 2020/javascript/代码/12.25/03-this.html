@@ -12,12 +12,63 @@
             例题
         */
         function foo(){
+            //调用bar(),并将arguments传入bar()中
             bar.apply(null,arguments);
         }
         function bar(){
             console.log(arguments);
         }
-        foo(1,2,3,4,5);
+        foo(1,2,3,4,5);//1 2 3 4 5
+
+
+
+        /**
+            this：预编译过程中this-->window
+                  全局作用域里this-->window
+                  call/apply改变函数运行的this指向
+                  obj.func()中的this指向obj
+        */
+
+        function test(){
+            console.log(this);
+        }
+        test();
+
+        console.loh(this);
+
+        var obj={
+            name:"oao",
+            a:function(){
+                console.log(this.name);
+            }
+        }
+        console.log(obj.a()+" "+this);
+
+
+        /**
+            例题
+        */
+        var name='222';
+        var a={
+            name:"111",
+            say:function(){
+                console.log(this.name);
+            }
+        }
+
+        var fun=a.say;//函数体
+        fun();//222-->函数执行(全局执行)
+        a.say();//111-->a调用
+
+        var b={
+            name:"333",
+            say:function(fun){
+                fun();//该函数执行时没有人调用，只不过是在另一个函数中执行的
+            }
+        }
+        b.say(a.say);//222--> 就是fun()执行，fun()谁也没调用
+        b.say=a.say;
+        b.say();//333
     </script>
 </body>
 </html>
