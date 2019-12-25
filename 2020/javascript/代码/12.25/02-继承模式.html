@@ -43,7 +43,29 @@
 
 
 
-        //圣杯模式
+        //圣杯模式--->既想修改自己的内容又不想影响它所继承的内容
+        //利用中间人
+        function inherit(Target,Origin){
+            function F(){};
+            F.prototype=Origin.prototype;
+            Target.prototype=new F();
+            Target.prototype.constructor=Target;
+            //继承超类
+            Target.prototype.uber=Origin.prototype;
+        }
+        Father.prototype.lastName="Deng";
+        function Father(){
+
+        }
+        function Son(){
+
+        }
+        inherit(Son,Father);
+        var son=new Son();
+        var father=new Father();
+
+
+
     </script>
 </body>
 </html>
