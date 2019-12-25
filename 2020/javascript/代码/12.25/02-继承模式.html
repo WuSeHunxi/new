@@ -25,17 +25,25 @@
         var son=new Son();
         var father=new Father();
 
-
+        //共享继承的函数封装
         Father.prototype.lastName="deng";
         function Father(){
 
         }
         function inherit(Target,Origin){
+            //二者指向同一个祖先
             Target.prototype=Origin.prototype;
         }
-        inherit(Son,Father)
+        inherit(Son,Father);
+        //修改son的原型对象Son.prototype，此时会发现Father.prototype的指向也发生改变，即二者是一个变另一个也变
+        Son.prototype.sex="male";
         var son=new Son();
         var father=new Father();
+
+
+
+
+        //圣杯模式
     </script>
 </body>
 </html>
