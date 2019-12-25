@@ -69,6 +69,64 @@
         b.say(a.say);//222--> 就是fun()执行，fun()谁也没调用
         b.say=a.say;
         b.say();//333
+
+
+        /**
+            callee()时arguments上的属性，但是caller则是函数上面的属性
+        */
+        function test(){
+            //arguments.callee--->指向的是函数的引用，可用来处理递归函数问题
+            console.log(arguments.callee);//---test,指代的就是函数
+        }
+
+        //阶乘
+        var num=(function(n){//--->该函数没有名字，因此在使用递归的时候必须使用arguments.callee()
+            if(n==1){
+                return 1;
+            }else{
+                return n*arguments.callee(n-1);
+            }
+        }(100))
+
+        function test(){
+            demo();
+        }
+        function demo(){
+            //caller-->调用该属性的函数的运行环境
+            demo.caller;//demo被调用的环境
+        }
+
+
+        /**
+            例题：运行test()和new test()的结果分别是什么
+        */
+        var a=5;
+        function test(){
+            a=0;
+            console.log(a);
+            console.log(this.a);
+            var a;
+            console.log(a);
+        }
+        //test()--> 0 5 0   
+        //new test()---> 0 undefined 0
+        //new test()s时，函数中的this会var this=Object.create(test.prototype),此时this上面没有a属性
+
+
+
+        var bar={
+            a:"002"
+        }
+        function print(){
+            bar.a='a';
+            Object.prototype.b='b';
+            return function inner(){
+                console.log(bar.a);
+                console.log(bar.b);
+            }
+        }
+
+
     </script>
 </body>
 </html>
