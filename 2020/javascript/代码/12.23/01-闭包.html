@@ -40,6 +40,7 @@
                 (function (j){
                     //每一个立即函数执行的时候，他的执行器上下文的变量是传进来的i，即实参j
                     arr[j]=function(){
+                        //此时的得到的内部变量是j
                         document.write(j+"　");
                     }
                     

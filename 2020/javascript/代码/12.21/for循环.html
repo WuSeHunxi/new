@@ -107,6 +107,10 @@
          *     +:  String()
          * 
          *     null==undefined-->二者相等
+         * 
+         *     xx.toFixed(xx) --> 保留几位有效数字（四舍五入）
+         * 
+         * 
         */
 
         console.log(typeof(a));//-->"undefined"
@@ -115,7 +119,8 @@
     
         console.log(typeof(NaN));
         var a='122sks';
-        console.log(typeof(+a));
+        console.log(typeof(+a));//"number"
+        console.log(isNaN(+a));//true
     </script>
 </body>
 </html>
