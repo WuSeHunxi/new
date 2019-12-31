@@ -11,6 +11,7 @@
         /**
             原型是通过__proto__找到的
             原型上还有原型
+            绝大多数对象的原型终端是Object.prototype，通过Object.create创建出来的对象除外
         */
         Grand.prototype.lastName="Deng";
         function Grand(){
@@ -19,14 +20,24 @@
         var grand=new Grand();
         Father.prototype=grand;
         function Father(){
-
+            this.name="pp";
         }
         var father=new Father();
         Son.prototype=father;
         function Son(){
-
+            this.hobbies="mamm";
         }
         var son=new Son();
+        
+        /**
+            重写：将系统的方法重写，例子如下
+        */
+        Number.prototype.toString=function(){
+            return "hello world";//重写
+        }
+
+        var obj=Object.create(null);
+        document.write(obj);//--->document.write(obj.toString());
         
     </script>
 </body>
