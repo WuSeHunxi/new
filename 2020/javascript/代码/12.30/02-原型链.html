@@ -8,6 +8,25 @@
 </head>
 <body>
     <script>
+        /**
+            原型是通过__proto__找到的
+            原型上还有原型
+        */
+        Grand.prototype.lastName="Deng";
+        function Grand(){
+
+        }
+        var grand=new Grand();
+        Father.prototype=grand;
+        function Father(){
+
+        }
+        var father=new Father();
+        Son.prototype=father;
+        function Son(){
+
+        }
+        var son=new Son();
         
     </script>
 </body>
