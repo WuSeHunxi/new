@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /**
+            __proto__里面放的就是原型
+            person.__proto__===Person.prototype
+            当new一个对象的时候会有一个隐式的三段式：
+                var this={
+                    __proto__:Person.prototype
+                }
+            __proto__的作用：当访问属性的时候会通过__proto__到它的原型(__proto__的指向)上去寻找到底有没有
+
+        */
+
+        /**
+            易错点：
+                var obj={name:"lala"};
+                var obj1=obj;
+                obj={name:"ppp"};
+                console.log(obj1);--->lala
+        */
+        // Person.prototype.name="lala";
+        // function Person(){
+            
+        // }
+        // var person=new Person();
+        // console.log(person.__proto__);
+        // console.log(Person.prototype);//--->constructor
+        // console.log(person.__proto__===Person.prototype);
+
+        
+        Person.prototype.name="sunny";
+        function Person(){
+
+        }
+        Person.prototype={
+            name:"cherry"
+        };
+
+        // Person.prototype={
+        //     name:"cherry"
+        // };
+
+        var person=new Person();
+        Person.prototype={
+            name:"cherry"
+        };
+        //修改Person.prototype的指向的位置不同得到的结果也是不同的，要考虑执行顺序
+        console.log(person.name);//sunny
+        
+    </script>
+</body>
+</html>
