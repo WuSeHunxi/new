@@ -30,15 +30,32 @@
         var son=new Son();
         
         /**
+            浮点数可正常计算的范围：小数点前16位后16位
             重写：将系统的方法重写，例子如下
-        */
+        */ 
         Number.prototype.toString=function(){
             return "hello world";//重写
         }
 
         var obj=Object.create(null);
+        //报错
         document.write(obj);//--->document.write(obj.toString());
-        
+
+
+        /**
+            this指向
+        */
+        function Person(name,age){
+            //this==obj
+            this.name=name;
+            this.age=age;
+        }
+        var person=new Person("deng",10);
+        var obj={
+
+        };
+        //任何一个方法都可以.call()--->改变this的指向，默认情况下指向的是window
+        Person.call(obj,"cheng",20);
     </script>
 </body>
 </html>
