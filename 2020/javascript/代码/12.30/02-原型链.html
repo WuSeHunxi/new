@@ -55,7 +55,27 @@
 
         };
         //任何一个方法都可以.call()--->改变this的指向，默认情况下指向的是window
-        Person.call(obj,"cheng",20);
+        //正常情况下，当函数.call()不传参的时候===>函数() 即：二者是等价的，都是函数执行
+        Person.call(obj,"cheng",20);//相等于把obj传入到了Person中，代替了this
+        
+
+        //利用别人的方法实现自己的功能
+        function Person(name,age,sex){
+            this.name=name;
+            this.age=age;
+            this.sez=sex;
+        }
+        function Student(name,age,sex,tel,grade){
+            Person.call(this,name,age,sex);
+            this.tel=tel;
+            this.grade=grade;
+        }
+        var student=new Student('sunny',12,'male',123,1);
+
+        /**
+            call和apply的区别：改变this指向，传参列表不同
+        */
+
     </script>
 </body>
 </html>
