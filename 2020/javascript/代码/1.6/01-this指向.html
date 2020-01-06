@@ -10,8 +10,9 @@
     <script>
         /**
          * 
-         * arguments.callee---->指向的是函数的引用(函数自己)
+         * arguments.callee---->指向的是函数的引用(函数自己)，递归（匿名函数）的时候可能会用到
          * 函数名.caller---->该函数被调用的环境
+         * 
         */
         function test(){
             demo();
@@ -20,6 +21,9 @@
             console.log(demo.caller);//输出demo被调用的环境
         }
         test();
+
+
+
 
         //运行test()和new test()的结果分别是什么？
         var a=5;
@@ -32,6 +36,7 @@
         }
         //test()  0 5(window) 0
         //new test()  0 undefined(object.create(test.prototype)) 0
+        //new出来的对象，a属性的值为undefined
     </script>
 </body>
 </html>

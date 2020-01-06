@@ -22,9 +22,11 @@
 
         /**
          * 数组的方法：
-         *      改变原数组的方法：push pop shift unshift sort reverse splice
+         *      改变原数组的方法：push pop shift unshift sort reverse splice--->增删改
          *      不改变原数组的方法：concat join split toString slice
-         * 负数表示的下标=负数+数组的长度
+         *             不改变原数组的方法在使用的时候需要用一个新的变量来接收
+         * 负数表示的下标=负数+数组的长度  
+         *      比如说，下标为-1，在数组中得到的值是最后一个，即：-1+数组长度
         */
         
         //splice(从第几位开始,截取多少长度,在切口处添加新的数据)
@@ -34,6 +36,7 @@
         // arr.splice(1,2);// [1,4,5]
         //当第二个参数是0的时候表示的是添加数据--不切的时候光标不往后移
         arr.splice(3,0,4);//--[1,2,3,4,5]
+        //没有最后一个参数的时候就是删除
 
         //sort()---给数组排序，利用的是冒泡排序
         /**
@@ -48,7 +51,7 @@
         var arr=[1,3,4,10,5,6];
         arr.sort(function(a,b){
             //升序
-            // if(a>b){//a<b  降序
+            // if(a>b){   //a<b时  降序
             //     return 1;
             // }else{
             //     return -1;
@@ -61,7 +64,7 @@
         console.log(arr);
 
         //---------------
-        //例：让一个有序的数组乱序
+        //例：让一个有序的数组乱序---->返回值的正负随意
         var arr1=[1,2,3,4,5,6,7];
         arr1.sort(function(){
            return  Math.random()-0.5;
@@ -72,6 +75,7 @@
         function retBytes(str){
             var num=str.length;
             for(var i=0;i<str.length;i++){
+                //表示有汉字的时候
                 if(str.charCodeAt(i)>255){
                     num++;
                 }
@@ -97,7 +101,7 @@
         var ret=arr2.join(":");
         //split("参数")----字符串的方法，与join互逆，返回的是数组
 
-        //例：拼接字符串
+        //例：拼接字符串----将字符串先放入数组中，然后再用join用参数连接起来
         var str1="ba";
         var str2="oaoao";
         var str3="papap";
