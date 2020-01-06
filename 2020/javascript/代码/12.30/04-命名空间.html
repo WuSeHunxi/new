@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 通过对象实现命名空间
+         * */    
+        
+        /**
+         * 取对象的属性：.  []
+        */
+        var deng={
+            wife1:{
+                name:"xoaliu"
+            },
+            wife2:{
+                name:"xiaozhang"
+            },
+            wife3:{
+                name:"xkxkx"
+            },
+            wife4:{
+                name:"appap"
+            },
+            sayWife:function(num){
+                return this["wife"+num];
+            }
+        }
+        var ret=deng.sayWife(2);
+        console.log(ret);
+
+        //对象的遍历
+        var obj={
+            name:"kakak",
+            age:123,
+            sex:"male",
+            __proto__:{
+                lastName:"deng"
+            }
+        }
+        for(var prop in obj){
+            //prop---是字符串 
+            if(obj.hasOwnProperty(prop)){
+                console.log(obj[prop]);
+            }
+        }
+
+        //判断属性是不是原型上的属性
+        // hasOwnProperty()---->只会管自己设置的原型，不会管系统的Object.property上的属性
+        // in --->判断这个属性是不是在这个对象里面（这个属性即便是通过原型设置的也可以）
+        // instanceof ----> 判断前面的是不是后面的构造函数构造出来的
+
+        function Person(){
+
+        }
+        var person=new Person();
+        console.log(person instanceof Person);//true
+        /**
+         * A instanceof B --->看A对象的原型链上有没有B的原型
+        */
+        var objjj={};
+        console.log(objjj instanceof Person);
+
+        //例：判断变量是数组还是对象--->instanceof  构造函数  toString()(见解如下)
+        var arr={}||[];
+        Object.prototype.toString.call([]);
+        // "[object Object]"
+        Object.prototype.toString.call(123);
+        // "[object Number]"
+
+        var xiao={
+            name:"akak",
+            age:221
+        }
+        var num=123;
+        console.log(obj.toString());
+        console.log(typeof num.toString());
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 
+         * arguments.callee---->指向的是函数的引用(函数自己)
+         * 函数名.caller---->该函数被调用的环境
+        */
+        function test(){
+            demo();
+        }
+        function demo(){
+            console.log(demo.caller);//输出demo被调用的环境
+        }
+        test();
+
+        //运行test()和new test()的结果分别是什么？
+        var a=5;
+        function test(){
+            a=0;
+            console.log(a);
+            console.log(this.a);
+            var a;
+            console.log(a);
+        }
+        //test()  0 5(window) 0
+        //new test()  0 undefined(object.create(test.prototype)) 0
+    </script>
+</body>
+</html>

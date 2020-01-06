@@ -33,6 +33,60 @@
         inherit(Son,Father);
         var son=new Son();
         
+        //圣杯模式
+        function inherit(Target,Origin){
+            function F(){};
+            F.prototype=Origin.prototype;
+            Target.prototype=new F();
+            Target.prototype.constuctor=Target;
+            //超级父级
+            Target.prototype.uber=Origin.prototype;
+        }
+        Father.prototype.lastName="deng";
+        function Father(){
+
+        }
+        function Son(){
+
+        }
+        inherit(Son,Father);
+        var son=new Son();
+        var father=new Father();
+
+        //------上述的圣杯模式更高端的写法
+        var inherit=(function (){
+            var F=function(){};
+            //将下面的函数返回到外部，此时发现F在外部无法访问呢，这是极其正确，通过这样的方法，让F变成一个内部的私有化属性
+            return function (Target,Origin){
+                F.prototype=Origin.prototype;
+                Target.prototype=new F();
+                Target.prototype.constuctor=Target;
+                Target.prototype.uber=Origin.prototype;
+            }
+        }());
+
+
+        //闭包的私有化属性
+        function Deng(name,wife){
+            var prepareWife="xiaozhang";
+            this.name=name;
+            this.wife=wife;
+            this.divorce=function(){
+                this.wife=prepareWife;
+            }
+            this.changePrepareWife=function(target){
+                prepareWife=target;
+            }
+            thiss.sayPreparewife=function(){
+                console.log(prepareWife);
+            }
+        }
+        //上面的三个函数被保存到了外面
+        //prepareWife通过外部的用户无法访问的到，只能由deng对象操作才可以
+        var deng=new Deng("deng","xiaoliu");
+
+
+
 
     </script>
 </body>
