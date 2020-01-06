@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transform的值</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    body {
+      /* 景深 */
+      perspective: 1000px;
+    }
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      padding: 50px;
+      margin: 100px;
+      border: 50px solid salmon;
+      /* position: relative; */
+      /* left: 50px; */
+      /* 
+        相对像素单位 px
+        %:   百分比 相对于自身盒模型的大小  padding + border + content
+       */
+      /* transform-style: preserve-3d;
+      transform: translateZ(100px); */
+    }
+    .solid {
+      width: 1px;
+      height: 100px;
+      background-color: #000;
+      position: absolute;
+      left: 150px;
+    }
+    .wrapper {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      position: relative;
+      margin: 100px auto;
+      transform-style: preserve-3d;
+      transform: rotateX(-30deg);
+    }
+    .wrapper .box {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: center;
+      line-height: 200px;
+      font-size: 30px;
+    }
+    .wrapper .box:nth-child(1) {
+      background-color: rgba(0, 200, 30, 0.5);
+      transform: translateZ(100px);
+    }
+    .wrapper .box:nth-child(2) {
+      background-color: rgba(80, 20, 30, 0.5);
+      transform: translateZ(-100px);
+    }
+    .wrapper .box:nth-child(3) {
+      background-color: rgba(0, 20, 230, 0.5);
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .wrapper .box:nth-child(4) {
+      background-color: rgba(100, 100, 30, 0.5);
+      transform: rotateY(90deg) translateZ(-100px);
+    }
+    .wrapper .box:nth-child(5) {
+      background-color: rgba(0, 20, 30, 0.5);
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .wrapper .box:nth-child(6) {
+      background-color: rgba(2, 40, 200, 0.5);
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ! + tab/enter -->
+
+  <!-- <div class="demo"></div>
+  <div class="solid"></div> -->
+  <!-- div.wrapper>div.box{$}*6 + tab -->
+  <div class="wrapper">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+  </div>
+
+
+  <a href="https://note.youdao.com/ynoteshare1/index.html?id=379f5d823e15853d56cc1ffc00759977&type=note">  笔记链接</a>
+
+</body>
+</html>
