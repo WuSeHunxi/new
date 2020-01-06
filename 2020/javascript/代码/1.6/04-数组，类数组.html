@@ -114,6 +114,45 @@
         console.log(arr3.join(""));
 
 
+
+        /**
+            类数组:最重要的属性就是length，在调用.push()的时候要根据push的实现原理得到最终的结果
+            使用for-in循环可以将属性全部遍历出来
+        */
+        function test(){
+            console.log(arguments);
+        }
+        test(1,2,3,4,5);
+
+        var obj={
+            "0":'a',
+            "1":'b',
+            "2":'c',
+            "length":2,
+            "push":Array.prototype.push,
+            "splice":Array.prototype.splice
+        }
+        obj.push("d");
+        //push内部的实现原理
+            // Array.prototype.push=function(target){
+            //     obj[obj.length]=target;
+            //     obj.length++;
+            // }
+        //属性腰围索引属性，必须要有length属性，最好加上push方法，如果再加上splice就是数组的形式
+
+        //-------------------
+        //例：阿里巴巴面试题
+        var obj={
+            "2":"a",
+            "3":"b",
+            "length":2,
+            "push":Array.prototype.push
+        }
+        obj.push("c");
+        obj.push("d");
+        //结果：{2: "c", 3: "d", length: 4, push: ƒ}
+
+
     </script>
 </body>
 </html>
