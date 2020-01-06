@@ -11,7 +11,7 @@
         /**
             1.原型链的继承是将构造出来的对象和原型连成一条线，像继承和不想继承的都在这条线上，这样会产生很大的代价
                 即：过多的继承了没用的属性
-            2.借用构造函数继承---不能继承借用构造函数的继承 
+            2.借用构造函数继承---不能继承借用构造函数的继承，使用call改变this的指向
             3.共享原型
         */
 
@@ -26,6 +26,14 @@
         Son.prototype=Father.prototype;
         var son=new Son();
         var father=new Father();
+        //将上述的代码改成一个函数---先继承后使用，可以访问得到，但是先使用后继承则不可以
+        function inherit(Target,Origin){
+            Target.prototype=Origin.prototype;
+        }
+        inherit(Son,Father);
+        var son=new Son();
+        
+
     </script>
 </body>
 </html>

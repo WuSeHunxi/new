@@ -60,8 +60,9 @@ function render() {
     var imgList = [];
     var timer = null;
     for (var i = 0; i < length; i++) {
-        (function() {
-            var item = data[i];
+        //立即执行函数---使用闭包
+        (function(j) {
+            var item = data[j];
             // 创建导航并且插入
             var nav = createEle("a");
             nav.setAttribute("class", "nav");
@@ -78,7 +79,7 @@ function render() {
             imgs.appendChild(img);
 
             // 初始化页面状态
-            if (i == 0) {
+            if (j == 0) {
                 nav.setAttribute("class", "active");
                 img.style.display = "block";
                 activeImg = img;
@@ -86,6 +87,7 @@ function render() {
             }
 
             // 绑定鼠标事件，移入移出
+            //鼠标移入的时候，当前的不再显示，显示的是当前鼠标所放的位置处
             nav.onmouseenter = function() {
                 clearInterval(timer);
                 activeImg.style.display = "none";
@@ -113,7 +115,7 @@ function render() {
             // 分别记录创建的nav 以及 img
             navList.push(nav);
             imgList.push(img);
-        })();
+        })(i);
     }
     timer = setInterval(function() {
         var index = navList.indexOf(activeNav);
