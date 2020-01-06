@@ -8,7 +8,108 @@
 </head>
 <body>
     <script>
+        /**
+         * 数组的定义方法：
+         *        字面量[]
+         *        new Array()--->只给()传一个参数的话表示的是数组的长度是xx，但是每一位都没有值
+         * 
+         * */    
+        var arr=[1,2,,3];//数组长度是4
+        var arr1=new Array(1,2,3,4);
+
+        var arr2=new Array(10);
+        console.log(arr2);//---> (10) [empty × 10]
+
+        /**
+         * 数组的方法：
+         *      改变原数组的方法：push pop shift unshift sort reverse splice
+         *      不改变原数组的方法：concat join split toString slice
+         * 负数表示的下标=负数+数组的长度
+        */
         
-        </script>
+        //splice(从第几位开始,截取多少长度,在切口处添加新的数据)
+        var arr=[1,2,3,5];
+        //arr.splice(从第几位开始,截取多少长度,在切口处添加新的数据)
+        // arr.splice(1,1,3);// [1,3,3,4,5]
+        // arr.splice(1,2);// [1,4,5]
+        //当第二个参数是0的时候表示的是添加数据--不切的时候光标不往后移
+        arr.splice(3,0,4);//--[1,2,3,4,5]
+
+        //sort()---给数组排序，利用的是冒泡排序
+        /**
+         * 规则：
+         *    必须写两个参数
+         *    看返回值
+         *        当返回值为负数时，那么前面的数在前
+         *        当返回值为正数时，那么后面的数在前
+         *        当返回值为0时，不动
+         * 
+        */
+        var arr=[1,3,4,10,5,6];
+        arr.sort(function(a,b){
+            //升序
+            // if(a>b){//a<b  降序
+            //     return 1;
+            // }else{
+            //     return -1;
+            // }
+
+            //------简便方法
+            return a-b;//升序
+            // return b-a;//降序
+        });
+        console.log(arr);
+
+        //---------------
+        //例：让一个有序的数组乱序
+        var arr1=[1,2,3,4,5,6,7];
+        arr1.sort(function(){
+           return  Math.random()-0.5;
+        });
+        console.log(arr1);
+
+        //例：按字节长度排序
+        function retBytes(str){
+            var num=str.length;
+            for(var i=0;i<str.length;i++){
+                if(str.charCodeAt(i)>255){
+                    num++;
+                }
+            }
+            return num;
+        }
+        var arr=['a等',"lalald等","kahdahd"];
+        arr.sort(function(a,b){
+            return retBytes(a)-retBytes(b);
+        })
+        console.log(arr);
+
+        //concat()----连接两个数组
+        //slice()----截取
+        /**
+         * slice(从该位开始截取，截取到该位)
+        */
+        var arr2=[1,2,3,4,5];
+        var newArr=arr2.slice(1,3);
+        console.log(newArr);//[2,3]
+
+        //join("参数")----用参数连接起来，返回的是字符串
+        var ret=arr2.join(":");
+        //split("参数")----字符串的方法，与join互逆，返回的是数组
+
+        //例：拼接字符串
+        var str1="ba";
+        var str2="oaoao";
+        var str3="papap";
+        var str4="llalal";
+        var str5="pqpqp";
+        var arr3=[];
+        for(var i=1;i<=5;i++){
+            arr3.push("str"+i);
+        }        
+        console.log(arr3.join(""));
+
+
+    </script>
 </body>
 </html>

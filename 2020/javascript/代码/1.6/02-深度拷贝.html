@@ -11,8 +11,51 @@
         /**
          * 
          * 深度拷贝：拷贝的是一模一样的，但是不是同一个人，即：其中一个修改了但是另一个不修改
+         *      所有的值都是相互独立的
          * 
         */
+
+        var obj={
+            name:"abc",
+            age:12,
+            card:['vid','money'],
+            wife:{
+                name:'bcd',
+                age:123,
+                son:{
+                    name:"papap"
+                }
+            }
+        }
+        /**
+         * 1.判断是不是原始值
+         * 2.如果不是原始值，判断是数组还是对象
+         * 3.建立相应的数组或者对象
+         * 递归
+        */
+        function deepClone(origin,target){
+            var target=target||{},
+                toStr=Object.prototype.toString,
+                arrStr="[object Array]";
+            //遍历
+            for(var prop in origin){
+                if(origin.hasOwnProperty(prop)){
+                    if(origin[prop]!=="null"&&typeof(origin[prop])=='object'){
+                        if(toStr.call(origin[prop])==arrStr){
+                            //数组
+                            target[prop]=[];
+                        }else{
+                            //对象
+                            target[prop]={};
+                        }
+                        deepClone(origin[prop],target[prop]);
+                    }else{
+                        target[prop]=origin[prop];
+                    }
+                }
+            }
+            return target;
+        }
         </script>
 </body>
 </html>
