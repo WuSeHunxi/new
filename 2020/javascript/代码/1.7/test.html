@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .face {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border-width: 10px 10px 0 0;
+      border-style: solid;
+      border-color: #f00 transparent transparent #f00;
+      position: relative;
+      animation: rotate 2s linear infinite;
+    }
+    .circle {
+      width: 0px;
+      height: 0px;
+      border-radius: 50%;
+      border: 10px solid #f00;
+      position: absolute;
+      top: calc(50% - 125px);
+      left: calc(50% + 96px);
+
+    }
+    @keyframes rotate {
+        0% {
+          transform:  rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="face">
+    <div class="circle"></div>
+  </div>
+</body>
+</html>
