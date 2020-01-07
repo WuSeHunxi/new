@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transform中的旋转值 </title>
+  <style>
+    /* .demo {
+      margin: 100px 100px;
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      transform: rotateX(45deg);
+      transform-origin: 0 0;
+      backface-visibility: hidden;
+    } */
+    .face {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 20px solid;
+      border-top-color: tomato;
+      border-bottom-color: turquoise;
+      border-left-color: violet;
+      border-right-color: transparent;
+      border-top-width: 10px;
+      border-left-width: 10px;
+      border-right-width: 10px;
+      border-bottom-width: 10px;
+      position: relative;
+      transform: rotate(0deg);
+    }
+    .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: tomato;
+      position: absolute;
+      top: calc(50% - 125px);
+      left: calc(50% + 96px);
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="demo"></div> -->
+  <div class="face">
+    <div class="circle"></div>
+  </div>
+</body>
+</html>
