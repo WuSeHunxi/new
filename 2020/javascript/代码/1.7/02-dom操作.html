@@ -5,10 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .wrapper div{
+            width: 200px;
+            height: 200px;
+            border:2px solid black;
+            display: none;
+        }
+        .active{
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
+    <!-- <div></div> -->
+    <div class="wrapper">
+        <button class="active">001</button>
+        <button>002</button>
+        <button>003</button>
+        <div class="content" style="display: block;">那心怡</div>
+        <div class="content">啦啦啦</div>
+        <div class="content">荷兰篇</div>
+    </div>
     <script>
-    
+        /**
+            DOM--->文档对象模型，只能操作html
+                修改DOM元素的样式
+        */
+        // var div=document.getElementsByTagName("div")[0];
+        // div.style.width="100px";
+        // div.style.height="100px";
+        // div.style.backgroundColor="red";
+        
+        //选项卡
+        var btn=document.getElementsByTagName("button");
+        var div=document.getElementsByClassName("content");
+        for(var i=0;i<btn.length;i++){
+            (function(n){
+                btn[i].onclick=function(){
+                    for(var j=0;j<btn.length;j++){
+                        btn[j].className="";
+                        div[j].style.display="none";
+                    }
+                    this.className="active";
+                    //闭包的立即执行函数
+                    div[n].style.display="block";
+                }
+            }(i))
+        }
+
+
+        //小方块的运动
+        //创建一个小方块，并添加到页面中 
+        var div=document.createElement("div");
+        document.body.appendChild(div);
     </script>
 </body>
 </html>
