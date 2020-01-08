@@ -8,7 +8,93 @@
 </head>
 <body>
     <script>
+        /**
+            try-catch：为了防止报错，确保代码在任何情况下都能正常运行
+                在try里面发生错误，不会执行错误后的try里面的代码 
+            
+        */
+
+        try{
+            将不确定是否有错误的代码放在try中
+            console.log("a");//1
+            console.log(b);
+            console.log("c");
+        }catch(e){
+            //捕捉错误
+            console.log(e.message+" "+e.name);//2
+        }
+        console.log("d");//3
+
+
+
+        //es5的严格模式
+        //目前浏览器是基于es3.0+es5.0的新增方法使用的，当二者冲突时，遵照的是es3.0，但是也使用的是es5.0的严格模式
+        //启动es5.0----> "use strict" 必须要写在页面逻辑的最顶端
+        //                   可以将其写在全局的最顶端，也可以写在局部的最顶端
+
+        // "use strict";
+        //此时不可以使用arguments.callee
+        function test(){
+            "use strict";//推荐使用局部的严格模式   
+            // console.log(arguments.callee);//--->报错
+        }
+        test();
+
+        //with的用法：with里面的参数找到的是原型，连接作用域链
+        //      修改作用域链会消耗内核的效率，在es5.0中是不能使用的
+        /**
+            callee和caller以及其他的arguments属性在严格模式中不可以使用
+            局部的this是undefined，代码如下
+        */
+        var obj={
+            obj1:{
+                na:{
+                    name:"lalal",
+                    age:12
+                },
+                nv:{
+                    name:"hahahah",
+                    age:11
+                }
+            },
+            obj2:{
+            }
+        }
+        with(obj.obj1.na){
+            console.log(name);
+        }
+        with(obj.obj1.nv){
+            console.log(name);
+        }
+
+        with(document){
+            write("a");
+        }
+
+       
+        function test(){
+            "use strict";
+            console.log(this);
+        }
+        test();
+
+        function Test(){
+            "use strict";
+            console.log(this);// Test{}
+        }
+        new Test();
+
+        function F(){
+            console.log(this);
+        }
+        /**
+            在es3.0中，使用call改变this指向的时候，call里面的参数得是对象，this会是对象，如果是
+            原始值的话，会将其转成包装类的形式，代码如下：，但是在es5.0中就不会出现这种情况，call
+            里面的参数是啥this就是啥。
+        */
+        F.call(123);// Number {123}
         
+
     </script>
 </body>
 </html>

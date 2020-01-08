@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+            包装类
+            原型
+
+        */
+        var demo={
+            lastName:"lal"
+        }
+        //括号里的参数是obj对象指向的原型
+        var obj=Object.create(demo);
+        /**
+            obj={
+                __proto__:demo
+            }
+        */
+
+        //属性的配置方式：可配置   不可配置
+            //window上的属性是不可配置的属性，该类属性不能被delete掉
+
+
+
+
+        /**
+            this的指向：
+                1.预编译：this指向window
+                2.谁调用的this指向谁
+                3.call和apply
+                4.全局this指向window
+        */
+        function test(){
+            console.log(this);
+        }
+        test();// <----> test.call()
+ 
+        //属性私有化---->闭包
+        function Person(name){
+            var money=100;
+            this.name=name;
+            this.makeMoney=function(){
+                money++;
+            }
+            this.offer=function(){
+                money--;
+            }
+        }
+        var person=new Person();
+        //通过person将两个方法保存到外部，对money进行修改
+
+
+        //[]==[] --->false 引用值的类型转换不需要考虑
+
+
+         
+        ///-------------------------------------------------
+        //例：私有化变量的应用
+        function Person(name,age,sex){
+            var a=0;
+            this.name=name;
+            this.sex=sex;
+            this.age=age;
+            function sss(){
+                a++;
+                document.write(a);
+            }
+            this.say=sss;
+        }
+        var oPerson=new Person();
+        oPerson.say();// 1
+        oPerson.say();// 2
+        var oPerson1=new Person();
+        oPerson1.say();// 1
+
+        //例：属性配置
+        var ret=(function(x){
+            //形参x相当于 var x
+            delete x;
+            return x;
+        }(1))
+        console.log(ret);// 1 ,因为var x是在函数内部的，没有办法通过delete删除
+
+
+        function test(){
+            console.log(typeof(arguments)); //{}
+            //得到的是一个对象，arguments是一个类数组，类数组就是对象
+        }
+
+         
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
