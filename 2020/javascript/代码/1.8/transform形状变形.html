@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .demo{
+            /* width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 100px auto;
+            transform: skew(30deg); */
+            font-size: 60px;
+            font-weight: bold;
+            color:#fff;
+            margin:100px;
+            position: relative;
+        }
+        .demo span{
+            position: absolute;
+        }
+        .demo span:first-child{
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <!-- 让两个文字重叠在一起 -->
+        <span class="oSp">宕机了</span>
+        <span class="oSp">宕机了</span>
+    </div>
+
+    <script>
+        /**
+            倾斜扭曲：skew
+            缩放：scale
+            可以通过transform-origin设置坐标原点  
+        */
+        var oSpan=document.getElementsByClassName("oSp");
+        var deg=0;
+        var timer=setInterval(function(){
+            oSpan[0].style.transform="skew("+deg+"deg)";
+            oSpan[1].style.transform="skew("+(deg-10)+"deg)";
+            deg+=1;
+            deg=deg%15;
+        },10);
+        
+
+    </script>
+</body>
+</html>

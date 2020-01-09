@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span></span>
+        <div>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        /**       <
+            document是文档，它的构造函数时HTMLDocument
+                document.constructor---->ƒ HTMLDocument() { [native code] }
+            Document：是系统的构造函数，即：function Document(){}
+                HTMLDocument.prototype.__proto__=Document.prototype
+            document.documentElement//HTML文档
+            document.body--->body
+            document.html--->html
+        */
+        Document.prototype.abc="abc";
+        console.log(document.abc);
+
+        HTMLElement.prototype.abc="demo";
+        var body=document.getElementsByTagName("body")[0];
+        var head=document.getElementsByTagName("head")[0];
+        console.log(body.abc+" "+head.abc);//demo demo
+
+        HTMLBodyElement.prototype.bcd="test";
+        console.log(body.bcd);//test
+        console.log(head.bcd);//undefined
+
+
+        console.log(document.body);//得到的就是body标签
+       
+
+
+        /**
+            编程练习：  
+                1.遍历元素节点树
+                2.封装函数，返回元素e的第n层祖先元素节点
+                3.封装函数，返回元素e的第n层祖先元素节点，当n为正的时候往后找，当n为负的时候往前找
+                4.封装函数，实现myChildren的功能，解决浏览器存在的兼容性问题
+                5.自己封装hasChildren()方法，不可以使用children属性
+        */
+        //2题
+        function retParent(elem,n){
+            while(n&&elem){
+                elem=elem.parentElement;
+                n--;
+            }
+            return elem;
+        }
+
+        //3题
+        function retSibling(e,n){
+            while(n&&e){
+                if(n>0){
+                    // e=e.nextElementSibling;
+                    // n--;
+                    if(0&&e.nextElementSibling){
+                        e=e.nextElementSibling;
+                    }else{
+                        //利用for循环实现循环条件判断
+                        //e&&e.nodeType!=1 在判断是不是元素节点的同时还要判断e是否有价值
+                        for(e=e.nextSibling;e&&e.nodeType!=1;e=e.nextSibling);
+                    }
+                }else{
+                    // e=e.previousElementSibling;
+                    // n++;
+                    if(e.previousElementSibling){
+                        e=e.previousElementSibling;
+                    }else{
+                        for(e=e.previousSibling;e&&e.nodeType!=1;e=e.previousSibling);
+                    }
+                }
+            }
+            return e;
+        }
+
+        //4题
+        Element.prototype.myChildren=function(){
+            var child=this.childNodes;
+            var len=child.length;
+            var arr=[];
+            for(var i=0;i<len;i++){
+                if(child[i].nodeType==1){
+                    arr.push(child[i]);
+                }
+            }
+            return arr;
+        }
+        var div=document.getElementsByTagName("div")[0];
+        console.log(div.myChildren());
+
+        //5题---->将上面的方法修改即可
+
+
+
+
+        /**
+            增加元素节点
+                createElement()---->创建一个元素节点
+                createTextNode()---->创建文本节点
+            插入节点
+                appendChild()---->父节点.appendChild(子节点)---->插入和剪切操作
+                    把新增的元素节点通过该方法是添加到页面中去,但是把页面中原有的节点添加到另一个
+                    节点中去是剪切,即:原位置的节点消失,在另一个节点中显示,在120行举个例子
+                insertBefore(a,b)---->父节点.insertBefore(a,b)---->在b前面插入a
+            删除节点
+                父节点删除:parent.removeChild()---->并不是真正的删除,是把它给剪切出来了
+                自己删除:elem.remove()---->真正的删除
+            替换节点
+                parent.replaceChild(new,origin)---->拿新元素替换旧元素,原来的旧元素被剪切出来了
+
+        */
+        var p=document.createElement("p");//创建一个p标签
+        var text=document.createTextNode("哈哈");
+        p.appendChild(text);
+        document.body.appendChild(p);//插入到页面中去
+
+        var div=document.getElementsByTagName("div")[1];
+        var span=document.getElementsByTagName("span")[0];
+        div.appendChild(span);
+
+        var i=document.createElement("i");
+        div.insertBefore(i,span);
+
+        div.removeChild(i);
+        p.remove();
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -7,8 +7,99 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <p>12</p>
+        <span>12</span>
+    </div>
     <script>
-        
+        /**
+            DOM的基本操作：增删改查
+                getElementsByName--->只有可以添加name属性的标签才能使用这种方法获取dom元素，
+                    例如：表单，img，iframe
+                querySelector和querySelectorAll这两个选择器选出来的DOM元素不是实时的 
+
+        */
+        // parentNode 父节点(只能找到一个)
+        var div=document.getElementsByTagName("div")[0];
+        var p=document.getElementsByTagName("p")[0];
+        console.log(p.parentNode);
+
+        //childNodes 子节点
+        console.log(div.childNodes);
+        console.log(div.childNodes.length);//-->5
+        // div.childNodes-->NodeList(5) [text, p, text, span, text]
+
+        /**
+            节点的类型：
+                元素节点   1
+                文本节点：空白和文字都是文本   3
+                注释节点等   8
+        */
+
+        //lastChild：第一个子节点
+        //firstChild：最后一个子节点
+        //nextSibling：后一个兄弟节点
+        //previousSibling：前一个兄弟节点
+
+
+
+
+        /**
+            遍历元素节点树：
+                parentElement 父元素节点
+                children 元素子节点
+                firstElementChild 第一个元素子节点
+                nextElementSibling 后一个兄弟元素子节点
+        */
+        console.log(div.parentElement);
+
+
+        /**
+            节点的四个属性：
+                nodeName--->节点名称（只能读）
+                nodeValue--->只有文本节点和注释节点才有（可读可写）
+                nodeType--->节点类型（只能读）
+                attributes--->节点的属性集合
+                    div.attributes[0].value
+        */
+
+
+        function retElementChild(node){
+            var arr=[],
+                len=node.childNodes.length,
+                child=node.childNodes;
+            for(var i=0;i<len;i++){
+                if(child[i].nodeType===1){
+                    arr.push(child[i]);
+                }
+            }
+            return arr;
+        }
+        ret=retElementChild(div);
+        console.log(ret);
+
+        //将上面的代码转成一个可以返回类数组的一个方法
+        function retElementChild(node){
+            var temp={
+                length:0,
+                push:Array.prototype.push,
+                splice:Array.prototype.splice
+            },
+            child=node.childNodes,
+            len=child.length;
+            for(var i=0;i<len;i++){
+                if(child[i].nodeType===1){
+                    temp.push(child[i]);
+                }
+            }
+        }
+
+
+        //hasChildNodes() 判断当前元素是否有子节点（任何类型的子节点都可以：元素，注释等）
+
+
+
+
     </script>
 </body>
 </html>

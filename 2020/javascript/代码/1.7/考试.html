@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #sjx {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid blue;
+        }
+    </style>
+    <div></div>
+</head>
+<body>
+    
+    <div id="sjx"></div>
+        
+    8px
+    number string boolean NaN Object undefined
+    call和apply是用来改变this的指向的，他们的第一个参数是this的指向，中有多个参数，但是apply的第二个参数是一个数组
+    0 5 0   0 undefined 0
+    function unique(){
+        var str="aaabbbcccdddeefggaa";
+        var arr=str.split("");
+        var temp={};
+        var arr2=[];
+        var len=str.length;
+        for(var i =0;i<len;i++){
+            if(!temp[arr[i]]){
+                temp[arr[i]]="abc";
+                arr2.push(arr[i]);
+            }
+        }
+        return arr2;
+    }
+    var ret=unique();
+    console.log(ret.join(""));
+
+    弱类型 文本标记语言 解释性 基于对象的标记性语言 可跨平台 
+    成哥很帅 因为str.length==> new String("成哥很帅").length -->delete length属性---> 但是字符串本来就有length属性，它的长度为4，所有console.log(str)结果依旧不变
+    function deepClone(origin,target){
+        var target=target||{},
+            toStr=Object.prototype.toString,
+            arrStr="[object Array]";
+        for(var prop in origin){
+            if(origin.hasOwnProperty(prop)){
+                if(origin[prop]!=="null"&&typeof(origin[prop])=='object'){
+                    if(toStr.call(origin[prop])==arrStr){
+                        target[prop]=[];
+                    }else{
+                        target[prop]={};
+                    }
+                    deepClone(origin[prop],target[prop]);
+                }else{
+                    target[prop]=origin[prop];
+                }
+            }
+        }
+        return target;
+    }
+    222 111 333 222
+    a a a a
+
+    结构样式动态特效相分离，遵循W3C标准，符合es5.0新增的方法和es3.0的语法。在没有网的情况下，能够快速加载html
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ”aaabbbcccdddeefggaa”
+        
+        // console.log(arr);
+        function unique(){
+            var str="aaabbbcccdddeefggaa";
+            var arr=str.split("");
+            var temp={};
+            var arr2=[];
+            var len=str.length;
+            for(var i =0;i<len;i++){
+                //处理的就是没有值的情况--->!undefined--->true
+                if(!temp[arr[i]]){
+                    //给每一个属性的属性值都设置为abc,该属性值不为假即可
+                    temp[arr[i]]="abc";
+                    arr2.push(arr[i]);
+                }
+            }
+            return arr2;
+        }
+        var ret=unique();
+        console.log(ret.join(""));
+    </script>
+</body>
+</html>
