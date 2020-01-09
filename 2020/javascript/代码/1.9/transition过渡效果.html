@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            /*
+                设置元素过渡效果---->让属性能够逐渐的发生变化
+                    下面两个属性必须得有
+                        1.设置过渡效果作用的属性
+                        2.过渡效果执行的时间
+                    3.过渡效果的延迟时间
+                    4.过渡速度函数 
+            */
+            transition:left 1s ;
+            /*前三个参数是以谁为坐标轴*/
+            transform:rotate(1,1,1,30deg);
+        }
+        /* .demo:hover{
+            left: 300px;
+        } */
+
+        /*谁是3d图形就给谁设置transorm-style:preserve-3d,并且需要给它设置一个舞台perspective*/
+
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <script>
+        var demo=document.getElementsByClassName("demo")[0];
+        demo.onclick=function(){
+            this.style.left="300px";
+        }
+    </script>
+</body>
+</html>

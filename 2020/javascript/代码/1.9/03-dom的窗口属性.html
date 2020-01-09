@@ -131,6 +131,59 @@
                 }
             }
         }
+
+
+
+        /***
+         * 
+         * 查看可视区窗口的尺寸:能够编写的文档的部分(不包含导航栏和地址栏)
+         *      window.innerWidth/innerHeight
+         *          window.innerHeight
+                    578
+                    window.innerWidth
+                    725
+         *      IE8及其以下查看可视区窗口尺寸的方法:
+         *          document.documentElement.clientHeight/clientWidth---->标准模式
+         *          document.body.clientWidth/clientHeight---->怪异模式
+         * 
+         * 
+         * 浏览器的怪异模式(混杂模式):向后兼容(为了兼容之前的语法)
+         *      如何判断浏览器的模式?
+         *          document.compatMode--->"CSS1Compat"  BackCompat(向后兼容)
+         * 
+        */
+
+        //封装方法
+        function getViewportOffset(){
+            if(0&&window.innerWidth){
+                return {
+                    w:window.innerWidth,
+                    h:window.innerHeight
+                }
+            }else{
+                if(document.compatMode==="BackCompat"){
+                    return  {
+                        w:document.body.clientWidth,
+                        h:document.body.clientHeight
+                    }
+                }else{
+                    return {
+                        w:document.documentElement.clientWidth,
+                        h:document.documentElement.clientHeight
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
