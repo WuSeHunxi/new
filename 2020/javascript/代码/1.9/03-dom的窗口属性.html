@@ -7,10 +7,130 @@
     <title>Document</title>
 </head>
 <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <script>
         /***
             窗口属性
+                查看滚动条滚动的距离:
+                    window.pageOffsetX/pageOffsetY(不兼容)
+                    IE8及其以下的查看滚动条的方法:
+                        document.body.scrollLeft/Top
+                        document.documentElement.scrollLeft/Top
         */
+
+        //封装一个方法,实时得到滚动条的距离
+        function getScrollOffset(){
+            if(window.pageXOffset){
+                return {
+                    x:window.pageXOffset,
+                    y:window.pageYOffset
+                }
+            }else{
+                return {
+                    x:document.body.scrollLeft+document.documentElement.scrollLeft,
+                    y:document.body.scrollTop+document.documentElement.scrollTop
+                }
+            }
+        }
     </script>
 </body>
 </html>
