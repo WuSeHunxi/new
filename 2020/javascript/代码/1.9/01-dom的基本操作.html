@@ -134,7 +134,18 @@
         div.removeChild(i);
         p.remove();
 
-
+        
+        /**
+            练习:生成一段简单的dom结构
+        */
+        var div=document.createElement("div");
+        var p=document.createElement("p");
+        div.setAttribute("class","example");
+        p.setAttribute("class","slogan");
+        var text=document.createTextNode("主帅");
+        p.appendChild(text);
+        div.appendChild(p);
+        document.bdoy.appendChild(div);
 
 
 
