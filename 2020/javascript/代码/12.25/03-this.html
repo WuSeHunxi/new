@@ -152,13 +152,13 @@
             for(var prop in origin){
                 //原型上的属性不拷贝
                 if(origin.hasOwnPrototype(prop)){
-                    if(typeof(origin[prop])=='object'){
+                    if(origin[prop]!="null" && typeof(origin[prop])=='object'){
                         if(toStr.call(origin[prop])==arrStr){
                             target[prop]=[];
                         }else{
                             target[prop]={};
                         }
-                        seepClone(origin[prop],target[prop]);
+                        deepClone(origin[prop],target[prop]);
                     }else{
                         target[prop]=origin[prop];
                     }
@@ -168,6 +168,12 @@
         }
         var ret=deepClone(obj,obj1);
         console.log(ret);
+
+
+
+        //字符串是逐位比较的
+        var num=1>0?("10">"9"?1:0):2;//0
+        // "10"和"9"比较，是逐位进行比较的
 
 
     </script>

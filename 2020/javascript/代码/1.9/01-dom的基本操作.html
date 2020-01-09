@@ -145,9 +145,25 @@
         var text=document.createTextNode("主帅");
         p.appendChild(text);
         div.appendChild(p);
-        document.bdoy.appendChild(div);
+        document.body.appendChild(div);
 
 
+
+        //封装insertAfter(),功能类似于insertBefore()
+        Element.prototype.insertAfter=function(targetNode,afterNode){
+            var beforeNode=afterNode.nextElementSibling;
+            if(beforeNode==null){
+                this.appendChild(targetNode);
+            }else{
+                this.insertBefore(targetNode,beforeNode);
+            }
+        }
+        var strong=document.createElement("strong");
+        div.insertAfter(strong,p);
+        
+
+        //将目标节点内部的节点顺序逆序---->利用appendChild的剪切功能
+        
 
     </script>
 </body>

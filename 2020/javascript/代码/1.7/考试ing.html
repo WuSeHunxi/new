@@ -18,9 +18,7 @@
             var arr2=[];
             var len=str.length;
             for(var i =0;i<len;i++){
-                //处理的就是没有值的情况--->!undefined--->true
                 if(!temp[arr[i]]){
-                    //给每一个属性的属性值都设置为abc,该属性值不为假即可
                     temp[arr[i]]="abc";
                     arr2.push(arr[i]);
                 }

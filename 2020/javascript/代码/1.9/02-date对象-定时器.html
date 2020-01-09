@@ -5,12 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        input{
+            border:1px solid rgba(0,0,0,0.8);
+            /*内容右对齐*/
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    minutes: <input type="text" value="0">
+    seconds: <input type="text" value="0">
     <script>
         /**
-            
+           Date对象
+                getDate()---->今天是第几天
+                getDay()---->今天是一周之中的第几天(从0开始算的)
+                getMonth()---->(从0开始算起0-11)
+                getTime()---->毫秒数
+                setDate()---->设置某一天(改变日期对象中的第几天)
+                setTime()---->设置秒数(时间戳),可以通过它得到相应的年月日时分秒
+
         */
+        //这个对象不是实时的,相当于把当前的时间保存起来,可以取数据,但是不会发生改变
+        var date=new Date();//此时此刻的日期
+
+        
+
+        //定时器(有返回值,该值是一个数字)----精确度不准
+        //setInterval()的第一个参数可以是字符串,系统会将该字符串当成js的代码进行执行
+        var firstTime=new Date().getTime();
+        var timer=setInterval(function(){
+            var lastTime=new Date().getTime();
+            console.log(lastTime-firstTime);
+            firstTime=lastTime;
+        },1000);
+
+        //清除定时器
+        clearInterval(timer);
+
+
+        //计时器:setTimeout(){}---->延迟多长时间了再做某事
+        var timer2=setTimeout(function(){
+            console.log("a");
+        },1000);
+
+        //清楚计时器
+        clearTimeout(timer2);
+
+
+        //练习:计时3分钟
+        var minutesNode=document.getElementsByTagName("input")[0];
+        var secondsNode=document.getElementsByTagName("input")[1];
+        var minutes=0,
+            seconds=0;
+        var timer3=setInterval(function(){
+            seconds++;
+            if(seconds==60){
+                seconds=0;
+                minutes++;
+            }
+            secondsNode.value=seconds;
+            minutesNode.value=minutes;
+            if(minutes==3){
+                clearInterval(timer3);
+            }
+        },100);
+        
+
+
+
+
     </script>
 </body>
 </html>
