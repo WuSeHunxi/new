@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开箱</title>
+    <style>
+        body {
+            perspective: 1000px;
+        }
+        .wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 300px auto;
+            transform-style: preserve-3d;
+            position: relative;
+            transform: rotate3d(1, 1, 1, -30deg);
+            /* transform: rotateX(-45deg); */
+        }
+        .wrapper .face {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+            transform-origin: center center;
+           
+        }
+        .wrapper .face:nth-child(1) {
+            background-color: aqua;
+            transform: translateZ(50px);
+        }
+        .wrapper .face:nth-child(2) {
+            background-color: salmon;
+            transform: rotateY(180deg) translateZ(50px);
+        }
+        .wrapper .face:nth-child(3) {
+            background-color: seagreen;
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        .wrapper .face:nth-child(4) {
+            background-color: springgreen;
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+        .wrapper .face:nth-child(5) {
+            background-color: purple;
+            transform: rotateX(90deg) translateZ(50px);
+            transition: all 2s;
+        }
+        .wrapper .face:nth-child(6) {
+            background-color: darkorange;
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+        .wrapper .face:nth-child(7) {
+            background-color: black;
+            transition: all 2s;
+            color: #fff;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .wrapper:hover .face:nth-child(5) {
+            transform: rotateX(90deg) translateZ(100px) rotatex(90deg) translateZ(50px);
+        }
+        .wrapper:hover .face:nth-child(7){
+            transform: translateY(-100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="face">1</div>
+        <div class="face">2</div>
+        <div class="face">3</div>
+        <div class="face">4</div>
+        <div class="face">5</div>
+        <div class="face">6</div>
+        <div class="face">青青子衿<br/>悠悠我心</div>
+    </div>
+</body>
+</html>
