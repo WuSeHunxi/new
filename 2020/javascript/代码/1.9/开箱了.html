@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>开箱了</title>
+  <style>
+    body {
+      perspective: 1000px;
+    }
+    .wrapper {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      margin: 200px auto;
+      transform-style: preserve-3d;
+      transform: rotate3d(1, 1, 1, -30deg);
+      /* transition: all 3s; */
+    }
+    /* .wrapper:hover {
+      transform: rotate3d(1, 1, 1, 360deg);
+    } */
+    .wrapper .face {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      color: #fff;
+      font-size: 60px;
+      font-weight: bold;
+      text-align: center;
+      transform-origin: center center;
+    }
+    .wrapper .face:nth-child(1) {
+      background-color: aqua;
+      transform: translateZ(50px);
+    }
+    .wrapper .face:nth-child(2) {
+      background-color: salmon;
+      transform: rotateY(180deg) translateZ(50px);
+    }
+    .wrapper .face:nth-child(3) {
+      background-color: springgreen;
+      transform: rotateX(90deg) translateZ(50px);
+      transition: all 1s linear;
+    }
+    .wrapper .face:nth-child(4) {
+      background-color: slateblue;
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+    .wrapper .face:nth-child(5) {
+      background-color: purple;
+      transform: rotateY(90deg) translateZ(50px);
+    }
+    .wrapper .face:nth-child(6) {
+      background-color: papayawhip;
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+    .wrapper .face:nth-child(7) {
+      background-color: black;
+      font-size: 16px;
+      height: 50%;
+      transition: all 2s linear;
+      transform: translatey(50%);
+    }
+    .wrapper:hover .face:nth-child(3) {
+      transform:  rotateX(90deg) translateZ(100px) translateY(-50px) rotateX(-90deg);
+    }
+    .wrapper:hover .face.face:nth-child(7){
+      transform: translateY(-50px);
+    }
+
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+      <div class="face">1</div>
+      <div class="face">2</div>
+      <div class="face">3</div>
+      <div class="face">4</div>
+      <div class="face">5</div>
+      <div class="face">6</div>
+      <div class="face">青青子衿<br/> 悠悠我心</div>
+    </div>
+</body>
+</html>
