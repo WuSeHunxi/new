@@ -14,8 +14,8 @@
         </div>
     </div>
     <script>
-        /**       <
-            document是文档，它的构造函数时HTMLDocument
+        /**       
+            document是文档，它的构造函数是HTMLDocument
                 document.constructor---->ƒ HTMLDocument() { [native code] }
             Document：是系统的构造函数，即：function Document(){}
                 HTMLDocument.prototype.__proto__=Document.prototype
@@ -23,6 +23,7 @@
             document.body--->body
             document.html--->html
         */
+        //因为原型的关系所以能够继承
         Document.prototype.abc="abc";
         console.log(document.abc);
 
@@ -31,7 +32,7 @@
         var head=document.getElementsByTagName("head")[0];
         console.log(body.abc+" "+head.abc);//demo demo
 
-        HTMLBodyElement.prototype.bcd="test";
+        HTMLBodyElement.prototype.bcd="test";//body的原型，只能获取body的属性，其他的获取不到
         console.log(body.bcd);//test
         console.log(head.bcd);//undefined
 
@@ -113,7 +114,7 @@
                     节点中去是剪切,即:原位置的节点消失,在另一个节点中显示,在120行举个例子
                 insertBefore(a,b)---->父节点.insertBefore(a,b)---->在b前面插入a
             删除节点
-                父节点删除:parent.removeChild()---->并不是真正的删除,是把它给剪切出来了
+                父节点删除:parent.removeChild(子节点)---->并不是真正的删除,是把它给剪切出来了
                 自己删除:elem.remove()---->真正的删除
             替换节点
                 parent.replaceChild(new,origin)---->拿新元素替换旧元素,原来的旧元素被剪切出来了

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p></p>
+        <span>
+            <strong>
+
+            </strong>
+        </span>
+    </div>
+    <script>
+        //返回节点e的第n层父节点
+        function retEle(e,n){
+            while(n&&e){
+                e=e.parentElement;
+                n--;
+            }
+            return e;
+        }
+        var strong=document.getElementsByTagName("strong")[0];
+        var ret=retEle(strong,1);
+        console.log(ret);
+
+        //封装函数，返回元素e的兄弟元素节点，当n为正的时候往后找，当n为负的时候往前找
+        function retElement(e,n){
+            while(e&&n){
+                if(n>0){
+                    if(e.nextElementSibling){
+                        e=e.nextElementSibling;
+                    }else{
+                        for(e=e.nextSibling;e&&e.nodeType!=1;e=e.nextSibling);
+                    }
+                }else{
+                    if(e.previousElementSibling){
+                        e=e.previousElementSibling;
+                    }else{
+                        for(e=e.prevoiusSibling;e&&e.nodeType!=1;e=e.prevoiusSibling);
+                    }
+                }
+            }
+            return e;
+        }
+
+
+        //封装函数，实现myChildren的功能，解决浏览器存在的兼容性问题
+        Element.prototype.myChildren=function(){
+            var child=this.childNodes;
+            var arr=[];
+            for(var i=0;i<child.length;i++){
+                if(child[i].nodeType==1){
+                    arr.push(child[i]);
+                }
+            }
+            return ;
+        }
+
+        //封装insertAfter()方法，类似于insertBefore()
+        Element.prototype.insertAfter=function(target,origin){
+            var beforeNode=origin.nextElementSibling;
+            while(beforeNode){
+                this.insertBefore(target,beforeNode);
+            }
+            this.appendChild(target);
+        }
+    </script>
+</body>
+</html>

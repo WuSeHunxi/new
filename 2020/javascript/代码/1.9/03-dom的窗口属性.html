@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
+    <div></div>
     <br>
     <br>
     <br>
@@ -155,7 +163,7 @@
 
         //封装方法
         function getViewportOffset(){
-            if(0&&window.innerWidth){
+            if(window.innerWidth){
                 return {
                     w:window.innerWidth,
                     h:window.innerHeight
@@ -176,13 +184,52 @@
         }
 
 
+        var div=document.getElementsByTagName("div")[0];
 
+        /**
+         * 求得元素的尺寸-->getBoundingClientRect()
+         *      会得到一个对象包含:宽 高 left top等属性,但是在IE浏览器中得到的这个对象没有宽高属性
+         * 
+         * 查看元素尺寸:
+         *     xxx.offsetWidth/offsetHeight
+         *     
+         * offsetLeft---->对于无定位的父级元素,返回相对文档的坐标
+         *                对于有定位的父级元素,返回相对与最近的有定位的父级的坐标
+         * 
+         * window上的三个方法
+         *     scroll(x,y)--->让滚动条滚动到(x,y)的位置
+         *     scrollTo(x,y)--->让滚动条滚动到(x,y)的位置
+         *     scrollBy(x,y)--->(累加)能够实现快速阅读的功能
+         * **/
 
+        
 
+        /**
+         * DOM操作css
+         *     改变float的时候需要在前面加上css---->cssFloat
+         *          div.style.cssFloat="right"
+         *     
+         *     window.getComputedStyle(xxx,null)--->获取当前这个元素所展示的一切css显示值,和权重有关
+         *          并且返回的样式都是绝对值,没有相对单位,但是有兼容性问题,在IE8及其以下使用xxx.currentStyle,
+         *          但是这个方法获取的值不会发生转变,即:你设置的是啥得到的就是啥,而且别的浏览器用不了
+         *        window.getComputedStyle(xxx,xxx)--->第二个参数可以获取伪元素
+         *             window.getComputedStyle(谁的伪元素,after/before)
+         * 
+         *     xxx.style.xxx---->获取的是行间的样式
+         *          
+         * 
+        */
 
+        //封装getStyle()方法--->获取元素的css属性
+        function getStyle(elem,prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(elem,null)[prop];
+            }else{
+                return elem.currentStyle[prop];
+            }
+        }
 
-
-
+        //left和top的默认值是auto
 
     </script>
 </body>
