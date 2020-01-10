@@ -156,8 +156,12 @@
         }
 
         //封装获取元素样式的方法
-        function getStyle(){
-            
+        function getStyle(elem,prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(elem,null)[prop];
+            }else{
+                return elem.currentStyle[prop];
+            }
         }
     </script>
 </body>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .wrapper{
+            height: 300px;
+            width: 300px;
+            background-color: yellow;
+        }
+        .content{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
+
+    <div class="wrapper">
+        <div class="content">
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        /**
+            事件：
+                一旦事件被触发之后就会执行一个函数
+                如何绑定一个事件：
+                    xxx.on事件类型=function(){}--->一个对象的一个处理函数只能绑定一个处理函数
+                    addEventListener--->能给同一个事件对象绑定多个事件处理函数，但是不能绑定同一个事件处理函数
+                    attachEvent('on'+事件类型,事件处理函数)----》IE9独用，能够完成addEventListener不能干的事
+                    
+        */
+        var div=document.getElementsByTagName("div")[0];
+        // div.onclick=function(){
+        //     console.log("papap");
+        // }
+
+        div.addEventListener('click',function(){
+            console.log("ooo");
+        },false);
+
+        //用addEventListener实现输出点击顺序的例子
+        var liCol=document.getElementsByTagName("li"),
+            len=liCol.length;
+        for(var i=0;i<len;i++){
+            (function(i){
+                liCol[i].addEventListener('click',function(){
+                    console.log(i);
+                },false);
+            }(i))
+        }
+
+
+
+        /**
+            事件处理方式
+                事件冒泡：漏事件
+                    结构上存在嵌套关系的元素，会发生事件冒泡。即同一事件，自子元素冒泡向父元素（自底向下--从代码的结构来看）
+                事件捕获--->只有谷歌浏览器好使
+                    结构上嵌套的元素，会存在事件捕获功能，自父元素捕获至子元素(事件源元素)（自顶向上）。
+                        捕获到子元素的时候是执行子元素，即：如果该子元素还绑定了其他的事件，要先执行最先绑定的事件，
+                        然后再捕获
+                        =====》 子元素按顺序执行，父元素先捕获后冒泡
+                    另一种事件捕获的方法：xxx.setCapture()
+                触发顺序：先捕获后冒泡
+                一个事件类型只能遵循一个事件模型
+
+                注意：focus blur change submit reset select等事件不冒泡
+        */
+        var wrapper=document.getElementsByClassName("wrapper")[0];
+        var content=document.getElementsByClassName("content")[0];
+        var box=document.getElementsByClassName("box")[0];
+
+        wrapper.addEventListener("click",function(){
+            console.log("wrapperBulle");
+        },false);
+        content.addEventListener("click",function(){
+            console.log("contentBulle");
+        },false);
+        box.addEventListener("click",function(){
+            console.log("boxBulle");
+        },false);
+        wrapper.addEventListener("click",function(){
+            console.log("wrapper");
+        },true);
+        content.addEventListener("click",function(){
+            console.log("content");
+        },true);
+        box.addEventListener("click",function(){
+            console.log("box");
+        },true);
+        /**
+            执行结果：wrapper
+                     content
+                     boxBulle
+                     box
+                     contentBulle
+                     wrapperBulle
+        */
+
+
+        /**
+            事件对象：记载额当前事件的一些信息
+                阻止冒泡事件：event.stopPropagation() || event.cancelBubble=true
+                阻止默认事件：return false-->只能是onxxx的绑定事件的方式才好使 || e.preventDefault()
+                             e.returnValue=false
+                右键出菜单默认事件：oncontextmenu
+
+        */
+
+        //封装取消冒泡的方法
+        function stopBubble(event){
+            if(event.stopPropagation){
+                event.stopPropagation;
+            }else{
+                event.cancelBubble=true;
+            }
+        }
+
+        //封装取消默认事件的方法
+        function cancelHandler(e){
+            if(e.preventDefault){
+                e.preventDefault();
+            }else{
+                e.returnValue=false;
+            }
+        }
+
+
+        /**
+            事件对象：e
+            事件源对象：target   srcElement--->在事件冒泡中看得清楚
+                应用于事件委托-->效率高(不需要循环所有的元素) 可动态扩充(新创建的子元素不需要重新绑定事件)
+                    将相似的事件抽取出来
+        */
+        var ul=document.getElementsByTagName("ul")[0];
+        ul.onclick=function(e){
+            var event=e||window.event;
+            var target=event.target||event.srcElement;
+            console.log(target.innerText);
+        }
+
+
+
+        /**
+            click = mousedown + mouseup
+
+            区分鼠标的左右键的事件：
+                mousedown mouseup
+                e.button=2-->右键   e.button=0-->左键
+            
+            click只能触发左键
+        */
+
+        //区分拖拽和点击
+        var firsttime=0,
+            lasttime=0,
+            key=false;
+        document.onmousedown=function(){
+            firsttime=new Date().getTime();
+        }
+        document.onmouseup=function(){
+            lasttime=new Date().getTime();
+            if(lasttime-firsttime<300){
+                key=true;
+            }
+        }
+        document.onclick=function(){
+            if(key){
+                console.log('click');
+                key=false;
+            }
+        }
+
+
+
+        /**
+            键盘类事件：
+                keydown-->能够检测到所有键盘类的键
+                keyup
+                keypress-->只能检测到字符类按键（能够对应其asc码），没有上下左右等控制类的键
+                    将asc转成字符的方法：String.fromCharCode(e.charCode)
+        */
+
+
+        /**
+            oninput：文本框的内容发生变化就会触发
+            onchange：失去焦点触发（文本框的内容不同）
+            onscroll：滚动条一滚就触发了-->可以获取滚动条当前位置
+            onload：整个页面全部加载完成，效率低
+        */
+
+
+
+
+
+    </script>
+</body>
+</html>

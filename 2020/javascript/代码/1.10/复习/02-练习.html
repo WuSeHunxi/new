@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: yellow;
+    position: absolute;left: 0;top: 0;"></div>
+    <script>
+
+        var div=document.getElementsByTagName("div")[0];
+        var disX,disY;
+        div.onmousedown=function(e){
+            // console.log("a");
+            disX=e.pageX-parseInt(div.style.left);
+            disY=e.pageY-parseInt(div.style.top);
+
+            //在页面移动的事件
+            //使用document绑定事件解决鼠标运动频率过快的情况
+            document.onmousemove=function(e){
+                var event=e||window.event;
+                div.style.left=e.pageX-disX+"px";
+                div.style.top=e.pageY-disY+"px";
+                // console.log("p");
+            }  
+            document.onmouseup=function(){
+                document.onmousemove=null;
+            }
+        }
+        
+    </script>
+</body>
+</html>
