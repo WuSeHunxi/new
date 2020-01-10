@@ -15,6 +15,8 @@
             </strong>
         </span>
     </div>
+    minute: <input type="text" value="0">
+    second: <input type="text" value="0">
     <script>
         //返回节点e的第n层父节点
         function retEle(e,n){
@@ -76,6 +78,39 @@
         console.log(date.getSeconds());
         console.log(date.getTime());
 
+        //定时器
+        var timer=setInterval(function(){
+            console.log("!");
+        },1000);
+
+        //计时器
+        var timeout=setTimeout(function(){
+            console.log("papa");
+        },1000);
+
+
+        //清除定时器和计时器
+        clearInterval(timer);
+        clearTimeout(timeout);
+
+
+        //设置一个三分钟的定时器
+        var minuteNode=document.getElementsByTagName("input")[0];
+        var secondNode=document.getElementsByTagName("input")[1];
+        var second=0,
+                minute=0;
+        var time=setInterval(function(){
+            second++;
+            if(second==60){
+                second=0;
+                minute++;
+            }
+            secondNode.value=second;
+            minuteNode.value=minute;
+            if(minuteNode.value==3){
+                clearInterval(time);
+            }
+        },100);
     </script>
 </body>
 </html>
