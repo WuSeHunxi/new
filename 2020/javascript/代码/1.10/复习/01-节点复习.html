@@ -111,6 +111,54 @@
                 clearInterval(time);
             }
         },100);
+
+
+
+        //封装查看滚动条的方法
+        function scroll(){
+            if(window.pageXOffset){
+                return {
+                    x:window.pageXOffset,
+                    y:window.pageYOffset
+                }
+            }else{
+                return {
+                    x:document.body.scrollLeft+document.documentElement.scrollLeft,
+                    y:document.body.scrollTop+document.documentElement.scrollTop
+                }
+            }
+        }
+
+        /**
+            在IE8及其以下的浏览器是有模式差异的
+                即：标准模式和怪异模式
+        */
+        //封装查看网页尺寸的函数
+        function size(){
+            if(window.innerHeight){
+                return {
+                    x:window.innerWidth,
+                    y:window.innerHeight
+                }
+            }else{
+                if(document.compatMode=="BackCompat"){
+                    return {
+                        x:document.body.clientWidth,
+                        y:document.body.clientHeight
+                    }
+                }else{
+                    return {
+                        x:document.documentElement.clientWidth,
+                        y:document.documentElement.clientHeight
+                    }
+                }
+            }
+        }
+
+        //封装获取元素样式的方法
+        function getStyle(){
+            
+        }
     </script>
 </body>
 </html>
