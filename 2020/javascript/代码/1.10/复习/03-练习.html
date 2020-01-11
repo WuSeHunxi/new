@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //当dom树解析完才执行，效率高（将script标签写在上面）
+        document.addEventListener("DOMContentLoaded",function(){
+            var div=document.getElementsByTagName("div")[0];
+            console.log(div);
+        })
+    </script>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: aqua;"></div>
+</body>
+</html>

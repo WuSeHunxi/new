@@ -8,7 +8,91 @@
 </head>
 <body>
     <script>
-        m
-    </script>
+        /**
+            json：一种传输数据的格式（简单来说就是对象）
+                属性名必须得加""
+                string-->json：JSON.parse(字符串)
+                json-->string：JSON.stringify(json对象)
+        */
+
+        /**
+            异步加载的三种方案：
+                defer：在javascript的外部链接或script标签中加入defer，但是只有IE才能用。
+                    等到整个页面全部解析完之后才会执行
+                async：只能加载外部的js脚本，不能将代码写在script的标签里
+                    加载完就执行
+
+                生成dom树的过程是节点的解析，不需要下载完就可以直接挂在dom树上，下载完一定要在解析完之后
+
+                通过创建一个script标签实现异步加载
+        */
+
+
+        /**
+            onload：下载完再执行的事件
+            readyState-->script上的状态码
+                一开始script.readyState='loading'
+                加载完成--->loaded
+                当状态码发生改变的时候会触发一个事件：onreadystatechange
+        */
+
+        //封装一个异步加载的方法
+        function loadScript(url,callback){
+            var script=document.createElement("script");
+            script.type="text/javascript";
+            if(script.readyState){
+                script.onreadystatechange=function(){
+                    if(script.readyState=="complete"||script.readyState=="loaded"){
+                        callback();
+                    }
+                }
+            }else{
+                script.onload=function(){// IE的script标签没有该方法
+                    callback();
+                }
+            }
+            script.src=url;//能够确保加载完成 
+            document.head.appendChild(script);
+        }
+        loadScript('demo.js',function(){
+            test();
+        })
+
+
+        /**
+         * 时间线
+         *  通过状态码才能打印出interictive
+         * 
+         *  DOMContentLoaded事件只能在addEventListener中才能响应
+         *      解析完才执行的方法
+         * 
+         * js时间线的过程：
+         *    1.创建Document对象，开始解析web页面，解析html元素和他们的文本内容后添加element对象和text节点
+         *      到文档中，该阶段的document.readyState='loading'。
+         *    2.遇到link外部css，创建线程加载，并继续解析文档.
+         *    3.遇到script外部js，并且没有设置async，defer，浏览器加载，并阻塞，等待js加载完成并执行该脚本，
+         *      然后继续解析文档。
+         *    4.遇到script外部js，并且没有设置async，defer，浏览器创建线程加载，并继续解析文档。
+         *      对于async属性的脚本，当其加载完后立即执行。
+         *    5.遇到img等，先正常解析dom结构，然后浏览器异步加载src，并继续解析文档。
+         *    6.当文档解析完成，document.readyState='interactive'
+         *    7.文档解析完成后，所有设置defer的脚本会按照顺序执行。
+         *    8.document对象触发DOMContentLoaded事件，标志着程序从同步脚本执行阶段转化为事件驱动阶段
+         *    9.当所有async的脚本加载完成并执行之后，img等加载完成后，document.readyState='complete'，
+         *      window对象触发load事件。
+        */
+
+        //这两个方法解析完就可以执行--->$(document).ready(){}
+        document.onreadystatechange=function(){
+            console.log(document.readyState);
+        }
+
+        document.addEventListener("DOMContentLoaded",function(){
+            console.log("a");
+        },false);
+
+
+
+        </script>
 </body>
 </html>
