@@ -8,7 +8,95 @@
 </head>
 <body>
     <script>
+        /**
+         * 正则表达式：特殊字符串的匹配功能
+         *      var reg=/abc/;
+         * i：忽略大小写
+         * g：全局匹配
+         * m：多行匹配
+         * []-->一个[]表示一位，里面的内容表示范围
+         *    []--->表示一个表达式，^放在[]的里面和外面是不一样的
+         *    [^]--->表示“非”的意思，即：!，除了
+         * ()--->没啥作用，加和没加没区别
+         *    (|)--->会变成一个区间，是前面的或者是后面的
+         * \w--->[0-9A-z]
+         * \W--->[^\w]
+         * \d--->[0-9]
+         * \D--->[^\d]
+         * \s--->[\t\n\r\v\f]
+         * \S--->[^\s]
+         * \b--->单词边界（它在前就是前面的边界，在后就是后面的单词边界
+         * \B--->非单词边界
+         * .--->[^\r\n]
+         * ^n--->以谁开头
+         * n$--->以谁结尾
+         * ^n$--->以该变量开头和结尾
+         * 
+         * 贪婪匹配：
+         *   n+--->该变量可以重复出现一到多次
+         *   n*--->{0,}匹配0到多次（最后会匹配一个""，即：匹配0次）
+         *     如果识别不出来值（每一位）的时候会根据光标所在的位置进行匹配，即：""。但是有值的话就匹配值
+         *   n?--->{0,1}匹配0到1个。
+         * 
+         * exec()--->与lastIndex相结合使用，lastIndex是控制游标的
+         *  
+        */
+        // var reg=/abc/;//-->匹配字符串的规则是abc
+        // var reg1=new RegExp(reg,"i");
+        // var reg2=RegExp(reg);
+        //reg1和reg2是指向同一个对象
+
+        var reg=/^a/gm;//全局，多行匹配
+        var str="abcd\na";
+        console.log(str.match(reg));
+
+        var reg1=/[\d\D]/;//补集（能够代表任何字符）
+        var s="老邓是ni";
+        console.log(s.match(reg1));
+
+        var reg2=/\w*/g;
+        var ss="1abc";
+        console.log(ss.match(reg2));//["abc", ""]--->开始有匹配的值，按多次进行匹配
+        var reg3=/\d*/g;
+        var sss='abc';
+        console.log(sss.match(reg3));//["", "", "", ""]--->开始没匹配的值，按照光标匹配
+
+        //exec()
+        var r=/ab/g;//如果没有g的话，游标一直都是0
+        var str1="ababababab";
+        //lastIndex得到的是游标，即：字符串匹配的上的位置
+        console.log(r.lastIndex);//0
+        console.log(r.exec(str1));
+        console.log(r.lastIndex);//2
+        console.log(r.exec(str1));
+        console.log(r.lastIndex);//4
+        console.log(r.exec(str1));
+        console.log(r.lastIndex);//6
+        console.log(r.exec(str1));
+        console.log(r.lastIndex);//8
+        console.log(r.exec(str1));
+
+
+        /**
+         * 子表达式：(xx)
+         * 反向引用：\1--->反向引用第一个子表达式中的内容
+         *          \xx--->反向引用第xx个子表达式的内容
+        */
+        var str="aaa";
+        var reg=/(\w)\1\1/g;
+        console.log(str.match(reg));//["aaa"]
+        console.log(reg.exec(str));//["aaa", "a", index: 0, input: "aaa", groups: undefined]
+
+        var str='aabb';
+        var reg=/(\w)\1(\w)\2/;
+        console.log(reg.exec(str));//["aabb", "a", "b", index: 0, input: "aabb", groups: undefined]
+
         
+
+
+
+
+
         </script>
 </body>
 </html>
