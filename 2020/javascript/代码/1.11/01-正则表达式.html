@@ -92,11 +92,67 @@
         console.log(reg.exec(str));//["aabb", "a", "b", index: 0, input: "aabb", groups: undefined]
 
         
+        /**
+         * 支持正则表达式的字符串方法
+         *      match()：全局匹配和非全局匹配的差别很大
+         *      search()：返回匹配的到位置，没有匹配的到的话返回-1.
+         *      replace()：替换，例子如下
+         *          replace()可以有两个参数，第二个参数是一个回调函数，回调函数的参数($,$1,$2...),即：$和子表达式
+         * 
+        */
+        var str="aa";
+        console.log(str.replace("a","b"));//ba
+
+        var str1="aa";
+        var reg=/a/;
+        console.log(str.replace(reg,"b"));//ba
+
+        var str2="aa";
+        var reg2=/a/g;
+        console.log(str2.replace(reg2,"b"));//bb
+
+        //将aabb逆序
+        var reg=/(\w)\1(\w)\2/g;
+        var str="aabb";
+        //$1$2--->取出子表达式，再替换的时候常用到
+        console.log(str.replace(reg,"$2$2$1$1"));
+
+        //小驼峰式---正则表达式的应用
+        var reg=/-(\w)/g;//g将-f和-n全匹配出来了
+        var str="the-first-name";
+        //replace的回调函数匹配几次就执行几次
+        console.log(str.replace(reg,function($,$1){
+            return $1.toUpperCase();
+        }))
+
+
+        /**
+         * 正向预查：?=n
+         *      n表示的是修饰条件
+         *          !n--->和上面的那个相反
+        */
+        var str="abaaaa";
+        var reg=/a(?=b)/g;//匹配全局中连接的是b的a
+        console.log(str.match(reg));//["a"]
 
 
 
+        /**
+         * 字符串去重
+        */
+        var str="aaaaaaaaaaaabbbbbbbbbbccccccccccc";
+        var reg=/(\w)\1*/g;//将相同的全部匹配出来
+        // console.log(reg);
+        //利用子表达式代替
+        console.log(str.replace(reg,"$1"));
 
 
-        </script>
+        //每3位打一个点，即：从后面数，三位一组加点
+        var str="100000000";
+        //利用的是正向预查，选择的是一个空，后面带着数字的（个数是三的倍数）
+        var reg=/(?=(\B)(\d{3})+$)/g;//三个数字连在一起，并且这种情况出现多次，而且不能是字符边界
+        console.log(str.replace(reg,"."));
+
+    </script>
 </body>
 </html>
