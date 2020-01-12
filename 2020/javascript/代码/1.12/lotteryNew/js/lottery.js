@@ -45,8 +45,4 @@
         this.tabel.style.transition = 'all 3s';
     
     }
-
-
-
-
 })(window)

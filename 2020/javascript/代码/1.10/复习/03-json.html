@@ -74,7 +74,7 @@
          *    2.遇到link外部css，创建线程加载，并继续解析文档.
          *    3.遇到script外部js，并且没有设置async，defer，浏览器加载，并阻塞，等待js加载完成并执行该脚本，
          *      然后继续解析文档。
-         *    4.遇到script外部js，并且没有设置async，defer，浏览器创建线程加载，并继续解析文档。
+         *    4.遇到script外部js，并且设置async，defer，浏览器创建线程加载，并继续解析文档。
          *      对于async属性的脚本，当其加载完后立即执行。
          *    5.遇到img等，先正常解析dom结构，然后浏览器异步加载src，并继续解析文档。
          *    6.当文档解析完成，document.readyState='interactive'

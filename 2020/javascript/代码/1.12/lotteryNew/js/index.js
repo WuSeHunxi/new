@@ -2,7 +2,6 @@
         rotateNum:8,
         turnTabel:document.getElementsByClassName('container')[0],
         judgeFn:judgeFn
-
     }
 
     var lottery = new Lottery(pars)
