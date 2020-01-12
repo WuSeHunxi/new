@@ -65,9 +65,11 @@
         var liCol=document.getElementsByTagName("li"),
             len=liCol.length;
         for(var i=0;i<len;i++){
-            (function(i){
-                liCol[i].addEventListener('click',function(){
-                    console.log(i);
+            (function(j){
+                //j是传进来的参数
+                liCol[j].addEventListener('click',function(){
+                    //该函数执行的时候，j传进来的是啥就是啥
+                    console.log(j);
                 },false);
             }(i))
         }

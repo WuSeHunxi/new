@@ -54,8 +54,8 @@
         var s="老邓是ni";
         console.log(s.match(reg1));
 
-        var reg2=/\w*/g;
-        var ss="1abc";
+        var reg2=/\w*/g;//*代表的是0到多次，因此匹配不到的就是""
+        var ss="abc";
         console.log(ss.match(reg2));//["abc", ""]--->开始有匹配的值，按多次进行匹配
         var reg3=/\d*/g;
         var sss='abc';
@@ -108,7 +108,7 @@
         console.log(str.replace(reg,"b"));//ba
 
         var str2="aa";
-        var reg2=/a/g;
+        var reg2=/a/g;//全局匹配
         console.log(str2.replace(reg2,"b"));//bb
 
         //将aabb逆序
@@ -141,6 +141,7 @@
          * 字符串去重
         */
         var str="aaaaaaaaaaaabbbbbbbbbbccccccccccc";
+        //用*表示可以只有一个符合条件的字母
         var reg=/(\w)\1*/g;//将相同的全部匹配出来
         // console.log(reg);
         //利用子表达式代替
@@ -151,7 +152,7 @@
         var str="100000000";
         //利用的是正向预查，选择的是一个空，后面带着数字的（个数是三的倍数）
         var reg=/(?=(\B)(\d{3})+$)/g;//三个数字连在一起，并且这种情况出现多次，而且不能是字符边界
-        console.log(str.replace(reg,"."));
+        console.log(str.replace(reg,"."));//将选出来的空用.代替
 
     </script>
 </body>

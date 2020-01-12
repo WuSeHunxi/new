@@ -36,10 +36,12 @@
                 当状态码发生改变的时候会触发一个事件：onreadystatechange
         */
 
+        //创建一个script标签来解决异步加载的问题
         //封装一个异步加载的方法
         function loadScript(url,callback){
             var script=document.createElement("script");
             script.type="text/javascript";
+            //解决IEscript没有onload的方法
             if(script.readyState){
                 script.onreadystatechange=function(){
                     if(script.readyState=="complete"||script.readyState=="loaded"){
@@ -61,7 +63,7 @@
 
         /**
          * 时间线
-         *  通过状态码才能打印出interictive
+         *  通过状态码才能打印出interactive
          * 
          *  DOMContentLoaded事件只能在addEventListener中才能响应
          *      解析完才执行的方法
@@ -82,7 +84,7 @@
          *      window对象触发load事件。
         */
 
-        //这两个方法解析完就可以执行--->$(document).ready(){}
+        //这两个方法是dom解析完就可以执行 <---> jquery中的$(document).ready(){}
         document.onreadystatechange=function(){
             console.log(document.readyState);
         }
