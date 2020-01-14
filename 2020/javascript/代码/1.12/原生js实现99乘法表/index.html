@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 <body>
-    
+    <input type="text">
+    <input type="button" value="生成乘法表" onclick="result()">
+    <input type="button" value="自动生成">
+    <input type="button" value="停止生成">
+    <script>
+        function result(){
+            var num=document.getElementById("num").value;
+            if(!num){
+                document.getElementById("num").focus();
+                alert("请输入数字");
+                return;
+            }
+            if(isNaN(num)){
+                document.getElementById("num").value;
+                alert("请输入数字");
+                return;
+            }
+        }
+    </script>
 </body>
 </html>

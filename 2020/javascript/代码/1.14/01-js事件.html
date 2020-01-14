@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>常见js事件</title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      position: fixed;
+      left: 100px;
+      top: 100px;
+
+    }
+    
+    #oUl {
+      padding: 50px;
+      border: 1px solid #000;
+    }
+    .modal {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content {
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -200px;
+      margin-left: -200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    鼠标相关的事件
+        click：
+    鼠标相关的事件源对象中鼠标位置相关的属性：
+       clientX / clientY: 代表鼠标相对于视口的水平/竖直方向上的位置
+       pageX / pageY : 代表鼠标相对于页面最左侧 和 最上方的位置
+       offsetX / offsetY:  代表鼠标相对于自身元素左上角的位置
+
+    事件就相当于： 用户的一些动作行为
+
+    
+   -->
+   
+   <div class="demo">
+     
+   </div>
+   <!-- <ul id="oUl">
+     <li>
+       1
+       <span>xxx</span>
+     </li>
+     <li>2</li>
+     <li>3</li>
+     <li>4</li>
+     <li>5</li>
+     <li>6</li>
+     <li>7</li>
+     <li>8</li>
+     <li>9</li>
+     <li>10</li>
+   </ul> -->
+   <div class="modal">
+     <div class="content"></div>
+   </div>
+   <script>
+      //  拖动效果：
+      // var demo = document.getElementsByClassName('demo')[0];
+      // // 鼠标按下 
+      // demo.onmousedown = function (e) {
+      //   // 鼠标按下时相对于demo的位置
+      //   var offsetX = e.offsetX;
+      //   var offsetY = e.offsetY;
+      //   console.log(offsetX, offsetY)
+      //   // 要拖动整个demo元素移动  就要给这个范围添加mousemove事件   
+      //   document.onmousemove = function (moveEvent) {
+      //     // demo被拖动到的位置 =  clienx - 鼠标相对于demo的位置
+      //     var left = moveEvent.clientX - offsetX;
+      //     var top = moveEvent.clientY - offsetY;
+      //     demo.style.left = left + 'px';
+      //     demo.style.top = top + 'px';
+      //   }
+      // }
+      // // 鼠标抬起
+      // demo.onmouseup = function () {
+      //   document.onmousemove = null;
+      // }
+
+        // javascript  中的dom部分  DOM（document object modal）： 文档对象模型  在js中操作html元素
+        // dom节点  等同于html元素   demo 变量存储的是 页面当中class名称为demo的HTML元素   
+        //  document是整个页面最外层的元素   也称为文档对象  
+        var demo = document.getElementsByClassName('demo')[0];
+        // console.log(demo)
+
+        // 事件冒泡：  当触发子元素的相应事件的时候  会触发父元素的相同事件  由子元素到父元素的顺序（先触发子元素的事件再出发父元素的事件）
+        // 事件捕获：                                                   由父元素到子元素的顺序（先触发父元素的事件再出发子元素的事件）
+        // demo.onclick = function (e) {
+        //  console.log('demo-click') 
+        // }
+        // document.onclick = function (e) {
+        //   console.log('document-click')
+        // }
+
+        // demo.addEventListener('click', function (e) {
+        //   // 如果是时间冒泡则取消时间冒泡   如果是事件捕获  则取消下一个元素事件的触发
+        //   e.stopPropagation();
+        //   console.log('demo-click')
+        // }, true)
+        // document.addEventListener('click', function (e) {
+        //   e.stopPropagation();
+        //   console.log('document-click')
+        // }, true)
+          // 点击每个li元素打印当前点击的li元素
+          // var oUl = document.getElementById('oUl');
+          // //通过事件委托  将li的点击事件绑定在公共的父级上  通过e.target 获取当前触发事件的目标元素即li标签
+          // oUl.onclick = function (e) {
+          //   console.log(e.target)
+          // }
+          // 弹框效果
+          // var modal = document.getElementsByClassName('modal')[0];
+          // var content = document.getElementsByClassName('content')[0];
+          // modal.onclick = function (e) {
+          //   modal.style.display = 'none'
+          // }
+          // content.onclick = function (e) {
+          //   // e.stopPropagation()
+          //   e.cancelBubble = true;
+          //   console.log(content, e)
+          // }
+   </script>
+</body>
+</html>
