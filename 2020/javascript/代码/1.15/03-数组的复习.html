@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var arr1=[1,2,3,4];
+        var arr2=arr1;
+        arr2[0]=5;
+        console.log(arr1[0],arr2[0]);//-->5
+
+        //可以利用slice()(把原来的数组截取一段，返回一个新的数组)对数组进行复制
+        var arr3=arr1.slice();//此时得到的新的数组和原来的数组不是同一个，改变任何一个对另一个也没有影响
+        console.log(arr1===arr3);//-->false
+
+
+        /**
+            数组练习：
+                1.提示用户输入数组长度，然后求该数组每一项的值，然后输出该数组
+                2.初始化一个数字数组，然后求该数组所有项的和
+                3.初始化一个数字数组，然后输出数组中所有的奇数
+                4.初始化一个数字数组，然后输出数组中的所有素数
+                5.
+                6.定义一个数组，数组的每一项是一个用户对象，用户对象中包含账号和密码，随意初始化一些对象
+                  放入数组中，然后提示用户输入账号和密码，判断是否登录成功
+                7.初始化一个5*5的二维数组，数组每一项是一个数字，计算对角线之和
+                8.初始化一个数字数组，对该数组进行升序，然后输出结果
+                9.有一个数组，存放了一些数字，找出出现频率最高的数字
+        */
+
+        //1.
+        // var len=+prompt("请输入数组的长度");
+        if(isNaN(len)||len<0){
+            console.log("输入有误");
+        }else{
+            var arr=[];
+            for(var i=0;i<len;i++){
+                arr[i]=prompt("请输入数组第"+(i+1)+"项的值");
+            }
+            console.log(arr);
+        }
+
+        // 3.
+        var arr=[123,12,3,4,5];
+        for(var index in arr){
+            if(arr[index]%2!=0){
+                console.log(arr[index]);
+            }
+        }
+
+        //4.
+        var arr=[123,12,3,4,5];
+        for(var index in arr){
+            var isFind=false;
+            for(var i=2;i<arr[index]-1;i++){
+                if(arr[index]%i===0){
+                    isFind=true;
+                    break;
+                }
+            }
+            if(!isFind&&arr[index]>=2){//是素数
+                console.log(arr[index]);
+            }
+        }
+
+        //5.
+        var len=+prompt("请输入斐波那契数列的长度");
+        if(isNaN(len)||len<0){
+            console.log("输入有误");
+        }else{
+            var arr=[];
+            for(var i=0;i<len;i++){
+                if(i===0||i===1){
+                    arr[i]=1;
+                }else{
+                    arr[i]=arr[i-1]+arr[i-2];
+                }
+                console.log(arr);
+            }
+        }
+
+        //6.
+        var users=[
+            {loginId:"abc",loginPwd:"123"},
+            {loginId:"abc1",loginPwd:"124"},
+            {loginId:"abc2",loginPwd:"125"},
+            {loginId:"abc3",loginPwd:"126"}
+        ];
+        var loginId=prompt("请输入账号");
+        var loginPwd=prompt("请输入密码");
+        var isFind=false;
+        for(var i=0;i<users.length;i++){
+            var u=users[i];
+            if(u.loginId===loginId&&u.loginPwd===loginPwd){
+                isFind=true;
+                break;
+            }
+        }
+        if(isFind){
+            console.log("登录成功");
+        }else{
+            console.log("登录失败");
+        }
+
+        //7.
+        var arr=[
+            [5,2,3,1,7],
+            [8,0,6,7,8],
+            [4,0,6,2,0],
+            [3,0,6,8,1],
+            [2,0,4,5,9]
+        ];
+        var sum=0;
+        for(var i=0;i<arr.length;i++){
+            for(var j=0;j<arr[i].length;j++){
+                if(i===j&&i+j===4){
+                    sum+=arr[i][j];
+                }
+            }
+        }
+
+        //8.
+        var nums=[23,2,44,5,8];
+        for(var i=1;i<nums.length;i++){
+            for(var j=0;j<nums.length-i;j++){
+                if(nums[j]>nums[j+1]){
+                    var temp=nums[j];
+                    nums[j]=nums[j+1];
+                    nums[j+1]=temp;
+                }
+            }
+        }
+
+        //9.数组和对象一同使用
+        var nums=[2,3,4,2,2,2,2,2,3,4,5,6,7];
+        var record={};
+        for(var i=0;i<nums.length;i++){
+            var n=nums[i];
+            //将出现的数字转成对象的属性名，出现的次数是属性值
+            if(record[n]){
+                record[n]++;
+            }else{
+                record[n]=1;
+            }
+        }
+        var result;
+        for(var prop in record){
+            //利用对象覆盖的方法，当某一个属性值>初始的属性值时，将对象覆盖
+            if(!result||record[prop]>result.frequency){
+                result={
+                    number:prop,
+                    frequency:record[prop]
+                }
+            }
+        }
+    </script>
+</body>
+</html>
