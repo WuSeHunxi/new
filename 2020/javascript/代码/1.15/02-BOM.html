@@ -22,11 +22,69 @@
 <body>
     <div id="demo" style="opacity: 0.3;"></div>
     <script>
+
+
+        /**
+            window对象是BOM的顶层对象，即是通过js访问浏览器窗口的一个接口，又是一个全局对象
+
+            BOM的组成：
+
+                window：
+                    clientWidth/clientHeight--->是不包含滚动条的宽度/高度的
+                    innerHeight/innerWidth--->是包含滚动条的宽度/高度的
+                    pageXoffset/pageYoffset--->(滚动条滚动的距离)设置或返回当前页面相对窗口显示区左上角的x位置
+                        和位置有关（实现图片的懒加载）
+                    iframe：子拿爹可以，爹拿子不可以
+                        window.top--->最顶级
+                        window.parent--->拿到父级
+                        window.self--->得到的就是window(防止全局变量污染)
+                            window.self===self
+                    name：window.name--->给窗口起的名字（与窗口显示的内容无关）
+                    onbeforeunload--->浏览器常出现的是否要离开的弹窗事件
+                    open：window.open('网址','窗口的名字','窗口的特征')--->新弹出的窗口
+                            window.open('http://www.baidu.com','duyi','width=200,height=200')
+                            如果open的第二个参数不写的话，那么第三个参数就会变成第二个参数，即:
+                                window.open('http://baidu.com','width=100,height=100')
+                                    --->window.name='width=100,height=100'，因此参数不能省略
+                    close：新打开的窗口是可以通过close关闭的
+
+                Navigator：包含客户端浏览器的信息
+                    navigator.userAgent--->返回有客户端发送服务器的user-agent头部的值
+                    navigator.cookieEnable--->返回指明浏览器中是否启用cookie的布尔值
+                    navigator.onLine--->返回系统是否处于脱机模式（是否有网）的布尔值
+
+                History：包含了浏览器窗口访问过的url
+                    length：history.length--->记录
+                    back()：往前一个ur跳
+                    forward()：往后一个url跳
+                    go(-2/2)：负数往前2个url跳，正数往后两个url跳
+
+                Location：包含了当前url的信息
+                    href：网址
+                    hash：设置或返回#开始的url（锚点）--->页面不刷新，但是仍然会被记录到历史浏览记录中(常用于单页面应用)
+                                1. 根据锚点的信息来选择对应要展示的内容
+                                2. 切换内容时(绑定事件)我们要映射到锚点之中
+                                3. 检测锚点修改，修改以后在网页中映射内容
+                    protocol：协议 
+                    host：域名，端口号
+                    pathname：路径
+                    search：传过来的参数
+                    assign：当前的窗口加载新的页面
+                    reload(true)：重新加载当前文档，参数可选，为false或者不填的时候取到的是浏览器缓存文档
+                    replace：用新的文档替换当前的文档(没有历史记录，不会有回退的按钮)
+
+                Screen：包含客户端显示屏的信息
+
+        */
+
         /**
             clientWidth/clientHeight--->是不包含滚动条的宽度/高度的
             innerHeight/innerWidth--->是包含滚动条的宽度/高度的
+
             iframe--->页面嵌套
+
             window.name--->窗口的名字
+
             open('http://www.baidu.com',窗口的名字,窗口的特征)
         */
 
@@ -47,6 +105,14 @@
             check("demo");
         }
 
+
+        //open()
+        window.open("http://www.baidu.com",'duyi','width=200,height=200')
+
+
+        /**
+                
+        */
     </script>
 </body>
 </html>
