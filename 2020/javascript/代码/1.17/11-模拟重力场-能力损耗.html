@@ -34,11 +34,12 @@
             var iSpeedX=6,iSpeedY=8;
             var g=3;
             timer=setInterval(function(){
+                //受到重力影响
                 iSpeedY+=g;//竖直方向有重力加速度
                 var newTop=dom.offsetTop+iSpeedY;
                 var newLeft=dom.offsetLeft+iSpeedX;
 
-                //小块在碰到四周壁时有能量的损失
+                //小块在碰到四周壁时有能量的损失--->反弹
 
                 //到达底部速度反向
                 if(newTop>=document.documentElement.clientHeight-dom.clientHeight){                   
