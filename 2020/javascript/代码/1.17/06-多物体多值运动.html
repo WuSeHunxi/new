@@ -68,6 +68,7 @@
             var iSpeed=0,iCur=0;
             dom.timer=setInterval(function(){
                 var bStop=true;//假定每一个都能到达目标点，即：能够清除定时器
+                //传进去的属性是属性对象
                 for(var attr in attrObj){
                     if(attr=='opacity'){
                         iCur=parseFloat(getStyle(dom,attr))*100;
@@ -87,6 +88,7 @@
                 } 
                 if(bStop){
                     clearInterval(dom.timer);
+                    //判断是否能够执行
                     typeof callback=='function'&&callback();
                 }
             },30);

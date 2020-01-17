@@ -52,6 +52,7 @@
             clearInterval(dom.timer);
             var iSpeed=0,iCur=0;
             dom.timer=setInterval(function(){
+                //透明度和其他属性的值时不同的必须要单拿出来
                 if(attr=='opacity'){
                     iCur=parseFloat(getStyle(dom,attr))*100;
                 }else{

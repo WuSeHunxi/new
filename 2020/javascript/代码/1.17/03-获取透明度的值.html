@@ -27,6 +27,7 @@
             startMove(oDiv,50);
         }
 
+        //获取元素的显示样式
         function getStyle(dom,prop){
             if(window.getComputedStyle){
                 return window.getComputedStyle(dom,null)[prop];
@@ -40,7 +41,7 @@
             var iSpeed=0,
                 iCur=0;
             timer=setInterval(function(){
-                //扩大当前的值，然当前的值能有明显的变化
+                //扩大当前的值，才能在相应的时间内有明显的变化
                 iCur=parseFloat(getStyle(dom,'opacity'))*100;
                 iSpeed=(target-iCur)/7;
                 iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);

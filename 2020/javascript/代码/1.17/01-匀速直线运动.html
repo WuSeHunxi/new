@@ -39,6 +39,7 @@
         */
         var timer=0;
         oBtn.onclick=function(){
+            //速度如何取值
             var iSpeed=300-oDiv.offsetLeft>0?7:-7;
             clearInterval(timer);
             timer=setInterval(function(){
@@ -53,6 +54,7 @@
             },30);
         }
 
+        //封装函数
         function startMove(dom,target){
             var iSpeed=target-oDiv.offsetLeft>0?7:-7;
             clearInterval(timer);

@@ -63,7 +63,7 @@
         /**
             实现弹出收回的动态效果
         */
-        
+
         //事件冒泡--->给span绑定事件，事件会冒泡到wrapper上
         wrapper.onmouseenter=function(){
             startMove(this,0);
@@ -78,6 +78,7 @@
             var iSpeed=0;
             timer=setInterval(function(){
                 iSpeed=(target-dom.offsetLeft)/7;
+                //速度为负的时候要向下取整
                 iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
                 if(dom.offsetLeft===300){
                     clearInterval(timer);
