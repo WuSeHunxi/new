@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        /**
+            多体运动--->通过宽度改变速度
+                多个定时器--->每一个运动的物体有一个自己的定时器
+        */
+        var oDiv=document.getElementsByTagName("div")
+        var timer=0;
+
+        for(var i=0;i<oDiv.length;i++){
+            oDiv[i].onmouseenter=function(){
+                startMove(this,400);
+            }
+            oDiv[i].onmouseleave=function(){
+                startMove(this,100);
+            }
+        }
+
+        function getStyle(dom,prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(dom,null)[prop];
+            }else{
+                return dom.currentStyle[prop];
+            }
+        }
+
+        function startMove(dom,target){
+            clearInterval(dom.timer);
+            var iSpeed=0,
+                isCur=0;
+            dom.timer=setInterval(function(){
+                isCur=parseInt(getStyle(dom,'width'))
+                iSpeed=(target-isCur)/7;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(isCur==target){
+                    clearInterval(dom.timer);
+                }else{
+                    dom.style.width=isCur+iSpeed+"px";
+                }               
+            },30);
+        }
+
+    </script>
+</body>
+</html>
