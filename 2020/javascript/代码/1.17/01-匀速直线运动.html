@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left: 500px;
+            top: 0;
+        }
+        #btn{
+            margin-top: 150px;
+        }
+        span{
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background-color: #000;
+            left: 300px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <button id="btn">run</button>
+    <script>
+        var oDiv=document.getElementsByTagName("div")[0];
+        var oBtn=document.getElementById("btn");
+        /**
+            匀速直线运动--->相同的时间段移动相同的距离
+        */
+        var timer=0;
+        oBtn.onclick=function(){
+            var iSpeed=300-oDiv.offsetLeft>0?7:-7;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                //当每次运动的速度不是界限的除数时，就要比较界限与小块之间的差值，如果<速度，则清除定时器
+                //并且直接让left的值为300px
+                if(Math.abs(300-oDiv.offsetLeft)<Math.abs(iSpeed)){//不考虑正负号，只管数值的大小
+                    clearInterval(timer);
+                    oDiv.style.left='300px';
+                }else{
+                    oDiv.style.left=oDiv.offsetLeft+iSpeed+"px";
+                }
+            },30);
+        }
+    </script>
+</body>
+</html>
