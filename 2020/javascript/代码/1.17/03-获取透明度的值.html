@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        /**
+            让透明度从1到0.5发生缓冲的变化
+        */
+
+        var timer=0;
+        var oDiv=document.getElementsByTagName("div")[0];
+        oDiv.onclick=function(){
+            startMove(oDiv,50);
+        }
+
+        function getStyle(dom,prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(dom,null)[prop];
+            }else{
+                return dom.currentStyle[prop];
+            }
+        }
+    
+        function startMove(dom,target){
+            clearInterval(timer);
+            var iSpeed=0,
+                iCur=0;
+            timer=setInterval(function(){
+                //扩大当前的值，然当前的值能有明显的变化
+                iCur=parseFloat(getStyle(dom,'opacity'))*100;
+                iSpeed=(target-iCur)/7;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(iCur==target){
+                    clearInterval(timer);
+                }else{ 
+                    //变回到原来的值
+                    dom.style.opacity=(iCur+iSpeed)/100;
+                }               
+            },30);
+        }
+    </script>
+</body>
+</html>
