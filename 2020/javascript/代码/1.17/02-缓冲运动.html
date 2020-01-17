@@ -5,10 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        /* div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left:500px;
+            top: 0;
+        }
+        #btn{
+            margin-top: 150px;
+        }
+        span{
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background-color: #000;
+            left: 300px;
+            top: 0px;
+        } */
+        .wrapper{
+            width: 400px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            left: -400px;
+            top: 200px;
+        }
+        .wrapper span{
+            width: 50px;
+            height: 80px;
+            background-color: #f0f;
+            position: absolute;
+            right: -50px;
+            top: 0;
+        }
+    </style>
 </head>
 <body>
+    <!-- <div></div>
+    <span></span>
+    <button id="btn">run</button> -->
+    <div class="wrapper"><span></span></div>
     <script>
+        /**
+            缓冲运动--->物体的速度距离目标点越近，速度就越小，当到达目标点时，速度减小为0
+        */
+        // var oDiv=document.getElementsByTagName("div")[0];
+        // var oBtn=document.getElementById("btn");
+        var timer=0;
+        var wrapper=document.getElementsByClassName("wrapper")[0];
+        // oBtn.onclick=function(){
+        //     starMove(oDiv,300);
+        // }
         
+        /**
+            实现弹出收回的动态效果
+        */
+        
+        //事件冒泡--->给span绑定事件，事件会冒泡到wrapper上
+        wrapper.onmouseenter=function(){
+            startMove(this,0);
+        }
+        wrapper.onmouseleave=function(){
+            startMove(this,-400);
+        }
+
+
+        function startMove(dom,target){
+            clearInterval(timer);
+            var iSpeed=0;
+            timer=setInterval(function(){
+                iSpeed=(target-dom.offsetLeft)/7;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(dom.offsetLeft===300){
+                    clearInterval(timer);
+                }else{
+                    dom.style.left=dom.offsetLeft+iSpeed+"px";
+                }               
+            },30);
+        }
+
     </script>
 </body>
 </html>
