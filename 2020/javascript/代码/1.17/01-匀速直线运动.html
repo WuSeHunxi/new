@@ -52,6 +52,24 @@
                 }
             },30);
         }
+
+        function startMove(dom,target){
+            var iSpeed=target-oDiv.offsetLeft>0?7:-7;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                //当每次运动的速度不是界限的除数时，就要比较界限与小块之间的差值，如果<速度，则清除定时器
+                //并且直接让left的值为300px
+                if(Math.abs(300-dom.offsetLeft)<Math.abs(iSpeed)){//不考虑正负号，只管数值的大小
+                    clearInterval(timer);
+                    dom.style.left=target+'px';
+                }else{
+                    dom.style.left=dom.offsetLeft+iSpeed+"px";
+                }
+            },30);
+        }
+
+
+
     </script>
 </body>
 </html>
