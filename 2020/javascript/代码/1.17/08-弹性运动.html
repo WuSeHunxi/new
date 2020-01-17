@@ -6,15 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left: 0;
+            top: 0;
+        }
+        span{
+            position: absolute;
+            left: 300px;
+            top: 0;
+            background-color: #000;
+            width: 1px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
     <div></div>
+    <span></span>
     <script>
         /**
-            弹性运动
+            弹性运动--->弹簧
+            判断加速度和速度的方向
         */
+        
+        var oDiv=document.getElementsByTagName("div")[0];
+        oDiv.onclick=function(){
+            startMove(oDiv,300);
+        }
+        var timer=0;
+        function startMove(dom,target){
+            clearInterval(timer);
+            var a=3;
+            var iSpeed=0;
+            var u=0.8;
+            timer=setInterval(function(){
+                a=(target-dom.offsetLeft)/5;
+                iSpeed+=a;
+                iSpeed*=u;
+                if(Math.abs(iSpeed)<1&&Math.ab(target-dom.offsetLeft)<1){
+                    clearInterval(timer);
+                    dom.style.left=target+"px";
+                }else{
+                    dom.style.left=dom.offsetLeft+iSpeed+"px";
+                }
+            },30);
+        }
+
 
     </script>
 </body>
