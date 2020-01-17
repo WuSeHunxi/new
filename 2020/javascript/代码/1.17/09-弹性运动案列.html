@@ -69,7 +69,7 @@
                 a=(target-dom.offsetLeft)/5;
                 iSpeed+=a;
                 iSpeed*=u;//每次都修改速度，让其减小
-                //让小块速度和位置等价为0，停止运动
+                //让小块速度和位置等价为0(视觉效果为0)，停止运动
                 if(Math.abs(iSpeed)<1&&Math.ab(target-dom.offsetLeft)<1){
                     clearInterval(timer);
                     dom.style.left=target+"px";

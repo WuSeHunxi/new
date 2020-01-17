@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100px;
+            width: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        /**
+            重力场：两个方向的运动
+        */
+        
+        var oDiv=document.getElementById("demo");
+        var timer=0;
+        oDiv.onclick=function(){
+            startMove(this);
+        }   
+
+        function startMove(dom){
+            clearInterval(timer);
+            var iSpeedX=6,iSpeedY=8;
+            var g=3;
+            timer=setInterval(function(){
+                iSpeedY+=g;//竖直方向有重力加速度
+                var newTop=dom.offsetTop+iSpeedY;
+                var newLeft=dom.offsetLeft+iSpeedX;
+
+                //小块在碰到四周壁时有能量的损失
+
+                //到达底部速度反向
+                if(newTop>=document.documentElement.clientHeight-dom.clientHeight){                   
+                    iSpeedY*=-1;
+                    //速度的损耗
+                    iSpeedY*=0.8;
+                    iSpeedX*=0.8;
+                    //防止超界出现滚动条
+                    newTop=document.documentElement.clientHeight-dom.clientHeight;
+                }
+
+                //到达顶部速度反向
+                if(newTop<=0){
+                    iSpeedY*=-1;
+                    //速度的损耗
+                    iSpeedY*=0.8;
+                    iSpeedX*=0.8;
+                    newTop=0;
+                }
+
+                if(newLeft>=document.documentElement.clientWidth-dom.clientWidth){
+                    iSpeedX*=-1;
+                    //速度的损耗
+                    iSpeedY*=0.8;
+                    iSpeedX*=0.8;
+                    //防止超界出现滚动条
+                    newLeft=document.documentElement.clientWidth-dom.clientWidth;
+                }
+
+                if(newLeft<=0){
+                    iSpeedX*=-1;
+                    //速度的损耗
+                    iSpeedY*=0.8;
+                    iSpeedX*=0.8;
+                    newLeft=0;
+                }
+                //判断何时停止运动
+                if(Math.abs(iSpeedX)<1){
+                    iSpeedX=0;
+                }
+
+                if(Math.abs(iSpeedY)<1){
+                    iSpeedY=0;
+                }
+
+                if(iSpeedX==0&&iSpeedY==0&&newTop==document.documentElement.clientHeight-dom.clientHeight){
+                    clearInterval(timer);
+                }else{
+                    dom.style.left=newLeft+"px";
+                    dom.style.top=newTop+"px";
+                } 
+            },30);
+        }
+    </script>
+</body>
+</html>

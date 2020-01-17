@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100px;
+            width: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        /**
+            重力场：两个方向的运动
+        */
+        
+        var oDiv=document.getElementById("demo");
+        var timer=0;
+        oDiv.onclick=function(){
+            startMove(this);
+        }   
+
+        function startMove(dom){
+            clearInterval(timer);
+            var iSpeedX=6,iSpeedY=8;
+            timer=setInterval(function(){
+                var newTop=dom.offsetTop+iSpeedY;
+                var newLeft=dom.offsetLeft+iSpeedX;
+
+                //到达底部速度反向
+                if(newTop>=document.documentElement.clientHeight-dom.clientHeight){                   
+                    iSpeedY*=-1;
+                    //防止超界出现滚动条
+                    newTop=document.documentElement.clientHeight-dom.clientHeight;
+                }
+
+                //到达顶部速度反向
+                if(newTop<=0){
+                    iSpeedY*=-1;
+                    newTop=0;
+                }
+
+                if(newLeft>=document.documentElement.clientWidth-dom.clientWidth){
+                    iSpeedX*=-1;
+                    newLeft=document.documentElement.clientWidth-dom.clientWidth;
+                }
+
+                if(newLeft<=0){
+                    iSpeedX*=-1;
+                    newLeft=0;
+                }
+                dom.style.left=newLeft+"px";
+                dom.style.top=newTop+"px";
+            },30);
+        }
+    </script>
+</body>
+</html>
