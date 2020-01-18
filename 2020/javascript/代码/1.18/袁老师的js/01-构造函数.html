@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * new.target--->只能在函数中调用，返回的是构造函数，但是如果函数不是new出来的话返回的就是undefined
+         * */
+        
+        /**
+         * 作业：英雄打怪兽
+         *     英雄和怪兽都具有攻击力，防御力，生命值，暴击几率
+         *     攻击伤害=攻击力-防御力
+         *     攻击最少为1
+         *     创建一个英雄和一个怪兽，让他们互相攻击，直到一方死亡，输出整个攻击过程
+         *  
+        */
+
+        
+        function Charactor(name,attack,defence,hp,critRate){
+            this.name=name;
+            this.attack=attack;
+            this.defence=defence;
+            this.hp=hp;
+            this.critRate=critRate;
+            this.print=function(){
+                console.log(`${this.name}\t生命：${this.hp}\t攻击：${this.attack}\t防御：${this.defence}\t暴击：${this.critRate}`);
+            }
+
+            //攻击
+            this.hit=function(ctor){
+                var isCrit=false;
+                var damage=this.attack-ctor.defence;
+                //判断是否有暴击
+                var rate=this.critRate/100;
+                var rad=Math.random();
+                if(rad<=rate){
+                    isCrit=true;
+                    damage*=2;
+                }
+                //伤害至少为1
+                if(damage<1){
+                    damage=1;
+                }
+                ctor.hp-=damage;
+                if(ctor.hp<0){
+                    ctor.hp=0;//血量至少为0
+                }
+                console.log(`${this.name}攻击${ctor.name},造成${damage}点伤害，对方当前的血量为${ctor.hp}`);
+                //对方是否死亡
+                return ctor.hp===0;
+            }
+        }
+
+        var hero=new Charactor("英雄",100,20,500,30);
+        hero.print();
+        console.log('VS');
+        var monster=new Charactor("怪兽",120,40,300,5);
+        monster.print();
+        hero.hit(monster);
+
+        //双方互打，直到一方死亡
+        while(true){
+            if(hero.hit(monster)){
+                console.log("游戏结束");
+                break;
+            }
+            if(monster.hit(hero)){
+                console.log("游戏结束");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
