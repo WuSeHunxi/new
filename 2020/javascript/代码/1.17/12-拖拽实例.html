@@ -36,13 +36,13 @@
             //当重新抓住小块的时候，就不能再接着运动了，只能专心拖拽
             clearInterval(timer);
             var event=window.event||e;
-            //鼠标初始位置
+            //鼠标在小块里的位置
             var disX=event.clientX-this.offsetLeft;
             var disY=event.clientY-this.offsetTop;
             var self=this;
             document.onmousemove=function(e){
                 var event=window.event||e;
-                //最新的点--->可能松手的点
+                //当前小块的位置————最新的点--->可能松手的点
                 var newLeft=event.clientX-disX;
                 var newTop=event.clientY-disY;
                 //水平和竖直方向的速度--->最新的点-上一个点
@@ -52,7 +52,7 @@
                 lastX=newLeft;
                 lastY=newTop;
 
-                //移动轨迹
+                //移动轨迹--->判断小块的移动方向
                 // var oSpan=document.createElement("span");
                 // oSpan.style.position='absolute';
                 // oSpan.style.left=newLeft+"px";

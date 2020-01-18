@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+            全局作用域：
+                变量声明提升到全局顶部
+            函数作用域：
+                变量声明提升到函数顶部
+                不会污染全局对象
+                函数本身会成为window对象的属性，可能会污染全局对象，但是当一个函数成为一个表达式的时候，
+                    就不会污染全局变量---->给函数添加()，此时函数无法被调用了
+        */
+
+        (function(){
+            console.log("lal");
+        })();//整体调用---->立即执行函数(IIFE)  
+
+
+        var obj={
+            a:'pa',
+            b:1,
+            c:function(){
+                console.log("pap");
+            }
+        } 
+        var res=obj.c;
+        res();
+
+        /**
+            作业：
+                1.写一个函数，为数组排序（数组的所有可能）
+                2.写一个函数，按照指定的条件对数组进行筛选
+                3.写一个函数，按照指定条件，得到某个数组中第一个满足条件的元素
+                4.写一个函数，按照指定条件，得到某个数组中满足条件的元素数量
+        */
+
+
+    </script>
+</body>
+</html>

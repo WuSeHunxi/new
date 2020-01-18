@@ -21,6 +21,7 @@
     <script>
         /**
             重力场：两个方向的运动
+                水平速度+竖直速度
         */
         
         var oDiv=document.getElementById("demo");
@@ -51,6 +52,7 @@
 
                 if(newLeft>=document.documentElement.clientWidth-dom.clientWidth){
                     iSpeedX*=-1;
+                    //防止超界出现滚动条
                     newLeft=document.documentElement.clientWidth-dom.clientWidth;
                 }
 
