@@ -160,6 +160,7 @@
                 clearTimeout(timer);
                 if (!direction || direction == 'left->right') {
                     index++;
+                    
                     startMove(sliderPage, {left: sliderPage.offsetLeft - moveWidth}, function () {
                         if (sliderPage.offsetLeft == - num * moveWidth) {
                             index = 0;

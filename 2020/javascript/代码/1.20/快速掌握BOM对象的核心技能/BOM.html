@@ -21,37 +21,37 @@
     </style>
 </head>
 <body>
-    <!-- <div id='demo2' style='opacity: 0.3'></div> -->
+    <div id='demo2' style='opacity: 0.3'></div>
     <!-- <iframe src="./child.html" frameborder="0" width='300px' height='300px'></iframe> -->
     <script>
         // window  属性
 
         // 1.innerHeight innerWidth 包含滚动条的大小
         // 2.pageX/YOffset 设置或返回当前页面对于串口的显示区域左上角的x/y位置
-        // HTMLDivElement.prototype.checkSelf = function () {
-        //     if (!this.lock) {
-        //         if(this.offsetTop < window.innerHeight + window.pageYOffset) {
-        //             console.log('start')
-        //             this.lock = true;
-        //             var iSpeed = 0.01;
-        //             var self = this;
-        //             this.timer = setInterval(function () {
-        //                 if (self.style.opacity == '1') {
-        //                     console.log('over')
-        //                     clearInterval(self.timer);
-        //                 }else {
-        //                     console.log( self.style.opacity )
-        //                     self.style.opacity = parseFloat(self.style.opacity) + iSpeed;
-        //                 }
-        //             }, 30);
-        //         }
-        //     }
+        HTMLDivElement.prototype.checkSelf = function () {
+            if (!this.lock) {
+                if(this.offsetTop < window.innerHeight + window.pageYOffset) {
+                    console.log('start')
+                    this.lock = true;
+                    var iSpeed = 0.01;
+                    var self = this;
+                    this.timer = setInterval(function () {
+                        if (self.style.opacity == '1') {
+                            console.log('over')
+                            clearInterval(self.timer);
+                        }else {
+                            console.log( self.style.opacity )
+                            self.style.opacity = parseFloat(self.style.opacity) + iSpeed;
+                        }
+                    }, 30);
+                }
+            }
 
-        // }
+        }
 
-        // window.onscroll = function () {
-        //     demo2.checkSelf();
-        // }
+        window.onscroll = function () {
+            demo2.checkSelf();
+        }
 
         //3. screenLeft screenTop screenX screenY 只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。 IE、 Safari、 Chrome 和 Opera 支持 screenLeft 和 screenTop，而 Chrome、Firefox 和 Safari 支持 screenX 和 screenY。
 
