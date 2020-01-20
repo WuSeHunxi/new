@@ -10,7 +10,7 @@
             width: 100px;
             height: 100px;
             background-color: red;
-            opacity: 0.3;
+            /* opacity: 0.3; */
             position: absolute;
             left: 200px;
             top: 2000px;
@@ -18,20 +18,21 @@
     </style>
 </head>
 <body>
-    <div></div>
+    <div style="opacity: 0.3;"></div>
     <script>
         var div=document.getElementsByTagName("div")[0];
         var timer=0;
-        var speed=0.8;
+        var speed=0.08;
         var lock=false;
         window.onscroll=function(){
-            if(!lock){
-                lock=true;
+            lock=true;
+            if(lock){
+                lock=false;
                 if(div.offsetTop<=window.innerHeight+pageYOffset){
                     timer=setInterval(function(){
-                        div.style.opacity=parseFloat(div.style.opacity)+speed;
-                    
-                    },30);
+                        console.log(div.style.opacity);
+                        div.style.opacity=parseFloat(div.style.opacity)+speed;                
+                    },1000);
                     // div.style.transition='all 1s ';
                 }
             }

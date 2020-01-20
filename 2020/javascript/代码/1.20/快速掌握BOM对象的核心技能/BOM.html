@@ -36,7 +36,7 @@
                     var iSpeed = 0.01;
                     var self = this;
                     this.timer = setInterval(function () {
-                        if (self.style.opacity == '1') {
+                        if (self.style.opacity   == '1') {
                             console.log('over')
                             clearInterval(self.timer);
                         }else {
@@ -53,7 +53,9 @@
             demo2.checkSelf();
         }
 
-        //3. screenLeft screenTop screenX screenY 只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。 IE、 Safari、 Chrome 和 Opera 支持 screenLeft 和 screenTop，而 Chrome、Firefox 和 Safari 支持 screenX 和 screenY。
+        //3. screenLeft screenTop screenX screenY 只读整数。声明了窗口的左上角在屏幕上的 x 坐标和 y 坐标。
+        // IE、 Safari、 Chrome 和 Opera 支持 screenLeft 和 screenTop，而 Chrome、Firefox 和 Safari 支持 
+        // screenX 和 screenY。
 
         //4. name 设置或返回窗口的名称 跨域的时候会用到
 
@@ -68,13 +70,13 @@
         // window 对象的方法
         //1. 定时器 
 
-        //2. alert confirm prompt 这些追求用户体验的网站都不会用的，样子太low了，大家走自己写
+        //2. alert confirm prompt 这些追求用户体验的网站都不会用的，样子太low了，自己写
 
         //3. open 打开新窗口并控制其样式  或查找一个已经命名的窗口。    返回该窗口的window对象 
         //  window.open('https://www.baidu.com', 'width=100,height=100'); 按顺序传参数 把 width=100,height=100当成是新窗口的name而不是样式所以此时直接在原有浏览器打开
 
-        // 按顺序传参数的话且不填写样式  和上面同样
-        // var newWindow = window.open('https://www.baidu.com', 'aa');
+        // 按顺序传参数的话且不填写样式  和上面同样                      窗口！=页面
+        // var newWindow = window.open('https://www.baidu.com', 'aa');在原页面左侧打开一个新的页面
 
         // 按顺序传参数并且给予样式必然重新打开窗口
         var newWindow = window.open('https://www.baidu.com', 'aa', 'width=100,height=100');
@@ -256,9 +258,9 @@
         // 属性
         // 1.length
         // 方法
-        // 1.back
-        // 2.forward
-        // 3.go
+        // 1.back--》前一个
+        // 2.forward--》下一个
+        // 3.go---》当前所在的按个页面的索引是0 ，因此前面的都是负数，从-1开始，后面的从1开始
 
         // location
         // 属性
@@ -271,12 +273,12 @@
         // search
 
         // 方法
-        // 1.assign
-        // 2.reload
+        // 1.assign---》有参数
+        // 2.reload---》参数可有可无
             // 如果该方法没有规定参数，或者参数是 false，它就会用 HTTP 头 If-Modified-Since 来检测服务器上的文档是否已改变。如果文档已改变，reload() 会再次下载该文档。如果文档未改变，则该方法将从缓存中装载文档。这与用户单击浏览器的刷新按钮的效果是完全一样的。
             // 如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档。这与用户在单击浏览器的刷新按钮时按住 Shift 健的效果是完全一样。
 
-        // 3.replace
+        // 3.replace---》参数是新的要访问的网址
         // window.location.assign(url) ： 加载 URL 指定的新的 HTML 文档。 就相当于一个链接，跳转到指定的url，当前页面会转为新页面内容，可以点击后退返回上一个页面。
 // window.location.replace(url) ： 通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个
 // 窗口，所以是没有后退返回上一页的
