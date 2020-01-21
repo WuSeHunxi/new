@@ -116,9 +116,12 @@ var innerStr = ''
 for (var i = 0; i < data.length;i ++) {
     innerStr += createDom(data[i]);
 }
+
 var wrapper = document.getElementsByClassName('wrapper')[0];
 wrapper.innerHTML = innerStr
+
 function createDom(itemData) {
+    //return的代码是模板，直接返回两部分---》原图和点击
     return `<li class="item">
     <div class="font">
         <a href="#" class="link-part">
@@ -133,8 +136,6 @@ function createDom(itemData) {
             </div>
             <div class="score">${itemData.score}</div>
         </a>
-
-
         <div class="detail">
             <h5 class="title">${itemData.title}</h5>
             <p class="desc">${itemData.desc}</p>

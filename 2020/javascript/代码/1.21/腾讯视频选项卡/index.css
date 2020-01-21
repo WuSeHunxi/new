@@ -41,6 +41,7 @@ img.target-pic {
 }
 .link-part .duration {
     padding: 10px 10px 4px;
+    /*背景颜色是渐变的*/
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 25.5%, rgba(0, 0, 0, 0.08) 70%, rgba(0, 0, 0, 0));
     height: 20px;
     line-height: 20px;
@@ -60,6 +61,7 @@ img.target-pic {
     color: #ff5c38;
     text-align: center;
 }
+/*左上角VIP图片*/
 .mark {
     position: absolute;
     right: 5px;
@@ -77,6 +79,7 @@ img.target-pic {
     margin-top: 3px;
 }
 .bg {
+    /*整个页面的宽度+40px--->以父级为参照*/
     width: calc(100% + 40px);
     position: absolute;
     background-color: #fff;
