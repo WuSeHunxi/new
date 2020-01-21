@@ -169,6 +169,7 @@
     }
     //给数字按钮绑定时间
     for (var i = 0; i < numberBtn.length; i++) {
+      //解决闭包
       numberBtn[i].index = i;
       numberBtn[i].onclick = function () {
         changeImg(this.index);
