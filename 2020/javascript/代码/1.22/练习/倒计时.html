@@ -5,10 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 200px auto;
+            background-color: yellow;
+            position: relative;
+        }
+        button{
+            width: 40px;
+            height: 25px;
+            position: absolute;
+            left: 50%;
+            margin-left: -20px;
+            padding: 4px;
+            border-radius: 5px;
+            border:1px solid #ccc;
+            top: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+        .text{
+            height: 30px;
+            width: 80px;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 60px;
+            font-size:30px;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="box">
+        <button>start</button>
+        <span class="text">100</span>
+    </div>
     <script>
-        
+        var start=document.getElementsByTagName("button")[0];
+        var text=document.getElementsByClassName("text")[0];
+        var timer=0;
+        var lock=true;
+        start.onclick=function(){
+            clearInterval(timer);
+            start.innerHTML='暂停';
+            if(lock){
+                lock=false;
+                timer=setInterval(function(){
+                    text.innerHTML-=1;
+                    if(text.innerHTML==0){
+                        clearInterval(timer);
+                    }
+                },1000);
+            }else{
+                clearInterval(timer);
+                start.innerHTML='start';
+                lock=true;
+            }     
+        }
     </script>
 </body>
 </html>
