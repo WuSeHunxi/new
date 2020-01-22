@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .jindu{
+            width: 300px;
+            height: 35px;
+            border:1px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .jindu .text{
+            position: absolute;
+            left:10px;
+            top: 50%;
+            margin-top: -17px;
+            display: inline-block;
+            height: 35px;
+            line-height: 35px;
+            width:28px;
+            text-align: center;
+        }
+        .jindu .content{
+            height: 100%;
+            width: 0px;
+            background-color: yellow;
+            display: inline-block;
+        }
+        button{
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="jindu">
+        <div class="content"></div>
+        <span class="text">0%</span>
+    </div>
+    <button>start</button>
+    <script>
+        var content=document.getElementsByClassName("content")[0];
+        var text=document.getElementsByClassName("text")[0];
+        var start=document.getElementsByTagName("button")[0];
+        var speed=3;
+        var timer=0;
+        start.onclick=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+                content.style.width=content.offsetWidth+speed+"px";
+                text.innerHTML=(parseInt(text.innerHTML)+1)+"%";
+                if(content.offsetWidth==300&&text.innerHTML=="100%"){
+                    clearInterval(timer);
+                }
+            },100);
+        }
+    </script>
+</body>
+</html>

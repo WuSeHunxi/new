@@ -116,7 +116,6 @@ var innerStr = ''
 for (var i = 0; i < data.length;i ++) {
     innerStr += createDom(data[i]);
 }
-
 var wrapper = document.getElementsByClassName('wrapper')[0];
 wrapper.innerHTML = innerStr
 
