@@ -63,13 +63,13 @@
             var pointX=e.clientX;
             var pointY=e.clientY;
             console.log(box.offsetLeft);
+            box.style.left=e.clientX-box.offsetWidth/2+"px";
+            box.style.top=e.clientY-box.offsetHeight/2+"px";
             if(box.offsetLeft<=0){
                 box.style.left=0+"px";
-                // console.log( box.style.left);
             }
             if(box.offsetLeft>wrapper.offsetWidth-box.offsetWidth){
                 box.style.left=wrapper.offsetWidth-box.offsetWidth+'px';
-                // console.log(box.style.left);
             }
             if(box.offsetTop<=0){
                 box.style.top=0+"px";
@@ -77,12 +77,6 @@
             if(box.offsetTop>wrapper.offsetHeight-box.offsetHeight){
                 box.style.top=wrapper.offsetHeight-box.offsetHeight+"px";
             }
-            // else{
-                box.style.left=e.clientX-box.offsetWidth/2+"px";
-                box.style.top=e.clientY-box.offsetHeight/2+"px";
-                // big.style.left;
-                // big.style.top;
-            // }
         }
     </script>
 </body>

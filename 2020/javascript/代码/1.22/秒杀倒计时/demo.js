@@ -16,12 +16,12 @@ function setTime(){
     hour=start.getHours();
     minute=start.getMinutes();
     second=start.getSeconds();
-    console.log(hour,minute);
+    // console.log(hour,minute);
     times.innerHTML=(hour>=10?hour:"0"+hour)+":"+(minute>=10?minute:"0"+minute)+"场";
-    console.log(times.innerHTML);
+    // console.log(times.innerHTML);
     //比较的是秒数
     if(curTime.getTime()<start.getTime()){
-        console.log(curTime.getTime()<start.getTime());
+        // console.log(cur  Time.getTime()<start.getTime());
         endDec.innerHTML='距离活动开始还有';
         var minTime=(start.getTime()-curTime.getTime())/1000;
         hours.innerHTML=Math.floor(minTime/3600);
