@@ -7,7 +7,125 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <div class="demo">1</div>
+    <div class="demo">2</div>
+    <div class="demo">3</div> -->
+
+    <!-- <div class="wrapper">
+        <ul>
+            <li>1</li>
+            <li class="demo">2</li>
+            <li>3</li>
+            <li>4</li>
+            <li class="demo">5</li>
+        </ul>
+    </div>
+
+    <ul>
+        <l>1</l>
+        <l class="demo">2</l>
+        <l>3</l>
+        <l>4</l>
+        <l class="demo">5</l>
+    </ul> -->
+
+    <ul>
+        <!-- <li>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </li> -->
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+
+    <!-- <div class="wrapper">
+        <span class="demo"></span>
+        <span class="demo"></span>
+        <p class="demo p"></p>
+        <span class="demo"></span>
+    </div> -->
+
+
+    <div class="wrapper"> 
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
     <script src="./jquery.js"></script>
-    <script></script>
+    <script>
+        console.log($(".demo"));
+        console.log($(".demo").get(0));//得到原生js的dom对象
+
+        //find在原有的基础上向下寻找
+        // $(".wrapper")//前一个是document 
+        //     .css({position:"relative"})
+        //         .find("ul")//前一个是.warpper
+        //             .css({listStyle:"none"})
+        //                 .find("li")//前一个是ul
+        //                     .css({color:"red"});
+
+        
+        //filter-->过滤，只能过滤，不能查找(先全都选出来，然后再根据条件筛选)
+        // $(".wrapper ul")
+        //     .find("li")
+        //         .filter(".demo")
+        //             .css({color:"red"});
+
+        // $(".wrapper ul li").filter(function(index,ele){
+        //     console.log(index,ele,this);
+        // })
+
+        // //not--->跟filter正好相反
+        // $(".wrapper ul")
+        //     .find("li")
+        //         .not(".demo")
+        //             .css({color:"blue"});
+        
+
+
+        //has--->筛选,has里面的是筛选条件(后代)--(先限定条件然后在筛选)
+        // $("li").has('ul').css({backgroundColor:"red"});//选择后代中有ul的li
+        
+
+        // //is--->可以用于精准的判断，即$(e.target).is('xxx')
+        // var flag=$(".wrapper .demo").is(".p");
+        // console.log(flag);
+
+        $('ul').click(function(e){
+            if($(e.target).is("li")){
+                alert($(e.target).text());
+            }else{
+                alert($(this).text());
+            }
+        })
+
+
+        //add--->集合操作，将不同的集合都放在一起进行统一操作
+        $(".wrapper").add('ul').css({position:"relative"});
+
+
+        //end-->回退操作
+        $(".wrapper")
+            .css({position:"relative"})
+                .find("ul")
+                    .css({position:"absolute"})
+                        .end()//回到.wrapper那层
+                            .css({position:"absolute"})
+
+
+        
+    </script>
 </body>
 </html>
