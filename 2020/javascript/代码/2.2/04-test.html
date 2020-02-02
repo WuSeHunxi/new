@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script src="./jquery.js"></script>
+    <script>
+
+        //html()--->取值只能取到第一个，但是赋值的时候会给每一个都赋值，因此它的参数可以是函数
+        
+        console.log($("ul li").html());//1 --->只能获取第一个
+
+        // $("ul").html("abc");
+
+        var arrName=['a','b','c','d'];
+        $("ul li").html(function(index,ele){
+            return '<p style="color:orange">'+arrName[index]+'</p>'
+        });
+
+
+        //text()
+        $("ul li").text(function(index,ele){
+            return arrName[index];
+        })
+
+
+        //size()---->获取长度
+        console.log($("ul li").size());
+    </script>
+</body>
+</html>

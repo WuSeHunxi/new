@@ -50,7 +50,7 @@
     jQuery.prototype.pushStack = function (dom) {
         // dom newObj
         if (dom.constructor != jQuery) {
-            dom = jQuery(dom);
+            dom = jQuery(dom);//包装成jq对象
         }
         dom.prevObject = this;
         return dom;
@@ -58,6 +58,15 @@
 
 
     jQuery.prototype.get = function (num) {
+        // if(num!=null){
+        //     if(num>=0){
+        //         return this[num];
+        //     }else{
+        //         return this[this.length+num];
+        //     }
+        // }else{
+        //     // return 
+        // }
         return num != null ? (num >= 0 ? this[num] : this[num + this.length]) : [].slice.call(this, 0);
     }
 
@@ -78,7 +87,7 @@
             newObj[newObj.length++] = baseObj[i];
         }
 
-        console.log(newObj);
+        // console.log(newObj);
 
         this.pushStack(newObj);
 

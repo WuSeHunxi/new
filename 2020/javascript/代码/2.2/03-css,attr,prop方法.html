@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo"></div>
+    <input type="checkbox">
+    <script src="./jquery.js"></script>
+    <script>
+        //设置值
+        $(".demo").css({width:100,height:100,backgroundColor:"red"});
+        //取值
+        console.log($(".demo").css("width"));
+
+        //attr
+        console.log($(".demo").attr('class'));
+        console.log($("input").attr("checked"));//undefined
+
+        //prop 不能获取和设置自定义的属性，但是对于表单类的属性返回的值都是true或者false
+        console.log($("input").prop("checked"));//false
+    </script>
+</body>
+</html>

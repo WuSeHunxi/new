@@ -374,7 +374,7 @@
 	width: 20px;
 	height: 30px;
 	line-height: 30px;
-	color: #fff;
+	color: #fff; 
 	cursor: pointer;
 	border: none;
 	background-color: rgba(0,0,0,0.3);	/* 支持情况：IE9+ */
