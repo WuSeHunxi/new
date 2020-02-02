@@ -3,7 +3,7 @@
         return new jQuery.prototype.init(selector);
     }
     jQuery.prototype.init = function (selector) {
-        // this = {};
+        // this = {};--->this是一个类数组
         // 选出 dom 并且包装成jQuery对象  返回
         // id class
         this.length = 0;
@@ -18,17 +18,18 @@
             var dom = document.getElementById( selector.slice(1) );
         }
 
+        //当按照id选的话，得到的dom对象不是类数组  
         if (selector instanceof Element || dom.length == undefined) {
             this[0] = dom || selector;
             this.length++;
-        }else {
+        }else {//通过class获取到的
             // 基础铺垫
             for (var i = 0; i < dom.length; i++) {
                 this[i] = dom[i];
-                this.length++
+                this.length++;
             }
         }
-        // return this;
+        // return this;---》this会自己返回，不需要写
     }
 
     jQuery.prototype.css = function (config) {
@@ -36,14 +37,16 @@
         // 循环操作
         for (var i = 0; i < this.length; i++) {
             for (var attr in config) {
+                //给每一个标签添加样式
                 this[i].style[attr] = config[attr];
             }
         }
 
-        // 链式操作
+        // 链式操作返回this
         return this;
     }
 
+    //记录当前的jq对象的前一个jq对象
     jQuery.prototype.pushStack = function (dom) {
         // dom newObj
         if (dom.constructor != jQuery) {
