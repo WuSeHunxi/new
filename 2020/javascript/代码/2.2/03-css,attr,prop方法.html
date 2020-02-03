@@ -20,8 +20,11 @@
         console.log($(".demo").attr('class'));
         console.log($("input").attr("checked"));//undefined
 
-        //prop 不能获取和设置自定义的属性，但是对于表单类的属性返回的值都是true或者false
+        //prop 对于表单类的属性返回的值都是true或者false
         console.log($("input").prop("checked"));//false
+        //对于自定义的属性能够获取到，但是不能在行间样式中显示
+        // $('.demo').prop('data','111');
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <a href="http://www.baidu.com" target="_blank"></a>
+    <script src="jquery.js"></script>
+    <script>
+        //参数：type selector(第二个参数的作用是使事件委托更加精准) data  function(){}
+        $(".demo").on('click',true,function(e){
+            console.log(e.data);
+        })
+
+
+        //只有当点击的是li的时候才能正常输出
+        $("ul").on('click','li',function(){
+            console.log($(e.target).text());
+        })
+        $("<li>6</li>").appendTo("ul");
+
+
+        //一次性事件--->点击第一次进入淘宝
+        $("a").one('click',function(){
+            window.open("http://taobao.com");
+            return false;
+        })
+
+
+        //一个事件对象绑定多个事件函数
+        $(".demo").on({
+            click:function(){
+                console.log('click');
+            },
+            mouseenter:function(){
+                console.log('mouseenter');
+            },
+            mouseleave:function(){
+                console.log('mouseleave'); 
+            }
+        })
+
+
+        //off()--->事件解绑，不传参的话那么所有的事件都会解绑，但是有一个参数的话就会解绑指定的事件
+        //          如果有两个参数的话那么就会解绑指定事件的指定函数
+        //  给谁绑定的事件就给谁解绑
+
+    </script>
+</body>
+</html>

@@ -5,12 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .tpl{
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="demo" data-cst='cst' style="width: 100px;height: 100px;background-color: red;"></div>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>班级</th>
+        </tr>
+        <tr class="tpl">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
     <script src="jquery.js"></script>
     <script>
-    
-        
+        /**
+         * 
+         * clone()--->克隆，但是不能克隆事件，不能克隆状态，信息
+         * clone(true)--->此时可以克隆事件
+         *      true
+         * 
+        */
+        // $(".demo").click(function(){
+        //     alert(0);
+        // })
+        // $(".demo").clone(true).appendTo("body");
+
+        var studentArr=[
+            {name:"hah",age:18,grade:1},
+            {name:"oo",age:12,grade:2},
+            {name:"iii",age:13,grade:3}
+        ];
+
+        var tb=$("table");
+        studentArr.forEach(function(ele,index){
+            var cloneDom=$(".tpl").clone().removeClass("tpl");
+            cloneDom.find('td').eq(0).text(ele.name).next().text(ele.age).next().text(ele.grade);
+            cloneDom.appendTo(tb);
+        })
+
+
+        //data--->用于存数据，存信息，存状态，存的是啥值取到的就是啥值
+        $(".demo").data("data-duyi",18);//能获取，但是在行间样式中不显示
+
+        $(".demo").data({
+            name:"lall",
+            sex:true
+        })
+        console.log($(".demo").data("cst"));//将原来设置的data-cst解析出来了
+
     </script>
 </body>
 </html>
