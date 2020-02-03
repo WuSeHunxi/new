@@ -10,7 +10,15 @@
     <button>change</button>
     <p class="demo">duyi-cst</p>
     <span class="demo">duyi-cst</span>
-    
+
+    <div class="wrapper">
+        全选：<input type="checkbox">
+        banana:<input type="checkbox">
+        apple:<input type="checkbox">
+        orange:<input type="checkbox">
+        <input type="submit" value="login">
+    </div>
+
     <script src="jquery.js"></script>
     <script>
         // .next()-->下一个兄弟元素节点，里面有一个参数是限定条件
@@ -19,6 +27,18 @@
             $(this).next('p').css({fontSize:"20px",color:'orange'})
         })
         
+        // .prev()--->和.next()的用法一样
+
+
+        // .nextAll()--->选中的所有的兄弟元素节点，括号里的参数是限定条件
+        $("input[type='chechbox']").eq(0).click(function(){
+            if($(this).prop("checked")){
+                $(this).nextAll("input[type='checkbox']").prop("checked",true);
+            }else{
+                $(this).nextAll("input[type='checkbox']").prop("checked",false);
+            }
+        })
+
     </script>
 </body>
 </html>
