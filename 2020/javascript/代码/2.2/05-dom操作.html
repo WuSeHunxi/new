@@ -5,14 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 10px;
+            background-color: orange;
+        }
+        .demo.active{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+
     <script src="./jquery.js"></script>
     <script>
         /**
          * dom操作
          * 
         */
+        $(".demo").eq(0).addClass("active duyi");
+
+        // $(".demo").eq(0).removeClass("active");
+        $(".demo").eq(0).removeClass('');//啥也不删
+        $(".demo").eq(0).removeClass();//全删
+
+        // $("div").removeClass(function(index,ele){
+        //     if(index%2==0){
+        //         return 'demo';
+        //     }
+        //     return '';//null undefined
+        // })
+
+        // console.log($("div").hasClass("demo"));
+
+        //在一个整体里面，是对类名的简单操作，但是如果有多个整体要修改css样式的话就需要进行类名是否存在的判断
+        $(".demo").click(function(){
+            $(".demo").removeClass("active");
+            $(this).addClass("active");
+        })
+
+        //更整洁 更易维护 代码复用性高 节约代码请求的带宽 能够支持webpack的应用
+
+
     </script>
 </body>
 </html>
