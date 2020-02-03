@@ -7,9 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <button>change</button>
+    <p class="demo">duyi-cst</p>
+    <span class="demo">duyi-cst</span>
+    
     <script src="jquery.js"></script>
     <script>
-    
+        // .next()-->下一个兄弟元素节点，里面有一个参数是限定条件
+        $("button").click(function(){
+            // 按钮的下一个必须是p的标签才能发生改变
+            $(this).next('p').css({fontSize:"20px",color:'orange'})
+        })
         
     </script>
 </body>
