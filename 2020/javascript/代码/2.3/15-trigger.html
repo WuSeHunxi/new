@@ -7,9 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="demo"></div>
     <script src="jquery.js"></script>
     <script>
+
+        //trigger()--->触发事件
         
+        //触发系统事件
+        // $(".demo").on('click',function(e){
+        //     console.log('click',arguments);
+        // })
+        // // trigger()的第二个参数是数组形式
+        // $('.demo').trigger('click',[1,2,3,4]);
+
+        //自定义事件
+        $('.demo').on('pageLoad',function(){
+            console.log("o");
+        })
+
+        $(".demo").trigger('pageLoad');
+
     </script>
 </body>
 
