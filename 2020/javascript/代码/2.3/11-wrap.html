@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <span></span>
+        <span></span>
+    </div>
+    <div class="demo"></div>
+    <div class="box"></div>
+
+    <script src="jquery.js"></script>
+    <script>
+        
+        //wrap--->给选中的标签添加父级,它的参数有很多种
+        // $(".demo").wrap('<div></div>');
+        // $(".demo").wrap($('.box'));//此时的参数是已有的.box，这时会将原来的标签复制一份作为.demo的父级
+
+        $(".demo").wrap(function(){
+            return '<div class="hello"></div>'
+        });
+
+
+
+        //wrapInner--->给选中的标签的内部标签添加父级
+        // $(".demo").wrapInner("<div/>");
+
+        // $(".demo").wrapInner(function(index){
+        //     return '<div class="wrapper'+ index+'"></div>';
+        // })
+
+
+        //wrapAll--->给选中的标签(必须在同一级)加上统一的父级
+        // $(".demo").wrapAll('<div></div>');
+
+
+        //unwrap()--->删除直接父级
+        $(".demo").unwrap();
+    </script>
+</body>
+</html>
