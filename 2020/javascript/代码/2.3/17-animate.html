@@ -26,10 +26,16 @@
 
 
     <script>
+
+        //animate()---->运动函数
+
+        $(".demo").animate({width:'+50',height:'+=50',left:'+=100',top:'+=100'},1000,function(){
+            alert("over");
+        })
         // target duration easing callback
         // 
         // $('#startBtn').on('click', function () {
-        //     // 内置队列
+        //     // 内置队列--->将运动的任务存在一个队列里面，先执行第一个才能再接着执行下一个
         //     $('.demo')
         //         .animate({width: '+=50', height: '+=50', left: '+=100', top: '+=100'}, 1000, 'easeInOutBounce')
         //             .delay(2000)
@@ -37,6 +43,8 @@
                 
         // });
 
+        //stop()--->如果不传参的话，就会阻止当前运动，执行下一次运动
+        //          如果两个参数都是true的话，那么就是停止当前运动，迅速移动到最终的目标点
         // $('#stopBtn').on('click', function () {
         //     // null  true   true true
         //     $('.demo').stop(true, true);
