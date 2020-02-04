@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div>ha</div>
+    <p>p1</p>
+    <span>span1</span>
+    
     <div class="wrapper">
         全选：<input type="checkbox">
         banana:<input type="checkbox">
@@ -15,10 +20,55 @@
         <input type="submit" value="login">
     </div>
 
+
+    <div class="wrapper">
+        <!-- 有两组全选 -->
+        <h1>水果</h1>
+        全选：<input type="checkbox"></input>
+        banana:<input type="checkbox">
+        apple:<input type="checkbox">
+        orange:<input type="checkbox">    
+    
+        <h1>nba</h1>
+        全选：<input type="checkbox"></input>
+        Rose:<input type="checkbox">
+        Curry:<input type="checkbox">
+        James:<input type="checkbox">
+        <h1></h1>
+        <div></div>
+    </div>
+
     <script src="../jquery.js"></script>
     <script>
+
+        $("h1").next('input[type="checkbox"]').click(function(){
+            // console.log("pp");
+            if($(this).prop("checked")){
+                $(this).nextUntil("h1","input[type='checkbox']").prop("checked",true);
+            }else{
+                $(this).nextUntil("h1","input[type='checkbox']").prop("checked",false);
+            }
+        })
+
+        // $('h1').next().click(function () {
+        //     // 
+        //     // $(this).nextUntil('h1', 'input[type="checkbox"]').prop('checked', true);
+        //     if($(this).prop("checked")){
+        //         //第二个参数是限定条件
+        //         $(this).nextUntil("h1",'input[type="checkbox"]').prop("checked",true);
+        //     }else{
+        //         $(this).nextUntil("h1",'input[type="checkbox"]').prop("checked",false);
+        //     }
+        // });
+
+        $("div").click(function(){
+            //参数是限定条件
+            $(this).next('p').css({color:"red"});
+        })
+
         $("input[type='checkbox']").eq(0).click(function(){
             if($(this).prop("checked")){
+                //参数是限定条件
                 $(this).nextAll("input[type='checkbox']").prop("checked",true);
             }else{
                 $(this).nextAll("input[type='checkbox']").prop("checked",false);
@@ -27,4 +77,5 @@
     
     </script>
 </body>
-</html>
+</htm
+divl>
