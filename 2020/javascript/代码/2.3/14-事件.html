@@ -26,14 +26,14 @@
     <a href="http://www.baidu.com" target="_blank"></a>
     <script src="jquery.js"></script>
     <script>
-        //参数：type selector(第二个参数的作用是使事件委托更加精准) data  function(){}
+        //参数：type selector(第二个参数的作用是使事件委托更加精准) data(第三个参数的内容存在了e里面)  function(){}
         $(".demo").on('click',true,function(e){
             console.log(e.data);
         })
 
 
-        //只有当点击的是li的时候才能正常输出
-        $("ul").on('click','li',function(){
+        //只有当点击的是li的时候才能正常输出，在内部隐式的判断点击的是不是li
+        $("ul").on('click','li',function(e){
             console.log($(e.target).text());
         })
         $("<li>6</li>").appendTo("ul");
@@ -63,6 +63,10 @@
         //off()--->事件解绑，不传参的话那么所有的事件都会解绑，但是有一个参数的话就会解绑指定的事件
         //          如果有两个参数的话那么就会解绑指定事件的指定函数
         //  给谁绑定的事件就给谁解绑
+
+        $("ul").off();//--->解绑
+
+        $(".demo").off("click")
         
 
     </script>

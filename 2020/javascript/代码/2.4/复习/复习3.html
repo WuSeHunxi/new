@@ -31,11 +31,34 @@
         Rose:<input type="checkbox">
         Curry:<input type="checkbox">
         James:<input type="checkbox"> 
+       <h1></h1>
     </div>
     
     <script src="../jquery.js"></script>
     <script>
-        
+        $("input[type='checkbox']").eq(0).click(function(){
+            if($(this).prop("checked")){
+                $(this).nextAll("input[type='checkbox']").prop("checked",true);
+            }else{
+                $(this).nextAll("input[type='checkbox']").prop("checked",false);
+            }
+        })
+
+        $("h1").next("input[type='checkbox']").click(function(){
+            if($(this).prop("checked")){
+                $(this).nextUntil("h1","input[type='checkbox']").prop("checked",true);
+            }else{
+                $(this).nextUntil("h1","input[type='checkbox']").prop("checked",false);
+            }
+        })
+
+        $("h2").next("input[type='checkbox']").click(function(){
+            if($(this).prop("checked")){
+                $(this).nextUntil("h2","input[type='checkbox']").prop("checked",true);
+            }else{
+                $(this).nextUntil("h2","input[type='checkbox']").prop("checked",false);
+            }
+        })
     
     </script>
 </body>

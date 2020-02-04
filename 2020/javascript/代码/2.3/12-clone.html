@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         .tpl{
-            display: none;
+            display: none;/*隐藏不占位*/
         }
     </style>
 </head>
@@ -29,7 +29,7 @@
     <script>
         /**
          * 
-         * clone()--->克隆，但是不能克隆事件，不能克隆状态，信息
+         * clone()--->克隆（可以克隆后添加的自定义属性），但是不能克隆事件，不能克隆状态或者信息(由data()方法添加的信息)
          * clone(true)--->此时可以克隆事件
          *      true
          * 
@@ -37,7 +37,8 @@
         // $(".demo").click(function(){
         //     alert(0);
         // })
-        // $(".demo").clone(true).appendTo("body");
+        $('.demo').data("data","papap");
+        $(".demo").clone().appendTo("body");
 
         var studentArr=[
             {name:"hah",age:18,grade:1},
@@ -47,7 +48,7 @@
 
         var tb=$("table");
         studentArr.forEach(function(ele,index){
-            var cloneDom=$(".tpl").clone().removeClass("tpl");
+            var cloneDom=$(".tpl").clone(true).removeClass("tpl");
             cloneDom.find('td').eq(0).text(ele.name).next().text(ele.age).next().text(ele.grade);
             cloneDom.appendTo(tb);
         })
@@ -55,7 +56,7 @@
 
         //data--->用于存数据，存信息，存状态，存的是啥值取到的就是啥值
         $(".demo").data("data-duyi",18);//能获取，但是在行间样式中不显示
-
+ 
         $(".demo").data({
             name:"lall",
             sex:true

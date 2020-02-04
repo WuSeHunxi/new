@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="shop" data-id='101'>
+        <p>basketball-nike</p>
+        <button>add</button>
+    </div>
+
+    <div class="shop" data-id='102'>
+        <p>basketball-adidas</p>
+        <button>add</button>
+    </div> 
+
+    <div class="wrapper"></div>
+
+    
+    <script src="../jquery.js"></script>
+    <script>
+        
+        var showArrs = [
+            {
+                name: 'nike',
+                id: '101'
+            },{
+                name: 'adidas',
+                id: '102'                
+            }
+        ];
+
+        var str='';
+        showArrs.forEach(function(ele,index){
+            str+="<div class='shop' data-id="+ ele.id +"><p>"+ele.name+"</p><button>add</button>";
+            
+        })
+        $('.wrapper').html(str);
+
+
+        $("button").click(function(){
+            $(this).attr("data-id",$(this).parent().attr("data-id"));
+        });
+    
+    </script>
+</body>
+</html>
