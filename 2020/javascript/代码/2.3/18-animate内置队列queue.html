@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <!-- <script src='./jquery.js'></script>   -->
+    <script src='jquery.js'></script>  
+    <script>
+        // $('.demo')
+            // .css({position: 'absolute', left: 0, top: 0, width: 100, height: 100, backgroundColor: 'red'})
+            // .on('click', function () {
+            //     $(this)
+            //         .animate({width: 120, height: 120, left: 100, top: 100}, 1000)
+            //         .animate({width: 220, height: 140, left: 200, top: 200}, 1000)
+            //         .animate({width: 320, height: 160, left: 300, top: 300}, 1000);
+            // });
+
+
+        // jQuery queue dequeue clearQueue
+        // queue(队列名,添加到队列的内容)---->创建队列
+        // {chain: [function, function, function]}
+
+        //一次性全部出队利用形参next,next是队列中的下一个函数(队列中的内容)，如果此时出队的话就会将队列中的内容全部出队
+
+        // $(".demo").queue('chain',function(next){
+        //     console.log("over1");
+        //     next();
+        // }).queue('chain',function(next){
+        //     console.log("over2");
+        //     next();
+        // }).queue('chain',function(){
+        //     console.log("over3");
+        // })
+        // console.log($('.demo').queue('chain'));
+
+
+
+        $('.demo')
+            .css({position: 'absolute', left: 0, top: 0, width: "100px", height: "100px", backgroundColor: 'red'})
+                .on('click', function () {
+                    $(this).dequeue('chain');//出队
+                }).queue('chain', function (next) {//--->创建队列
+                    $(this).animate({width: 120, height: 120, left: 100, top: 100});
+                    next();//执行下一个函数
+                }).queue('chain', function (next) {
+                    $(this).animate({width: 220, height: 220, left: 200, top: 200});
+                    next();
+                }).queue('chain', function (next) {
+                    $(this).animate({width: 320, height: 320, left: 300, top: 300});
+                });
+
+
+
+
+        // console.log( $('.demo').queue('chain') );
+
+
+        // dequeue(队名) type--->出队
+        // $(".demo").dequeue('chain');//执行一次出一次队
+        // console.log($(".demo").queue("chain"));
+
+        // clearQueue()--->清空队列
+        // $(".demo").clearQueue('chain');
+
+        
+    </script>  
+</body>
+</html>

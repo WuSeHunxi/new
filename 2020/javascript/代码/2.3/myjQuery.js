@@ -112,6 +112,124 @@
         }
     }
 
+    //全部都出队的方法
+    jQuery.prototype.myQueue = function () {
+        var queueObj = this;
+        //根据传入的参数来看
+        var queueName = arguments[0] || 'fx';
+        var addFunc = arguments[1] || null;
+        var len = arguments.length;
+
+        // 获取队列
+        if (len == 1) {
+            return  queueObj[0][queueName];
+        }
+
+        // queue dom {chain: } 添加队列 或 往已有队列中添加内容
+        queueObj[0][queueName] == undefined ? queueObj[0][queueName] = [addFunc] : queueObj[0][queueName].push(addFunc);
+        return this;
+    }
+
+    jQuery.prototype.myDequeue = function (type) {
+        var self = this;
+        var queueName = arguments[0] || 'fx';//队列名称
+        var queueArr = this.myQueue(queueName);//取队列数组
+        var currFunc = queueArr.shift();//拿出数组中的第一个元素
+        if (currFunc == undefined) {
+            return;
+        }
+        var next =  function () {
+            //回调函数
+            self.myDequeue(queueName);
+        }
+        currFunc(next);//函数执行，为了取到数组中的第一个元素
+        return this;
+    }
+
+    jQuery.prototype.myDelay = function (duration) {
+        var queueArr = this[0]['fx'];
+        queueArr.push(function (next) {
+            setTimeout(function () {
+                next();
+            }, duration);
+        });
+        return this;
+    }
+
+
+    jQuery.prototype.myAnimate = function (json, callback) {
+        var len = this.length;
+        var self = this;
+        // 最后添加到队列里的内容函数
+
+        var baseFunc = function (next) {
+            var times = 0;
+            for (var i = 0; i < len; i++) {
+                startMove(self[i], json, function () {
+                    times++;
+                    if (times == len) {
+                        callback && callback();
+                        next();
+                    }
+                });
+            }
+        }        
+
+        this.myQueue('fx', baseFunc);
+
+        if ( this.myQueue('fx').length == 1 ) {
+            this.myDequeue('fx');
+        }
+
+
+        function getStyle (obj, attr) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,false)[attr];
+            }
+        }
+                
+        function startMove (obj, json, callblack) {
+            clearInterval(obj.timer);
+            var iSpeed;
+            var iCur;
+            var name;
+            obj.timer = setInterval(function () {
+                var bStop = true;
+                for (var attr in json) {                            
+                    if (attr === 'opacity') {                                
+                        name = attr;
+                        iCur = parseFloat(getStyle(obj, attr)) * 100;
+                    }else {
+                        iCur = parseInt(getStyle(obj, attr));
+                    }                            
+                    iSpeed = (json[attr] - iCur) / 7;
+                    if (iSpeed > 0) {
+                        iSpeed = Math.ceil(iSpeed);
+                    }else {
+                        iSpeed = Math.floor(iSpeed);
+                    }
+                    if (attr === 'opacity') {
+                        obj.style.opacity = (iCur + iSpeed) / 100;
+                    }else {
+                        obj.style[attr] = iCur + iSpeed + 'px';
+                    }
+                    if (json[attr] - iCur !== 0) {
+                        bStop = false;
+                    }
+                }
+                if (bStop) {
+                    clearInterval(obj.timer);
+                    callblack();
+                }
+            }, 30);
+        }
+
+        return this;   
+    }
+
+
     jQuery.prototype.init.prototype = jQuery.prototype;
 
 

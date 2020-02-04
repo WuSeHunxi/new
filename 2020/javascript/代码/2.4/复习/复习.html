@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="hhh">
+    <form action="">
+        <h3></h3>
+            三分准：<input type="checkbox" name='special' value='three'>
+            组织好：<input type="checkbox" name='special' value='org'>
+            突破强：<input type="checkbox" name='special' value='strong'>
+            <h3>具体描述该明显的技术特点</h3>
+            <textarea name="des" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value='login'>
+    </form>
+    <script src="./jquery.js"></script>
+    <script>
+
+        //val()--->当参数是函数的时候函数里面的参数是index和oldValue，但是这种用法很少
+        console.log($("input[type='text']").val());
+        //只有当选择的是输入框的时候才这么特殊：界面显示的已经修改，但是在行间样式上并没有改变，不影响后续的取值赋值等操作
+        // $("input").val("apapappa");
+    
+        // $("input[type='checkbox']").val(function(index,oldValue){
+        //     return index+oldValue;
+        // })
+
+        $("input[type='checkbox']").val("papp");//行间可以修改
+
+    
+    </script>
+</body>
+</html>
