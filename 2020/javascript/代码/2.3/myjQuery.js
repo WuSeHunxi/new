@@ -161,11 +161,12 @@
     jQuery.prototype.myAnimate = function (json, callback) {
         var len = this.length;
         var self = this;
-        // 最后添加到队列里的内容函数
 
-        var baseFunc = function (next) {
-            var times = 0;
+        // 最后添加到队列里的内容函数
+        var baseFunc = function (next) {//将其添加到队列中
+            var times = 0;//用它判断什么时候才能到达目标点
             for (var i = 0; i < len; i++) {
+                //self[i]--->每一个dom
                 startMove(self[i], json, function () {
                     times++;
                     if (times == len) {
