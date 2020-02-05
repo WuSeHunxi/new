@@ -10,8 +10,44 @@
     <script src="jquery.js"></script>
     <script>
         
+        // $.extend()
         
+        //克隆的时候有就覆盖，没有就添加
+        // 深层克隆和浅层克隆的区别就是在索引的问题上，浅层克隆无论是原始值还是引用值直接都取到一样的，
+        //     但是深层克隆引用值的时候，是要重新创建一个他没有的引用值，然后进行添加
+
+        var obj1={
+            name:'xiaodeng',
+            age:4,
+            son:{
+                name:"ooo",
+            }
+        }
+
+        var obj2={
+            name:"deng",
+            age:43,
+            son:{
+                name:'papp',
+                age:12,
+                sex:"male"
+            }       
+        }
+
+        var obj3={
+            name:"lal",
+            age:54,
+            money:1000
+        }
+
+        // $.extend(obj1,obj2);//将obj2添加到obj1中（有就覆盖，没有就添加）
+        // $.extend(obj1,obj2,obj3);//将后面的参数添加到obj1中
+
+        $.extend(true,obj1,obj2,obj3)
+
+
         
+
     </script>
 </body>
 </html>
