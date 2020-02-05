@@ -75,6 +75,7 @@
                             $.each(data, function(index, ele) {
                                 // ele.name  ele.poster
                                 var $MovieSection = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
+                                //通过id知道点击的是哪个电影，让每个对象和相应的id绑在一起
                                 $MovieSection.data({id: ele.id}).on('click', function (){
                                     
                                     $.ajax({
@@ -94,7 +95,7 @@
                                                 <p>导演: ' + direct + '</p>\
                                                 <p>剧情: ' + gut + '</p>\
                                                 <p>主演: ' + mainActor.reduce(function (prev, curv) {
-                                                    prev += curv + ' ';
+                                                    prev += curv + ' ';//返回的是一个字符串
                                                     return prev;
                                                 }, '') + '</p>\
                                                 <p>编剧: ' + screenWriter.reduce(function (prev, curv) {
@@ -104,14 +105,13 @@
                                             </div>'
 
                                             $(htmlStr)
-                                                .appendTo('body')
+                                                .appendTo('body')//添加样式
                                                     .css({position: 'absolute', left: $(window).outerWidth() / 2, bottom: 100, width: 400, marginLeft: -200});
                                         }
                                     });
                                 }).children()
                                     .eq(0).attr('src', ele.poster)
                                         .next().text(ele.name);
-
                                 $Wrapper.append($MovieSection);
                             });
                         }
@@ -126,7 +126,7 @@
 
         //  $.Deferred();
 
-        // 
+        
         // $.ajax();
 
 
