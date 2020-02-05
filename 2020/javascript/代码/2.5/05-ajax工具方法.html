@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper"></div>
+    <script src="jquery.js"></script>
+    <script>
+        
+        //$.ajax()-->参数{}-->url,type,data(请求参数),success(请求成功之后的处理函数)
+        function deal(){//用来处理请求得到的数据
+
+        }
+        $.ajax({
+            url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+            type:'GET',
+            data:{
+                wd:'nba',
+                cb:'deal'
+            },
+            dataType:'jsonp',//跨域,必须和data中的cb一起使用
+            success:function(res){//请求成功返回的数据
+                // console.log(res);
+                $.each(res.data,function(index,ele){
+                    console.log(ele);
+                })
+            },
+            error:function(e){//发送请求失败
+                //状态码  状态信息
+                console.log(e.status,e.statusText);
+            },
+            complete:function(){//请求完成后的函数
+
+            },
+            context:$(".wrapper"),//控制this，改变函数上下文
+            async:true,//默认是true--->异步，false--->同步
+        });
+
+        console.log('over');
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

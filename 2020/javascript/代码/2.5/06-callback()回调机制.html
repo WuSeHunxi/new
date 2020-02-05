@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery.js"></script>
+    <script>
+
+        //如果有参数，且参数是'once'，那么无论fire几次，都只会执行一次
+        //memory-->回调对象具有记忆功能
+        //unique-->去重，将回调对象中的重复函数去掉
+        //stopOnFalse-->如果有一个回调函数的返回值为false，那么就到该函数为之，其它的不会再执行
+
+        // var cb=$.Callbacks('memory');//回调对象
+        // var cb=$.Callbacks('unique');
+        var cb=$.Callbacks('stopOnFalse');//此时函数d不执行了
+        //回调处理函数
+        function a(x){
+            console.log("a",x);
+        }
+
+        function b(x){
+            console.log("b",x);
+            return false;
+        }
+
+        function d(){
+            console.log("d");
+        }
+
+        cb.add(a,b,d);
+        // cb.add(a,b);
+
+        //可以传参给回调函数
+        cb.fire('10');//执行回调函数
+
+        // function c(x){
+        //     console.log('c',x);
+        // }
+
+        // cb.add(c);//此时的c函数是后添加的，但是由于回调对象已经具有了记忆功能，因此在前面fire的时候也可以执行后添加的回调函数
+    
+        
+        //回调机制很好用
+        //js单线程-->异步编程优化体验  防止阻塞页面-->回调函数
+        //函数编程中:当满足某个状态，接下来要去做另外一件事
+
+        
+    </script>
+</body>
+</html>
