@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo" style="width: 100px;height: 100px;background-color:red"></div>
+    <script src="jquery.js"></script>
+    <script>
+
+        //这些方法：$直接.xxx()
+        
+        //原生的typeof()-->告诉我们里面的数据是什么类型
+        //$.type()--->告诉我们里面的数据到底是什么
+        console.log($.type(undefined));
+        console.log($.type('abc'));
+        console.log($.type(new Array()));
+        console.log($.type(null));//null
+        console.log(typeof(null));//object 
+        console.log($.type(new Number()));
+        console.log($.type(new Person()));//object
+        function Person(){}
+
+        // $.isArray();//判断是否是array
+        console.log($.isArray([1,2,3]));//true
+
+        console.log($.isFunction(function(){}()));//false
+
+        // $.isWindow()--->iframe跨域编程时常用
+        console.log($.isWindow(window));
+
+        // $.trim()--->去掉前后的空格，也可以将其他类型的值转成字符串
+
+        // $.proxy(原始方法,新的指向)--->改变this指向,和bind()很像
+        function show(){
+            console.log(this);
+        }
+        var obj={
+            name:'pap',
+            age:10
+        }
+        var showProxy=$.proxy(show,obj);
+        showProxy();
+
+        var list={
+            init:function(){
+                this.ms=123;
+                this.dom=document.getElementById("demo");
+                this.bindEvent();
+            },
+            bindEvent:function(){
+                this.dom.onclick=$.proxy(this.show,this);
+                this.dom.onclick=this.show;//this还是list--->你仔细想
+                // console.log(this.show);
+            },
+            show:function(){
+                //发现this出现了问题，但是要往上找，找谁调用了这个函数，修改那个this
+                console.log(this.produseMs(this.ms));//此时的this已经变成了this.dom了,因此要修改this指向
+                // console.log(this);
+            },
+            produseMs:function(ms){
+                return ms+234;
+            }
+        }
+
+        list.init();
+
+
+        // $.noConflict()--->防止冲突，即：防止$变量的命名冲突
+        var $C=$.noConflict();//此时$C就是原来的$
+
+        $C("#demo").css({backgroundColor:"green"});
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

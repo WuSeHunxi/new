@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+
+    <p>
+        <sapn></sapn>
+        <i></i>
+        <sapn></sapn>
+        <i></i>
+        <sapn></sapn>
+    </p>
+    <script src="jquery.js"></script>
+    <script>
+
+        $("li").each(function(index,ele){
+            $(ele).text(index).addClass('demo'+index);
+        })
+
+
+        //children()
+        $("p").children();//得到所有的子元素
+
+        $("p").children().each(function(index,ele){
+            if(ele.nodeName=='i'){
+                $(ele).text('i-'+index);
+            }else{
+                $(ele).text('span-'+index);
+            }
+        })
+
+
+        //index()--->得到当前元素的索引(通常用于获取元素在兄弟元素中的索引)
+        //传参数的话起到过滤作用，获取指定的元素在兄弟中排第几
+        $("ul").on('click',function(e){
+            console.log($(e.target).index());
+        })
+
+        console.log($("p span").index($("p span").eq(1)));
+
+        
+
+    </script>
+</body>
+</html>

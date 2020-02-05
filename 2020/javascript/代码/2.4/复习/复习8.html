@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
 </head>
 <body>
     <button id='stopBtn'>stop</button>
@@ -13,8 +23,20 @@
     <div class="demo"></div>
 
     <script src='../jquery.js'></script>
-    <script >
-    
+    <script>
+
+        //点击的时候处理的都是运动物体
+        $("#startBtn").click(function(){
+            $(".demo").animate({left:"+150",top:"+150"}).animate({left:"+150",top:"-20"});
+        })
+
+        $("#finishBtn").click(function(){
+            $('.demo').finish();
+        })
+
+        $("#stopBtn").click(function(){
+            $('.demo').stop(true);
+        })
         
     </script>
 </body>

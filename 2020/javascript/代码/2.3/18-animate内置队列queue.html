@@ -30,15 +30,17 @@
 
         //一次性全部出队利用形参next,next是队列中的下一个函数(队列中的内容)，如果此时出队的话就会将队列中的内容全部出队
 
-        // $(".demo").queue('chain',function(next){
-        //     console.log("over1");
-        //     next();
-        // }).queue('chain',function(next){
-        //     console.log("over2");
-        //     next();
-        // }).queue('chain',function(){
-        //     console.log("over3");
-        // })
+        $(".demo").queue('chain',function(next){
+            console.log("over1");
+            next();
+        }).queue('chain',function(next){
+            console.log("over2");
+            next();
+        }).queue('chain',function(){
+            console.log("over3");
+        })
+        
+        $(".demo").dequeue('chain');
         // console.log($('.demo').queue('chain'));
 
 
@@ -49,6 +51,7 @@
                     $(this).dequeue('chain');//出队
                 }).queue('chain', function (next) {//--->创建队列
                     $(this).animate({width: 120, height: 120, left: 100, top: 100});
+                    //如果没有next()的话，那么就只能是点击一下出一次队，有next()可以一次性全部出队
                     next();//执行下一个函数
                 }).queue('chain', function (next) {
                     $(this).animate({width: 220, height: 220, left: 200, top: 200});

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color:red;
+            left: 100px;
+            top: 100px;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <div class="box"></div>
+    </div>
+
+
+    <script src="jquery.js"></script>
+    <script>
+
+        //当前元素到文档的距离
+        console.log($(".box").offset().top);
+        //如果用offset()中传参的话会在行间样式上修改
+
+        //相对于有定位的父级获取位置，如果没有可定位的父级，那么就相对于文档进行定位
+        console.log($(".box").position());
+
+        //scrollTop  scrollLeft---->滚动条的滚动距离，可以取值，也可以赋值(只能是数值)
+
+        //width() height()--->获取的是content部分，只针对内容(返回的是数字)
+
+        //innerWidth()--->包括padding
+
+        //outerWidth()--->包括border
+
+        //outerWidth(true)--->包括margin
+
+
+
+    </script>
+</body>
+</html>
