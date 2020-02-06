@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		//计算数组中，最大连续增长子序列的长度，如：[1,2,3,4,1,2,3,4,5,1,2,3] 结果为5。
+
+		var arr = [1, 2, 3, 4, 5, 1, 2, 5, 6, 7, 10, 1, 3, 4, 13, 22, 30, 32, 33];
+		//console.log(arr[-1]);	//undefined	empty
+		//console.log(new Array(10));
+
+		function getMaxLength(arr) {
+			//...
+			var addNum = 1;	//每个系列增长的次数
+			var len = 0;	//增长次数最大的那个序列的长度
+
+			//arr[-1]=	undefined
+			//1>undefined	=>	1>NaN	=>	false
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i] > arr[i - 1]) {
+					//这个条件满足说明现在就是一个系列
+					addNum++;
+				} else {
+					//走到这里说明后面的数字比前面的小，表示序列增长到头了。要做两件事情：
+					len = addNum > len ? addNum : len;
+					addNum = 1;
+				}
+			}
+
+			len = addNum > len ? addNum : len;	//处理最后一个序列增长次数为最大的问题
+
+			return len;
+		}
+
+		console.log(getMaxLength(arr));	//6
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		//4、查询子串首次出现的位置，如：原串abccbaxzab 子串为axz 结果为5
+		var str='abccbaxzab';	//原串
+		var subStr='axz';		//子串
+
+		console.log(str.indexOf(subStr));	//5
+
+		function getIndex(str,sub){
+			//...
+			
+			for(var i=0;i<=str.length-sub.length;i++){	//循环原串
+				for(var j=0;j<sub.length;j++){	//循环子串
+					//j 对应 j+i;
+					if(sub[j]!=str[j+i]){	//子串中的某一个字符在原串当中没有找到
+						break;
+					}
+
+					if(j==sub.length-1){	//子串已经走到最后一位了，上面的break也没有发生，就代表整个子串在原串当中全部找到了
+						return i;
+					}
+				}
+			}
+
+			return -1;	//for循环走完了，也没有返回值，就证明全部找完了，也没有找到
+		}
+		console.log(getIndex(str,subStr));	//5
+
+		//原串的索引=子串的索引+挪动的次数
+		//原串的索引=j+i
+
+
+	</script>
+</body>
+
+</html>
