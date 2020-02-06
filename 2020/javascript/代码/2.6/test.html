@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css定位属性</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            left: 100px;
+            top: 100px;
+            background-color: violet;
+            overflow:visible;
+        }
+        .demo1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            /* 相对于最近有滚动特点（overflow值为除visible以外的值   会被自己的父元素限制）的父元素 */
+            position: sticky;
+            left: 50px;
+            top: 50px;
+        }
+        .demo2 {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="demo1">demo1</div>
+        <div class="demo2">demo2</div>
+    </div>
+</body>
+</html>

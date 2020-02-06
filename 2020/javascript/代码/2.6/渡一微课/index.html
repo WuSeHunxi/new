@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css定位属性</title>
+    <style>
+        /* 
+            class 选择器
+            writing-mode
+         */
+         body {
+             margin: 100px;
+             height: 2000px;
+             /* overflow: hidden; */
+             /* position: relative; */
+         }
+         .wrapper {
+             width: 500px;
+             height: 500px;
+             background-color: violet;
+             /* 
+                相对的位置有：  自身原来位置（常规文档流中元素的位置）
+                               相对于最近有定位的父元素的位置
+                               相对于视口进行定位
+                position: 
+                    static: 沿着正常的文档流结构排列
+                    relative: 相对于自身原来位置进行定位的 不会使元素脱离正常（常规）的文档流
+                    absolute: 相对于最近有定位的父级进行定位   会使元素脱离正常的文档流
+                              如果没有最近有定位的父级  则相对于视口进行定位
+                    fixed:    相对于视口进行定位   会使元素脱离正常的文档流
+                    sticky:   相对于最近有滚动特性(含有overflow这样的一个属性并且该值不为visible的)的元素  
+                              会受到自身直接父级区域的限制   不会使元素脱离正常的文档流
+              */
+             position: relative;
+             /* left: 100px;
+             top: 50px; */
+             margin-top: 50px;
+             margin-left: 100px;
+             /*  */
+             /* overflow: visible; */
+         }
+         .demo1 {
+             width: 100px;
+             height: 100px;
+             background-color: yellow;
+             position: sticky;
+             left: 50px;
+             top: 50px;
+             z-index: 100;
+         }
+         .demo2 {
+             width: 100px;
+             height: 100px;
+             position: absolute;
+             left: 100px;
+             top: 50px;
+             background-color: saddlebrown;
+         }
+         .demo3 {
+             width: 100px;
+             position: fixed;
+             left: 0;
+             top: 0;
+             height: 100px;
+             background-color: salmon;
+         }
+         .demo4 {
+             width: 100px;
+
+             height: 100px;
+             background-color: seagreen;
+         }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- demo1 demo2 demo3 
+            div.demo${demo$}*3
+        -->
+        <div class="demo1">demo1</div>
+        <div class="demo2">demo2</div>
+        <div class="demo3">demo3</div>
+        <div class="demo4">demo4</div>
+    </div>
+</body>
+</html>
