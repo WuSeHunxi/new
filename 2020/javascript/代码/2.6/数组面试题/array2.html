@@ -58,14 +58,10 @@
 			var end = arr.length - 1;
 
 			while (true) {
-				/*
-					1、这里分别处理了奇数与偶数的情况
-					2、如果为奇数的话，start与end相等的时候，就已经找到最后一个了。如果再走一次，start就大于end了。此时就要跳出循环了（当前那次还要走，过了当前那就不能再走了）
-					3、如果为偶数的话，start与end挨着的时候，就已经找到最后一个了。如果再走一次，start就等于end了。此时就要跳出循环了 
-				*/
-				if (start >= end) {
-					break;
-				}
+				//循环停止的条件
+				// if (start >= end) {//-->相等处理的是奇数，>处理的是偶数
+				// 	break;
+				// }
 
 				//console.log(start,end);
 				if (arr[start] != arr[end]) {
@@ -76,6 +72,16 @@
 
 				start++;
 				end--;
+
+				/*
+					1、这里分别处理了奇数与偶数的情况
+					2、如果为奇数的话，start与end相等的时候，就已经找到最后一个了。如果再走一次，start就大于end了。此时就要跳出循环了（当前那次还要走，过了当前那就不能再走了）
+					3、如果为偶数的话，start与end挨着的时候，就已经找到最后一个了。如果再走一次，start就等于end了。此时就要跳出循环了 
+				*/
+				if (start >= end) {
+					console.log(start,end);
+					break;
+				}
 			}
 
 			return true;
@@ -83,8 +89,8 @@
 
 		//symmetry(arr1);
 		console.log(
-			symmetry(arr1),	//true
-			symmetry(arr2),	//true
+			symmetry(arr1),	//true 3 3 
+			symmetry(arr2),	//true 3 2
 			symmetry(arr3),	//false
 		);
 	</script>

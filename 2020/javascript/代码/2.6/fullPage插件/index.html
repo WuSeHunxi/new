@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* *{ */
+            /* margin: 0;
+        }
+        html,body{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrapper{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+        }
+        .wrapper .section{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .wrapper .slide{
+            float: left;
+            height: 100%;
+        }
+
+        .wrapper .sliderWrapper{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        } */
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="section">1</div>
+        <div class="section">
+            <div class="slide">2-1</div>
+            <div class="slide">2-2</div>
+            <div class="slide">2-3</div>
+        </div>
+        <div class="section">3</div>
+    </div>
+
+
+    <script src="jquery.js"></script>
+    <script src="myFullPage.js"></script>
+
+    <script>
+        $('.wrapper').myFullPage({
+            colorsArray:['red','blue','green'],
+            onLeave:function(){
+
+            },
+            afterLoad:function(){
+                  
+            }
+        });
+        
+    </script>
+</body>
+</html>

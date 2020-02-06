@@ -17,6 +17,7 @@
             height: 100px;
             background-color: red;
             position: absolute;
+            此方法无需知道盒子的宽高
             right: 0;
             left: 0;
             top: 0;
@@ -24,17 +25,18 @@
             margin:auto;
         } */
 
+        /*块级元素默认占一行*/
         .demo{
             width: 200px;
             height: 200px;
             background-color: green;
-            margin: auto;
+            margin: auto;/*代表的是margin-left:auto,margin-right:0,margin-top:0,margin-bottom:0*/
             /*margin用于分配剩余的空间*/
             /* auto=可视区的宽度-盒子的宽度 */
-            margin-right: auto;
-            margin-left: auto;
-            margin-top: 0;
-            margin-bottom: 0;
+            /* margin-right: auto;
+            margin-left: auto; */
+            /* margin-top: 0;
+            margin-bottom: 0; */
         }
 
 
@@ -60,7 +62,8 @@
     <div class="demo"></div>
     <script>
         /**
-            web的标准是什么？
+            web的标准是什么？--->标准：基础的知识点，学习的相关语法
+                结构样式行为相分离
                 html-->w3c制定的标准
                 css-->w3c制定的标准
                 js-->ECMA制订的标准
@@ -72,7 +75,7 @@
             宽度为auto的绝对定位的元素，通过left与right可以设置宽度
 
             js的语言特色:
-                即时编译，跨平台
+                及时编译，跨平台，松散型
         */
         
     </script>

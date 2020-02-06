@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery.js"></script>
+    <script>
+        // then--->延迟对象的核心
+
+        var df=$.Deferred();//可以链式调用
+        // df.done(function(){
+        //     console.log('done1');
+        // }).fail(function(){
+        //     console.log('fail');
+        // }).progress(function(){
+        //     console.log('processing');
+        // }).done(function(){
+        //     console.log('done');
+        // })
+
+        //then：1.简化注册回调函数的写法 + 返回值接力
+        //参数：成功 失败 正在进行
+        // df.then(function(ms){
+        //     console.log('done1'+ms);
+        //     return 'ok';//-->该返回值作为下一个then方法中参数函数的参数
+        // },function(ms){
+        //     console.log('fail1'+ms);
+        //     return 'no';
+        // },function(ms){
+        //     console.log('progress1'+ms);
+        //     return 'go on'
+        // }).then(function(param){//上个then中的第一个函数中的返回值
+        //     console.log(param);
+        // },function(param){
+        //     console.log(param);
+        // },function(param){
+        //     console.log(param);
+        // });
+
+
+        function createScore(){
+            var df=$.Deferred();
+            var score=Math.random()*100;
+            setInterval(function(){
+                if(score>60){
+                    df.resolve('congradulation!!!!');
+                }else if(score<50){
+                    df.reject('get out');
+                }else{
+                    df.notify('go on');
+                }
+            },1500);
+            return df.promise();
+        }
+        var df=createScore();
+
+        //执行的是哪个函数，返回值就是谁，接下来在注册的延迟对象就是谁
+        df.then(function(ms){
+            console.log('done1'+'  '+ms);
+            var innerDf=$.Deferred();
+            setTimeout(function(){
+                innerDf.resolve('duyi  resolve');
+            },1500);
+            return innerDf.promise();
+
+        },function(ms){
+            console.log('fail1'+'  '+ms);
+            var innerDf=$.Deferred();
+            setTimeout(function(){
+                innerDf.reject('duyi  reject');
+            },1500);
+            return innerDf.promise();
+
+        },function(ms){
+            console.log('progress1'+'  '+ms);
+            var innerDf=$.Deferred();
+            setTimeout(function(){
+                innerDf.notify('duyi  notify');
+            },1500);
+            return innerDf.promise();
+
+        }).then(function(ms){
+            console.log(ms);
+
+        },function(ms){
+            console.log(ms);
+
+        },function(ms){
+            console.log(ms);
+        })
+
+
+
+        //对于ajax()来说，延迟对象的用法，因为ajax内部有延迟对象，请求成功的话直接就resolve()了
+        //在ajax中不需要再传回调了，即：success方法，让其在外部处理，即success就是then方法了
+        //线性调用
+        $.ajax({
+            //仅需传入的参数，回调不需要传
+            url:'',
+            type:'GET',
+            data:{}//可有可无
+        }).then(function(){//注册的是成功的回调函数
+            //发送请求
+            return $.ajax({});//当要再一次发送请求的时候，为了不出现回调地狱，将ajax对象返回，然后再用then方法来接着处理
+        }).then(function(){
+
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

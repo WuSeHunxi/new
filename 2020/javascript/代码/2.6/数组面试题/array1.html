@@ -27,12 +27,16 @@
 				}
 			}
 		} */
+
+		//ES6的findIndex()方法
 		/* function getIndex(arr,val){
 			return arr.findIndex(function(value){
-				return value==val;
+				return value==val;//返回值为true那么最终就会返回得到的索引值，反之得到的是-1
 			});
 		} */
 
+		//二分查找--->当数据量十分庞大的时候需要用到算法
+		//二分查找的效率高，并且查找的数据必须有序
 		function getIndex(arr, val) {
 			var start = 0;	//起点数据对应的索引值
 			var end = arr.length - 1;	//终点数据对应的索引值
@@ -45,6 +49,7 @@
 				3、如果为偶数的话，此时只剩下两个数字。各自己就不需要再走了。再走就超了。start<end
 			 */
 			while (start <= end) {
+				//while一次middle就会重新赋值
 				var middle = parseInt((start + end) / 2);
 
 				if (val == arr[middle]) {
