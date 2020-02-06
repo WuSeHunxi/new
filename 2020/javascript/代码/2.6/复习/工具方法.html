@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <script src="jquery.js"></script>
+    <script>
+        var arr=[1,2,3,4];
+        var obj={
+            0:'a',
+            1:'b',
+            length:2
+        };
+        console.log($.makeArray(obj));
+
+        console.log($.makeArray(obj,arr));
+
+        console.log($.makeArray(arr,obj));
+
+
+        // $.proxy()
+        var obj={
+            name:"papa"
+        }
+        var name="hello";
+        function show(){ 
+            console.log(this.name);
+            //修改this的指向
+        }
+        var ret=$.proxy(show,obj);//修改成功
+        ret();
+
+
+        var list={
+            ms:1,
+            init:function(){
+                this.dom=$(".demo");
+                this.bindEvent();
+            },
+            bindEvent:function(){
+                // this.dom.click(this.show);
+                this.dom.click($.proxy(this.show,this));
+            },
+            show:function(){
+                console.log(this.ms);//undefined--->因此需要修改this的指向
+            }
+        };
+
+        list.init();
+
+
+        //$.each()--->有两个参数
+        var arr=[1,2,3,4,5];
+        $.each(arr,function(index,ele){
+            console.log(ele,index);
+        })
+
+
+
+        // $.extend()--->添加方法  克隆--->this->$
+        //$.fn.extend()---->this->$(),即jq对象
+
+
+        // $.ajax()
+        // $.ajax({
+        //     url:"http://www.baidu.com",
+        //     type:'GET',
+        //     data:{
+                
+        //     },
+        //     success:function(res){
+        //         console.log(res);
+        //     }
+        // })
+
+
+
+        // $.Callbacks()--->回调对象
+        // var cb=$.Callbacks('memory');
+        var cb=$.Callbacks("once");
+        function a(){
+            console.log("a");
+        }
+
+        function b(){
+            console.log("b");
+        }
+
+        function c(){
+            console.log("c");
+        }
+
+        cb.add(a,b,c);
+        cb.fire();
+        cb.fire();
+        function d(){
+            console.log("d");
+        }
+        cb.add(d);
+
+
+        // $.Deferred()
+
+        function createDeferred(){
+            var df=$.Deferred();
+            setInterval(function(){   
+                var score=Math.random()*100;
+                if(score>60){
+                    df.resolve("及格");
+                }else if(score<60){
+                    df.reject("不及格");
+                }
+            },1500);
+            return df.promise();
+        }
+        var df=createDeferred();
+
+        //定义回调函数
+        df.done(function(ms){
+            console.log("done"+ms);
+        })
+
+        df.fail(function(ms){
+            console.log("fail"+ms);
+        })  
+
+        df.progress(function(ms){
+            console.log("process"+ms);
+        })
+
+
+    </script>
+</body>
+</html>
