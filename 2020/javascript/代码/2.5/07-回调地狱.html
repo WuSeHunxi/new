@@ -44,6 +44,7 @@
 
     <!-- 基本结构 -->
     <div class="wrapper">
+        <!-- 模板 -->
         <div class='tpl'>
             <img src=""></img>
             <h3 class='movieName'></h3>            
@@ -52,8 +53,10 @@
 
     <script src='./jquery.js'></script>
     <script>
+
         // 回调地狱
 
+        //用户登录
         $.ajax({
             url: 'https://open.duyiedu.com/jq/movie/power',
             type: 'POST',
@@ -110,8 +113,10 @@
                                         }
                                     });
                                 }).children()
+                                    //模板样式的显示
                                     .eq(0).attr('src', ele.poster)
                                         .next().text(ele.name);
+                                //添加到页面中
                                 $Wrapper.append($MovieSection);
                             });
                         }
@@ -124,7 +129,7 @@
 
 
 
-        //  $.Deferred();
+        //  $.Deferred();--->ajax()的返回值
 
         
         // $.ajax();

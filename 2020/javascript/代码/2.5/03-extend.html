@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="demo" style="width:100px;height:100px;background-color:red;position:absolute;left:0;top:0;"></div>
     <script src="jquery.js"></script>
     <script>
         
@@ -46,7 +47,88 @@
         $.extend(true,obj1,obj2,obj3)
 
 
+        //$.extend()      this-->$    可以扩展方法
+        //$.fn.extend()   this-->$('xx')  可以扩展方法
+
+        // $.extend({
+
+        //     definedMandom : function (start, final) {
+        //         // [0, 1) * len + start
+        //         var len = final - start;
+        //         return Math.random() * len + start;
+        //     },
+        //     abc : function () {
+
+        //     }
+
+        // }); // 加到工具方法里面
+
+        $.extend({
+            definedMandom:function(start,end){
+                var len=end-start;
+                return Math.random()*len+start;
+            }
+        })
+        console.log($.definedMandom(2,5));
         
+
+
+        // $.fn.extend(); //加到实例方法里面
+        // $().drag();
+        // $.fn.extend({
+
+        //     drag : function () {
+        //         var disX,
+        //             disY,
+        //             self = this;
+                
+        //         $(this).on('mousedown', function (e){
+        //             disX = e.pageX - $(this).offset().left;
+        //             disY = e.pageY - $(this).offset().top;
+                    
+        //             $(document).on('mousemove', function (e) {
+        //                 $(self).css({left : e.pageX - disX, top : e.pageY - disY});
+        //             });
+
+        //             $(document).on('mouseup', function (e) {
+        //                 $(document).off('mousemove');
+        //             })
+        //         });
+
+        //         return this;
+
+        //     },
+
+        //     abc : function () {
+
+        //     }
+
+        // });
+
+
+       
+
+        $.fn.extend({
+            drag:function(){
+                var disX,
+                    disY,
+                    self=this;
+                $(this).on('mousedown',function(e){            
+                    disX=e.pageX-$(this).offset().left;
+                    disY=e.pageY-$(this).offset().top;
+                    $(document).on('mousemove',function(e){
+                        $(self).css({left:e.pageX-disX,top:e.pageY-disY});
+                    });
+
+                    $(document).on('mouseup',function(e){
+                        $(document).off('mousemove');
+                    });
+                });
+                return this;
+            }
+        })
+        $('#demo').drag();
+
 
     </script>
 </body>

@@ -7,59 +7,114 @@
     <title>Document</title>
 </head>
 <body>
-
-    <div class="wrapper">
-
-    </div>
-    <script src='./jquery.js'></script>
-    <script>
+    <div id="demo" style="width:100px;height:100px;background-color:red;position:absolute;left:0;top:0;"></div>
+    <script src="./jquery.js"></script>
+    <script>    
         
-        // 'https://open.duyiedu.com/jq/person'
+        // $.extend
+        // $.fn.extend
 
-        // jquery $.ajax
-        // 不管返回值
+        //1.扩展方法 ***  api 没有
+        //2.浅层克隆 $.extend
+        //3.深层克隆
+        
+        var obj1 = {
+            lastName : "deng",
+            age : 6,
+            son : {
+                name : 'xiaofan',
+                age : 2
+            }
+        }
 
-        // 参数 obj
-        // 属性 url: 'https://open.duyiedu.com/jq/person'
-        //      type: 请求方式
-        //      data: {} 参数 信息
-        //      success: 请求成功后的处理函数
-        //      error: 请求失败后的处理函数
-        //      complete: 请求完成的处理函数 最后执行
-        //      context: 改变函数上下文
-        //      timeout: 
-        //      async: true false 是否异步
-        //      dataType: 'jsonp'
-        // function deal (res) {
-        //     console.log(res);
-        // }
+        var obj2 = {
+            lastName : "laodeng",
+            age : 50,
+            smoke : true,
+            son : {
+                name : 'xiaozhang',
+                age : 1,
+                sex : "male"
+            }
+        }
+
+        var obj3 = {
+            lastName : "liu",
+            fortune : 100000000
+        }
+        
+        $.extend(true, obj1, obj2, obj3);
 
 
-        // $.ajax({
-        //     url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
-        //     type: 'GET',
-        //     data: {
-        //         wd: 'nba',
-        //         cb: 'deal'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $.extend({
+
+        //     definedMandom : function (start, final) {
+        //         // [0, 1) * len + start
+        //         var len = final - start;
+        //         return Math.random() * len + start;
         //     },
-        //     dataType: 'jsonp',
+        //     abc : function () {
 
-        //     // success: function (res) {
+        //     }
 
-        //     // },
-        //     // error: function (e) {
-        //     //     console.log(e.status, e.statusText);
-        //     // },
-        //     // complete: function () {
+        // }); // 加到工具方法里面
+        
+
+
+        // $.fn.extend(); //加到实例方法里面
+        // $().drag();
+        // $.fn.extend({
+
+        //     drag : function () {
+        //         var disX,
+        //             disY,
+        //             self = this;
                 
-        //     // },
-        //     // context: $('.wrapper')
+        //         $(this).on('mousedown', function (e){
+        //             disX = e.pageX - $(this).offset().left;
+        //             disY = e.pageY - $(this).offset().top;
+                    
+        //             $(document).on('mousemove', function (e) {
+        //                 $(self).css({left : e.pageX - disX, top : e.pageY - disY});
+        //             });
+
+        //             $(document).on('mouseup', function (e) {
+        //                 $(document).off('mousemove').off('mouseup');
+        //             })
+        //         });
+
+        //         return this;
+
+        //     },
+
+        //     abc : function () {
+
+        //     }
+
         // });
 
-        // console.log('over');
+
+        // $('#demo').drag();
 
 
 
+
+        
     </script>
 </body>
 </html>

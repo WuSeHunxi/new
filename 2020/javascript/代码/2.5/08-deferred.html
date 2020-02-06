@@ -11,18 +11,24 @@
 
     <script src='./jquery.js'></script>
     <script>
-        // 延迟
-        // var df = $.Deferred();
-        // done 成功   fail 失败  progress 正在进行
+
+
+        // $.Deferred()延迟对象，为了解决回调地狱的问题
+        // var df = $.Deferred();--->有状态的Callbacks()
+
+        //注册回调的方法
+        // done-->成功   fail-->失败  progress-->正在进行
+
+        //对应的触发回调的方法
         // resolve    reject     notify
 
 
 
 
 
-        // 做一件异步的事情
+        // 做一件异步的事情--- 防止在外部触发回调
         function createScore () {
-            var df = $.Deferred();
+            var df = $.Deferred();//在定时器中处理，每隔1.5s处理一次
             setInterval(function () {
                 var score = Math.random() * 100;
                 if (score > 60) {
@@ -33,12 +39,38 @@
                     df.notify('go on');
                 }
             }, 1500);
-            // done fail progress
-            return df.promise();
+            // done fail progress--->注册回调函数
+            //为了能够在外部注册返回一个Deferred对象
+            return df.promise();//只返回注册功能，没有触发功能
         }
+
+
+        // function createScore(){
+        //     var df=$.Deferred();
+        //     setInterval(function(){
+        //         var score=Math.random()*100;
+        //         if(score>60){
+        //             df.resolve();
+        //         }else if(score<60){
+        //             df.reject();
+        //         }else{
+        //             df.notify();
+        //         }
+        //     },1500);
+        //     return df.promise();
+        // }
+
 
         var df = createScore();
     
+        //一对
+        // df.resolve();
+        // df.done(function(){
+        //     console.log("success");
+        // })
+
+        //注册三种回调函数，一个对象就可以创建三种函数
+        //如果done或者fail其中一个被触发了，那么就代表已经有结果了，不会再触发了
         // 注册成功的回调函数
         df.done(function (ms) {
             console.log('oh yeah I do it' + ' ' + ms);
@@ -55,7 +87,17 @@
             console.log('waiting...' + ' ' + ms);
         });        
         
+        // setInterval(function(){
+        //     // console.log();
+        //     var score=Math.random()*100;
+        //     if(score>60){
+        //         df.resolve();
+        //     }else if(score<60){
+        //         df.reject();
+        //     }
+        // },1300)
 
+        //在$.ajax()中只能在内部触发，不能在外部触发
         
 
     </script>

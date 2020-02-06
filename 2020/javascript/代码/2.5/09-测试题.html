@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*实现小块在页面居中*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .demo{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin:auto;
+        } */
+
+        .demo{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin: auto;
+            /*margin用于分配剩余的空间*/
+            /* auto=可视区的宽度-盒子的宽度 */
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+
+
+
+        span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border:1px solid #000;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <span>hahah</span>
+    <div class="demo"></div>
+    <script>
+        /**
+            web的标准是什么？
+                html-->w3c制定的标准
+                css-->w3c制定的标准
+                js-->ECMA制订的标准
+            浏览器默认的margin值？
+                谷歌等正常浏览器，IE8及其以上是8px
+                IE8以下左右10px，上下15px
+            上面实现了小块在页面中居中的代码  
+
+            宽度为auto的绝对定位的元素，通过left与right可以设置宽度
+
+            js的语言特色:
+                即时编译，跨平台
+        */
+        
+    </script>
+</body>
+</html>
