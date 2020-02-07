@@ -94,6 +94,26 @@
 
 
 
+        //查询子串首次出现的位置，如：原串abccbaxzab 子串为axz 结果为5
+        var str='abccbaxzab';	//原串
+		var subStr='axz';		//子串
+        function getIndex(str,sub){
+            var i=0;
+            while(i<=str.length-1){
+                for(var j=i;j<3;j++){
+                    if(str[j]!=sub[j]){
+                        break;
+                    }else{
+                        continue;
+                    }
+                }
+                i++;
+            }
+            return j;
+        }
+
+        console.log(getIndex(str,subStr));
+
 
     </script>
 </body>
