@@ -14,7 +14,87 @@
         console.log(str.split('').reverse().join(''));
 
         //在有序的数组里找出指定的值，返回该值在数组中的索引
-        
+        var arr=[1,2,4,5,6,8,10];
+        function findIndex(arr,val){
+            for(var i=0;i<arr.length;i++){
+                if(val==arr[i]){
+                    return i;
+                }
+            }
+        }
+
+        // console.log(findIndex(arr,4));
+
+
+        //在有序的数组里找出指定的值，返回该值在数组中的索引(二分查找)
+        var arr=[1,2,4,5,6,8,10];
+        function findIndex(arr,val){
+            var start=0;
+            var end=arr.length-1;
+            while(start<=end){
+                var middle=parseInt(start+end)/2;
+                if(val==arr[middle]){
+                    return middle;
+                }else if(val>arr[middle]){
+                    start=middle+1;
+                }else if(val<arr[middle]){
+                    end=middle-1;
+                }
+            }
+            return -1;
+        }
+
+        console.log(findIndex(arr,4));
+
+
+
+        //判断数组是否为对称数组，对称数组形式如：[a, b, c, b, a]、[a, b, c, c, b, a]
+        var arr1 = ['a', 'b', 'c', 'd', 'c', 'b', 'a'];
+		var arr2 = ['a', 'b', 'c', 'c', 'b', 'a'];
+        var arr3 = ['a', 'b', 'c', 'a', 'b', 'c'];
+        function judgeArr(arr){
+            var newarr1=[];
+            var newarr2=[];
+            var flag=true;
+            for(var i=0;i<parseInt(arr.length/2);i++){
+                newarr1.push(arr[i]);
+                
+            }
+
+            for(var k=arr.length-1;k>=arr.length/2;k--){
+                newarr2.push(arr[k]);
+                
+            }
+            console.log(newarr2);
+
+            for(var j=0;j<newarr1.length;j++){
+                if(newarr1[j]!=newarr2[j]){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // console.log(judgeArr(arr1));
+
+        //另一种方法
+        function judgeArr(arr){
+            var start=0;
+            var end=arr.length-1;
+            while(start<=end){
+                if(arr[start]!=arr[end]){
+                    return false;
+                }
+                start++;
+                end--;
+            }
+            return true;
+        }
+        console.log(judgeArr(arr3));
+
+
+
+
     </script>
 </body>
 </html>
