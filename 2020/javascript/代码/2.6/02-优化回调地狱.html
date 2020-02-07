@@ -124,78 +124,78 @@
 
 
         // then--->使用延迟对象
-        // (function () {
-        //     return $.ajax({
-        //         url: 'https://open.duyiedu.com/jq/movie/power',
-        //         type: 'POST',
-        //         data: {
-        //             username: 'cst',
-        //             password: '123123'
-        //         }
-        //     });
-        // })()
-        // .then(function (res) {
-        //     if (res.data.power == 'root') {
-        //         return $.ajax({
-        //             url: 'https://open.duyiedu.com/jq/movie/movieList',
-        //             type: 'GET',                    
-        //         });
-        //     }
-        // })
-        // .then(function (res) {
-        //     var data = res.data;
-        //     var $Wrapper = $('.wrapper');
-        //     var df = $.Deferred();//--->创建延迟对象
-        //     $.each(data, function(index, ele) {
-        //         // ele.name  ele.poster
-        //         var $MovieSection = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
-        //         $MovieSection
-        //             .data({id: ele.id})
-        //                 .on('click', function () {
-                               //在这里返回的ajax对象没有办法给下一个then方法使用，因为它的作用域是回调函数，
-                               //   因此需要创建新的延迟对象，然后返回至外部
-        //                     df.resolve( $(this) );//成功
-        //                 })   
-        //                     .children()
-        //                         .eq(0).attr('src', ele.poster)
-        //                             .next().text(ele.name);
-        //             $Wrapper.append($MovieSection);    
-        //     });  
-        //     return df.promise();                      
-        // })
-        // .then(function (dom) {
-        //     return $.ajax({
-        //         url: 'https://open.duyiedu.com/jq/movie/movieInfo',
-        //         type: 'GET',
-        //         data: {
-        //             movieId: dom.data('id')
-        //         }  
-        //     });    
-        // })
-        // .then(function (res) {
-        //     var data = res.data;
-        //     var direct = data.direct;
-        //     var gut = data.gut;
-        //     var mainActor = data.mainActor;
-        //     var screenWriter = data.screenwriter;
+        (function () {
+            return $.ajax({
+                url: 'https://open.duyiedu.com/jq/movie/power',
+                type: 'POST',
+                data: {
+                    username: 'cst',
+                    password: '123123'
+                }
+            });
+        })()
+        .then(function (res) {
+            if (res.data.power == 'root') {
+                return $.ajax({
+                    url: 'https://open.duyiedu.com/jq/movie/movieList',
+                    type: 'GET',                    
+                });
+            }
+        })
+        .then(function (res) {
+            var data = res.data;
+            var $Wrapper = $('.wrapper');
+            var df = $.Deferred();//--->创建延迟对象
+            $.each(data, function(index, ele) {
+                // ele.name  ele.poster
+                var $MovieSection = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
+                $MovieSection
+                    .data({id: ele.id})
+                        .on('click', function () {
+                            //    在这里返回的ajax对象没有办法给下一个then方法使用，因为它的作用域是回调函数，
+                            //      因此需要创建新的延迟对象，然后返回至外部
+                            df.resolve( $(this) );//成功
+                        })   
+                            .children()
+                                .eq(0).attr('src', ele.poster)
+                                    .next().text(ele.name);
+                    $Wrapper.append($MovieSection);    
+            });  
+            return df.promise();                      
+        })
+        .then(function (dom) {
+            return $.ajax({
+                url: 'https://open.duyiedu.com/jq/movie/movieInfo',
+                type: 'GET',
+                data: {
+                    movieId: dom.data('id')
+                }  
+            });    
+        })
+        .then(function (res) {
+            var data = res.data;
+            var direct = data.direct;
+            var gut = data.gut;
+            var mainActor = data.mainActor;
+            var screenWriter = data.screenwriter;
 
-        //     var htmlStr = '<div class="mask">\
-        //         <p>导演: ' + direct + '</p>\
-        //         <p>剧情: ' + gut + '</p>\
-        //         <p>主演: ' + mainActor.reduce(function (prev, curv) {
-        //             prev += curv + ' ';
-        //             return prev;
-        //         }, '') + '</p>\
-        //         <p>编剧: ' + screenWriter.reduce(function (prev, curv) {
-        //             prev += curv + ' ';
-        //             return prev;
-        //         }, '') + '</p>\
-        //     </div>'
+            var htmlStr = '<div class="mask">\
+                <p>导演: ' + direct + '</p>\
+                <p>剧情: ' + gut + '</p>\
+                <p>主演: ' + mainActor.reduce(function (prev, curv) {
+                    prev += curv + ' ';
+                    return prev;
+                }, '') + '</p>\
+                <p>编剧: ' + screenWriter.reduce(function (prev, curv) {
+                    prev += curv + ' ';
+                    return prev;
+                }, '') + '</p>\
+            </div>'
 
-        //     $(htmlStr)
-        //         .appendTo('body')
-        //             .css({position: 'absolute', left: $(window).outerWidth() / 2, bottom: 100, width: 400, marginLeft: -200});            
-        // });
+            $(htmlStr)
+                .appendTo('body')
+                    .css({position: 'absolute', left: $(window).outerWidth() / 2, bottom: 100, width: 400, marginLeft: -200});            
+        });
 
 
 
