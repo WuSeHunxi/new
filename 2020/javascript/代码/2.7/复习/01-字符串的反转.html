@@ -103,16 +103,17 @@
                 for(var j=i;j<3;j++){
                     if(str[j]!=sub[j]){
                         break;
-                    }else{
-                        continue;
+                    }
+                    if(str[j]==sub[sub.length-1]){
+                        // return j;
+                        console.log(j);
                     }
                 }
                 i++;
             }
-            return j;
         }
-
-        console.log(getIndex(str,subStr));
+        getIndex(str,subStr)
+        // console.log(getIndex(str,subStr));
 
 
     </script>
