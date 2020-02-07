@@ -264,6 +264,7 @@
                 if (options.indexOf('memory') != -1 && fired) {
                     fire();
                 }
+                console.log(this);
                 return this;
             },
             fire: function () {
@@ -335,8 +336,7 @@
 
         return deferred;
     }
-
-
+    
 
     jQuery.prototype.init.prototype = jQuery.prototype;
     window.$ = window.jQuery = jQuery;
