@@ -88,7 +88,7 @@ function getFormData() {
     var phone = form.phone.value;
     var birth = form.birth.value;
     var email = form.email.value;
-    if (!name || !number || !address || !phone || !birth || !email) {
+    if (!name || !sNo || !address || !phone || !birth || !email) {
         alert('信息填写不全，请检查后提交')
         return false;
     }

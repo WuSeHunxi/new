@@ -19,7 +19,8 @@ var pageEngine={
         this.$Slide.appendTo(this.$W);
         return this;
     },
-    addComponent:function(){
-        ComponentFactory(config);
+    addComponent:function(config){
+        var oCp=ComponentFactory(config);
+         
     }
 }

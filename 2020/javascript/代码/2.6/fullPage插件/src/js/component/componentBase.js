@@ -19,7 +19,7 @@ var ComponentFactory=function(config){
         setTimeout(function(){
             config.animateOut&&$(self).animate(config.animateOut);
         },config.delay||0)
-    });
+    }); 
 
     $Div.on('cpLoad',function(){
         var self=this;
