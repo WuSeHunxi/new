@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery.js"></script>
+    <script>
+        console.log($.type(null));
+
+        var arr=[1,2,3,4];
+        var obj={
+            name:'ppap'
+        };
+        console.log($.makeArray(arr,obj));
+        console.log($.makeArray(obj,arr));
+
+        console.log($.isArray(arr));
+
+        console.log($.isFunction((function(){}())));
+
+
+        var o={
+            name:'oo'
+        };
+        var name="ll";
+        function test(){
+            console.log(this.name);
+        }
+        $.proxy(test,o)();
+
+
+        var str='{"name":"haha","age":10}';
+        console.log($.parseJSON(str));
+
+
+        // $.extend()--->克隆 作为接口添加方法
+
+        $.extend({
+            definedMathRandom:function(start,end){
+                var len=end-start;
+                return Math.random()*len+start;
+            }
+        })
+
+        console.log($.definedMathRandom(2,6));
+
+
+        $.ajax({
+            url:'',
+            type:'',
+            data:{
+                
+            },
+            success:function(){
+
+            }//请求成功执行回调
+        })
+
+
+        var cb=$.Callbacks();//可以有参数
+        function a(){
+            console.log('a');
+        }
+
+        function b(){
+            console.log('b');
+        }
+
+        cb.add(a,b);
+        cb.fire();
+
+
+        var df=$.Deferred();
+
+        //注册回调函数
+        // df.done(function(){
+        //     console.log('done');
+        // }).fail(function(){
+        //     console.log('fail');
+        // }).progress(function(){
+        //     console.log('progress');
+        // })
+
+        //出发回调函数
+        df.resolve();
+
+        // df.then(function(){
+        //     console.log("yes");
+        //     return 'hello'
+        // },function(){
+        //     console.log("no");
+        // },function(){
+        //     console.log("doing");
+        // }).then(function(ms){
+        //     console.log(ms);
+        // })
+
+        df.then(function(){
+            console.log("yes");
+            var innerDf=$.Deferred();
+            innerDf.resolve('world');
+            return innerDf.promise();
+        },function(){
+            console.log("no");
+        },function(){
+            console.log("doing");
+        }).then(function(ms){
+            console.log(ms);
+        })
+
+    </script>
+
+</body>
+</html> 
