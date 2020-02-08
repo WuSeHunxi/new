@@ -56,6 +56,7 @@ $.fn.extend({
                 .end().find('.sliderWrapper')
                     .css({position: 'absolute', left: 0, top: 0})
                         .each(function (index, ele) {
+                            console.log("p");
                             $(ele).find('.slide').eq(0).addClass('innerActive')
                         });
 

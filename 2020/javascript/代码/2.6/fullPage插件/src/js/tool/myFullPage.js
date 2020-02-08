@@ -1,6 +1,6 @@
 $.fn.extend({
     myFullPage:function(config){
-        //初始化变量
+        //初始化变量--->将需要的提前写出来减少不必要的操作
         var colorsArray=config.colorsArray;
         var $Wrapper=$(this);
         var $Section=$Wrapper.find('.section');
@@ -21,11 +21,11 @@ $.fn.extend({
         }).add($Wrapper).add($Section).css(commonStyle);
         $Wrapper.css({position:'absolute',left:0,top:0})
                     .find('.section')
-                        .each(function(index,ele){
+                        .each(function(index,ele){//给每一个section进行处理
                             $(ele).css({
                                 backgroundColor:colorsArray[index],
                                 position:'relative'
-                            }).find('.slide')
+                            }).find('.slide')//找到每一个section的slide添加样式并添加一个统一的父级
                                 .css({float:'left',width:clientWidth,height:clientHeight})
                                     .wrapAll('<div class="slideWrapper"></div>')
                         });
@@ -40,29 +40,33 @@ $.fn.extend({
         $Section.eq(0)
             .addClass('active')
                 .end().find('.sliderWrapper')
-                    .css({position:'absolute',left:0,top:0})
-                        .each(function(index,ele){
-                            $(ele).find('.slide').eq(0).addClass('innerActive');
-                        })
+                    .css({position: 'absolute', left: 0, top: 0})
+                        .each(function (index, ele) {
+                            console.log("p");
+                            $(ele).find('.slide').eq(0).addClass('innerActive')
+                        });
         //控制移动
         $(document).on('keydown',function(e){
             //e.which--->记录键盘的acsii
             //left--37 top--38 right--39 bottom--40
             if(e.which==38||e.which==40){
                 if(lock){ 
-                    lock=false;
+                    lock=false;//运动开始后就需要加锁
                     var newTop=$Wrapper.offset().top;
                     var direction='';//通过方向切换类名
                     //垂直移动
-                    if(e.which==38&&curIndex!=0){
+                    if(e.which==38&&curIndex!=0){//向上运动
+                        direction='top';
+                        config.onLeave(curIndex,direction);
                         curIndex--;
                         newTop+=clientHeight;
-                        direction='top';
-                    }else if(e.which==40&&curIndex!=$Section.serialize()-1){
+                    }else if(e.which==40&&curIndex!=$Section.size()-1){
+                        direction='bottom';
+                        config.onLeave(curIndex,direction);
                         curIndex++;
                         newTop-=clientHeight;
-                        direction='bottom';
                     }
+                    //运动
                     $Wrapper.animate({
                         top:newTop
                     },350,'swing',function(){
@@ -76,6 +80,7 @@ $.fn.extend({
                         }else{
                             $Section.eq(curIndex-1).removeClass('active');
                         }
+                        config.afterLoad(curIndex,direction);
                     })
                 }
                
@@ -85,11 +90,12 @@ $.fn.extend({
                 if(lock){
                     lock=false;
                     var $SW=$('.active').find('.sliderWrapper');
+                    // console.log($SW);
                     var curShowDom=$SW.find('.innerActive');
                     var newLeft=$SW.offset().left;
                     var direction=null;
                     //进行左右的判断，以及两边不能进行左移或者右移
-                    if(e.which==37&&curShowDom.index()!=0){
+                    if(e.which==37&&curShowDom.index()!=0){//通过index()方法获取索引
                         newLeft+=clientWidth;
                         direction='left';
                     }else if(e.which==39&&curShowDom.index()!=$SW.find('.slide').size()-1){

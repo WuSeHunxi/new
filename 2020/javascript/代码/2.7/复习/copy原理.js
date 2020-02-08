@@ -29,6 +29,7 @@ jQuery.myCallbacks=function(){
             if(options.indexOf("memory")!=-1&&fired){
                 fire();
             }
+            //链式操作
             return this;//this-->{add: ƒ, fire: ƒ}
         },
         //每次fire都会重新执行一遍
