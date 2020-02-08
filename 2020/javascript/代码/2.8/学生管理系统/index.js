@@ -34,7 +34,8 @@ function bindEvent() {
             if (res.status == 'fail') {
                 alert(res.msg)
             } else {
-                alert('新增成功')
+                alert('新增成功');
+                //新增成功返回列表页
                 var studnetList =menuList.getElementsByTagName('dd')[0];
                 studnetList.click()
             }
@@ -42,13 +43,16 @@ function bindEvent() {
     }
     var tbody = document.getElementById('tbody');
     tbody.onclick = function (e) {
+        //e.target.tarName得到的是大写的
         if (e.target.tagName != 'BUTTON') {
             return false;
         }
+        //classList类名列表
         var isEdit = e.target.classList.contains('edit');
         var index = e.target.dataset.index;
         if (isEdit) {
             var modal = document.getElementsByClassName('modal')[0];
+            //显示遮罩层
             modal.style.display = 'block';
             renderEditForm(tableData[index])
         } else {
@@ -73,9 +77,10 @@ function initStyle(doms, flag, target) {
     }
 }
 
-// 获取表单数据
+// 获取表单数据--->在新增数据的页面中的表单
 function getFormData() {
     var form = document.getElementById('student-add-form');
+    //form.name等获取的是标签
     var name = form.name.value;
     var sNo = form.number.value;
     var sex = form.sex.value;
@@ -104,7 +109,9 @@ function getTableData() {
     var res = saveData("http://open.duyiedu.com/api/student/findAll", {
         appkey: 'DuYimeiqi_1564986205860'
     });
+    //将请求到的数据放入数组中
     tableData = res.data;
+    //请求到数据之后就渲染到页面中
     renderTable(res.data)
 
 }
