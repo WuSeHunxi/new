@@ -26,8 +26,11 @@
     schoolStr+='<option>其他</option>';
     schoolNode.innerHTML=schoolStr;
 
+
+    //点击省份时城市和学校都会发生改变，即：三级联动
     //修改省份，城市随之变化
     provinceNode.onchange=function(){
+        //获取的是当前选择的省份的城市
         var cityArr=city[provinceNode.value];
         var cityStr='';
         for(var i=0;i<cityArr.length;i++){
@@ -49,6 +52,7 @@
     cityNode.onchange=function(){
         var schoolArr=allschool[cityNode.value];
         if(schoolArr){
+            //因为要修改学校就要把之前的置为空
             var schoolStr='';
             for(var i=0;i<schoolArr.length;i++){
                 schoolStr+='<option>'+ schoolArr[i][2] +'</option>';

@@ -19,6 +19,7 @@
     //拼接字符串的方式 
     var provinceStr = '';
     for (var i = 0; i < len; i++) {
+        //选择表单
         provinceStr += '<option value = ' + province[i][0] + '>' + province[i][1] + '</option>'
     }
     console.log(provinceStr)
