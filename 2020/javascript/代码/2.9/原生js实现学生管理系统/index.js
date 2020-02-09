@@ -1,11 +1,13 @@
 
 var tableData = [];
+// 分页功能需要的参数
 var nowPage = 1;
 var pageSize = 5;
 var allPage = 1;
 // 绑定事件
 function bindEvent() {
     var menuList = document.getElementsByClassName('menu')[0];
+    //左侧导航
     menuList.onclick = function (e) {
         if (e.target.tagName != 'DD') {
             return false;
@@ -24,6 +26,7 @@ function bindEvent() {
         // document.getElementById(id).style.display = 'block'
         initStyle(contentBox, 'style', document.getElementById(id));
     }
+    //表单提交
     var studentAddBtn = document.getElementById('student-add-btn');
     studentAddBtn.onclick = function(e) {
         // 阻止默认行为  提交按钮的默认行为是刷新整个页面
@@ -32,7 +35,7 @@ function bindEvent() {
         var data = getFormData(form);
         if(data) {
             // var res = saveData('http://open.duyiedu.com/api/student/addStudent', Object.assign({
-            //     appkey: 'hu13754400750_1569803752029'
+            //     appkey: '77521ily__1571400791988'
             // }, data))
             // if (res.status == 'fail') {
             //     alert(res.msg)
@@ -54,6 +57,7 @@ function bindEvent() {
     }
     var tbody = document.getElementById('tbody');
     var modal = document.getElementsByClassName('modal')[0];
+    //编辑或者删除
     tbody.onclick = function (e) {
         if (e.target.tagName != 'BUTTON') {
             return false;
@@ -67,7 +71,7 @@ function bindEvent() {
             var isDel = confirm('确认删除？');
             if (isDel) {
                 // var res = saveData('http://open.duyiedu.com/api/student/delBySno', {
-                //     appkey: 'hu13754400750_1569803752029',
+                //     appkey: '77521ily__1571400791988',
                 //     sNo: tableData[index].sNo
                 // });
                 // if (res.status == 'fail') {
@@ -93,7 +97,7 @@ function bindEvent() {
         var data = getFormData(form);
         if(data) {
             // var res = saveData('http://open.duyiedu.com/api/student/updateStudent', Object.assign({
-            //     appkey: 'hu13754400750_1569803752029'
+            //     appkey: '77521ily__1571400791988'
             // }, data));
             // if (res.status == 'fail') {
             //     alert(res.msg);
@@ -111,24 +115,29 @@ function bindEvent() {
     }
     var nextBtn = document.getElementById('next-btn');
     var prevBtn = document.getElementById('prev-btn');
+    //上一页
     prevBtn.onclick = function (e) {
         nowPage --;
         getTableData();
     }
+    //下一页
     nextBtn.onclick = function () {
         nowPage ++;
         getTableData();
     }
+    //点击蒙层,弹框蒙层全部消失
     modal.onclick = function (e) {
         modal.style.display = 'none'
     }
     var modalContent = modal.getElementsByClassName('modal-content')[0];
+    // 蒙层点击时,取消父级冒泡功能
     modalContent.onclick = function (e) {
         e.stopPropagation()
         // e.cancelBubble = true;
         // return false;
     }
 }
+
 // 初始化样式
 function initStyle(doms, flag, target) {
     for(var i = 0; i < doms.length; i++) {
@@ -145,7 +154,7 @@ function initStyle(doms, flag, target) {
     }
 }
 
-// 获取表单数据
+// 获取表单数据,提交的时候需要获取数据,然后判断数据是否提交成功
 function getFormData(form) {
     var name = form.name.value;
     var sNo = form.sNo.value;
@@ -158,6 +167,7 @@ function getFormData(form) {
         alert('信息填写不全，请检查后提交')
         return false;
     }
+    //正则表达式规范输入的内容
     if (!(/^\d{4,16}$/.test(sNo))) {
         alert('学号应为4-16伪数字组成');
         return false;
@@ -189,15 +199,18 @@ function getFormData(form) {
 // 获取学生列表数据
 function getTableData() {
     // var res = saveData("http://open.duyiedu.com/api/student/findAll", {
-    //     appkey: 'hu13754400750_1569803752029'
+    //     appkey: '77521ily__1571400791988'
     // });
+    //获取每一页学生的数据
     transferData('/api/student/findByPage', {
         page: nowPage,
         size: pageSize
     }, function (data) {
         console.log(data);
         // 35   10  4
+        // 得到具体多少页
         allPage = Math.ceil(data.cont / pageSize);
+        console.log(data);
         tableData = data.findByPage;
         renderTable(tableData || [])  
     })
@@ -248,7 +261,7 @@ function renderEditForm(data) {
 // 降低请求部分代码的冗余
 function transferData(url, data, cb) {
     var res = saveData('http://open.duyiedu.com' + url, Object.assign({
-        appkey: 'hu13754400750_1569803752029',
+        appkey: '77521ily__1571400791988',
     }, data));
     if (res.status == 'fail') {
         alert(res.msg);
