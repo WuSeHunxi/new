@@ -22,7 +22,7 @@
             //保存数据
             var ele=data[i+curPage*10];
             $Clone.children('span').eq(0)
-                .text()
+                .text(i+curPage*10+1).css({backgroundColor:''})
                     .next()
                         .text(ele.title)
                             .next(ele.search)
