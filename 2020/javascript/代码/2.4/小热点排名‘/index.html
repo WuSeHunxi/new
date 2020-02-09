@@ -72,7 +72,7 @@
 
                     //给克隆的标签添加样式
                     $Clone.children('span').eq(0)
-                        // 给第一页前三个添加特殊背景颜色
+                        // 给第一页前三个添加特殊背景颜色，确保开头的数字按序排列
                         .text(i + curPage * 10 + 1).css('backgroundColor', curPage == 0 && colorsArray[i + curPage])
                             .next()
                                 .text(ele.title)
