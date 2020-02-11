@@ -64,8 +64,8 @@ function bindEvent() {
     var sizeSearch=document.getElementsByClassName("size-search")[0];
     var pageSearch=document.getElementsByClassName("page-search")[0];
     btnSearch.onclick=function(){
-            var contentData=contentSearch.value;
-            var page=parseInt(sizeSearch.value);
+        var contentData=contentSearch.value;
+        var page=parseInt(sizeSearch.value);
         var size=parseInt(pageSearch.value);
         console.log(typeof(size))
         console.log(contentData,page,size);
@@ -80,6 +80,8 @@ function bindEvent() {
             console.log(data);
             tableData=data.searchList;
             renderTable(tableData||[]);
+            var studnetList = menuList.getElementsByTagName('dd')[0];
+            studnetList.click()
         }) 
     }
     var tbody = document.getElementById('tbody');
