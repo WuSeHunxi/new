@@ -4,6 +4,10 @@ var tableData = [];
 var nowPage = 1;
 var pageSize = 5;
 var allPage = 1;
+// var sex=sex;
+// var semail=semail;
+// var snum=snum;
+// var saddress=saddress;
 // 绑定事件
 function bindEvent() {
     var menuList = document.getElementsByClassName('menu')[0];
@@ -25,6 +29,8 @@ function bindEvent() {
         // }
         // document.getElementById(id).style.display = 'block'
         initStyle(contentBox, 'style', document.getElementById(id));
+        //查询信息
+        initStyle(contentBox,'style',document.getElementById(id));
     }
     //表单提交
     var studentAddBtn = document.getElementById('student-add-btn');
@@ -54,6 +60,28 @@ function bindEvent() {
                 form.reset();
             })
         }
+    }
+    var btnSearch=document.getElementsByClassName('btn-search')[0];
+    var contentSearch=document.getElementsByClassName("content-search")[0];
+    btnSearch.onclick=function(){
+        var sData=contentSearch.value.split(',');
+        console.log(sData);
+        sex=parseInt(sData[0]);
+        snum=sData[1];
+        page=parseInt(sData[2]);
+        size=parseInt(sData[3]);
+        console.log(sex,snum,page,size);
+        transferData('/api/student/searchStudent', {
+            sex:sex,
+            search:snum||saddress||semail,
+            page: page,
+            size: size,
+        }, function (data) {
+            console.log(data);
+            // alert("查询成功");
+            tableData=data.searchList;
+            renderTable(tableData||[]);
+        }) 
     }
     var tbody = document.getElementById('tbody');
     var modal = document.getElementsByClassName('modal')[0];
@@ -205,12 +233,10 @@ function getTableData() {
     transferData('/api/student/findByPage', {
         page: nowPage,
         size: pageSize
-    }, function (data) {
-        console.log(data);
+    }, function (data) {       
         // 35   10  4
         // 得到具体多少页
         allPage = Math.ceil(data.cont / pageSize);
-        console.log(data);
         tableData = data.findByPage;
         renderTable(tableData || [])  
     })
@@ -269,6 +295,8 @@ function transferData(url, data, cb) {
         cb(res.data)
     }
 }
+
+
 
 bindEvent()
 getTableData()
