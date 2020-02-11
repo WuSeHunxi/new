@@ -167,16 +167,19 @@ table .btn.delete {
     display: none;
 }
 
-#student-search .content-search{
-    width: 300px;
+#student-search input{
+    width: 100px;
     height: 30px;
     line-height: 30px;
-    border-bottom-left-radius:10px;
-    border-top-left-radius: 10px;
     border:none;
     outline: none;
     font-size:18px;
     padding-left:10px;
+}
+
+#student-search .num-search{ 
+    border-bottom-left-radius:10px;
+    border-top-left-radius: 10px;
 }
 
 #student-search .btn-search{
@@ -189,4 +192,11 @@ table .btn.delete {
     color:#fff;
     cursor: pointer;
     outline: none;
+}
+
+select{
+    height: 30px;
+    width: 50px;
+    display: inline-block;
+    cursor: pointer;
 }

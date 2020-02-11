@@ -4,10 +4,7 @@ var tableData = [];
 var nowPage = 1;
 var pageSize = 5;
 var allPage = 1;
-// var sex=sex;
-// var semail=semail;
-// var snum=snum;
-// var saddress=saddress;
+
 // 绑定事件
 function bindEvent() {
     var menuList = document.getElementsByClassName('menu')[0];
@@ -62,23 +59,25 @@ function bindEvent() {
         }
     }
     var btnSearch=document.getElementsByClassName('btn-search')[0];
-    var contentSearch=document.getElementsByClassName("content-search")[0];
+    var contentSearch=document.getElementsByClassName("num-search")[0];
+    var sexSelect=document.getElementById("sex-search");
+    var sizeSearch=document.getElementsByClassName("size-search")[0];
+    var pageSearch=document.getElementsByClassName("page-search")[0];
     btnSearch.onclick=function(){
-        var sData=contentSearch.value.split(',');
-        console.log(sData);
-        sex=parseInt(sData[0]);
-        snum=sData[1];
-        page=parseInt(sData[2]);
-        size=parseInt(sData[3]);
-        console.log(sex,snum,page,size);
+            var contentData=contentSearch.value;
+            var page=parseInt(sizeSearch.value);
+        var size=parseInt(pageSearch.value);
+        console.log(typeof(size))
+        console.log(contentData,page,size);
+        var sex=parseInt(sexSelect.value);
+        console.log(sex);
         transferData('/api/student/searchStudent', {
             sex:sex,
-            search:snum||saddress||semail,
+            search:contentData,
             page: page,
             size: size,
         }, function (data) {
             console.log(data);
-            // alert("查询成功");
             tableData=data.searchList;
             renderTable(tableData||[]);
         }) 
