@@ -9,7 +9,19 @@
 <body>
     <script src="../jquery.js"></script>
     <script>
-        
+        var df=$.Deferred();
+        df.resolve('ppap');
+
+        df.then(function(){
+            console.log("www");
+            var innerDf=$.Deferred();
+            innerDf.resolve('hahh');
+            return innerDf.promise();
+        }).then(function(ms){
+            console.log("oo"+ms);
+        })
+
+    
     </script>
 </body>
 </html>
