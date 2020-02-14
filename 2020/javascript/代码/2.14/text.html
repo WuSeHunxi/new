@@ -8,6 +8,7 @@
     <style>
         body {
             height: 3000px;
+            /* position: relative; */
         }
 
         #editInof {
@@ -16,25 +17,54 @@
             border: 1px black solid;
             position: absolute;
             background-color: red;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
         }
     </style>
 <body>
-    <div id="editInof"></div>
-    <div class="hello" data-duyi='good'></div>
+    <!-- <div id="editInof"></div> -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <!-- <div class="hello" data-duyi='good'></div> -->
     <script src="jquery.js"></script>
     <script>
-        console.log($('.hello').data().duyi);
-        console.log($('.hello').attr('data-duyi'))
-        console.log($('.hello').dataset)
-        $('div').prop('id','data');
-        $('div').prop('data','oaoao');
-        $( function (){
-            $( window ).scroll( function(){
-                var top = $( window ).scrollTop() + 200;
-                var left = $( window ).scrollLeft() + 300;
-                $( '#editInfo ').css({ left : left + "px" , top : top + "px"});
+
+        // $(window).scroll(function(){
+        //     // var l=$(window).scrollLeft()+$('div').offset().left;
+        //     var t=$(window).scrollTop()+$('div').offset().top;
+        //     $('div').css({
+        //         top:t+"px"
+        //     })
+        // })
+        // $('div').on('leave',function(){
+	    //  console.log('hahha');
+        // });	
+        // $('div').trigger('leave');
+            $('ul').on('click',function(e){
+                if(e.target.tagName=='LI'){
+                    console.log($(e.target).text());
+                }
             })
-        })
+
+        // console.log($('.hello').data().duyi);
+        // console.log($('.hello').attr('data-duyi'))
+        // console.log(document.getElementsByClassName("hello")[0].dataset.duyi);
+        // // console.log($('.hello').dataset.duyi);
+        // $('div').prop('id','data');
+        // $('div').prop('data','oaoao');
+        // $( function (){
+        //     $( window ).scroll( function(){
+        //         var top = $( window ).scrollTop() + 200;
+        //         var left = $( window ).scrollLeft() + 300;
+        //         $( '#editInfo ').css({ left : left + "px" , top : top + "px"});
+        //     })
+        // })
     
         
     </script>

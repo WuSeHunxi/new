@@ -124,6 +124,7 @@
 
 
         // then--->使用延迟对象
+        //每执行完一个then都需要返回一个ajax对象，接下来的then对返回来的ajax对象进行处理
         (function () {
             return $.ajax({
                 url: 'https://open.duyiedu.com/jq/movie/power',
