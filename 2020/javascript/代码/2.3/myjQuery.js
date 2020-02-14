@@ -93,6 +93,7 @@
                 this[i].cacheEvent = {};
             }
             if ( !this[i].cacheEvent[type] ) {
+                //可以多次绑定同一个事件名的事件
                 this[i].cacheEvent[type] = [handle];
             }else {
                 this[i].cacheEvent[type].push(handle);
@@ -106,6 +107,7 @@
         for (var i = 0; i < this.length; i++) {
             if ( this[i].cacheEvent[type] ) {
                 this[i].cacheEvent[type].forEach(function (ele, index) {
+                    //在执行时可能会传参
                     ele.apply(self, params)
                 });
             }

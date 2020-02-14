@@ -17,12 +17,66 @@
     <div></div>
     <script src="../jquery.js"></script>
     <script>
-        
+
         $('div').on('clear',function(){
             console.log('clear');
         })
 
         $('div').trigger('clear');
+
+        $.fn.extend({
+            myOn:function(type,handle){
+                //可能有多个jq对象绑定同一个事件
+                for(var i=0;i<this.length;i++){
+                    if(!this[i].cacheEvent){
+                        this[i].cacheEvent={};
+                    }
+                    if(!this[i].cacheEvent[type]){
+                        this[i].cacheEvent[type]=[handle];
+                    }else{
+                        this[i].cacheEvent[type].push(handle);
+                    }
+                }
+            },
+            myTrigger:function(type){
+                var params=arguments.length>1?[].slice.call(arguments,1):[];
+                var self=this;
+                for(var i=0;i<this.length;i++){
+                    if(this[i].cacheEvent[type]){
+                        this[i].cacheEvent[type].forEach(function(ele,index){
+                            ele.apply(self,params);
+                        });
+                    }
+                }
+            },
+            myQueue:function(){
+                var queueObj=this;
+                var queueName=arguments[0]||'fx';
+                var addFunc=arguments[1]||null;
+                var len=arguments.length;
+                //输出队列
+                if(len==1){
+                    
+                }
+                queueObj[0][queueName]==undefined?queueObj[0][queueName]=[addFunc]:queueObj[0][queueName].push(addFunc);
+                return this;
+            },
+            myDequeue=function(type){
+                var self=this;
+                var queueName=arguments[0]||'fx';
+                var queueArr=this.myQueue(queueName);
+                var currFunc=queueArr.shift();
+                if(currFunc==undefined){
+                    return;
+                }
+                var next=function(){
+                    //队列中的第一个已经发生改变
+                    self.myDequeue(queueName);
+                }
+                currFunc(next);
+                return this;
+            }
+        })
 
 
     </script>
