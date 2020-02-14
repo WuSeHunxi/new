@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="div1"></div>
+    <script type="text/JavaScript">
+        function fn1() {
+            var _div = document.getElementById("div1");
+            fnShowDiv(_div);
+        }
+        //显示指定DIV 
+        function fnShowDiv(_div) {
+            var iWidth = document.documentElement.clientWidth;
+            var iHeight = document.documentElement.clientHeight + document.documentElement.scrollTop * 2;
+            var h = 70; //div 高
+            var w = 260; //div 宽
+
+            _div.style.top = (iHeight - h) / 2 + "px";
+            _div.style.left = (iWidth - w) / 2 + "px";
+            _div.style.display = "block";
+            _div.style.position = "absolute";
+            _div.style.width = w + "px";
+            _div.style.height = h + "px";
+            _div.style.textAlign = "center";
+            _div.style.margin = "0 auto";
+            _div.style.background = "red";
+            
+        }
+    </script>
+</body>
+</html>
