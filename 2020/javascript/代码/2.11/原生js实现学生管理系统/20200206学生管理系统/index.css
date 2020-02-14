@@ -153,6 +153,7 @@ table .btn.delete {
     background-color: rgba(0, 0, 0, 0.5);
 } */
 
+/*button的display是inline-block*/
 .turn-page {
     text-align: center;
 }

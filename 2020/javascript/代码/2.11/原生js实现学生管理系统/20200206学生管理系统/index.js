@@ -32,7 +32,7 @@ function bindEvent() {
         var data = getFormData(form);
         if(data) {
             // var res = saveData('http://open.duyiedu.com/api/student/addStudent', Object.assign({
-            //     appkey: 'hu13754400750_1569803752029'
+            //     appkey: '77521ily__1571400791988'
             // }, data))
             // if (res.status == 'fail') {
             //     alert(res.msg)
@@ -46,7 +46,8 @@ function bindEvent() {
             transferData('/api/student/addStudent', data, function () {
                 alert('新增成功')
                 var studnetList = menuList.getElementsByTagName('dd')[0];
-                studnetList.click()
+                //新增成功，回到表单页面中
+                studnetList.click();
                 getTableData();
                 form.reset();
             })
@@ -67,7 +68,7 @@ function bindEvent() {
             var isDel = confirm('确认删除？');
             if (isDel) {
                 // var res = saveData('http://open.duyiedu.com/api/student/delBySno', {
-                //     appkey: 'hu13754400750_1569803752029',
+                //     appkey: '77521ily__1571400791988',
                 //     sNo: tableData[index].sNo
                 // });
                 // if (res.status == 'fail') {
@@ -93,7 +94,7 @@ function bindEvent() {
         var data = getFormData(form);
         if(data) {
             // var res = saveData('http://open.duyiedu.com/api/student/updateStudent', Object.assign({
-            //     appkey: 'hu13754400750_1569803752029'
+            //     appkey: '77521ily__1571400791988'
             // }, data));
             // if (res.status == 'fail') {
             //     alert(res.msg);
@@ -154,7 +155,7 @@ function getFormData(form) {
     var phone = form.phone.value;
     var birth = form.birth.value;
     var email = form.email.value;
-    if (!name || !number || !address || !phone || !birth || !email) {
+    if (!name || !sNo || !address || !phone || !birth || !email) {
         alert('信息填写不全，请检查后提交')
         return false;
     }
@@ -186,10 +187,10 @@ function getFormData(form) {
     }
 }
 
-// 获取学生列表数据
+// 获取学生列表数据(已有的那些数据)
 function getTableData() {
     // var res = saveData("http://open.duyiedu.com/api/student/findAll", {
-    //     appkey: 'hu13754400750_1569803752029'
+    //     appkey: '77521ily__1571400791988'
     // });
     transferData('/api/student/findByPage', {
         page: nowPage,
@@ -245,11 +246,12 @@ function renderEditForm(data) {
         }
     }
 }
-// 降低请求部分代码的冗余
+// 降低请求部分代码的冗余  传入的data可能是一个对象，因此需要将appkey和传入的对象合并
 function transferData(url, data, cb) {
     var res = saveData('http://open.duyiedu.com' + url, Object.assign({
-        appkey: 'hu13754400750_1569803752029',
+        appkey: '77521ily__1571400791988',
     }, data));
+    //是否请求成功
     if (res.status == 'fail') {
         alert(res.msg);
     } else {
