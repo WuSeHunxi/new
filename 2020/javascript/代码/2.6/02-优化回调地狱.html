@@ -134,7 +134,7 @@
                     password: '123123'
                 }
             });
-        })()
+        })()//立即执行函数
         .then(function (res) {
             if (res.data.power == 'root') {
                 return $.ajax({

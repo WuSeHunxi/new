@@ -35,6 +35,14 @@
 	}
 
 // Pass this if window is not defined yet
+
+// jQuery库的最外层写法
+// (function(){
+
+// })(xx,function(){
+
+// })
+
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 // Support: Firefox 18+
@@ -176,11 +184,12 @@ jQuery.fn = jQuery.prototype = {
 
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0] || {},
+		target = arguments[0] || {},//目标项
 		i = 1,
 		length = arguments.length,
-		deep = false;
+		deep = false;//是否为深度克隆的标志
 
+	// 判断是否是深克隆
 	// Handle a deep copy situation
 	if ( typeof target === "boolean" ) {
 		deep = target;//   --- > true
@@ -190,17 +199,20 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i++; // i = 2
 	}
 
+	// 保证目标参数的合法性
 	// Handle case when target is a string or something (possible in deep copy)
 	if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
 		target = {};
 	}
 
+	// 插件扩展，只有一个对象
 	// Extend jQuery itself if only one argument is passed
 	if ( i === length ) {
 		target = this;
 		i--;//0
 	}
 
+	// i值有三种情况 0 1 2
 	for ( ; i < length; i++ ) {
 		// Only deal with non-null/undefined values
 		if ( (options = arguments[ i ]) != null ) {
@@ -209,12 +221,14 @@ jQuery.extend = jQuery.fn.extend = function() {
 				src = target[ name ];
 				copy = options[ name ];
 
+				// 防止出现循环引用
 				// Prevent never-ending loop
 				if ( target === copy ) {
 					continue;
 				}
 
 				// Recurse if we're merging plain objects or arrays
+				// 深克隆   需要进行深克隆的部分可能是对象也可能是数组
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
 					if ( copyIsArray ) {
 						copyIsArray = false;
@@ -225,12 +239,13 @@ jQuery.extend = jQuery.fn.extend = function() {
 					}
 
 					// Never move original objects, clone them
+					// 递归  将copy中的值克隆到clone中
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
 				// Don't bring in undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
-				}
+				}// 浅克隆
 			}
 		}
 	}

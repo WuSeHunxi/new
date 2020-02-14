@@ -20,6 +20,7 @@
     containerNode.offsetHeight //窗口的高度
     contentNode.offsetHeight // 内容的高度
     durationNode.offsetHeight // 滑块的高度
+    //滑块的高度与内容和窗口之间的比例有关
     var H_bar = Math.floor(containerNode.offsetHeight / contentNode.offsetHeight * durationNode.offsetHeight);
     ele_bar.style.height = H_bar + 'px';
 
@@ -58,13 +59,6 @@
 
 
             }
-
-
-
-
-
-
-
         }
 
 
@@ -90,6 +84,7 @@
 
             console.log(e.target.id)
 
+            // 滚动条上下方的点击按钮
             if(e.target.id == 'up'){//点击上面 up
                 ele_bar.style.top = ele_bar.offsetTop - speed + 'px';
                 if (ele_bar.offsetTop < 0) {
@@ -105,13 +100,9 @@
 
             }
 
+            // 内容变化的高度
             contentMove();
         }
-       
-
-
-
-
     }
 
     function scrollWheel(){

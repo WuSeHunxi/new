@@ -24,33 +24,33 @@
         }
     </style>
 <body>
-    <!-- <div id="editInof"></div> -->
-    <ul>
+    <div id="editInof"></div>
+    <!-- <ul>
         <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
-    </ul>
+    </ul> -->
     <!-- <div class="hello" data-duyi='good'></div> -->
     <script src="jquery.js"></script>
     <script>
 
-        // $(window).scroll(function(){
-        //     // var l=$(window).scrollLeft()+$('div').offset().left;
-        //     var t=$(window).scrollTop()+$('div').offset().top;
-        //     $('div').css({
-        //         top:t+"px"
-        //     })
-        // })
+        $(window).scroll(function(){
+            // var l=$(window).scrollLeft()+$('div').offset().left;
+            var t=$(window).scrollTop()+$('div').offset().top;
+            $('div').css({
+                top:t+"px"
+            })
+        })
         // $('div').on('leave',function(){
 	    //  console.log('hahha');
         // });	
         // $('div').trigger('leave');
-            $('ul').on('click',function(e){
-                if(e.target.tagName=='LI'){
-                    console.log($(e.target).text());
-                }
-            })
+            // $('ul').on('click',function(e){
+            //     if(e.target.tagName=='LI'){
+            //         console.log($(e.target).text());
+            //     }
+            // })
 
         // console.log($('.hello').data().duyi);
         // console.log($('.hello').attr('data-duyi'))

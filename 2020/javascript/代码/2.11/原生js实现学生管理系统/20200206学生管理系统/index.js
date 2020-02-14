@@ -187,7 +187,7 @@ function getFormData(form) {
     }
 }
 
-// 获取学生列表数据(已有的那些数据)
+// 获取学生列表数据(已添加的那些数据)
 function getTableData() {
     // var res = saveData("http://open.duyiedu.com/api/student/findAll", {
     //     appkey: '77521ily__1571400791988'
