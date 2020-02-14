@@ -115,7 +115,7 @@
     }
     
     jQuery.prototype.myQueue = function () {
-        var queueObj = this;
+        var queueObj = this;//调用该方法的对象
         //根据传入的参数来看
         var queueName = arguments[0] || 'fx';
         var addFunc = arguments[1] || null;
@@ -137,6 +137,7 @@
         var self = this;
         var queueName = arguments[0] || 'fx';//队列名称
         var queueArr = this.myQueue(queueName);//取队列数组
+        //拿完第一个之后就变成了新数组
         var currFunc = queueArr.shift();//拿出数组中的第一个元素(该元素不一定是什么类型的)
         if (currFunc == undefined) {
             return;
