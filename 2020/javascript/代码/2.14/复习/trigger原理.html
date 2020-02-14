@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
+    <div></div>
     <script src="../jquery.js"></script>
+    <script>
+        
+        $('div').on('clear',function(){
+            console.log('clear');
+        })
+
+        $('div').trigger('clear');
+
+
+    </script>
 </body>
 </html>
