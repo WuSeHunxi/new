@@ -20,8 +20,14 @@
     </style>
 <body>
     <div id="editInof"></div>
+    <div class="hello" data-duyi='good'></div>
     <script src="jquery.js"></script>
     <script>
+        console.log($('.hello').data().duyi);
+        console.log($('.hello').attr('data-duyi'))
+        console.log($('.hello').dataset)
+        $('div').prop('id','data');
+        $('div').prop('data','oaoao');
         $( function (){
             $( window ).scroll( function(){
                 var top = $( window ).scrollTop() + 200;
