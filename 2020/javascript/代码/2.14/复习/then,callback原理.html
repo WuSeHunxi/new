@@ -10,7 +10,65 @@
     <script src="../jquery.js"></script>
     <script>
         
-        
+        $.extend({
+            myCallbacks:function(){
+                var options=arguments[0]||'';
+                var list=[];
+                var fireIndex=0;
+                var fired=false;
+                var args=[];
+                var fire=function(){
+                    for(;fireIndex<list.length;fireIndex++){
+                        list[fireIndex].apply();
+                    }
+                    if(options.indexOf('once')!=-1){
+                        list=[];
+                        fireIndex=0;
+                    }
+                }
+                return {
+                    add:function(func){
+                        list.push(func);
+                        if(options.indexOf('memory')!=-1&&fired){
+                            fire();
+                        }
+                        return this;
+                    },
+                    fire:function(){
+                        fireIndex=0;
+                        args=arguments;
+                        fired=true;
+                        fire();
+                    }
+                }
+            },
+            myDeferred:function(){
+                var pedding=true;
+                var deferred={};
+                var arr=[
+                    [jQuery.myCallbacks('once memory'),'done','resolve'],
+                    [jQuery.myCallbacks('once memory'),'fail','reject'],
+                    [jQuery.myCallbacks('memory'),'progress','notify']
+                ];
+
+                for(var i=0;i<arr.length;i++){
+                    deferred[arr[i][1]]=(function(index){
+                        return function(func){
+                            deferred[i][0].add(func);
+                        }
+                    }(i));
+
+                    deferred[arr[i][2]]=(function(index){
+                        return function(){
+                            if(pedding){
+                                arr[i][2].fire.apply(window,arguments); 
+                                arr[i][2]=='resolve'||arr[i][2]=='reject'?pedding=false:'';
+                            }   
+                        }
+                    }(i))
+                }
+            }
+        })
 
 
     </script>
