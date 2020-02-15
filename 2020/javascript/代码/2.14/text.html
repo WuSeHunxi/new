@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         body {
             height: 3000px;
             position: relative;
@@ -18,9 +22,7 @@
             position: absolute;
             background-color: red;
             left: 50%;
-            top: 50%;
             margin-left: -50px;
-            margin-top: -50px;
         }
     </style>
 <body>
@@ -35,9 +37,11 @@
     <script src="jquery.js"></script>
     <script>
 
-        $(window).scroll(function(){
+        $(window).on('scroll',function(){
             // var l=$(window).scrollLeft()+$('div').offset().left;
-            var t=window.outerHeight/2;
+            var t=window.outerHeight/2+$(window).scrollTop()-50;
+            console.log(t)
+            console.log(t);
             $('div').css({
                 top:t+"px"
             })
