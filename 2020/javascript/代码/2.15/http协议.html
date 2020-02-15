@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        /**
+         * 
+         * HTTP协议分为两个部分：请求  响应
+         *      请求：Request
+         *          请求方式(GET POST)  路径  协议版本
+         *          
+         *          POST /path?  HTTP1.1
+         *          Host:www.baidu.com
+         *          Connection:keep-alive
+         *          User-Agent
+         * 
+         *          传文件的一些信息         
+         * 
+         * 
+         *      响应：Response
+         *          
+         *          协议版本  状态码  message
+         * 
+         * 在请求的内容前面加上请求头：请求头hello 
+         * 
+         *  HTTP协议的GET和POST都是危险的
+         * 
+         * GET请求和POST请求的区别？
+         *     1.是基于什么前提的？如果什么前提都没有，不使用任何规范，只考虑语法和理论上的HTTP协议，那么GET和POST
+         *       几乎没有什么区别，只有名字是不一样的，仅此而已
+         *     2.如果是基于RFC规范的
+         *        2.1 理论上的：GET和POST具有相同语法，但是有不同的语义，即：GET用来获取数据，POST用来发送数据，
+         *              其他方面没有区别。
+         *        2.2 实现上的：各种浏览器就是这个规范的实现者(解析协议)。
+         *              (web环境下的)常见的不同：
+         *                     2.2.1 GET的数据在url(url不一定都展示在地址栏中)上是可见的，POST请求不显示在url中。
+         *                     2.2.2 GET请求对长度是有限制的，POST请求的长度没有限制。
+         *                     2.2.3 GET请求的数据可以收藏为书签，POST请求到的数据不可以收藏为书签。
+         *                     2.2.4 GET请求后，按后退按钮，刷新按钮是没有影响的，但是POST请求会被重新提交。
+         *                     2.2.5 GET的编码类型：application/x-www-form-url，
+         *                           POST的编码类型有很多种,例如：encodeapplication/x-www-form-urlencoded  
+         *                                                      mulipart/form-data(发送文件)。
+         *                     2.2.6 GET的历史参数会被保存到浏览器中，但是POST不会保存在浏览器中。
+         *                     2.2.7 GET只允许ASCII编码，POST没有编码限制，甚至允许发送二进制文件(文件)。
+         *                     2.2.8 GET与POST相比，GET的安全性较差，因为所发的数据是url的一部分，如果发送的是密码
+         *                           的话就会看到，也会被浏览器保存。
+         * 
+        */
+        
+    </script>
+</body>
+</html>
