@@ -51,7 +51,7 @@ initTable();
 
 //点击事件只希望触发一次
 divRound.onclick = function () {
-    divRound.onclick = null;
+    // divRound.onclick = null;
     // css3变形：顺时针旋转1800度
     divRound.style.transform = "rotate(1800deg)";
     // 过渡完成后触发的事件
@@ -62,10 +62,10 @@ divRound.onclick = function () {
         imgResult.style.display = "block";
     })
 
-    // setTimeout(function () {
-    //     //中间一开始的图片隐藏
-    //     imgCenter.style.display = "none";
-    //     //中间结果图片显示
-    //     imgResult.style.display = "block";
-    // }, 3000)
+//     setTimeout(function () {
+//         //中间一开始的图片隐藏
+//         imgCenter.style.display = "none";
+//         //中间结果图片显示
+//         imgResult.style.display = "block";
+//     }, 3000)
 }

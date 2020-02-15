@@ -20,6 +20,7 @@
     height: 300px;
     cursor: pointer;
     position: relative;
+    transition:all 3s;
 }
 
 .show{
@@ -57,4 +58,13 @@
 
 .item{
     margin: 5px 0;
+}
+
+.item span{
+    vertical-align: 2px;
+}
+
+.item img{
+    width: 16px;
+    height: 16px;
 }
