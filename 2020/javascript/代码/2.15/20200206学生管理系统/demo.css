@@ -138,6 +138,18 @@ table .btn.delete{
     display: none;
 }
 
+.modal-content{
+    background-color: #fff;
+    position: fixed;
+    width: 500px;
+    height: 450px;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -225px;
+}
+
 .modal-content form{
     width: 400px;
     margin: 0 auto;

@@ -31,6 +31,7 @@ function bindEvent() {
         var form = document.getElementById('student-add-form');
         var data = getFormData(form);
         if(data) {
+            // 此时的url是添加学生的url 
             // var res = saveData('http://open.duyiedu.com/api/student/addStudent', Object.assign({
             //     appkey: '77521ily__1571400791988'
             // }, data))
@@ -60,6 +61,7 @@ function bindEvent() {
             return false;
         }
         var isEdit = e.target.classList.contains('edit');
+        console.log(isEdit);
         var index = e.target.dataset.index;
         if (isEdit) {
             modal.style.display = 'block';

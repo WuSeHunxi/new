@@ -14,21 +14,21 @@
                 <img src="./images/logo.png" alt="">
                 <span>渡一教育</span>
             </div>
-        </div>
+    </div>
         <div class="container">
             <dl class="menu">
                 <dt>学生管理</dt>
-                <dd class="active">学生列表</dd>
-                <dd >新增学生</dd>
+                <dd data-id="student-list" class="active">学生列表</dd>
+                <dd data-id="student-add">新增学生</dd>
             </dl>
             <div class="content">
-                <div id="student-add">
+                <div id="student-add" class="content-box">
                     <form id="student-add-form">
                         <div><label for="name">姓名</label><input id="name" type="text"></div>
                         <div><label for="sex">性别</label>
-                            <input type="radio" id="male" value="0" checked>
+                            <input type="radio" name="sex" id="male" value="0" checked>
                                 <label for="male">男</label>
-                            <input type="radio" id="female" value="1">
+                            <input type="radio" name="sex" id="female" value="1">
                                 <label for="female">女</label>
                         </div>
                         <div><label for="sNo">学号</label><input type="text" name="sNo" id="number"></div>
@@ -42,7 +42,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="student-list">
+                <div id="student-list" class="content-box">
                     <table>
                         <thead>
                             <tr>
@@ -104,5 +104,6 @@
             </div>
         </div>
     </div>
+    <script src="demo.js"></script>
 </body>
 </html>
