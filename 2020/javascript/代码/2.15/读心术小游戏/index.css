@@ -1,4 +1,5 @@
 .container {
+    /*里面的内容都是inline-block的*/
     text-align: center;
 }
 
@@ -28,11 +29,16 @@
     width: 156px;
     height: 156px;
     position: absolute;
-    left: 0;
+    /*图片居中的方法之一*/
+    /* left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    margin: auto;
+    margin: auto; */
+    left: 50%;
+    top: 50%;
+    margin-left: -78px;
+    margin-top: -78px;
 }
 
 .result{
