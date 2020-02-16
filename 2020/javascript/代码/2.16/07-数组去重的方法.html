@@ -70,6 +70,28 @@
         var b = a.distinct();
         console.log(b.toString()); //1,2,3,4,5,6,56
         
+
+        //递归
+        Array.prototype.distinct = function (){
+ var arr = this,
+  len = arr.length;
+ arr.sort(function(a,b){  //对数组进行排序才能方便比较
+  return a - b;
+ })
+ function loop(index){
+  if(index >= 1){
+   if(arr[index] === arr[index-1]){
+    arr.splice(index,1);
+   }
+   loop(index - 1); //递归loop函数进行去重
+  }
+ }
+ loop(len-1);
+ return arr;
+};
+var a = [1,2,3,4,5,6,5,3,2,4,56,4,1,2,1,1,1,1,1,1,56,45,56];
+var b = a.distinct();
+console.log(b.toString());
     </script>
     </body>
 </html>
