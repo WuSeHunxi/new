@@ -7,6 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function asd(data){
+            console.log(data);
+        }    
+    </script>
+    <script src="http://developer.duyiedu.com/edu/testJsonp?callback=asd"></script>
+    <script>
+        
+        /**
+         * 
+         * jsonp的原理：
+         *     1.jq判断请求与当前页面的域是否同源，如果同源则发送正常的ajax，没有跨域的事。
+         *     2.如果不同源会生成一个script标签
+         *     3.然后会生成一个随机的callback名字，并创建一个名为这个的方法(function asd123456(){})。
+         *     4.然后再设置script标签的src，将src设置为要请求的接口
+         *     5.将callback作为参数拼接在后面
+         * -----------以上是前端部分----------
+         *     6.后端接收到请求后，开始准备要返回的数据。
+         *     7.后端拼接数据，将要返回的数据用callback的值和括号包裹起来。
+         *          例如：callback=asd123456,要返回的数据为{"a":1,"b":2}，就要拼接为asd123456({"a":1,"b":2})
+         *     8.将内容返回
+         * -----------以上是后端部分----------
+         *     9.浏览器接收到内容，会将其当作js代码来执行，从而执行asd123456这个方法，这样就接收到了后端返回给我们的对象
+         * 
+        */
+        
+    </script>
 </body>
 </html>
