@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var xhr=new XMLHttpRequest();
+        //跨域请求  它的第三个参数表示同步还是异步
+        xhr.open("get","http://developer.duyiedu.com/testAjaxCrossOrigin");//建立与服务器之间的连接       
+        //接收参数
+        xhr.onreadystatechange=function(){//写在send之前防止事件没有赋值上
+            //readyState=4-->表示请求已完成，已经接收到数据
+            if(xhr.readyState==4&&xhr.status==200){
+                // 输出接收到的数据
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send();//发送请求
+    </script>
+</body>
+</html>

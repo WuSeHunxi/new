@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /**
+         * 
+         * 跨域访问资源
+         *  哪些东西属于资源？
+         *      js文件,css文件，js文件是允许被跨域请求的。src属性的资源都是可以被跨域请求的，href资源大部
+         *      分都是可以被跨域请求的。
+         * 
+         *  哪些资源算是跨域请求的资源？
+         *      1.后端接口的数据。
+         *      2.其他域的cookie。
+         *      3.其他域的缓存。
+         * 
+         * 什么是其他的域？怎样算跨域？
+         *      页面本身有协议，域名，端口。这三个有任意一个不同就是跨越。
+         *      要请求的数据：http://www.baidu.com:80
+         *  
+         * 
+         * 跨域这个行为发生在哪里？
+         *      即使跨域了，请求也可以发出，服务器也是可以接收的，服务器端也是可以正常处理的，服务器端也是
+         *      可以正常返回数据，浏览器也能接收到这些数据。接收到之后，发现当前页面的域和请求的域不同，所
+         *      以判定为跨域。
+         * 
+         * 解决跨域问题：
+         *      1.后端配合我们进行跨域
+         *          1.1 JSONP。(jsonp是一种特殊的数据格式)
+         *          1.2 后端可以设置Acess-Control-Allow-Origin属性以支持跨域。
+         *      2.后端不配合我们进行跨域
+         *          2.1 iframe：缺点-->只能显示，不能控制
+         *          2.2 通过后端代理(自己的后端nodeJs)
+         * 
+        */
+        var xhr=new XMLHttpRequest();
+        //跨域请求
+        xhr.open("get","http://developer.duyiedu.com/testAjax");//发出请求
+        // Jsonp解决跨域
+        // xhr.open("get","http://developer.duyiedu.com/testJsonp?callback=asd");
+        xhr.send();
+
+    </script>
+</body>
+</html>

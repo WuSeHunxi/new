@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://www.baidu.com">
+</head>
+<body>
+    <img src="http://www.baidu.com">
+    <form action="http://www.baidu.com" method="GET">
+        <input type="text">
+        <input type="text">
+        <input type="submit">
+    </form>
+    <script>
+        
+        /**
+         * 
+         * 如何发送请求？
+         *      1.在浏览器的地址栏中输入网址。(页面会跳转)
+         *      2.location的href属性：location.href='url'。(页面会跳转)
+         *      3.带有src属性的标签，请求时可以发出的，服务端是可以处理的，也是可以返回的。但是
+         *        返回之后能否被使用，还是要看浏览器。(页面无法处理返回结果)
+         *      4.带有href属性的标签：link，请求u是可以发出的，服务端也是可以处理和返回的，但是
+         *        返回之后能否被应用还是要看浏览器。(页面无法处理返回结果)
+         *      5.带有action属性的标签：form，也可以像后端发出请求，但是form表单发出请求后也会页面跳转。(页面会跳转)
+         * 
+        */
+        
+        /**
+         * 
+         * 要素：
+         *    1.请求方式
+         *    2.url
+         * 
+        */
+        var xhr=new XMLHttpRequest();
+        xhr.open("get","http://developer.duyiedu.com/testAjax");//发出请求
+        xhr.send();
+
+
+
+    </script>
+</body>
+</html>
