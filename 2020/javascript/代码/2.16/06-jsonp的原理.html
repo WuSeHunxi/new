@@ -17,7 +17,7 @@
         
         /**
          * 
-         * jsonp的原理：
+         * jsonp的原理：---->本质就是生成script标签
          *     1.jq判断请求与当前页面的域是否同源，如果同源则发送正常的ajax，没有跨域的事。
          *     2.如果不同源会生成一个script标签
          *     3.然后会生成一个随机的callback名字，并创建一个名为这个的方法(function asd123456(){})。
@@ -44,7 +44,7 @@
                 var targetProtocol="";//目标接口的协议
                 var targetHost="";//目标接口的host,host包含域名和端口
                 //如果url不带http，那么访问的一定是相对路径，相对路径是同源的。
-                if(url.indexOf('http://')==0||url.indexOf("ttps://")==0){
+                if(url.indexOf('http://')==0||url.indexOf("https://")==0){
                     var targetUrl=new Url(url);
                     targetProtocol=targetUrl.protocol;
                     targetHost=targetUrl.host;
@@ -60,6 +60,8 @@
                     }else{//不同源
                         //随机生成一个callback
                         var callback="cb"+Math.floor(Math.random()*1000000);
+                        //给window添加一个方法
+                        window[callback]=options.success;
                         //生辰script标签
                         var script=document.createElement("script");
                         if(url.indexOf("?")>0){//表示已经有参数了，这样的话就需要使用&来拼接了
@@ -77,9 +79,12 @@
         $.ajax({
             url:"http://developer.duyiedu.com/edu/testJsonp",
             type:'get',
-            dataType:"jsonp"
+            dataType:"jsonp",
+            success:function(data){
+                console.log(data);
+            }
         });
-        
+
     </script>
     </body>
 </html>
