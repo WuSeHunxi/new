@@ -74,6 +74,33 @@ html,body,.wrapper{
     display: none;
 }
 
+#student-search{
+    width: 500px;
+    display: none;
+    margin: 100px auto;
+}
+
+.search{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 6px;
+}
+
+.search-btn{
+    border:none;
+    width: 60px;
+    height: 30px;
+    padding: 5px 10;
+    cursor: pointer;
+    background-color: #4d5e70;
+    color:#fff;
+}
+
+select{
+    width: 60px;
+    cursor: pointer;
+}
+
 form div label{
     width: 100px;
     display: inline-block;

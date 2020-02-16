@@ -36,7 +36,7 @@
         cityStr += '<option value = ' + cityArr[i][0] + '>' + cityArr[i][1] + '</option>'
     }
     // console.log(cityStr)
-    cityStr+= '<option>其他</option>'
+    cityStr += '<option>其他</option>'
     cityNode.innerHTML = cityStr;
 
     //第三步： 把对应的院校数组  找出；
@@ -47,13 +47,13 @@
         schoolStr += '<option >' + schoolArr[i][2] + '</option>'
     }
     // console.log(cityStr)
-    schoolStr+= '<option>其他</option>'
+    schoolStr += '<option>其他</option>'
     schoolNode.innerHTML = schoolStr;
 
-// 三级联动
-//一，改变省会，----》城市和学校改变
+    // 三级联动
+    //一，改变省会，----》城市和学校改变
 
-    provinceNode.onchange = function(){
+    provinceNode.onchange = function () {
 
         var cityArr = city[provinceNode.value]; //找到数组  
         console.log(cityArr);
@@ -62,7 +62,7 @@
             cityStr += '<option value = ' + cityArr[i][0] + '>' + cityArr[i][1] + '</option>'
         }
         // console.log(cityStr)
-        cityStr+= '<option>其他</option>'
+        cityStr += '<option>其他</option>'
         cityNode.innerHTML = cityStr;
 
         //第三步： 把对应的院校数组  找出；
@@ -77,10 +77,10 @@
 
     }
 
-    cityNode.onchange = function(){
+    cityNode.onchange = function () {
 
         var schoolArr = allschool[cityNode.value]; //cityNode.value//317 对象的应用
-        if(schoolArr){
+        if (schoolArr) {
             console.log(schoolArr);
             var schoolStr = ''
             for (var i = 0; i < schoolArr.length; i++) {
@@ -88,8 +88,8 @@
             }
             // console.log(cityStr)
             schoolNode.innerHTML = schoolStr;
-        }else{
-            schoolNode.innerHTML =  '<option>其他</option>';
+        } else {
+            schoolNode.innerHTML = '<option>其他</option>';
         }
     }
 })()

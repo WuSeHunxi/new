@@ -19,7 +19,7 @@ function bindEvent(){
         }
         document.getElementById(id).style.display='block';
     }
-    var studentAddBtn=document.getElementById("student-add");
+    var studentAddBtn=document.getElementById("student-add-btn");
     studentAddBtn.onclick=function(e){
         e.preventDefault();
         var form=document.getElementById("student-add-form");
@@ -38,6 +38,31 @@ function bindEvent(){
                 getTableData();
                 form.reset();
             }
+        }
+    }
+    var searchBtn=document.getElementsByClassName("search-btn")[0];
+    searchBtn.onclick=function(e){
+        e.preventDefault();
+        var searchForm=document.getElementsByClassName("search-form")[0];
+        var content=searchForm.content.value;
+        var sex=parseInt(searchForm.sex.value);
+        // console.log(sex,content);
+        var res=saveData('http://open.duyiedu.com/api/student/searchStudent', Object.assign({
+            appkey: '77521ily__1571400791988',
+            sex:sex,
+            search:content,
+            page:1,
+            size:5
+        }));
+        if(res.status=='fail'){
+            alert(res.msg);
+        }else{
+            tableData=res.data.searchList;
+            console.log(tableData);
+            renderEditForm(tableData)
+            var studentList=menuList.getElementsByTagName('dd')[0];
+            studentList.click();
+            
         }
     }
     var modal=document.getElementsByClassName("modal")[0];
@@ -135,16 +160,22 @@ function getFormData(form){
         email
     }
 }
+var nowPage = 1;
+var pageSize = 5;
+var allPage = 1;
 
 function getTableData(){
-    var res= saveData("http://open.duyiedu.com/api/student/findAll", {
-        appkey: '77521ily__1571400791988'
+    var res= saveData("http://open.duyiedu.com/api/student/findByPage", {
+        appkey: '77521ily__1571400791988',
+        page:nowPage,
+        size:pageSize
     });
     // if(res.status=='fail'){
     //     alert("获取数据失败");
     //     return false;
     // }else{
-        tableData=res.data;
+        tableData=res.data.findByPage;
+        console.log(tableData);
         //渲染数据到列表页
         renderTable(tableData||[]);
     // }

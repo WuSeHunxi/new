@@ -20,6 +20,7 @@
                 <dt>学生管理</dt>
                 <dd data-id="student-list" class="active">学生列表</dd>
                 <dd data-id="student-add">新增学生</dd>
+                <dd data-id="student-search">查找学生</dd>
             </dl>
             <div class="content">
                 <div id="student-add" class="content-box">
@@ -100,6 +101,17 @@
                             </form>
                         </div>
                     </div>
+                </div>
+                <div id="student-search" class="content-box">
+                    <form class="search-form">
+                        <input name="content" class="search" type="text">
+                        <select name="sex" id="sex">
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                            <option value="-1">所有</option>
+                        </select>
+                        <input class="search-btn" type="button" value="查找">
+                    </form>
                 </div>
             </div>
         </div>
