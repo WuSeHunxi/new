@@ -11,10 +11,10 @@
         
         Array.prototype.distinct = function(){
             var arr = this,
-            result = [],
-            i,
-            j,
-            len = arr.length;
+                result = [],
+                i,
+                j,
+                len = arr.length;
             for(i = 0; i < len; i++){
                 for(j = i + 1; j < len; j++){
                     if(arr[i] === arr[j]){
@@ -32,9 +32,9 @@
         //splice操作原数组
         Array.prototype.distinct = function (){
             var arr = this,
-            i,
-            j,
-            len = arr.length;
+                i,
+                j,
+                len = arr.length;
             for(i = 0; i < len; i++){
                 for(j = i + 1; j < len; j++){
                     if(arr[i] == arr[j]){
@@ -54,10 +54,10 @@
         //利用对象属性
         Array.prototype.distinct = function (){
             var arr = this,
-            i,
-            obj = {},
-            result = [],
-            len = arr.length;
+                i,
+                obj = {},
+                result = [],
+                len = arr.length;
             for(i = 0; i< arr.length; i++){
                 if(!obj[arr[i]]){ //如果能查找到，证明数组元素重复了
                     obj[arr[i]] = 1;
@@ -74,7 +74,7 @@
         //递归
         Array.prototype.distinct = function (){
             var arr = this,
-            len = arr.length;
+                len = arr.length;
             arr.sort(function(a,b){  //对数组进行排序才能方便比较
                 return a - b;
             })

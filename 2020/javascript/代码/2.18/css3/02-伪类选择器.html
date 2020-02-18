@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div:not(.test){
+            background-color: red;
+        }
+        :root{/*根标签选择器>html*/
+            background-color: pink;
+        }
+
+        :target{/*锚点*/
+            border: 1px solid #000;
+        }
+
+        input:checked+span{
+            /* background-color:green; */
+        }
+        input:checked+span:after{
+            background-color:green;
+            content: 'hello world';
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#box1">box1</a>
+    <a href="#box2">box2</a>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+
+    <!-- 被选中的元素的一种状态 -->
+
+    <div class="demo">1</div>
+    <div class="demo">2</div>
+    <div class="test">3</div>
+
+    <label>一个小惊喜
+        <input type="checkbox">
+        <span></span>
+    </label>
+    
+
+</body>
+
+</html>

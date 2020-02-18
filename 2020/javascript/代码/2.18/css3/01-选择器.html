@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+        /*E+F--->下一个满足条件的兄弟元素节点*/
+        div + p{
+            color:red;
+        }
+        
+        div ~ p{/*选择同级的所有兄弟元素节点是p的标签*/
+            background-color: green;
+        }
+
+        div[data~='aa']{/*含有独立aa的data属性*/
+            background-color: red;
+        }
+
+        div[class|='a']{/*选择以a或者a-开头的选择器*/
+            background-color: #000;
+            color:#fff;
+        }
+
+        input{
+            border:1px solid #000;
+        }
+        input::-webkit-placeholder{/*伪元素选择器*/
+            color:green
+        }
+
+        div:nth-of-type(1)::selection{/*被选中状态下的属性*/
+            /*只能填三个样式*/
+            /* text-shadow: ; */
+            /* color: ; */
+            /* background-color: ; */
+            color:#fff;
+            background-color:red;
+        }
+
+    </style>
+    </head>
+    <body>
+        <div>div</div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <ul>
+            <li>
+                <p></p>
+            </li>
+        </ul>
+        <div data="aa">ga</div>
+        <div data="aa bb">ha</div>
+        <div data="aab">hhh</div>
+        <div class="a">1</div>
+        <div class="a-test">2</div>
+        <div class="b-test">3</div>
+
+        <input type="text" placeholder="请输入用户名">
+    </body>
+</html>
