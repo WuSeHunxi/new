@@ -5,26 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .wrapper{
+            width: 300px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+        .nap{
+            width: 100%;
+            background-color: #ccc;
+        }
+
+        .nap>li{
+            color:#fff;
+            text-align: center;
+            width: 100%;
+            line-height: 40px;
+            cursor: pointer;
+            border-bottom:1px solid #eee;
+        }
+        ul.content{
+            display: none;
+            width: 100%;
+            height: 80px;
+            background-color: #000;
+        }
+        .nap li:hover .content{
+            display: block;
+            /* width: 100%;
+            height: 80px; */
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <ul class="nap">
             <li>content1
                 <ul class="content">
-                    <li></li>
-                    <li></li>
+                    <li>hello1</li>
+                    <li>hello2</li>
                 </ul>
             </li>
             <li>content2
                 <ul class="content">
-                    <li></li>
-                    <li></li>
+                    <li>hello3</li>
+                    <li>hello4</li>
                 </ul>
             </li>
             <li>content3
                 <ul class="content">
-                    <li></li>
-                    <li></li>
+                    <li>hello5</li>
+                    <li>hello6</li>
                 </ul>
             </li>
         </ul>
