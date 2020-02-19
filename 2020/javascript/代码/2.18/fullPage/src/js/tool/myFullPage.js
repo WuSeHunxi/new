@@ -2,7 +2,7 @@ $.fn.extend({
     myFullPage:function(config){
         //初始化变量--->将需要的提前写出来减少不必要的操作
         var colorsArray=config.colorsArray;
-        var $Wrapper=$(this);
+        var $Wrapper=$(this);//谁调用这个工具方法谁就是this
         var $Section=$Wrapper.find('.section');
         var commonStyle={
             width:'100%',
@@ -11,7 +11,7 @@ $.fn.extend({
         var clientWidth=$(window).outerWidth();
         var clientHeight=$(window).outerHeight();
         var curIndex=0;//当前显示的页面的索引
-        var lock=true;
+        var lock=true;//避免重复运动
 
         //第一步：赋予样式--->初始化样式
         $('html').add('body').css({
@@ -45,6 +45,7 @@ $.fn.extend({
                             console.log("p");
                             $(ele).find('.slide').eq(0).addClass('innerActive')
                         });
+                        
         //控制移动
         $(document).on('keydown',function(e){
             //e.which--->记录键盘的acsii
@@ -66,7 +67,7 @@ $.fn.extend({
                         curIndex++;
                         newTop-=clientHeight;
                     }
-                    //运动
+                    //运动 .wrapper向上的话高度增加，向下的话高度减小
                     $Wrapper.animate({
                         top:newTop
                     },350,'swing',function(){
@@ -115,8 +116,6 @@ $.fn.extend({
                         }
                     })
                 }
-                
-
             }
         })
 

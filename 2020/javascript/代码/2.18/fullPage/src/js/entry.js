@@ -15,6 +15,7 @@ $('.wrapper').myFullPage({
 
 
 $('.section').each(function(index,ele){
+    //在每一个页面添加动画
     $(ele).append(ComponentFactory(
         {
             // type: 'base',
