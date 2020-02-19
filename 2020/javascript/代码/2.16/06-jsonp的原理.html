@@ -45,7 +45,8 @@
                 var targetHost="";//目标接口的host,host包含域名和端口
                 //如果url不带http，那么访问的一定是相对路径，相对路径是同源的。
                 if(url.indexOf('http://')==0||url.indexOf("https://")==0){
-                    var targetUrl=new Url(url);
+                    //表示有http或者https
+                    var targetUrl=url;
                     targetProtocol=targetUrl.protocol;
                     targetHost=targetUrl.host;
                 }else{
@@ -60,7 +61,7 @@
                     }else{//不同源
                         //随机生成一个callback
                         var callback="cb"+Math.floor(Math.random()*1000000);
-                        //给window添加一个方法
+                        //给window添加一个方法-->就相当于在全局中创建一个方法，方法名是callback的名字
                         window[callback]=options.success;
                         //生辰script标签
                         var script=document.createElement("script");
