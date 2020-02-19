@@ -7,6 +7,10 @@
  * 2. 触发输入事件时，去查找数据，得到返回的数据,通过返回的数据渲染ul中的li数据
  */
 
+/***
+ * 三个事件：输入框输入内容 输入框聚焦 输入框失去焦点
+ */
+
 var search = {
   inputDom: null,  // 输入框dom元素
   searchListDom: null,  // 搜索列表 dom 元素
@@ -27,41 +31,45 @@ var search = {
     this.hanldeInput(); // 执行监听输入框 输入事件 函数
     this.handleInputFocus(); // 执行监听输入框 聚焦事件 函数
     this.handleInputBlur(); // 执行监听输入框 失焦事件 函数
-  }, 
-  hanldeInput () { // 监听输入框 输入事件 函数
+  },
+  hanldeInput() { // 监听输入框 输入事件 函数
     var self = this;
     this.inputDom.oninput = function (e) {
       var inputText = e.target.value.trim();  // 拿到当前输入框中的文字
-      if(inputText === self.prevInputText) { return };  // 如果当前输入框中的文字和上一搜索文字相同，则什么都不做
+      if (inputText === self.prevInputText) { 
+        return 
+      };  // 如果当前输入框中的文字和上一搜索文字相同，则什么都不做
+      //模拟ajax的回调函数   这里只是引用了函数名，它在getData.js文件中执行
+      //在一个新的函数里面要注意this的指向
       getData(inputText, self.getSearchRes.bind(self)); // 执行获取数据函数
       self.prevInputText = inputText; // 将当前搜索文字赋值给prevInputText
     }
   },
-  handleInputFocus () { // 监听输入框 聚焦事件 函数
+  handleInputFocus() { // 监听输入框 聚焦事件 函数
     var self = this;
     this.inputDom.onfocus = function () {
-      if(self.searchResList.length) {
+      if (self.searchResList.length) {
         self.searchListDom.style.display = 'block';
         console.log('xxx');
       }
     }
   },
-  handleInputBlur () { // 监听输入框 失焦事件 函数
+  handleInputBlur() { // 监听输入框 失焦事件 函数
     var self = this;
     this.inputDom.onblur = function () {
       self.searchListDom.style.display = 'none';
     }
   },
-  getSearchRes (res) { // 获取搜索结果函数
+  getSearchRes(res) { // 获取搜索结果函数
     this.searchResList = res;
     this.render();
   },
-  render () { // 渲染函数
+  render() { // 渲染函数
     var searchResList = this.searchResList;
     var length = searchResList.length;
     var template = '';
 
-    for(var i = 0; i < length; i ++) {
+    for (var i = 0; i < length; i++) {
       var res = searchResList[i];
       template += `
         <li class="search-info">
@@ -82,6 +90,7 @@ var search = {
       `;
     }
     this.searchListDom.innerHTML = template;
+    //长度为0的话就不能渲染
     this.searchListDom.style.display = length === 0 ? 'none' : 'block';
   },
 }

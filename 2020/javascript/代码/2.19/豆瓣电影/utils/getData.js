@@ -10,3 +10,16 @@ function getData(searchText, callback) {
   }
   callback(res);
 }
+
+
+
+// function getData(searchText,callback){
+//   var res=[];
+//   for(var key in searchObj){
+//     if(searchText==key){
+//       res=searchObj[key];
+//       break;
+//     }
+//   }
+//   callback(res);
+// }

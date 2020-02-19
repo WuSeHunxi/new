@@ -92,10 +92,11 @@ body {
   vertical-align: middle;
 }
 
+/*搜索显示栏*/
 .poster {
   width: 45px;
   height: 63px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .poster img {
