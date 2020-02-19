@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 1px solid #fff;
+            position: absolute;
+            left:calc(50% - 50px);
+            top:calc(50% - 50px);
+            /*阴影的水平偏移量 阴影的垂直偏移量 模糊范围(基于边框的原来位置，向两边同时模糊，模糊值越大约虚) 传播距离*/
+            /* box-shadow: 0px 0px 0px 0px #0ff; */
+            box-shadow: inset 0px 0px 10px #fff,
+                        3px 0px 10px #f0f,/*先设置的在后设置的上面*/
+                        0px -3px 10px #0ff,
+                        -3px 0px 10px #ff0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

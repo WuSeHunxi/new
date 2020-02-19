@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left:calc(50% - 150px);
+            top:calc(50% - 150px);
+            /* border:1px solid #fff; */
+            border-radius: 50%;
+            /*内外都加了好几层阴影*/
+            box-shadow: inset 0px 0px 50px #fff,
+                        inset 10px 0px 80px #f0f,
+                        inset -10px 0px 80px #0ff,
+                        inset 10px 0px 100px #f0f,
+                        inset -10px 0px 100px #0ff,
+                        0px 0px 50px #fff,
+                        -10px 0px 80px #f0f,
+                        10px 0px 80px #0ff;
+            /* box-shadow: inset 0px 0px 50px #fff; */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

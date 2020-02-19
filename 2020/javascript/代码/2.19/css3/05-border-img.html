@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left:calc(50% - 50px);
+            top:calc(50% - 50px);
+            /*如果border-color没有设置颜色的话，那么它是curentColor,而curentColor的值就是color的值*/
+            border:10px solid #000;
+            border-color:lightpink;
+            /*第一种情况：当border-image-source为渐变色的时候，不管边框是否有颜色都不再显示*/
+            /* border-image-source: linear-gradient(red,blue); */
+            border-image-source: url( );
+            border-image-slice: 10;
+            /*可以使背景颜色往外延伸*/
+            /* border-image-outset: ; */
+            /*设置border里面能显示的背景的宽度:当里面的值为auto的时候，该值会和slice的值一样+px*/
+            /* border-image-width: 1 || 100px ||auto ;效果都是一样的 */
+            /*stretch repeat->平铺  round->满足平铺的条件时会平铺，否则就拉伸 space->先拿空白平铺，然后在添加*/
+            /* border-image-repeat: ; */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
