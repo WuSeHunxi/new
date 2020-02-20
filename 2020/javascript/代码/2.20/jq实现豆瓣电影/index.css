@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 body{
@@ -10,6 +11,12 @@ body{
 .wrapper{
     width: 804px;
     margin: 100px auto;
+}
+
+.wrapper::after{
+    content:'';
+    display: block;
+    clear: both;
 }
 
 .logo{
@@ -25,35 +32,88 @@ a{
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
+    background-position-y: center;
 }
 
 .search{
     width: 470px;
-    height: 79px;
+    height: 34px;
     float: left;
+    margin-top: 11px;
 }
 
 .search .search-inp{
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    width: 470px;
-    height: 34px;
     outline: none;
     border:none;
     padding-left: 11px;
     box-shadow: 0px 1px 2px #ccc;
+    width: 100%;
+    height: 100%;
 }
 
 .search-btn{
     position: relative;
     top: -34px;
     right: -470px;
-    background-color: #929ba2;
     width: 37px;
     height: 34px;
-    background-image: url('image/search.png');
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-color: #929ba2;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    background-image: url('./image/search.png');
+    background-repeat: no-repeat;
+    background-position: center center;
 }
+
+.menu{
+    list-style: none;
+    position: relative;
+    top: -34px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    display: none;
+}
+
+.poster,
+.content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu li .poster{
+    width: 45px;
+    height: 63px;
+}
+
+.poster img{
+    width: 100%;
+}
+
+.content{
+    margin-left: 5px;
+}
+
+.title {
+    color: #27a;
+    font-size: 14px;
+  }
+  
+  .year,
+  .sub-title,
+  .episode {
+    font-size: 12px;
+    color: #9b9b9b;
+  }
+  
+  .title,
+  .sub-title,
+  .episode {
+    margin-bottom: 4px;
+  }
+  
+  .episode {
+    margin-bottom: 0;
+  }

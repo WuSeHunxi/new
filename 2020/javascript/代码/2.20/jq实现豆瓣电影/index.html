@@ -13,27 +13,30 @@
         </div>
         <div class="search">
             <input type="text" class="search-inp" placeholder="搜索电影，电视剧，综艺，影人">    
-        </div>
-        <div class="search-btn"></div>
-        <ul class="menu">
-            <li>
-                <div class="poster">
-                    <img src="./image/p1402643991.43.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="title">
-                        <span>长安</span>
-                        <span class="year">2019</span>
+            <div class="search-btn"></div>
+            <ul class="menu">
+                <li>
+                    <div class="poster">
+                        <img src="./image/p1402643991.43.jpg" alt="">
                     </div>
-                </div>
-            </li>
-        </ul>
+                    <div class="content">
+                        <div class="title">
+                            <span>长安</span>
+                            <span class="year">2019</span>
+                        </div>
+                        <div class="sub-title">长安十二时辰</div>
+                        <div class="episode">共48集</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="./jquery.js"></script>
+    <script src="../jq实现豆瓣电影/data/data-searchRes.js"></script>
+    <script src="../jq实现豆瓣电影/utils/getData.js"></script>
     <script src="./index.js"></script>
     <script>
-
-
+        search.init($('.wrapper'));
     </script>
 </body>
 </html>
