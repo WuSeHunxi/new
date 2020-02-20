@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        div{
+            position: absolute;
+            left:calc(50% - 200px);
+            top: 100px;
+            width: 400px;
+            height: 150px;
+            font-size: 100px;
+            font-weight: bold;
+            color:#f30;
+            text-shadow: 0px 0px 5px #f10,
+                        0px 0px 10px #f20,
+                        0px 0px 15px #f30;
+            transition: all 2s;
+        }
+        div:hover{
+            text-shadow: 10px -10px 10px #f00,
+                        10px 10px 10px #ff0,
+                        -10px 10px 10px #f0f,
+                        -10px -10px 10px #00f,
+                        15px -15px 15px #00f,
+                        20px 15px 15px #0f0,
+                        -15px 30px 15px #0ff,
+                        -15px -20px 15px #ff9;                       
+        }
+    </style>
+</head>
+<body>
+    <div>HERE</div>
+</body>
+</html>

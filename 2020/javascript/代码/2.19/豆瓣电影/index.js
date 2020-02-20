@@ -35,13 +35,13 @@ var search = {
   hanldeInput() { // 监听输入框 输入事件 函数
     var self = this;
     this.inputDom.oninput = function (e) {
-      var inputText = e.target.value.trim();  // 拿到当前输入框中的文字
+      var inputText =$.trim(e.target.value);  // 拿到当前输入框中的文字
       if (inputText === self.prevInputText) { 
         return 
       };  // 如果当前输入框中的文字和上一搜索文字相同，则什么都不做
       //模拟ajax的回调函数   这里只是引用了函数名，它在getData.js文件中执行
-      //在一个新的函数里面要注意this的指向
-      getData(inputText, self.getSearchRes.bind(self)); // 执行获取数据函数
+      //在一个新的函数里面要注意this的指向 使用jq方法修改this指向
+      getData(inputText, $.proxy(self.getSearchRes,self)); // 执行获取数据函数
       self.prevInputText = inputText; // 将当前搜索文字赋值给prevInputText
     }
   },
@@ -49,7 +49,8 @@ var search = {
     var self = this;
     this.inputDom.onfocus = function () {
       if (self.searchResList.length) {
-        self.searchListDom.style.display = 'block';
+        // self.searchListDom.style.display = 'block';
+        $(self.searchListDom).css({display:"block"});
         console.log('xxx');
       }
     }
@@ -57,7 +58,8 @@ var search = {
   handleInputBlur() { // 监听输入框 失焦事件 函数
     var self = this;
     this.inputDom.onblur = function () {
-      self.searchListDom.style.display = 'none';
+      // self.searchListDom.style.display = 'none';
+      $(self.searchListDom).css({display:"none"});
     }
   },
   getSearchRes(res) { // 获取搜索结果函数
@@ -89,7 +91,8 @@ var search = {
         </li>
       `;
     }
-    this.searchListDom.innerHTML = template;
+    // this.searchListDom.innerHTML = template;
+    $(this.searchListDom).html(template);
     //长度为0的话就不能渲染
     this.searchListDom.style.display = length === 0 ? 'none' : 'block';
   },

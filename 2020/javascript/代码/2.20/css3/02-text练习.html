@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        div{
+            position: absolute;
+            left:calc(50% - 200px);
+            top: 100px;
+            width: 400px;
+            height: 150px;
+            font-size: 100px;
+            font-weight: bold;
+            background-image: url('banner.jpg');
+            background-size: 400px 300px;
+            background-repeat: no-repeat;
+            background-position: -400px -50px;
+            -webkit-background-clip: text;/*只要设置这个属性，阴影就变成背景的一部分了，文字的阴影就在背景上面*/
+            -webkit-text-fill-color: transparent;
+            transition: all 2s;
+            text-shadow: -10px -10px 3px rgba(0,0,0,0.1),
+                        5px 5px 3px rgba(0,255,255,0.2);
+        }
+        div:hover{
+            background-position: 0 -50px;
+        }
+    </style>
+</head>
+<body>
+    <div>死神来了</div>
+</body>
+</html>

@@ -3,6 +3,7 @@
     margin: 0;
 }
 body{
+    /*当指针旋转的时候会出现滚动条*/
     overflow: hidden;
 }
 
@@ -27,11 +28,10 @@ body{
 
 */
 
+/*当点击锚点的时候，设置秒针，分针，时针所应该旋转的度数*/
 #clock:target img[src*='second']{
     transform: rotate(3628800deg);
 }
-
-
 
 #clock:target img[src*='minute']{
     transform: rotate( 60480deg);
@@ -47,8 +47,6 @@ body{
 }
 
 .clock div.minute img {
-
-   
     transition: transform 604800s linear;
 }
 

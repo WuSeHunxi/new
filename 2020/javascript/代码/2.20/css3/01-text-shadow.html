@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            /* background-color: #F0f; */
+            background-color: #000;
+        }
+        div{
+            width: 700px;
+            height: 80px;
+            font-size: 80px;
+            position: absolute;
+            top: 100px;
+            left:calc(50% - 350px);
+            /* text-shadow: 3px 3px 3px #000,-10px -10px 3px #f0f; */
+            color:#ddd;
+
+            /*浮雕效果*/
+            /* text-shadow: 1px 1px #000,-1px -1px #fff; */
+
+            /* 镂刻效果
+            text-shadow: -1px -1px #000,1px 1px #fff; */
+
+            /*火焰效果*/
+            text-shadow:    0px 0px 10px #0f0,
+                            0px 0px 20px #0f0,
+                            0px 0px 30px #0f0;
+            transition: all 2s;
+        }
+
+        div:hover{
+            text-shadow:    0px 0px 10px #f00,
+                            0px 0px 20px #f10,
+                            0px 0px 30px #f20;
+        }
+
+        div::before{
+            /*实现NO的火焰效果，越往后越虚化*/
+            content: "NO";
+            opacity: 0;
+            text-shadow:    0px 0px 10px #f00,
+                            0px 0px 20px #f10,
+                            0px 0px 30px #f20,
+                            0px -5px 20px #f10,
+                            0px -10px 20px #f20,
+                            0px -15px 30px #f10,
+                            0px -20px 40px #f20;
+            transition: all 3s;
+        }
+
+        div:hover::before{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>TEXT SHADOW</div> -->
+    <div>ACESS</div>
+</body>
+</html>

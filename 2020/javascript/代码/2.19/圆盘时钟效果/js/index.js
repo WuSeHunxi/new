@@ -36,14 +36,10 @@
         var min_deg = min * 6;
         var hours_deg = h * 30;
 
-        //对应的角度 
+        //当前时间对应的角度 
         hoursNode.style.transform = "rotate(" + hours_deg + "deg)";
         minuteNode.style.transform = "rotate(" + min_deg + "deg)";
         secNode.style.transform = "rotate(" + sec_deg + "deg)";
     }
-
-
-
-
 
 })()
