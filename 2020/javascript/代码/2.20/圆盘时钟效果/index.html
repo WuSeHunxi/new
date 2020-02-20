@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .clock{
+            width: 378px;
+            height: 378px;
+            background: url(images/clockFace.png) no-repeat;
+            margin: 100px auto;
+            position: relative;
+        }
+        .clock div{
+            position: absolute;
+        }
+        #clock:target img[src*='second']{
+            transform: rotate(362800deg);
+        }
+        #clock:target img[src*=minute]{
+            transform: rotate(60480deg);
+        }
+        #clock:target img[src*=hour]{
+            transform: rotate(5040deg);
+        }
+        .clock.hour img{
+            transition: transform 604800s linear;
+        }
+        .clock .minute img{
+            transition: transform 604800s linear;
+        }
+        .clock .second img{
+            transition: transform 604800s linear;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="btn">
+        <a href="#clock"></a>
+    </div>
+    <div class="clock" id="clock">
+        <div class="hour"><img src="./images/hourHand.png" alt=""></div>
+        <div class="minute"><img src="./images/minuteHand.png" alt=""></div>
+        <div class="second"><img src="./images/secondHand.png" alt=""></div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
