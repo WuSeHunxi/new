@@ -53,7 +53,7 @@
 
             function renderPage (data) {
                 // 清空之前的值
-                // empty()
+                // empty() hide()-->动画
                 $ShowSection.hide().find('.showItem').remove();
 
                 // 根据数据渲染页面
@@ -66,7 +66,8 @@
                 for (var i = 0; i < len; i++) {
                     //要添加一个属于自己的类名
                     var $Clone = $Wrapper.find('.tpl').clone().removeClass('tpl').addClass('showItem');
-                    console.log($Clone);
+
+                    //ele 表示的是每一页的数据
                     var ele = data[i + curPage * 10];
                     // console.log(ele);
 

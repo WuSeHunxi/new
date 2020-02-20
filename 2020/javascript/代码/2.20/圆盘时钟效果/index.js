@@ -16,8 +16,8 @@
 
     function getClock(){
         var hourDom=document.getElementsByClassName("hour")[0],
-            minuteDom=document.getElementsByClassName("minute"),
-            secondDom=document.getElementsByClassName("second");
+            minuteDom=document.getElementsByClassName("minute")[0],
+            secondDom=document.getElementsByClassName("second")[0];
 
         var date=new Date();
         var h=date.getHours()>12?(date.getHours()-12):date.getHours();
