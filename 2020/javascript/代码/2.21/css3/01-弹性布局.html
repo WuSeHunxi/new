@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            border:1px solid #ccc;
+            width: 600px;
+            height: 300px;
+            display: flex;
+        }
+        .content{
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            padding: 0 80px;
+            background-color: #f0f;
+        }
+        .content:nth-of-type(2){
+            background-color: #ff0;
+        }
+        .content:nth-of-type(3){
+            width: 400px;
+            flex-shrink: 3;
+            /*flex-shrink在计算的时候，其使用到的宽度不是盒子的宽度，而是内容区的宽度*/
+            background-color: #0ff;
+        }
+        /*
+         40*1+40*1+240*3=800
+         40
+         ----*200=10px
+         800
+
+         加权值=(真实内容区的宽度)*flex-shrink值
+        */
+
+        /*
+         flex-basis和width之间的区别
+            当没设置width的时候，只设置了flex-basis，代表元素的最小宽度。
+            当两个都设置了，并且basis<width，flex-basis代表元素的最小宽度，width代表元素的最大宽度。
+            当两个都设置了，并且basis>width，flex-basis代表元素的底线宽度。
+         
+         flex-shrink和flex-basis一起使用的话，如果元素里面的内容是英文(不换行)的情况，那么该元素不参与压缩，
+         如果想除去这种情况，元素里面的内容可以是中文或者将英文换行(word-break:break-word;)
+
+         flex-grow默认值为0
+         flex-shrink默认值为1
+         flex-basis默认值为auto
+        */
+        .box{
+            border:1px solid #ccc;
+            width: 600px;
+            height: 300px;
+            display: flex;
+        }
+        .boxer{
+            width: 150px;
+            flex-basis: 100px;
+            height: 200px;
+            background-color: #f0f;
+        }
+        .boxer:nth-of-type(2){
+            background-color: #ff0;
+        }
+        .boxer:nth-of-type(3){
+            background-color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div> -->
+
+    <div class="box">
+        <div class="boxer"></div>
+        <div class="boxer"></div>
+        <div class="boxer"></div>
+    </div>
+</body>
+</html>

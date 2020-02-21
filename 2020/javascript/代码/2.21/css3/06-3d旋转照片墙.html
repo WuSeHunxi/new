@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            perspective: 800px;
+            transform-style: preserve-3d;
+            perspective-origin: center 100px;
+        }
+        @keyframes round{
+            0%{
+                transform:translateX(-50%) rotateY(0deg);
+            }
+            100%{
+                transform:translateX(-50%) rotateY(360 deg);
+            }
+        }
+        .wrapper{
+            transform-style: preserve-3d;
+            position: relative;
+            width: 800px;
+            height: 500px;
+            left: 50%;
+            top:50px;
+            transform:translateX(-50%);
+            animation: round 10s linear infinite;
+            /* border:1px solid #000; */
+        }
+        .content{
+            width: 150px;
+            height: 200px;
+            position: absolute;
+            background-color: #0ff;
+            left:calc(50% - 75px);
+            top:calc(50% - 100px);
+            /*元素的背面看不见了*/
+            backface-visibility: hidden;
+            /* transform:translateZ(600px); */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+    <script>
+        var contents=document.getElementsByClassName("content");
+        for(var i=0;i<contents.length;i++){
+            var content=contents[i];
+            content.style.transform="rotateY("+60*(i)+"deg) translateZ(300px)";
+        }
+
+    </script>
+</body>
+</html>

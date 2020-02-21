@@ -38,6 +38,7 @@
         for (var i = 0; i < this.length; i++) {
             for (var attr in config) {
                 //给每一个标签添加样式
+                //形式如下： xxx.style.xxx='xxx';
                 this[i].style[attr] = config[attr];
             }
         }
@@ -52,7 +53,7 @@
         if (dom.constructor != jQuery) {
             dom = jQuery(dom);//包装成jq对象
         }
-        dom.prevObject = this;
+        dom.prevObject = this;/**为了能够使用.end()方法 */
         return dom;
     }
 

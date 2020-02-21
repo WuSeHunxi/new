@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 2s linear 1s;
+            /*监听的是哪个属性发生改变:transition-property: ;
+              过渡时间:transition-duration: ;
+              过渡动画的运动状态:transition-timing-function: ;
+              过渡的间隔时间transition-delay:;
+            后两个参数有默认值可以不写
+            */
+        }
+        div:hover{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

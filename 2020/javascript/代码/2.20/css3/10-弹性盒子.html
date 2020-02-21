@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+           padding: 0;
+           margin: 0;
+       }
+       .wrapper{
+           width: 600px;
+           height: 300px;
+           border: 1px solid #000;
+           display: flex;/*告诉父级是弹性区域*/
+           /* display: inline-flex;具有行块级 */
+           /* 调整主轴方向
+           flex-direction: column; no-wrap*/
+
+           flex-wrap: wrap;/*wrap-reverse反向换行*/
+
+           /* justify-content: flex-end;延主轴的尾对齐 */
+           /*space-between->两边不动中间动  space-around->相当于给盒子两边加margin的效果*/
+           /*align-items：center->针对单行元素 align-content:center->针对多行元素*/
+           align-items: center;/*延交叉轴的方向*/
+           /*baseline->根据文字的底线对齐  stretch->没有设置高度的时候会将高度撑开和父级一样高，但是设置了高度就不好使了*/
+       }
+       .content{
+           width: 100px;
+           height: 100px;
+           border:1px solid green;
+           box-sizing: border-box;
+           /* flex:; */
+           /* order: ; 排列，谁小谁在前*/
+       }
+       .content:first-of-type{
+           order:-2;
+           /*align-self比align-items优先级高，比align-content优先级低*/
+           align-self: flex-start;
+       }
+       .content:nth-of-type(2){
+           order:-1;
+           align-self: flex-end;
+       }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <!-- <div class="content">4</div>
+        <div class="content">5</div>
+        <div class="content">6</div> -->
+    </div>
+</body>
+</html>

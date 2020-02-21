@@ -71,6 +71,12 @@
         
         // var colorsArr = ['red', 'blue', 'yellow'];
 
+
+        $(".wrapper .demo").each(function(index,ele){
+            $(ele).find("span")
+                    .css({color:colorArr[index]});
+        })
+
         // $('.wrapper .demo').each(function (index, ele) {
             // $(ele)
             //     .find('span')

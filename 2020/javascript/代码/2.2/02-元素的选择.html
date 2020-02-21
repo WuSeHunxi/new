@@ -83,9 +83,11 @@
         //         .filter(".demo")
         //             .css({color:"red"});
 
-        // $(".wrapper ul li").filter(function(index,ele){
-        //     console.log(index,ele,this);
-        // })
+        $(".wrapper ul li").filter(function(index,ele){
+            if(index>2){
+                console.log($(ele));
+            }
+        })
 
         // //not--->跟filter正好相反
         // $(".wrapper ul")

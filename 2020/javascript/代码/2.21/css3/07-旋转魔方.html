@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            width: 100%;
+            height: 3000px;
+        }
+        body{
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            perspective-origin: 200px 100px;
+        }
+        .wrapper{
+            transform-style: preserve-3d;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            left:calc(50% - 200px);
+            top:200px;
+            /* animation: round 10s linear infinite; */
+            /* border:1px solid #000; */
+        }
+        @keyframes round{
+            0%{
+                transform:rotateY(0deg);
+            }
+            100%{
+                transform:rotateY(360deg);
+            }
+        }
+        .content{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            border: 1px solid #ccc;
+            left:calc(50% - 150px);
+            top:calc(50% - 150px);
+            /* background-color: green; */
+        }
+        .content:nth-of-type(1){
+            transform:rotateY(0deg) translateZ(-150px);
+        }
+        .content:nth-of-type(2){
+            transform:rotateY(-90deg) translateZ(150px);
+        }
+        .content:nth-of-type(3){
+            transform:rotateY(90deg) translateZ(150px);
+        }
+        .content:nth-of-type(4){
+            transform:rotateY(0deg) translateZ(150px);
+        }
+        .content:nth-of-type(5){
+            transform:rotateX(90deg) translateZ(150px);
+        }
+        .content:nth-of-type(6){
+            transform:rotateX(-90deg) translateZ(150px);
+        }
+        .content > div{   
+            width: 100px;
+            height: 100px;
+            border:1px solid #fff;
+            box-sizing: border-box;
+            float: left;
+        }
+        .content-box{
+            background-color: green;
+        }
+        .content-box2{
+            background-color: #0ff;
+        }
+        .content-box3{
+            background-color: #00f;
+        }
+        .content-box4{
+            background-color: #f0f;
+        }
+        .content-box5{
+            background-color: #ff0;
+        }
+        .content-box6{
+            background-color: #fcf;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+            <div class="content-box"></div>
+        </div>
+        <div class="content">
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+            <div class="content-box2"></div>
+        </div>
+        <div class="content">
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+            <div class="content-box3"></div>
+        </div>
+        <div class="content">
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+            <div class="content-box4"></div>
+        </div>
+        <div class="content">
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+            <div class="content-box5"></div>
+        </div>
+        <div class="content">
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+            <div class="content-box6"></div>
+        </div>
+    </div>
+    <script>
+
+        var contents=document.getElementsByClassName("content");
+        // console.log(contents);
+        var length=contents.length;
+        // for(var i=0;i<length;i++){
+        //     var content=contents[i];
+        //     for(var i=0;i<6;i++){
+        //         var content=contents[i];
+        //         var contentBox=document.createElement("div");
+        //         contentBox.className='content-box';
+        //         contentBox.appendChild('contents[i]');
+        //     }
+        // }
+
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="demo"></div>
-    <input type="checkbox">
+    <input type="checkbox" checked>
     <script src="./jquery.js"></script>
     <script>
         //设置值
@@ -22,8 +22,21 @@
 
         //prop 对于表单类的属性返回的值都是true或者false
         console.log($("input").prop("checked"));//false
+
         //对于自定义的属性能够获取到，但是不能在行间样式中显示
-        // $('.demo').prop('data','111');
+        $('.demo').prop('data','111');
+        console.log($(".demo").prop('data'));
+
+        /**
+         * 
+         * 总结：
+         *     prop主要用于获取表单等特殊标签的属性，他们的值是true||false,
+         *     prop也可以设置自定义属性，无法再行间样式中显示，但是能够获取到设置的值
+         *      
+         *     attr主要用于设置和获取自定义属性，对于表单等特殊的标签，如果设置了该值，那么就会获取到
+         *     该属性的名，没设置的话，就是undefined。
+         * 
+        */
         
     </script>
 </body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            width: 600px;
+            height: 600px;
+            border:1px solid #000;
+            display: flex;
+            flex-wrap:wrap;
+        }
+        .content{
+            flex:1 1 auto;
+            width: 250px;
+            height: 250px;
+        }
+        .box{
+            width: 300px;
+            height: 200px;
+            border:1px solid #000;
+            display: flex;
+        }
+        .item{
+            flex:1 1 auto;
+            height: 30px;
+            text-align: center;
+            line-height: 20px;
+            font-size:20px;
+            color:#f20;
+            border-radius:5px;
+        }
+        .item:hover{
+            background-color: #f20;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div> -->
+
+    <!-- 平分导航栏例子 -->
+    <div class="box">
+        <div class="item">天猫</div>
+        <div class="item">淘宝</div>
+        <div class="item">聚划算</div>
+    </div>
+</body>
+</html>

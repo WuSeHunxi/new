@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        :root{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            perspective: 800px;
+            height: 100%;
+            transform-style: preserve-3d;
+            perspective-origin: 300px 300px;
+            /*视角*/
+        }
+        .content1,.content2,.content3,.content4,.content5{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            /*给每一个元素加上一个视角，这样看到的效果是一样的，但是只能把它放在transform的最前面才好使*/
+            transform:perspective(800px) rotatey(45deg);
+            background-color: #00f;
+        }
+        .content1{
+            left: 200px;
+        }
+        .content2{
+            left: 400px;
+        }
+        .content3{
+            left: 600px;
+        }
+        .content4{
+            left: 800px;
+        }
+        .content5{
+            left: 1000px;
+        }
+
+        .wrapper{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*给哪个元素设置这个属性，那个元素里面的空间就会变成一个3d堆叠的层*/
+            transform-style: preserve-3d;
+            transform:rotatey(0deg);
+        }
+        .demo{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0;
+            transform:translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 我们看到的元素都是视线在屏幕上的投影，如果没有translateZ，无论景深的是多少，视线在屏幕上的投影都不变
+         当translateZ的值>0的时候，视线在屏幕上的投影变大，当其<0的时候，视线在屏幕上的投影变小
+
+         perspective的配合属性transform-style
+
+         transition-origin可以设置空间值，即三个方向的px，绕着空间轴做旋转
+    -->
+
+
+    <!-- <div class="content1">1</div>
+    <div class="content2">2</div>
+    <div class="content3">3</div>
+    <div class="content4">4</div>
+    <div class="content5">5</div> -->
+
+    <div class="wrapper">
+        <div class="demo"></div>
+    </div>
+
+
+
+    <script>
+        // document.body.onmousemove=function(e){
+        //     //调整视角
+        //     this.style.perspectiveOrigin=""+e.pageX+"px "+e.pageY+"px";
+        // }
+
+    </script>
+</body>
+</html>
