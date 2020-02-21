@@ -9,20 +9,22 @@
             padding: 0;
             margin: 0;
         }
-        .wrapper{
-            position: relative;
+        div{
+            /* position: absolute; */
             width: 300px;
             height: 550px;
             border:1px solid rgb(165, 72, 72);
             background-color: rgb(153, 88, 14,.7);
             cursor: pointer;
-            position: absolute;
+        }
+        .wrapper{
+            position: relative;
             left:calc(50% - 150px);
-            top:calc(50% - 250px);
+            top:50px;
         }
         .content{
             column-width: 300px;
-            column-gap: 10px;
+            column-gap: 20px;
             transition:all 2s ;
             /* overflow: hidden; */
         }
@@ -50,10 +52,8 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="btn">
-                <span class="left">上一页</span>
-                <span class="right">下一页</span>
-            </div>
+            <span class="left">上一页</span>
+            <span class="right">下一页</span>
             <div class="content">
                 百度为您找到相关结果约63,500,000个
                 吴世勋_百度百科
@@ -177,15 +177,18 @@
         </div>
         <script src="./jquery.min.js"></script>
         <script>
+            var index=0;
             $(".left").on('click',function(){
+                index++;
                 $(".content").css({
-                    transform:"translateX(-320px)"
+                    transform:"translateX("+320*(index+1)+"px)"
                 })
             })
 
             $('.right').on("click",function(){
-                $(".content").css({
-                    transform:"translateX(320px)"
+                index++;
+                $(".content").css({    
+                    transform:"translateX("+(-320*(index+1))+"px)"
                 })
             })
         </script>
