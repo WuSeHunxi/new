@@ -1,0 +1,66 @@
+.position{
+    float: left;
+}
+.nav{
+    float:right;
+}
+
+.nav li{
+    float: left;
+    position: relative;
+}
+
+.nav a{
+    color:#999;
+}
+
+.nav>span{
+    float: left;
+    background-color:#ccc;
+    width: 1px;
+    height: 10px;
+    margin: 11px 5px 0;
+
+}
+
+.nav li .dt{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.nav .iconfont{
+    position: absolute;
+    font-size:12px;
+    width: 12px;
+    height: 12px;
+    right: 5px;
+    top: 10px;
+    line-height: 12px;
+}   
+
+.nav .dropdown{
+    position: absolute;
+    border:1px solid#ccc;
+    top: 30px;
+    background-color: #fff;
+    line-height: 24px;
+    
+}
+
+.my-jd .dropdown{
+    width: 280px;
+    border-bottom: 1px solid#ccc;
+}
+
+.my-jd .dropdown dl{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px 10px 15px; 
+}
+
+.my-jd .dropdown dd{
+    width: 126px;
+}
+
+.nav a:hover{
+    color:#f20;
+}

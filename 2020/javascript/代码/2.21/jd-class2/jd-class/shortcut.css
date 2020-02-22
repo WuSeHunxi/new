@@ -9,6 +9,7 @@
 }
 .nav > li {
     float: left;
+    /*需要设置字体图标的位置*/
     position: relative;
 }
 .nav > span {
@@ -34,8 +35,11 @@
     font-size: 12px;
     line-height: 12px;
 }
+/*cw-icon是公共类名*/
 .nav li .dt.cw-icon {
     padding-right: 20px;
+    /*li的宽度没有设置，是由子元素的内容撑开的，因此为了防止宽度发生改变，不能修改盒模型的大小，所以边框最开始就设置，之后在修改的就是边框的属性了*/
+    /*设置边框*/
     border: 1px solid transparent;
     position: relative;
     z-index: 10;
@@ -48,6 +52,7 @@
     background-color: #fff;
     display: none;
     line-height: 24px;
+    /* left: 0; */
 }
 .my-jd .dropdown {
     width: 280px;
@@ -58,10 +63,12 @@
 .dropdown dl {
     overflow: hidden;
     padding: 10px 0 10px 15px;
+    /*上下两部分的分割线*/
     border-bottom: 1px solid #eee;
 }
 .dropdown dl dd {
     float: left;
+    /*不换行*/
     white-space: nowrap;
 }
 .dropdown dl dt {
@@ -79,17 +86,20 @@ a:hover {
 }
 .nav li.dt-hover:hover .dt {
     background-color: #fff;
+    /*改变原有边框的颜色*/
     border-top-color: #ccc;
     border-left-color: #ccc;
     border-right-color: #ccc;
     
 }
-.web-app .dropdown {
+li.web-app .dropdown {
+    /*下拉栏的位置发生改变*/
     right: -84px;
     padding: 15px 0;
   
 }
 .web-app .dropdown dl {
+    /*几部分横向排列*/
     float: left;
     border-right: 1px solid #ccc;
     padding-top: 0;
@@ -97,6 +107,7 @@ a:hover {
     border-bottom: none;
 }
 .service .dropdown{
+    /*下拉栏的位置发生改变*/
     right: 0;
 }
 a.red {

@@ -84,7 +84,10 @@
             width: 100px;
             height: 100px;
             background-color: red;
-            animation: run 4s cubic-bezier(.5,1,1,1) 1s 1 reverse;
+            animation:run 4s, color-change 4s cubic-bezier(.5,1,1,1) 1s 1 backwards;
+        }
+        div:hover{
+            animation-play-state: paused;
         }
     </style>
 </head>
@@ -94,6 +97,11 @@
             animation-timing-function(){}---贝塞尔曲线，给每一段都设置同一个运动函数
             1s---在动画开始之前才会delay，只会在最开始运动的时候作用
             reverse---反方向运动
+            alternate---往返运动，运动次数必须>=2
+            animation-paly-stay:paused---运动暂停(不同浏览器实现的效果不一样)
+            forward----保留运动最后一帧的状态作为最终的结束状态
+            backwards---设置动画开始之前的状态为第一帧的状态(没运动的时候就设置了状态)
+            both---是forward和backwards的集合
     -->
     <div></div>
 </body>
