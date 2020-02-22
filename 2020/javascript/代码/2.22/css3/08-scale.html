@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 800px;
+            transform-style: preserve-3d;
+            perspective-origin: 300px 300px;
+        }
+        div{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform:scale(2,1) translateY(100px);
+        }
+    </style>
+</head>
+<body>
+    <!-- scale伸锁变换的是坐标轴的刻度 -->
+    <div></div>
+</body>
+</html>

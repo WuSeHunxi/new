@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            perspective: 800px;
+            transform-style: preserve-3d;
+            perspective-origin: 300px 300px;
+        }
+        @keyframes round {
+            0%{
+                transform:rotate(0deg);
+            }
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+        div{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-image:url(clock.png);
+            background-size: cover;
+            border:1px solid #000;
+            /*当元素旋转的时候，它的坐标轴也跟着旋转 三个轴旋转的顺序不同，得到的效果也是不同的*/
+            /* transform:rotateZ(30deg); */
+            transform:rotate3d( 1,1,0,30deg);
+            /*translate3d()计算的是三个方向的矢量值，x:y:z的比值是矢量的方向*/
+
+            transform-origin: 0 0;
+            /* animation: round 2s infinite; */
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+</body>
+</html>

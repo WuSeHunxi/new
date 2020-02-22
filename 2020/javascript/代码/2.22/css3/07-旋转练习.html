@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        @keyframes change{
+            0%{
+                transform:rotateX(-45deg) rotateY(45deg);
+            }
+            100%{
+                transform:rotateX(45deg) rotateY(90deg);
+            }
+        }
+        div{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform-origin: 0 0;
+            animation:change 2s cubic-bezier(.5,0,.5,1) infinite alternate;
+        }
+        
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
