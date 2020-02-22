@@ -9,12 +9,50 @@
             padding: 0;
             margin: 0;
         }
-        div{
+        @keyframes cursor{
+            0%{
+                border-left-color:rgba(0,0,0,0);
+            }
+            50%{
+                border-left-color: rgba(0,0,0,1);
+            }
+            100%{
+                border-left-color: rgba(0,0,0,0);
+            }
+        }
+        @keyframes cover{
+            0%{
+                left: 0;
+            }
 
+            100%{
+                left: 100%;
+            }
+        }
+        div{
+            position: relative;
+            display: inline-block;
+            height: 100px;
+            /* background-color: red; */
+            font-size: 80px;
+            line-height: 100px;
+            font-family: monospace;/*这个字体使所有的英文单词都一样大小，方便steps的使用*/
+        }
+        div::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            height: 100px;
+            width: 100%;
+            background-color: #fff;
+            border-left:2px solid #000;
+            box-sizing: border-box;
+            animation: cursor 1s steps(1,end) infinite,cover 12s steps(12,end)/*将两个状态通过12步分割开来*/;
         }
     </style>
 </head>
 <body>
-    <div>abcdefghijk</div>
+    <div>abcdefghi jk</div>
 </body>
 </html>
