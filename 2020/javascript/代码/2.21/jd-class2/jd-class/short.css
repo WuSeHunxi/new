@@ -190,6 +190,11 @@ a {
     border:1px solid #eee;
     right: 0;
     top:30px;
+    display: none;
+}
+
+.jd:hover .mobile{
+    display: block;
 }
 
 .mobile-item{
@@ -221,6 +226,7 @@ p.sb{
 }
 h5{
     height: 25px;
+    margin-top: -8px;
 }
 .mobile-item-r h5 a{
     color:#666 !important;
