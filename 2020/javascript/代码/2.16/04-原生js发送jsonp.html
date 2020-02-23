@@ -11,6 +11,7 @@
         
         var xhr=new XMLHttpRequest();
         //跨域请求  它的第三个参数表示同步还是异步
+        //不同源，跨域
         xhr.open("get","http://developer.duyiedu.com/testAjaxCrossOrigin");//建立与服务器之间的连接       
         //接收参数
         xhr.onreadystatechange=function(){//写在send之前防止事件没有赋值上

@@ -13,13 +13,22 @@
             console.log(data);
         }
        
+        // $.ajax({
+        //     url:'http://developer.duyiedu.com/edu/testAjax',
+        //     type:"get",
+        //     // data:{
+        //     //     callback:'run'
+        //     // },
+        //     dataType:"jsonp",
+        //     success:function(data){
+        //         console.log(data);
+        //     }
+        // })
+
         $.ajax({
-            url:'http://developer.duyiedu.com/edu/testAjax',
+            url:'http://developer.duyiedu.com/edu/testJsonp',
             type:"post",
-            data:{
-                callback:'run'
-            },
-            dataType:"jsonp"
+            dataType:"jsonp",
             // success:function(data){
             //     console.log(data);
             // }

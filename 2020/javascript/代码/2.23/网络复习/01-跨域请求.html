@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-3.3.1.js"></script>
+    <script>
+        function jQuery33102163517142188498_1582432026941(data){
+            console.log(data);
+        }
+        $.ajax({
+            url:'http://developer.duyiedu.com/edu/testJsonp',
+            type:'get',
+            data:{
+                callback:'jQuery33102163517142188498_1582432026941'
+            },
+            dataType:'jsonp',
+            // success:function(data){
+            //     console.log(data);
+            // }
+        })
+    </script>
+</body>
+</html>

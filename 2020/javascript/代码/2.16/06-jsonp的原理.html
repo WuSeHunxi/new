@@ -7,12 +7,12 @@
         <title>Document</title>
     </head>
     <body>
-        <script>
+        <!-- <script>
         function asd(data){
             console.log(data);
         }    
     </script>
-        <script src="http://developer.duyiedu.com/edu/testJsonp?callback=asd"></script>
+        <script src="http://developer.duyiedu.com/edu/testJsonp?callback=asd"></script> -->
         <script>
         
         /**
@@ -46,7 +46,7 @@
                 //如果url不带http，那么访问的一定是相对路径，相对路径是同源的。
                 if(url.indexOf('http://')==0||url.indexOf("https://")==0){
                     //表示有http或者https
-                    var targetUrl=url;
+                    var targetUrl=new URL(url);
                     targetProtocol=targetUrl.protocol;
                     targetHost=targetUrl.host;
                 }else{
@@ -81,10 +81,7 @@
         $.ajax({
             url:"http://developer.duyiedu.com/edu/testJsonp",
             type:'get',
-            dataType:"jsonp",
-            success:function(data){
-                console.log(data);
-            }
+            dataType:"jsonp"
         });
 
     </script>

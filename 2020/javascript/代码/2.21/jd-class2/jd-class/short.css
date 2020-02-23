@@ -1,66 +1,78 @@
+a.red{
+    color:red;
+}
+a:hover{
+    color:red;
+}
 .position{
     float: left;
 }
 .nav{
-    float:right;
+    float: right;
+    /* position: relative; */
 }
-
 .nav li{
     float: left;
     position: relative;
 }
-
-.nav a{
+a{
     color:#999;
 }
-
-.nav>span{
-    float: left;
-    background-color:#ccc;
+.nav > span{
+    border-right:1px solid #ccc;
     width: 1px;
+    float: left;
     height: 10px;
     margin: 11px 5px 0;
-
 }
 
-.nav li .dt{
-    padding-left: 7px;
-    padding-right: 7px;
-}
-
-.nav .iconfont{
+.iconfont{
     position: absolute;
-    font-size:12px;
+    font-size: 12px;
     width: 12px;
     height: 12px;
-    right: 5px;
-    top: 10px;
     line-height: 12px;
-}   
+    top:10px;
+}
+.dt.cw-icon{
+    border:1px solid transparent;
+    padding-right: 20px;
+    position: relative;
+}
 
-.nav .dropdown{
+.dropdown{
     position: absolute;
-    border:1px solid#ccc;
-    top: 30px;
+    border:1px solid #ccc;
     background-color: #fff;
-    line-height: 24px;
-    
+    display: none;
 }
 
 .my-jd .dropdown{
     width: 280px;
-    border-bottom: 1px solid#ccc;
 }
 
 .my-jd .dropdown dl{
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0px 10px 15px; 
+    border-bottom: 1px solid #eee;
+    padding:10px 0 10px 15px;
+    overflow: hidden;
 }
 
-.my-jd .dropdown dd{
+.dropdown dd{
+    float: left;
+    line-height: 24px;
+}
+
+.my-jd dd{
     width: 126px;
 }
 
-.nav a:hover{
-    color:#f20;
+.nav .dt-hover:hover .dropdown{
+    display: block;
+}
+
+.nav li.dt-hover:hover .dt{
+    background-color: #fff;
+    border-top-color:#ccc;
+    border-right-color: #ccc;
+    border-left-color: #ccc;
 }
