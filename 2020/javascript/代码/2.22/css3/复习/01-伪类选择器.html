@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[class~='a']{
+            color:red;
+        }
+        input:checked + span::after{
+            background-color: pink;
+            color:#fff;
+            content:"我喜欢你";
+        }
+        #box1,#box2{
+            width: 100px;
+            height: 50px;
+        }
+        #box1{
+            background-color: green;
+        }
+        #box2{
+            background-color: red;
+        }
+        /*要给每一个target元素设置样式*/
+        .box:target{
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">hello</div>
+    <div class="aa">world</div>
+    <input type="checkbox">
+    <span>一个surprise</span>
+
+    <div class="btn">
+        <a href="#box1">first</a>
+        <a href="#box2">second</a>
+
+    </div>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+</body>
+</html>

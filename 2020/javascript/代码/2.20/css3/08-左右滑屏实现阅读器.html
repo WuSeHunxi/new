@@ -180,6 +180,9 @@
             var index=0;
             $(".left").on('click',function(){
                 index--;
+                if(index==0){
+                    index=3;
+                }
                 $(".content").css({
                     transform:"translateX("+320*(index)+"px)"
                 })

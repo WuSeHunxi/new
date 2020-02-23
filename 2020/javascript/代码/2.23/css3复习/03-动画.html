@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            perspective: 800px;
+            perspective-origin: 500px 400px;
+            transform-style: preserve-3d;
+        }
+        .content{
+            position: absolute;
+            width: 100px;
+            height: 100px;background-color: #0ff;
+            transform:rotateY(45deg);
+            top:200px;
+        }
+        .content:nth-of-type(1){
+            left: 100px;
+        }
+        .content:nth-of-type(2){
+            left: 300px;
+        }
+        .content:nth-of-type(3){
+            left: 500px;
+        }
+        .content:nth-of-type(4){
+            left: 700px;
+        }
+        .content:nth-of-type(5){
+            left: 900px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+    <script>
+        //如果效果不够圆润的话，那就是因为body没有设置高度
+        document.body.onmousemove=function(e){
+            this.style.perspectiveOrigin=`${e.pageX}px ${e.pageY}px`;
+        }
+    </script>
+</body>
+</html>

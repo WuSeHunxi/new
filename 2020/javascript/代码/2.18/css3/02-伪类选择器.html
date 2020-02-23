@@ -12,12 +12,13 @@
         :root{/*根标签选择器>html*/
             background-color: pink;
         }
-
-        :target{/*锚点*/
+        /*target元素：该元素的id被当左页面的超链接来使用
+          :target就是为了选取页面中的target元素
+        */
+        .box:target{/*锚点*/
             border: 1px solid #000;
         }
 
-       x
         input:checked+span:after{
             background-color:green;
             content: 'hello world';
@@ -29,8 +30,8 @@
 
     <a href="#box1">box1</a>
     <a href="#box2">box2</a>
-    <div id="box1">1</div>
-    <div id="box2">2</div>
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
 
     <!-- 被选中的元素的一种状态 -->
 
