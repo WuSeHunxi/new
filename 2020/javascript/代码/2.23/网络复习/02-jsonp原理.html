@@ -8,7 +8,50 @@
 <body>
     <script src="./jquery-3.3.1.js"></script>
     <script>
-        
+        var $={
+            ajax:function (options){
+                var url=options.url;
+                var type=options.type;
+                var dataType=options.dataType;
+                var targetProtocol="";
+                var targetHost="";
+                if(url.indexOf('http://')==0||url.indexOf("https://")==0){
+                    var targetUrl=new URL(url);
+                    targetProtocol=targetUrl.protocol;
+                    targetHost=targetUrl.host;
+                }else{
+                    targetHost=location.host;
+                    targetProtocol=location.protocol;
+                }
+                if(dataType=='jsonp'){
+                    if(targetProtocol==location.protocol&&targetHost==location.host){
+
+                    }else{
+                        var script=document.createElement("script");
+                        var callback='cb'+Math.floor(Math.random()*1000000);
+                        window[callback]=options.success;
+                        if(url.indexOf("?")>=0){
+                            script.src=url+"&callback="+callback;
+                        }else{
+                            script.src=url+"?callback="+callback;
+                        }
+                        script.id=callback;
+                        document.head.appendChild(script);
+                    }   
+                }else{
+
+                }
+            }
+        }
+
+        $.ajax({
+            url:"http://developer.duyiedu.com/edu/testJsonp",
+            type:"get",
+            dataType:"jsonp",
+            success:function(data){
+                console.log(data);
+            }
+        })
     </script>
 </body>
 </html>
