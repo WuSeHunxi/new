@@ -85,6 +85,7 @@
             height: 100px;
             background-color: red;
             animation:run 4s  cubic-bezier(1,1,.1,1) 1s infinite backwards;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
         }
         div:hover{
             animation-play-state: paused;
@@ -99,9 +100,9 @@
             reverse---反方向运动
             alternate---往返运动，运动次数必须>=2
             animation-paly-stay:paused---运动暂停(不同浏览器实现的效果不一样)
-            forward----保留运动最后一帧的状态作为最终的结束状态
-            backwards---设置动画开始之前的状态为第一帧的状态(没运动的时候就设置了状态)
-            both---是forward和backwards的集合
+                forward----保留运动最后一帧的状态作为最终的结束状态
+                backwards---设置动画开始之前的状态为第一帧的状态(没运动的时候就设置了状态)
+                both---是forward和backwards的集合
     -->
     <div></div>
 </body>
