@@ -11,7 +11,7 @@ function getSearchData(val) {
             area: 'c2c',
             code: 'utf-8',
             q: val,
-            callback: "renderDom"
+            callback: "renderDom" 
         },
         // 使用者希望拿到的数据类型  
         dataType: 'jsonp'

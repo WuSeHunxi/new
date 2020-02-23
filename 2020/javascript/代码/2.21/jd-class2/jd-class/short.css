@@ -5,12 +5,34 @@ a.red {
 a:hover {
     color: red;
 }
-
-.position {
+.city{
+    height: 100%;
+    width: 50px;
+    padding: 0 25px 0 8px;
+    position: relative;
     float: left;
     border: 1px solid transparent;
+    margin: 0 0 0 20px;
 }
-
+.position {
+    
+    padding: 0 2px;
+}
+.position .iconfont{
+    height: 14px;
+    width: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    color:#5c5452;
+    position: absolute;
+    top:8px;
+    /* left: -5px; */
+}
+.text{
+    display: inline-block;
+    margin-left: 14px;
+    white-space: nowrap;
+}
 .nav {
     float: right;
     /* position: relative; */
@@ -32,6 +54,7 @@ a {
     background-color: #fff;
     line-height: 18px;
     display: none;
+    left: -1px;
 }
 
 .location dd {
@@ -39,16 +62,22 @@ a {
     margin: 5px 10px;
     padding: 2px 5px;
 }
+.city:hover {
+    background-color: #fff;
+    border-left-color: #ccc;
+    border-right-color: #ccc;
+    border-top-color: #ccc;
+}
 
 .location dd:hover {
     background-color: #eee;
 }
 
-.position:hover {
-    background-color: #fff;
-    border-left-color: #ccc;
-    border-right-color: #ccc;
-    border-top-color: #ccc;
+.location dd a{
+    text-align: right;
+}
+
+.city:hover .location{
     display: block;
 }
 
@@ -152,4 +181,86 @@ a {
 
 .web-app .dropdown dl:last-of-type {
     border-right: none;
+}
+
+.mobile{
+    position: absolute;
+    width: 190px;
+    /* border-bottom:3px solid #60575a; */
+    border:1px solid #eee;
+    right: 0;
+    top:30px;
+}
+
+.mobile-item{
+    position: relative;
+    padding: 15px 0;
+    border-bottom:1px solid #ccc;
+}
+.mobile .mobile-item .mobile-item-l{
+    position: absolute;
+    left: 5px;
+    top: 14px;
+    border:1px solid #ccc;
+    width: 74px;
+    height: 74px;
+}
+
+.mobile-item-l img{  
+    width: 70px;
+    height: 70px;
+    margin: 2px 0 0 2px;
+}
+
+.mobile-item-r{
+    margin: 0 10px 0 86px;
+    min-height: 70px;
+}
+p.sb{
+    overflow: hidden;
+}
+h5{
+    height: 25px;
+}
+.mobile-item-r h5 a{
+    color:#666 !important;
+    font-size:12px;
+    line-height: 17px;
+}
+.mobile-item-r p.new{
+    color:#F10214;
+    /* margin: 3px 0; */
+    line-height: 14px;
+}
+.mobile-item-r p a{
+    overflow: hidden;
+    float: left;
+    margin-right: 2px;
+    width: 25px;
+    height: 25px;
+    text-indent: -999px;
+}
+.mobile-item-r .ios{
+    background-image: url(http://misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@2x.png);
+    background-size: 25px 77px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.mobile-item-r .and{
+    background-image: url(http://misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@2x.png);
+    background-position: 0 -26px;
+    background-size: 25px 77px;
+    background-repeat: no-repeat;
+}
+
+.mobile-item-r .pad{
+    background-image: url(http://misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@2x.png);
+    background-position: 0 -52px;
+    background-size: 25px 77px;
+    background-repeat: no-repeat;
+}
+p.wx{
+    line-height: 14px;
+    color:#f10214;
 }
