@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes run{
+            0%{
+                left:0;
+            }
+            100%{
+                left: 500px;
+            }
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #f0f;
+            border-radius: 50%;
+            position: absolute;
+            animation: run 4s cubic-bezier(0.1,1,0.7,1) infinite;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
