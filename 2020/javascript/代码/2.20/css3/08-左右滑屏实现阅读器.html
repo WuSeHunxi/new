@@ -179,14 +179,14 @@
         <script>
             var index=0;
             $(".left").on('click',function(){
-                index--;
-                if(index==0){
-                    index=3;
+                // index--;
+                if(index===0){
+                    index=4;
                 }
+                index--;
                 $(".content").css({
-                    transform:"translateX("+320*(index)+"px)"
+                    transform:"translateX("+320*(-index)+"px)"
                 })
-                // console.log(320*(index)+$('.content').width());
             })
 
             $('.right').on("click",function(){
