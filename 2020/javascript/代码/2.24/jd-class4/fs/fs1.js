@@ -112,6 +112,7 @@
         }
      */
     function renderMenuContent(data) {
+        //这里面的内容是根据左侧导航栏的索引决定的
         $('.cate-part').empty();
         var frag = document.createDocumentFragment();
         var tabsDiv = $("<div class='tabs'></div>");

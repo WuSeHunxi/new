@@ -50,28 +50,49 @@
         }
     }];
 
-    function renderMenuDom(data){
-        var frag=document.createDocumentFragment();
-        data.forEach(function(item,index){
-            var oLi=$('<li class="menu-item></li>').data("index",index);
-            item.titles.forEach(function(title,index){
+    function renderMenuDom(data) {
+        //文档碎片，虚拟的dom节点
+        var frag = document.createDocumentFragment();
+        data.forEach(function (item, index) {
+            var oLi = $('<li class="menu-item"></li>').data('index', index);
+            item.titles.forEach(function (title, index) {
                 $('<a href="#"></a>').text(title).appendTo(oLi);
-                if(index!=item.titles.length-1){
+                if (index != item.titles.length - 1) {
                     $('<span>/</span>').appendTo(oLi);
                 }
             });
             $(frag).append(oLi);
         });
-        $(".menu-list").append($(frag));
+        $('.menu-list').append($(frag))
     }
 
     renderMenuDom(menuList);
 
+    var menuTimer=null;
     $('.menu-list').on('mouseenter','li',function(e){
+        var index=$(this).data('index');
+        var data=menuList[index].content;
+        renderMenuContent(data);
+        $('.menu-content').show();
+        $('.menu-list li').removeClass('menu-item-on');
+        $(this).addClass('menu-item-on');
         
+    }).mouseleave(function(){
+        menuTimer=setTimeout(function(){
+            $(".menu-content").hide();
+            $('.menu-list li').removeClass('menu-item-on');
+        },300)
+    })
+
+    $(".menu-content").on('mouseenter',function(){
+        clearTimeout(menuTimer);
+    }).mouseleave(function(){
+        $(this).hide();
+        $(".menu-list li").removeClass('menu-item-on');
     })
 
     function renderMenuContent(data){
+        $('.cate-part').empty();
         var frag=document.createDocumentFragment();
         var tabsDiv=$('<div class="tabs"></div>');
         data.tabs.forEach(function(tab,index){
@@ -92,6 +113,7 @@
             })
             oDl.append(oDd).appendTo(cateDetail);
         })
+        $(frag).append(tabsDiv).append(cateDetail).appendTo('.cate-part');
     }
     // renderMenuContent(menuList)
 }())
