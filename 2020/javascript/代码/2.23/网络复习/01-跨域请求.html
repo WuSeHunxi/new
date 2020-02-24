@@ -14,13 +14,10 @@
         $.ajax({
             url:'http://developer.duyiedu.com/edu/testJsonp',
             type:'get',
-            data:{
-                callback:'jQuery33102163517142188498_1582432026941'
-            },
             dataType:'jsonp',
-            // success:function(data){
-            //     console.log(data);
-            // }
+            success:function(data){
+                console.log(data);
+            }
         })
     </script>
 </body>
