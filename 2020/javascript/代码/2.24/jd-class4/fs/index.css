@@ -19,6 +19,7 @@
 .menu-list .menu-item a:hover {
     color: #c81623;
 }
+/*该类名控制鼠标移入移出背景颜色的变化*/
 .menu-list .menu-item.menu-item-on {
     background-color: #d9d9d9;
 }
@@ -55,6 +56,7 @@
     text-overflow: ellipsis;
     padding: 5px 0;
 }
+/*两栏布局，一个浮动，另一个overflow占据剩下的宽度*/
 .menu-content .cate-detail .cate-detail-item dd {
     overflow: hidden;
     padding: 5px 0;
@@ -69,6 +71,7 @@
 a {
     color: #666;
 }
+/*给每一个dl清除浮动*/
 .clearfix::after {
     content: '';
     display: block;

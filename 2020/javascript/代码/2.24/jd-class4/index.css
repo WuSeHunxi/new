@@ -28,6 +28,7 @@ body {
 .fs {
     margin-bottom: 30px;
 }
+/* 给父级清除浮动  */
 .fs::after {
     content: '';
     display: block;

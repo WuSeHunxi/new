@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        div:hover{
+            /*当移上去就设置新的层，移走就取消掉*/
+            will-change: transform;
+        }
+        div:active{
+            transform:scale(2,3);
+        }
+    </style>
+</head>
+<body>
+    gpu --->  10个cpu 
+    如果过多的使用gpu的话，浏览器承受不住
+
+
+        download html
+
+download css      download js
+
+css rules tree      dom API domTree
+
+                    cssomAPI
+
+                    cssomTree---继承结构
+    domTree   cssomTree
+
+        renderTree----看不到的结构就不要了，只设置能看到的结构的样式，并渲染它
+           |
+           |
+        layout(布局) ----- paint(画图，每一层的逻辑图，矢量图) ---- 实际绘制(加上px等单位)
+
+        (reflow)            (repaint)
+
+        reflow:
+        对dom结构有影响：改变窗口大小
+                        改变文字大小
+                        内容改变(输入框输入文字)
+                        激活伪类，如：hover
+                        操作class属性
+                        脚本操作DOM
+                        计算offsetWidth和offsetHeight
+        repaint:
+            只改变某个颜色的大小，文字颜色，边框颜色，不影响他周围或内部布局的属性
+
+
+        不专业的实现gpu加速：在另一个层面上处理transform：改变opacity  translate3d(0,0,0)/translateZ(0)
+        will-change:tranform;----专业的实现gpu加速的属性，用来处理点阵式的运动属性，生成一个新的层，使其在新的层面上执行
+
+        浏览器刷新页面的频率是16.7ms
+            如果gpu能够在一帧里将页面渲染好的话，那么实现的效果或者动画将非常流畅
+    <div></div>
+
+
+
+    </body>
+</html>

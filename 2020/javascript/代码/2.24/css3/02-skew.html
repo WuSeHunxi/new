@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 800px;
+            transform-style:preserve-3d;
+            perspective-origin: 300px 300px;
+        }
+        @keyframes skewchange{
+            0%{
+                transform:skew(45deg,45deg);
+            }
+            50%{
+                transform:skew(0deg,0deg);
+            }
+            100%{
+                transform:skew(-45deg,-45deg);
+            }
+        }
+        div{
+            position: absolute;
+            width: 200px;
+            height: 200px; 
+            left: 200px;
+            top: 200px;
+            background-color: pink;
+            transform-origin: center center;
+            /*倾斜*/
+            /* transform:skew(0deg,30deg) translateX(50px); */
+
+            transform:skew(0deg,0deg);
+            animation: skewchange 4s cubic-bezier(0,0,1,1) infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <!-- skew---倾斜的是坐标轴，在倾斜的同时还拉伸了坐标轴 -->
+</body>
+</html>

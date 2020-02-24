@@ -28,7 +28,7 @@ $('#search-inp').on('input', function () {
 })
 function renderDom(res) {
     console.log(res)
-    var data = res.result;
+    var data = res.result; 
     str = '';
     data.forEach(function (item, index) {
         str += `<li><a href="#">${item[0]}</a></li>`;

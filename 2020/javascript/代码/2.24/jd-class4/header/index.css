@@ -1,7 +1,7 @@
-
 .header .w {
     position: relative;
 }
+
 .logo {
     width: 190px;
     height: 120px;
@@ -11,6 +11,7 @@
     margin-top: -60px;
     background-image: url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/header/sprite.png);
 }
+
 .logo-img {
     position: absolute;
     width: 100%;
@@ -20,10 +21,12 @@
     background-position: center;
     background-size: 100%;
 }
+
 .search {
     width: 100%;
     position: relative;
 }
+
 .search-box {
     position: absolute;
     left: 260px;
@@ -33,6 +36,7 @@
     border: 2px solid #e2231a;
     background: #fff;
 }
+
 .search-box #search-inp {
     padding: 2px 44px 2px 17px;
     width: 425px;
@@ -57,6 +61,7 @@
     cursor: pointer;
     outline: none;
 }
+
 #search-list {
     width: 488px;
     border: 1px solid #ccc;
@@ -66,12 +71,14 @@
     display: none;
     z-index: 9;
 }
+
 #search-list li {
     overflow: hidden;
     padding: 1px 6px;
     line-height: 24px;
     cursor: pointer;
 }
+
 .settleup {
     width: 130px;
     height: 34px;
@@ -84,9 +91,11 @@
     top: 25px;
     color: red;
 }
+
 .settleup .iconfont {
     margin-right: 13px;
 }
+
 .settleup #count {
     font-style: normal;
     position: absolute;
@@ -101,7 +110,8 @@
     min-width: 12px;
     text-align: center;
 }
-.hotwords{
+
+.hotwords {
     width: 550px;
     height: 20px;
     line-height: 20px;
@@ -109,6 +119,7 @@
     left: 260px;
     top: 65px;
 }
+
 .hotwords a {
     margin-right: 10px;
     color: #999;
@@ -120,9 +131,11 @@
     bottom: 0;
     height: 40px;
 }
+
 .navitems li {
     float: left;
 }
+
 .navitems li a {
     height: 40px;
     line-height: 40px;
@@ -130,6 +143,7 @@
     color: #333;
     margin: 0 11px;
 }
+
 .navitems li a.red {
     color: #e1251b;
     font-weight: 700;

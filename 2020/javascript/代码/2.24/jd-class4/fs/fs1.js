@@ -56,6 +56,7 @@
     </li> */}
     //渲染左侧菜单栏 
     function renderMenuDom(data) {
+        //文档碎片，虚拟的dom节点
         var frag = document.createDocumentFragment();
         data.forEach(function (item, index) {
             var oLi = $('<li class="menu-item"></li>').data('index', index);
