@@ -49,11 +49,11 @@
             }]
         }
     }];
-    {/* <li class="menu-item">
+    /* <li class="menu-item">
         <a href="#">电脑</a>
         <span>/</span>
         <a href="#">办公</a>
-    </li> */}
+    </li> */
     //渲染左侧菜单栏 
     function renderMenuDom(data) {
         //文档碎片，虚拟的dom节点

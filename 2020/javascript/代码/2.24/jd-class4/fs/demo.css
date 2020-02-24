@@ -1,0 +1,74 @@
+.menu-list{
+    height: 450px;
+    padding: 10px 0;
+    background-color: #fff;
+    margin-top: 10px;
+    background-color: #fefefe;
+}
+
+.menu-item{
+    padding-left: 18px;
+}
+
+.menu-item a{
+    color:#333;
+    font-size: 14px;
+}
+
+.menu-content{
+    width: 998px;
+    min-height: 468px;
+    background-color: #fff;
+    border:1px solid #f7f7f7;
+    position: absolute;
+    left: 190px;
+    top: 10px;
+    display: block;
+}
+
+.cate-part{
+    padding: 20px 20px 10px;
+}
+
+.tabs a{
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    padding: 0 10px;
+    background-color: #333;
+    color:#fff;
+}
+
+.cate-detail-item dt{
+    width: 70px;
+    padding: 5px 0;
+    text-align: right;
+    font-weight: 700;
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cate-detail-item:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.cate-detail-item dt a{
+    color:#666;
+}
+
+.cate-detail-item dd{
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.cate-detail-item dd a{
+    margin: 3px 0;
+    padding: 0 7px;
+    height: 16px;
+    line-height: 16px;
+    color:#666;
+    /*为了使每一个a完整的显示*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
