@@ -1,0 +1,76 @@
+
+.menu-list {
+
+    padding: 10px 0;
+    height: 450px;
+    background-color: #fefefe;
+    color: #636363;
+    margin-top: 10px;
+}
+.menu-list .menu-item {
+    height: 25px;
+    line-height: 25px;
+    padding-left: 18px;
+}
+.menu-list .menu-item a {
+    font-size: 14px;
+    color: #333;
+}
+.menu-list .menu-item a:hover {
+    color: #c81623;
+}
+.menu-list .menu-item.menu-item-on {
+    background-color: #d9d9d9;
+}
+
+.menu-content {
+    position: absolute;
+    left: 190px;
+    top: 10px;
+    width: 998px;
+    min-height: 468px;
+    border: 1px solid #f7f7f7;
+    background-color: #fff;
+    display: none;
+}
+.cate-part {
+    padding: 20px 20px 10px;
+}
+.menu-content .tabs a {
+    margin-right: 10px;
+    padding: 0 10px;
+    height: 24px;
+    display: inline-block;
+    background-color: #333;
+    line-height: 24px;
+    color: #fff;
+}
+
+.menu-content .cate-detail .cate-detail-item dt {
+    float: left;
+    width: 70px;
+    text-align: right;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 0;
+}
+.menu-content .cate-detail .cate-detail-item dd {
+    overflow: hidden;
+    padding: 5px 0;
+}
+.menu-content .cate-detail .cate-detail-item dd a {
+    margin: 3px 0;
+    padding: 0 7px;
+    height: 16px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+a {
+    color: #666;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
