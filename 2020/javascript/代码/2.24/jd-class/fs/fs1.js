@@ -56,7 +56,6 @@
     </li> */}
     //渲染左侧菜单栏 
     function renderMenuDom(data) {
-        //文档碎片，虚拟的dom节点
         var frag = document.createDocumentFragment();
         data.forEach(function (item, index) {
             var oLi = $('<li class="menu-item"></li>').data('index', index);
@@ -70,24 +69,19 @@
         });
         $('.menu-list').append($(frag))
     }
-
-    renderMenuDom(menuList);
-
-    //延迟消失，同时为了方便右侧栏进入左侧导航样式不消失的情况
+    renderMenuDom(menuList)
     var menuTimer = null;
-    //冒泡，事件委托
     $('.menu-list').on('mouseenter', 'li', function (e) {
         var index = $(this).data('index');
         var data = menuList[index].content;
         renderMenuContent(data);
-        //鼠标移入就显示右侧栏
-        $('.menu-content').show();
-        $('.menu-list li').removeClass('menu-item-on');
+        $('.menu-content').show()
+        $('.menu-item-on').removeClass('menu-item-on');
         $(this).addClass('menu-item-on')
     }).mouseleave(function () {
         menuTimer = setTimeout(function () {
             $('.menu-content').hide();
-            $('.menu-list li').removeClass('menu-item-on');
+            $('.menu-item-on').removeClass('menu-item-on');
         }, 300)
     })
     $('.menu-content').mouseleave(function () {
@@ -112,7 +106,6 @@
         }
      */
     function renderMenuContent(data) {
-        $('.cate-part').empty();
         var frag = document.createDocumentFragment();
         var tabsDiv = $("<div class='tabs'></div>");
         data.tabs.forEach(function (tab, index) {
@@ -133,8 +126,7 @@
             })
             oDl.append(oDD).appendTo(cateDetail);
         })
-        //显示之前先清除之前的
-        // $('.cate-part').empty()
-        $(frag).append(tabsDiv).append(cateDetail).appendTo($('.cate-part'));
+        $('.cate-part').empty()
+        $(frag).append(tabsDiv).append(cateDetail).appendTo($('.cate-part'))
     }
 }())

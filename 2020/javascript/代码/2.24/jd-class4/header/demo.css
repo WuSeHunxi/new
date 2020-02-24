@@ -1,0 +1,129 @@
+.header{
+    background-color: #fff;
+    height: 140px;
+    position: relative;
+}
+
+.logo{
+    width:190px;
+    height: 120px;
+    background-image: url('https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/header/sprite.png');
+    position: absolute;
+    top:50%;
+    margin-top: -60px;
+}
+
+a.logo-img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-position: center center;
+    background-size: 100%;
+}
+
+.search{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.search-box{
+    position: absolute;
+    left: 260px;
+    top: 25px;
+    width: 546px;
+    height: 32px;
+    border:2px solid #e2231a;
+    background-color: #fff;
+}
+
+.search-box #search-inp{
+    outline: none;
+    border: none;
+    width: 425px;
+    height: 26px;
+    line-height: 26px;
+    font-size:12px;
+    padding: 2px 44px 2px 17px;
+}
+
+#search-btn{
+    position: absolute;
+    right: 0;
+    width: 58px;
+    height: 32px;
+    border:none;
+    background-color: #e1251b;
+    color:#fff;
+    font-size: 20px;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+}
+
+.hotwords{
+    width: 550px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: 260px;
+    top: 65px;
+}
+
+.hotwords a{
+    margin-right: 10px;
+    color:#999;
+}
+
+.settleup{
+    width: 130px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border:1px solid #e3e4e5;
+    background-color: #fff;
+    position: absolute;
+    right: 260px;
+    top: 25px;
+    color:red;
+}
+.settleup .iconfont{
+    margin-right: 13px;
+}
+
+#count{
+    font-style: normal;
+    position: absolute;
+    left: 29px;
+    top:1px;
+    background-color: #e1251b;
+    color:#fff;
+    width: 12px;
+    font-size:12px;
+    height: 12px;
+    line-height: 12px;
+    padding: 1px 3px;
+    border-radius: 7px;
+}
+
+.navitems{
+    position: absolute;
+    left: 230px;
+    bottom: 0;
+}
+
+.navitems li{
+    float: left;
+    margin: 0 11px;
+}
+
+.navitems li a{
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.navitems a.red{
+    color:#e1251b;
+    font-weight: 700;
+}
