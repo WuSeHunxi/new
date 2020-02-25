@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform之偏移</title>
+    <style>
+        /* 
+            tranisition  过度动画效果
+            transform  
+         */
+        .demo {
+
+            /* height: 100px; */
+            display: inline-block;
+            /* background-color: tomato; */
+        }
+
+        .demo:first-child {
+            position: relative;
+            left: 100px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            /* background-color: turquoise; */
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg);
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(24, 255, 75, 0.5);
+            position: absolute;
+            /*
+                transform属性不会修改正常的文档排列 
+             */
+            transform-origin: 0 0;
+            transform: translateZ(100px) rotateY(0deg) translateX(0px);
+            transition: transform 0.5s;
+        }
+
+        .box1:hover {
+            transform: translateZ(100px) rotateY(30deg) translateX(100px);
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: rgba(151, 24, 255, 0.5);
+        }
+
+        .demo:nth-child(2) {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <div class="demo">demo1</div>
+    <script>
+        var box1 = document.getElementsByClassName('box1')[0];
+        // setTimeout(function () {
+        //     box1.style.transform = "translateZ(100px)  translateX(100px) rotateY(0deg)"
+        //     setTimeout(function () {
+        //         box1.style.transform = "translateZ(100px) translateX(100px)  rotateY(45deg) "
+        //     }, 500)
+        // }, 500)
+
+    </script>
+</body>
+
+</html>
