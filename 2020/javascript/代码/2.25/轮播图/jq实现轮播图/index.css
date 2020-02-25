@@ -15,12 +15,15 @@
 
 .list{
     height: 100%;
-    width: 1600px;
+    width: 2000px;
+    position: absolute;
+    left: 0;
 }
 
 .wrapper .item{
     height: 100%;
     width: 400px;
+    float: left;
 }
 
 .item1{

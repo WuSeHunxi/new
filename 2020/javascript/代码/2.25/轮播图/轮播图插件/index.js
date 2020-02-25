@@ -78,11 +78,13 @@
                 return false;
             }
             self.lock = true;
+            console.log(self.num);
             if (self.nowIndex == 0) {
                 if (self.type == 'animate') {
                     $('.my-swiper-list', self.wrap).css({
                         left: -self.num * self.width
-                    });
+                        
+                    });              
                 }
                 self.nowIndex = self.num - 1;
             } else {
