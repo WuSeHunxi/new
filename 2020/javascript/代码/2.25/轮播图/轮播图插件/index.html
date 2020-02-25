@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>封装轮播图插件</title>
+        <link rel="stylesheet" href="./index.css">
+        <style>
+        .wrapper {
+            width: 300px;
+            height: 250px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+        .item {
+            width: 300px;
+            height: 250px;
+        }
+        .item1 {
+            background-color: aqua;
+        }
+        .item2 {
+            background-color: salmon;
+        }
+        .item3 {
+            background-color: springgreen;
+        }
+        .item4 {
+            background-color: steelblue;
+        }
+      
+        .demo {
+            width: 100px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .demo2 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- 轮播图的显示区 -->
+        <div class="wrapper">
+
+        </div>
+
+
+        <div class="demo"></div>
+        <div class="demo2"></div>
+        <!-- 
+        轮播图需要传递的参数：
+            1. 轮播的内容  ---》 dom节点列表，该列表是一个数组
+            2. 动画效果  ----》 type : 'animate' , 'fade'
+            3. 是否自动轮播 ---》 
+            4. 是否显示左右按钮
+            5. 是否显示小圆点
+            6. 自动轮播时间
+            7. 每一次轮播对象的大小  width height
+            8. 自动轮播方向
+     -->
+        <div class="img-list">
+            <!-- 轮播的图片显示区 -->
+            <div class="item item1">item1</div>
+            <div class="item item2">item2</div>
+            <div class="item item3">item3</div>
+            <div class="item item4">item4</div>
+        </div>
+
+
+
+        <script src="./jquery-3.3.1.js"></script>
+        <script src="./test.js"></script>
+        <script>
+          $('.wrapper').swiper({
+            list: $('.item'),//轮播的内容
+            type: 'fade',
+            isAuto: true,
+            showChangeBtn: true,
+            showSpotBtn: true,
+            autoTime: 3000,
+            width: 300,
+            height: 250,
+            direction: 'right'
+          })
+
+          $('.demo').swiper({
+            list: $('.item').clone(true),
+            type: 'fade',
+            isAuto: false,
+            showChangeBtn: false,
+            showSpotBtn: true,
+            autoTime: 3000,
+            width: 300,
+            height: 250,
+            direction: 'right'
+          })
+     </script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 将页面大小根据分辨率不同进行相应的调节，以展示给用户的感觉差不多
+     meta标签默认的视口大小是 980px，设置视口的属性
+
+     width=device-width：在iphone或者iPad上横竖屏的宽度=竖屏时候的宽度，不能自适应的问题
+     initial-scale=1.0：Windows系统中的手机上的IE浏览器上横竖屏的宽度=竖屏时候的宽度，不能自适应的问题
+
+    媒体查询：让网页在不同的终端上面展示效果相同，在不同设备上面均展示合适的页面
+
+    主要断点：设备宽度的临界点
+    响应式网页的开发主要是在css样式上面操作的
+
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 第一种引入方法 -->
+    <!-- 媒体特性必须加()   screen---媒体类型 -->
+    <!-- <link rel="stylesheet" media="screen and (max-width:375px)" href="index.css"> -->
+    <style> 
+        /*第二种引入方法*/
+        /* @import 'index.css' screen and (max-width:375px); */
+    </style>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            font-size: 0;
+        }
+        .demo{
+            width: 50vmin;
+            height: 50vh;
+            border:1px solid #000;
+            display: inline-block;
+        }
+
+        /*第三种引入方法：css行间样式引入*/
+        /*媒体查询不占权重，最好写在最后面*/
+        /* @media only (max-width:375px) , (min-width:600px){
+            html,body{
+                width: 100%;
+                height: 100%;
+                background-color: #0f0;
+            }
+        } */
+
+        /* @media not screen and (max-width:375px){
+            html,body{
+                width: 100%;
+                height: 100%;
+                background-color: #0f0;
+            } 
+        }*/
+
+        /*逻辑操作符：and , 
+        否定条件：not
+        only---向早期浏览器隐藏媒体查询
+        */
+
+
+
+
+        /*
+        相对单位：
+            rem：相对于根节点的单位
+                html{font-size:14px;} 子元素的width:10rem
+
+            em：相对于自己本身的像素值，如果本身没有font-size，可以继承父级的。
+
+            vw(vh)：相对于视口的宽(高)度，将视口的宽度分成100份，例如：50vw
+            vmax--->取视口宽高中最大的一边分成100份
+            vmin--->取视口宽高中最小的一边分成100份
+        */
+
+
+
+
+        /*
+        响应式设计是最佳的选择吗？
+            不是的，内容设计问题可以通过响应式设计思路解决，项目的预算，目标用户以及定位决定了其实现方式。
+    
+        渐进增强：(向上兼容)兼容最新设备
+        优雅降级：(向下兼容)，开发通用的版本，在兼容老版本
+            先移动端，在pc端
+            先iphone6为初始原型开发，然后在兼容其他的设备
+        */
+
+
+        
+    </style>
+    <title>Document</title>
+</head>
+<body> 
+
+    <!-- 什么是响应式网页设计？只需要一套页面让用户在不同的设备上看到的页面呈现效果是完美的。 -->
+    <div class="wrapper">
+        <div class="demo"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "1654854",
+  "name": "fellow",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1288370",
+      "name": "ic_more",
+      "font_class": "ic_more",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    }
+  ]
+}
