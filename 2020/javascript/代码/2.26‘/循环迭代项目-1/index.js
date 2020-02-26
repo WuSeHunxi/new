@@ -2,6 +2,7 @@ var nowPage = 1;
 var pageSize = 10;
 var allPage = 1;
 var tableData = [];
+
 // 绑定事件
 function bindEvent() {
     $('.menu').on('click', 'dd', function (e) {
@@ -11,8 +12,10 @@ function bindEvent() {
         $('.content-box').fadeOut()
         $('#' + id).fadeIn();
     });
+
     $('#student-add-btn').click(function (e) {
         e.preventDefault();
+        //serializeArray()只能获取表单中带有name属性的标签的值
         var formData = formatData($('#student-add-form').serializeArray());
         // 拿取用户填写的学生信息
         var data = formData.data;
@@ -22,6 +25,7 @@ function bindEvent() {
             transferData('/api/student/addStudent', data, function () {
                 alert('新增学生成功');
                 $('.menu dd[data-id=student-list]').click();
+                //在页面上更新新增的数据
                 getTableData();
             })
         }
@@ -31,6 +35,7 @@ function bindEvent() {
         var index = $(this).parents('tr').index();
         var data = tableData[index];
         $('.modal').slideDown()
+        //点击编辑按钮，表单回填
         renderEditForm(data);
     }).on('click', '.delete', function () {
         var index = $(this).parents('tr').index();
@@ -72,6 +77,7 @@ function bindEvent() {
 
 // 格式化表格数据 校验数据是否填写全
 function formatData(dataArr) {
+    //将获取到的表单数据封装成一个结果对象，用于判断之后的请求是否成功
     var result = {
         status: 'success',
         data: {},
@@ -82,6 +88,7 @@ function formatData(dataArr) {
             result.status = 'fail';
             result.msg = '信息填写不完全';
         }
+        //将表单中的数据转成对象
         result.data[dataArr[i].name] = dataArr[i].value;
     }
     return result;
@@ -93,7 +100,9 @@ function getTableData() {
         page: nowPage,
         size: pageSize
     }, function (data) {
+        // 通过分页获取到的数据是一种新的格式
         tableData = data.findByPage;
+        console.log(data);
         renderDom(data.findByPage);
     })
 }
@@ -104,7 +113,7 @@ function transferData(url, data, cb) {
         url: 'http://open.duyiedu.com' + url,
         type: 'get',
         data: $.extend({
-            appkey: 'DuYimeiqi_1564986205860'
+            appkey: '77521ily__1571400791988'
         }, data),
         dataType: 'json',
         success: function (res) {
@@ -124,7 +133,7 @@ function renderDom(data) {
         str += `<tr>
         <td>${item.sNo}</td>
         <td>${item.name}</td>
-        <td>${item.sex == 0 ? '男': '女'}</td>
+        <td>${item.sex == 0 ? '男' : '女'}</td>
         <td>${item.email}</td>
         <td>${new Date().getFullYear() - item.birth}</td>
         <td>${item.phone}</td>
@@ -141,7 +150,7 @@ function renderDom(data) {
 // 编辑表单回填
 function renderEditForm(data) {
     var form = $('#student-edit-form')[0];
-    for(var prop in data) {
+    for (var prop in data) {
         if (form[prop]) {
             form[prop].value = data[prop]
         }
