@@ -57,13 +57,18 @@
     color: #fff;
     border-radius: 13px;
     background: #e1251b;
-    -webkit-transition: background .3s ease,color .3s ease;
+    /* -webkit-transition: background .3s ease,color .3s ease; */
     transition: background .3s ease,color .3s ease;
 }
 
 .user_profit_lk_plus {
     background: #363634;
     color: #e5d790;
+}
+
+.user_profit_lk_new:hover{
+    color:#fff;
+    background-color:darkred;
 }
 
 .user_profit_lk:hover {
@@ -79,6 +84,7 @@
     content: " ";
     bottom: 0;
 }
+/*新闻标题*/
 .news2 .news_hd, .news .news_hd {
     height: 20px;
     padding: 10px 0 0;
@@ -93,6 +99,7 @@
     margin-left: 15px;
     color: #333;
 }
+/*更多*/
 .news2 .news_more, .news .news_more {
     position: absolute;
     right: 15px;
@@ -104,6 +111,7 @@
     max-width: 160px;
     height: 16px;
     line-height: 16px;
+    /* 益处打点显示 */
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -115,6 +123,7 @@
     margin: 0 15px;
     height: 88px;
 }
+/*新闻标签*/
 .news_tag {
     display: inline-block;
     position: relative;
@@ -137,7 +146,7 @@
     overflow: hidden;
 }
 .service-entry {
-    padding: 5px .5px;
+    padding: 5px 0.5px;
     background: #fff;
 }
 
@@ -234,6 +243,7 @@
 .service-expend .service_pop {
     top: 26px;
 }
+/*游戏*/
 .service-expend .service_frame:not(.service_frame2) a {
     margin-top: -36px;
 }

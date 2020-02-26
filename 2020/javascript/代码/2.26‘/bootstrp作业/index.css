@@ -76,7 +76,7 @@
 }
 
 .content{
-    width: 1263px;
+    max-width: 1263px;
     height: 497px;
     background: linear-gradient(45deg,#020031,#6d3353);
 }
@@ -133,14 +133,13 @@ p.btn a:hover{
     color:#fff;
 }
 
-/* @media  (min-width:992px){
+@media  (min-width:992px){
     .container{
         width: 970px;
     }
-} */
-/* 
+} 
 @media  (min-width:768px){
     .container{
         width: 750px;
     }
-} */
+}

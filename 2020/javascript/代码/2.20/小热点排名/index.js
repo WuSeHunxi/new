@@ -18,7 +18,7 @@
                         .text(i+curPage*10+1).css({"backgroundColor":curPage==0&&colorArr[i+curPage]})
                             .next()
                                 .text(ele.title)
-                                    .next()
+                                    .next(ele.search)
                                         .text(ele.search)
                                             .addClass(ele.search>ele.hisSearch?'up':'down');
             $showSection.append($clone);
@@ -27,14 +27,15 @@
     }
 
     function bindEvent(){
-        var btn=document.getElementsByClassName("btn")[0];
-        btn.onclick=function(){
-            curPage=++curPage%totalPage;
-            render(data);
-        }
-    }
-    render(data);
-    bindEvent();
+        $wrapper.find('.change').on('click', function () {
+            // 4
+            curPage =  ++curPage % totalPage;
 
+            render(data);
+        });
+    }
+    
+    bindEvent();
+    render(data);
 
 }(data))

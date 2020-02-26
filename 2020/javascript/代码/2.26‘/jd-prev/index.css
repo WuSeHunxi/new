@@ -130,6 +130,8 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/*存放原价和现价的位置 */
 .seckill-list .seckill-item__price {
     border: 1px solid #e1251b;
     position: relative;
@@ -144,6 +146,7 @@ body {
     margin-right: auto;
     margin-top: 7px;
 }
+
 .seckill-list .seckill-item__price .price-miaosha {
     width: 92px;
     height: 100%;
@@ -169,6 +172,7 @@ body {
     text-decoration: line-through;
     vertical-align: top;
 }
+/*第二个轮播图*/
 .seckill-brand {
     position: relative;
     float: right;
@@ -241,6 +245,7 @@ body {
     display: inline-block;
     margin-top: -1px;
 }
+/*利用伪类加:*/
 .seckill-countdown .countdown-main .timmer__unit:after {
     content: ":";
     display: block;

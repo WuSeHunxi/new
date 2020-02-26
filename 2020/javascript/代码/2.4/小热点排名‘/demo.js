@@ -22,7 +22,7 @@
             //保存数据
             var ele=data[i+curPage*10];
             $Clone.children('span').eq(0)
-                .text(i+curPage*10+1).css({backgroundColor:''})
+                .text(i+curPage*10+1).css({'backgroundColor':curPage==0&&colorsArray[i+curPage]})
                     .next()
                         .text(ele.title)
                             .next(ele.search)
@@ -31,7 +31,8 @@
         }
     }
 
-    bindEvent();
     renderPage(data);
+    bindEvent();
+    
 
 }(data))
