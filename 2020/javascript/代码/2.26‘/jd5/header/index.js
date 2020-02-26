@@ -14,7 +14,16 @@ function getSearchData(val) {
             callback: "renderDom"
         },
         // 使用者希望拿到的数据类型  
-        dataType: 'jsonp'
+        dataType: 'jsonp',
+        // success: function (data) {//使用两种方法传递后端请求回来的数据
+        //     console.log(data)
+        //     var datal = data.result;
+        //     str = '';
+        //     datal.forEach(function (item, index) {
+        //         str += `<li><a href="#">${item[0]}</a></li>`;
+        //     })
+        //     $('#search-list').html(str).show()
+        // }
     })
 }
 $('#search-inp').on('input', function () {
@@ -38,16 +47,16 @@ function renderDom(res) {
 
 var hideTimer = null;
 $('#search-list').mouseleave(function () {
-   hideTimer = setTimeout(function () {
-    $('#search-list').hide()
-   }, 500) 
+    hideTimer = setTimeout(function () {
+        $('#search-list').hide()
+    }, 500)
 })
 // jsonp   --->  json and padding
 // script src
 
 $('.logo').mouseenter(function () {
     $('.logo-img').css({
-        backgroundImage: 'url(https://img1.360buyimg.com/da/jfs/t1/16134/5/11584/77878/5c90a4bdE5ae12937/38714fb6679b8daf.gif?v=' + Math.random()+')'
+        backgroundImage: 'url(https://img1.360buyimg.com/da/jfs/t1/16134/5/11584/77878/5c90a4bdE5ae12937/38714fb6679b8daf.gif?v=' + Math.random() + ')'
     }).show()
 }).mouseleave(function () {
     setTimeout(function () {

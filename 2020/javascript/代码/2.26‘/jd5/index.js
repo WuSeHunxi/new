@@ -13,4 +13,5 @@ $('.slider-list').swiper({
     autoTime: 6000,
     showChangeBtn: false,
     showSpotBtn: false,
+    type:'animate'
 })

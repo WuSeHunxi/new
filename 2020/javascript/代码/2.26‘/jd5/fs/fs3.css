@@ -239,6 +239,7 @@
 }
 .service-expend .service_frame2.service_frame_on a{
     margin-top: -91px;
+    /*挡住下面的文字*/
     background-color: #fff;
     /* background-color: violet; */
 }

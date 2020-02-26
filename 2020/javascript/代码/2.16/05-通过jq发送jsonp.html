@@ -33,8 +33,20 @@
             //     console.log(data);
             // }
         })
+
+        $.ajax({
+            url:"",
+            type:"",
+            data:{
+
+            },
+            dataType:"jsonp",
+            success:function(data){
+                console.log(data);
+            }
+        })
          // jsonp的格式那里特殊？
-        //  ————发送的时候会带上一个参数callback，返回的结果不是json，而是callback名字+( + json + )。
+        //  ————发送的时候会带上一个参数callback，返回的结果不是json，而是callback的名字+( + json + )。
         //  ————jsonp跨域只能使用get方法，如果使用了post方法，jQuery会自动转化成get方法。
         //  ————jquery会先判断是否同源，如果同源，那么设置的是get就是get，设置的是post就是post，如果不同源
         //      那么就都改为post。
