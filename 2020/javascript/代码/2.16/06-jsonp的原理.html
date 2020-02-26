@@ -36,8 +36,9 @@
         //封装一个jq方法
         var $={
             ajax:function(options){
+                //传入的参数的各个值
                 var url=options.url;
-                var type=options.type;
+                // var type=options.type;
                 var dataType=options.dataType;
                 //判断是否同源
                 //1.获取目标url的域
@@ -56,7 +57,7 @@
                 }
                 //首先要判断是否为jsonp，因为不是jsonp不用做其他判断，直接发送ajax
                 if(dataType=='jsonp'){
-                    //要看是否同源
+                    //要看是否同源，无需jsonp直接ajax即可
                     if(location.protocol==targetProtocol&&location.host==targetHost){
                         //同源的话，jsonp会当作普通的ajax做请求
                     }else{//不同源
@@ -81,7 +82,10 @@
         $.ajax({
             url:"http://developer.duyiedu.com/edu/testJsonp",
             type:'get',
-            dataType:"jsonp"
+            dataType:"jsonp",
+            success:function(data){
+                console.log(data);
+            }
         });
 
     </script>

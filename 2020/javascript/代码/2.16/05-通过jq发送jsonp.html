@@ -25,25 +25,28 @@
         //     }
         // })
 
+        // $.ajax({
+        //     url:'http://developer.duyiedu.com/edu/testJsonp',
+        //     type:"post",
+        //     dataType:"jsonp",
+        //     // success:function(data){
+        //     //     console.log(data);
+        //     // }
+        // })
+
+        function renderdom(data){
+            console.log(data);
+        }
         $.ajax({
-            url:'http://developer.duyiedu.com/edu/testJsonp',
-            type:"post",
+            url:"http://developer.duyiedu.com/edu/testJsonp",
+            type:"get",
+            data:{
+                callback:'renderdom'
+            },
             dataType:"jsonp",
             // success:function(data){
             //     console.log(data);
             // }
-        })
-
-        $.ajax({
-            url:"",
-            type:"",
-            data:{
-
-            },
-            dataType:"jsonp",
-            success:function(data){
-                console.log(data);
-            }
         })
          // jsonp的格式那里特殊？
         //  ————发送的时候会带上一个参数callback，返回的结果不是json，而是callback的名字+( + json + )。

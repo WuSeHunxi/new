@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="./jquery.js"></script> -->
+    <script>
+
+        var $={
+            ajax:function(options){
+                var url=options.url;
+                var dataType=options.dataType;
+                var targetPotocol='';
+                var targetHost='';
+                if(url.indexOf('http://')==0||url.indexOf("https://")==0){
+                    var targetUrl=new URL(url);
+                    targetHost=targetUrl.host;
+                    targetPotocol=targetUrl.protocol;
+                }else{
+                    targetHost=location.host;
+                    targetPotocol=location.protocol;
+                }
+                if(dataType=='jsonp'){
+                    if(targetPotocol==location.protocol&&targetHost==location.host){
+                        //ajax请求
+                    }else{
+                        var script=document.createElement("script");
+                        //函数名称要正确命名
+                        var cb="cs"+Math.floor(Math.random()*100000);               
+                        if(url.indexOf('?')>0){
+                            script.src=url+'&callback='+cb;
+                        }else{
+                            script.src=url+'?callback='+cb;
+                        }
+                        window[cb]=options.success;
+                        document.head.appendChild(script);
+                    }
+                }else{
+
+                }
+            }
+        }
+
+        $.ajax({
+            url:"http://developer.duyiedu.com/edu/testJsonp",
+            type:"get",
+            dataType:"jsonp",
+            success:function(data){
+                console.log(data);
+            }
+        })
+
+    </script>
+</body>
+</html>
