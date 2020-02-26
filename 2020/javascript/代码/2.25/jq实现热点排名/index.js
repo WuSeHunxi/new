@@ -5,26 +5,26 @@
     var curIndex=0;
     function bindEvent(){
         $(".change").on('click',function(){
-
+            curIndex=curIndex++%page;
+            renderDom(data);
         })
     }
 
     function renderDom(data){
-        var len=(data.length-curIndex*10)>10?10:data.length-curIndex*10;
-        curIndex++%page;
-        for(var i=0;i<len;i++){
-            var $clone=$('.item').clone(true).removeClass("tpl").addClass("show");
-            var str='';
-            var ele=data[i+curIndex*10];
-            str+=` <span class="number">${ele.title}</span>
-            <span class="item-content">${ele.search}</span>
-            <span class="rate">${ele.hisSearch}</span>`;
-            $clone.html(str);
+        var eachLen=data.length-curIndex*10>10?10:data.length-curIndex;
+        console.log(eachLen);
+        for(var i=0;i<eachLen;i++){
+            var res=data[i+curIndex*10];
+            console.log(res);
+            var $clone=$('.item').clone().removeClass('tpl').addClass('showSection');
+            $clone.children('span')
+                .find('.number')
+                .text(i+curIndex*10+1).next().text(res.title).next().text(res.search)
+                .appendTo($('.list'));
         }
-        $clone.appendTo($(".list"));
-        
     }
     renderDom(data);
+    bindEvent();
 
 
 }(data))

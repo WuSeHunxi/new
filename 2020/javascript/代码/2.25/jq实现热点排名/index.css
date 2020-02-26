@@ -62,3 +62,19 @@ span{
     /* float: left; */
     display: inline-block;
 }
+
+.showSection .mes::after{
+    content:"";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-size: 100% 100%;
+}
+.showSection .mes.up::after{
+    background-image: url('img/up.png');
+    background-position-y: 4px;
+}
+.showSection .mes.down::after{
+    background-image: url('img/down.png');
+    background-position-y: 2px;
+}

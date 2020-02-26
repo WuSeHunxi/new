@@ -1,5 +1,5 @@
 $('.wrapper').myFullPage({
-    colorsArray:['red','blue','green'],
+    colorsArray:['#0ff','#f0f','lightpink'],
     onLeave:function(index,direction){
         // console.log(index,direction);
         //根据index找到离开的页面
@@ -25,6 +25,7 @@ $('.section').each(function(index,ele){
             text: '渡一教育创立于2015年！ 在成哥 邓哥 彤哥的带领下已经向着高端编程教育公司大踏步的，渡一 Dream Factory',
             center: true,
             css: {
+                // transformStyle:prevese-3d,
                 position: 'absolute',
                 opacity: 0,
                 bottom: 0,
@@ -34,7 +35,8 @@ $('.section').each(function(index,ele){
                 textAlign: 'justify',
                 fontSize: '18px',
                 fontWeight: '900',
-                lineHeight: '25px'
+                lineHeight: '25px',
+                transformOrigin:'center center'
             },
             animateIn: {
                 opacity: 1,
@@ -47,10 +49,19 @@ $('.section').each(function(index,ele){
             delay: 200,
             event: {
                 click: function () {
-                    alert($(this).text());
+                    
+                    $(this).animate({
+                        transform:'rotateY('+i*30+'deg)'
+                    },function(){
+                        
+                    })
+                    
+                    console.log("oo");
                 },
                 mouseenter:function(){
-    
+                    $(this).css({
+                        // transform:'translateX(100px)'
+                    })
                 }
             }
         }

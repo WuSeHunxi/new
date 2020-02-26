@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.54;
+}
+
+.introduce{
+    float: left;
+    resize: both;
+    overflow: hidden;
+    width: 538px;
+    height: 140px;
+    border:1px solid#ccc;
+    margin: 100px 0 0 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.charactor{
+    flex: 0 0 121px;
+    height: 140px;
+    margin-right: 20px;
+}
+
+.charactor img{
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    flex:1 1 auto;
+    overflow: hidden;
+}
+
+.content p.discripe{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content a{
+    margin-right: 4px;
+}
+
+a.more::after{
+    content:'>>';
+    display: inline;
+}
+
+p.web{
+    color:green;
+    cursor: pointer;
+}
+
+.companiers{
+    vertical-align: top;
+    float:right;
+    width: 351px;
+    margin:100px 80px 0 0;
+    border-left:1px solid#ccc;
+    padding-left: 20px;
+}
+
+
+.list{
+    display: flex;
+    width: 100%;
+    height: 288px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.list li{
+    list-style: none;
+    width: 75px;
+    height: 139px;
+    color:#999;
+    text-align: center;
+}
+
+.list li img{
+    width: 75px;
+    height: 75px;
+}
+
+.companiers h3{
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.companiers li p{
+    font-size: 12px;
+    width: 70px;
+    height: 36px;
+}

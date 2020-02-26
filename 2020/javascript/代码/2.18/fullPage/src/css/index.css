@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.wrapper{
+    transform-style: preserve-3d;
+}

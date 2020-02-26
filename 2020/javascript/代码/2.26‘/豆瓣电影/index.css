@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    background-color: #eee;
+}
+
+.search{
+    position: relative;
+    width: 804px;
+    height: 56px;
+    margin: 50px auto;
+    /* background-color: #0ff; */
+}
+
+.logo{
+    width: 145px;
+    height: 100%;
+    background-image: url('image/logo.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.search .search-box{
+    vertical-align: top;
+    width: 503px;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.search-input{
+    display: inline-block;
+    width: 470px;
+    height: 34px;
+    outline: none;
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    box-shadow: 0px 1px 2px #ccc;
+    padding: 0 0 0 6px;
+    box-sizing: border-box;
+}
+
+.search-btn{
+    position: absolute;
+    right: 2px;
+    top: 0;
+    width: 37px;
+    height: 34px;
+    background-color: #929ba2;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    vertical-align: top;
+    border:none;
+    cursor: pointer;
+}
+
+.search-btn img{
+    margin-top: 2px;
+}
+
+.list{
+    width: 462px;
+    position: absolute;
+    top:34px;
+    left: 150px;
+    background-color: #fff;
+    border:1px solid #ccc;
+    border-bottom:none;
+}
+
+.search-info {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .poster,
+  .content {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /*搜索显示栏*/
+  .poster {
+    width: 45px;
+    height: 63px;
+    /* background-color: red; */
+  }
+  
+  .poster img {
+    width: 100%;
+  }
+  
+  .content {
+    margin-left: 5px;
+  }
+  
+  .title {
+    color: #27a;
+    font-size: 14px;
+  }
+  
+  .year,
+  .sub-title,
+  .episode {
+    font-size: 12px;
+    color: #9b9b9b;
+  }
+  
+  .title,
+  .sub-title,
+  .episode {
+    margin-bottom: 4px;
+  }
+  
+  .episode {
+    margin-bottom: 0;
+  }

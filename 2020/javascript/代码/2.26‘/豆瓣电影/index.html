@@ -7,7 +7,26 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div class="search">
+        <div class="logo"><a href="#"></a></div>
+        <div class="search-box">
+            <input type="text" class="search-input">
+            <button class="search-btn">
+                <img src="image/search.png" alt="">
+            </button>
+        </div>
+        <div class="search-list">
+            <ul class="list"></ul>
+        </div>
+    </div>
     <script src="./jquery.js"></script>
+    <script src="./data/data-searchRes.js"></script>
+    <script src="./utils/getData.js"></script>
     <script src="index.js"></script>
+    <script>
+        search.init({
+            el:$(".search")
+        });
+    </script>
 </body>
 </html>

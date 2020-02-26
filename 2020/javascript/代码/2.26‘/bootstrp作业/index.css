@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.header{
+    height: 42px;
+    min-height: 42px;
+    width: 1263px;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.w{
+    width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header .w-l{
+    float: left;
+}
+
+.header .w-r{
+    float:right;
+}
+
+.w-l dt,.w-l dd{
+    float: left;
+    padding: 0 15px;
+}
+
+.w-l dt{
+    color:#9d9d9d;
+}
+
+.header .w-l a{
+    color:#9d9d9d;
+    font-size: 14px;
+}
+
+.w-l dl{
+    width: 851px;
+    height: 100%;
+    line-height: 42px;
+    position: relative;
+}
+
+.w-l dl dd a.web::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d9534f;
+}
+
+.w-r a{
+    font-size: 14px;
+    color:#9d9d9d;
+    padding: 13px 15px;
+    display: inline-block;
+}
+
+.header::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.content{
+    width: 1263px;
+    height: 497px;
+    background: linear-gradient(45deg,#020031,#6d3353);
+}
+
+.container{
+    max-width: 100%;
+    height: 279px;
+    padding: 90px 0 110px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+}
+
+.container h1{
+    font-size: 100px;
+}
+
+.container h2{
+    font-size: 30px;
+}
+
+.container h1,.container h2{
+    color:#fff;
+    font-family: Helvetica Neue,Helvetica,Arial,Hiragino Sans GB,Hiragino Sans GB W3,Microsoft YaHei UI,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+
+.container p.btn{
+    margin-top: 50px;
+    
+}
+
+p.btn a{
+    color:#fff;
+    background-color: #337ab7;
+    box-shadow: inset 0 -4px 0 #23527c;
+    padding: 13px 35px 17px;
+    border-radius:6px ;
+    transition:all .2s ease-in-out;
+}
+
+p.btn a:hover{
+    background-color: #23527c;
+}
+
+.container .another-link{
+    color: hsla(0,0%,100%,.5);
+    transition: all .2s ease-in-out;
+    margin-top: 30px;
+    display: block;
+    font-size:14px;
+}
+
+.container .another-link:hover{
+    text-decoration: underline;
+    color:#fff;
+}
+
+/* @media  (min-width:992px){
+    .container{
+        width: 970px;
+    }
+} */
+/* 
+@media  (min-width:768px){
+    .container{
+        width: 750px;
+    }
+} */
