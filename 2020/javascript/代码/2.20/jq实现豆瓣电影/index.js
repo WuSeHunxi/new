@@ -2,6 +2,7 @@ var search={
     $searchInput:'',
     $searchDom:'',
     searchData:[],
+    prevInputText:'',
     init:function(dom){
         this.initData(dom);
         this.handle();
@@ -20,21 +21,27 @@ var search={
     handleInput(){
         var self=this;
         this.$searchInput.on('input',function(e){
-            var searchValue=$(e.target).val();
+            var searchValue=$.trim($(e.target).val());
             // console.log(searchValue);
+            if(searchValue==self.prevInputText){
+                return;
+            }
             getData(searchValue,$.proxy(self.getSearch,self));
+            self.prevInputText=searchValue;
         })
     },
     handleFocus(){
         var self=this;
         this.$searchInput.on('focus',function(){
-            self.$searchDom.css({display:'block'});
+            if(self.searchData.length){
+                self.$searchDom.show();
+            }
         })
     },
     handleBlur(){
         var self=this;
         this.$searchInput.on('blur',function(){
-            self.$searchDom.css({display:'none'});
+            self.$searchDom.hide();
         })
     },
     getSearch(res){

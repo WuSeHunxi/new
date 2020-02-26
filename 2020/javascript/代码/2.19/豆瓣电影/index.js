@@ -50,7 +50,7 @@ var search = {
     this.inputDom.onfocus = function () {
       if (self.searchResList.length) {
         // self.searchListDom.style.display = 'block';
-        $(self.searchListDom).css({display:"block"});
+        $(self.searchListDom).show();
         console.log('xxx');
       }
     }
@@ -59,7 +59,7 @@ var search = {
     var self = this;
     this.inputDom.onblur = function () {
       // self.searchListDom.style.display = 'none';
-      $(self.searchListDom).css({display:"none"});
+      $(self.searchListDom).hide();
     }
   },
   getSearchRes(res) { // 获取搜索结果函数
