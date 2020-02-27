@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box1{
+            position: absolute;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        .box2{
+            position: absolute;
+            left: 300px;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        li{
+            position: relative;
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background-color: #abcdef;
+            margin: 10px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 将第一个盒子里面的内容拖拽到第二个盒子里 -->
+   <div class="box1">
+       <ul>
+           <li></li>
+           <li></li>
+           <li></li>
+       </ul>
+   </div>
+   <div class="box2"></div> 
+   <script>
+       var  dragDom;
+       var liList=document.getElementsByTagName('li');
+       for(var i=0;i<liList.length;i++){
+           liList[i].setAttribute('draggable',true);//可拖拽
+           liList[i].ondragstart=function(e){
+               dragDom=e.target;
+           }
+       }
+       var box2=document.getElementsByClassName("box2")[0];
+       // 阻碍默认事件才能将拖拽的内容放下来
+       box2.ondragover=function(){
+        e.preventDefault();
+       }
+
+       box2.ondrop=function(e){
+            bxo2.appendChild(dragDom);
+            dragDom=null;
+       }
+   </script>
+</body>
+</html>
