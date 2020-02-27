@@ -52,8 +52,8 @@
             // console.log(e);
             var x=e.clientX-beginX;
             var y=e.clientY-beginY;
-            this.style.left=this.offsetLeft+x+"px";
-            this.style.top=this.offsetTop+x+"px";
+            oDragDiv.style.left=oDragDiv.offsetLeft+x+"px";
+            oDragDiv.style.top=oDragDiv.offsetTop+y+"px";
         }
 
         //通过clientX/Y计算移动的距离
