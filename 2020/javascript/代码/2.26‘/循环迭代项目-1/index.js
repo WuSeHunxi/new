@@ -5,6 +5,7 @@ var tableData = [];
 
 // 绑定事件
 function bindEvent() {
+    //事件委托
     $('.menu').on('click', 'dd', function (e) {
         $('.active').removeClass('active');
         $(this).addClass('active');
@@ -78,6 +79,7 @@ function bindEvent() {
 // 格式化表格数据 校验数据是否填写全
 function formatData(dataArr) {
     //将获取到的表单数据封装成一个结果对象，用于判断之后的请求是否成功
+    //校验数据和获取的数据放在一起
     var result = {
         status: 'success',
         data: {},
@@ -94,7 +96,7 @@ function formatData(dataArr) {
     return result;
 }
 
-// 获取学生列表数据
+// 通过分页接口获取学生列表数据
 function getTableData() {
     transferData('/api/student/findByPage', {
         page: nowPage,
@@ -117,6 +119,7 @@ function transferData(url, data, cb) {
         }, data),
         dataType: 'json',
         success: function (res) {
+            console.log(res);
             if (res.status == 'success') {
                 cb(res.data);
             } else {
@@ -151,7 +154,7 @@ function renderDom(data) {
 function renderEditForm(data) {
     var form = $('#student-edit-form')[0];
     for (var prop in data) {
-        if (form[prop]) {
+        if (form[prop]) {//判断表单中是否有这一项
             form[prop].value = data[prop]
         }
     }

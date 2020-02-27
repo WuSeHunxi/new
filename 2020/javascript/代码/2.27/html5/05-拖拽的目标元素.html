@@ -4,8 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .a{
+            width: 100px;
+            height: 100px;
+            background-color: #0ff;
+            position: absolute;
+        }
+        .target{
+            position: absolute;
+            left: 600px;
+            width: 200px;
+            height: 200px;
+            border:1px solid #000;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="a" draggable="true"></div>
+    <div class="target"></div>
+    <!-- 
+        拖拽周期：
+            拖拽开始
+            拖拽进行中
+            拖拽结束 
+        拖拽组成：被拖动物体，目标区域
+
+    -->
+    <script>
+        var oDragDiv=document.getElementsByTagName("div")[0];
+        var beginX=0;
+        var beginY=0;
+
+        //开始移动的事件
+        oDragDiv.ondragstart=function(e){
+          
+        }
+
+        //移动事件
+        oDragDiv.ondrag=function(e){//在移动的一瞬间开始触发的
+
+        }
+
+        //拖拽结束事件
+        oDragDiv.ondragend=function(e){
+         
+        }
+
+
+
+    </script>
 </body>
 </html>
