@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            border: 1px solid #000;
+            width: 342px;
+            height: 341px;
+            margin: 100px auto;
+            padding: 10px 5px;
+        }
+        .top{
+            height: 30px;
+            border-bottom:1px solid #000;
+        }
+        h3{
+            display: inline-block;
+        }
+        .top span{
+            float:right;
+            color:#08f;
+            cursor: pointer;
+        }
+        li{
+            list-style: none;
+        }
+        li {
+            border-bottom:1px solid #ccc;
+            padding: 5px 0;
+        }
+        li .number{
+            width: 20px;
+            height: 20px;
+            background-color: #0bf;
+            color:#fff;
+            text-align: center;
+            line-height: 20px;
+            display: inline-block;
+        }
+        li .mes{
+            float:right;
+            margin-right: 10px;
+        }
+        .clearF{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .showSection .mes::after{
+            content:"";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-size: 100% 100%;
+        }
+        .showSection .mes.up::after{
+            background-image: url('img/up.png');
+            background-position-y: 4px;
+        }
+        .showSection .mes.down::after{
+            background-image: url('img/down.png');
+            background-position-y: 2px;
+        }
+        .tpl {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <h3>搜索热点</h3>
+            <span class="change">换一换</span>
+        </div>
+        <div class="content">
+            <ul class="showSection">
+                <li class="tpl clearF">
+                    <span class="number">1</span>
+                    <span class="title">金星秀停播</span>
+                    <span class="mes">3433</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="serverData.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

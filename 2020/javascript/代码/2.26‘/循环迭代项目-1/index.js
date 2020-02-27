@@ -119,7 +119,6 @@ function transferData(url, data, cb) {
         }, data),
         dataType: 'json',
         success: function (res) {
-            console.log(res);
             if (res.status == 'success') {
                 cb(res.data);
             } else {
