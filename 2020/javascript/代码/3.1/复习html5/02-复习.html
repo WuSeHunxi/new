@@ -34,6 +34,19 @@
             fill:thistle;
             stroke:violet;
         }
+        text{
+            fill:steelblue;
+            stroke:salmon;
+            font-size: 100px;
+            font-weight: 700;
+            stroke-width: 5px;
+        }
+
+        path{
+            stroke:sandybrown;
+            fill: transparent;
+            stroke-width: 11px;
+        }
     </style>
 </head>
 <body>
@@ -47,8 +60,22 @@
 
         <!-- <polyline points="20,20,100,50,60,100"></polyline> -->
 
-        <polygon points="20,20,100,50,60,100"></polygon>
-        
+        <!-- <polygon points="20,20,100,50,60,100"></polygon> -->
+
+        <!-- <text x="200" y="200">hello</text> -->
+
+        <!-- <path d="M 100 100 L 300 200"></path> -->
+        <!-- <path d="M 20 20 L 100 50 L 200 200 H 100 V 100"></path> -->
+        <!-- <path d="M 50 50 A 100 50 90  0 1 150 200"></path> -->
+
+        <defs>
+            <LinearGradient id="bg" x1='0' y1='0' x2='0' y2='100%'>
+                <stop offset='0%' style="stop-color:turquoise"></stop>
+                <stop offset='100%' style="stop-color: violet;"></stop>
+            </LinearGradient>
+        </defs>
+
+        <rect x='100' y='100' width="100" height="50" style='fill:url(#bg)'></rect>
     </svg>
 </body>
 </html>
