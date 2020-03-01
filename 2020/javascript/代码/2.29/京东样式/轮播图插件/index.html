@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item item1">item1</div>
+        <div class="item item2">itm2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+    </div>
+    <script src="./jquery-3.3.1.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        $(".wrapper").swiper({
+            list:$('.item'),
+            type:'animate',
+            isAuto:true,
+            showChangeBtn:true,
+            showSpotBtn:true,
+            autoTime:3000,
+            width:300,
+            height:200,
+            direction:'right'
+        })
+        /*
+            isAuto: true,
+            showChangeBtn: true,
+            showSpotBtn: true,
+            autoTime: 3000,
+            width: 300,
+            height: 250,
+            direction: 'right'
+        */
+    </script>
+</body>
+</html>

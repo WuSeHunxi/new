@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-    <!-- 将第一个盒子里面的内容拖拽到第二个盒子里 -->
+    <!-- 将第一个盒子里面的内容拖拽到第二个盒子里 -->   
    <div class="box1">
        <ul>
            <li></li>
@@ -50,7 +50,7 @@
        for(var i=0;i<liList.length;i++){
            liList[i].setAttribute('draggable',true);//可拖拽
            liList[i].ondragstart=function(e){
-               dragDom=e.target;
+               dragDom=e.target;//拖拽的目标
            }
        }
        var box2=document.getElementsByClassName("box2")[0];
@@ -63,6 +63,18 @@
             bxo2.appendChild(dragDom);
             dragDom=null;
        }
+
+
+
+
+
+       /*
+            补充：拖拽属性
+                拖拽之后鼠标变化：dataTansfer
+                                    e.dataTransfer.effectAllowed='link'(鼠标的样式)--->该属性只能在dragstart里面设置
+                                    e.dataTransfer.dropEffect='link'(鼠标的样式)--->放下的时候的添加该属性
+
+       */
    </script>
 </body>
 </html>

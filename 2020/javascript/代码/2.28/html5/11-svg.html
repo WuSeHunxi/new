@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line1{
+            stroke:black;
+            stroke-width:3px;
+        }
+        .line2{
+            stroke:red;
+        }
+        rect{
+            fill:transparent;
+            stroke:#000;
+        }
+    </style>
+</head>
+<body>
+    <!-- svg和canvas都是画图工具
+        svg是矢量图，适合大面积的贴图，通常情况下动画较少或者较为简单，用标签和css画
+        canvas适合用于小面积的画图，适合动画
+    
+    -->
+
+    <svg width="500px" height="300px" style="border:1px solid #000;">
+        <line x1="100" y1="100" x2="200" y2="100" class="line1"></line>
+        <line x1="200" y1="100" x2="200" y2="200" class="line2"></line>
+        <!--rx ry 在线上是分别在两个方向上画圆角-->
+        <rect height="50" width="100" x="10" y="10" rx="10" ry="10"></rect>
+    </svg>
+
+</body>
+</html>

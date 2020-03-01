@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='can' width="500px" height="300px"></canvas>
+    <script>
+        //白板
+        var canvas=document.getElementById("can");
+        //画笔
+        var ctx=canvas.getContext('2d');
+        //起点
+        ctx.moveTo(100,100);
+        ctx.lineTo(200,100);
+        // ctx.lineTo(200,200);
+        // ctx.closePath();//将之前连续的线闭合(针对一笔，一个路径来说的)
+        ctx.lineWidth=10;//线的粗细
+        //画线
+        ctx.stroke();
+
+
+        //画多笔
+        ctx.beginPath();//重新开启一个路径
+        ctx.lineWidth=5;
+        ctx.moveTo(200,100);
+        ctx.lineTo(200,200);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

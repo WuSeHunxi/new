@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="300px"></canvas>
+    <script>
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+
+        ctx.beginPath();
+        // ctx.arc(100,100,30,0,Math.PI/2,0);//0->顺
+
+        // ctx.moveTo(100,110);
+        // ctx.arcTo(100,200,200,200,10);
+        // ctx.arcTo(200,200,200,100,10);
+        // ctx.arcTo(200,100,100,100,10);
+        // ctx.arcTo(100,100,100,200,10);
+        
+        //quadraticCurveTo
+        var height=300;
+        var width=500;
+        // ctx.moveTo(0,height/2);
+        // ctx.quadraticCurveTo(width/4,height/2+100,width/2,height/2);
+        // ctx.quadraticCurveTo(width/4*3,height/2-100,width,height/2);
+        var offset=0;
+        setInterval(function(){
+            ctx.clearRect(0,0,500,300);
+            ctx.beginPath();
+            ctx.moveTo(0+offset-500,height/2);
+            ctx.quadraticCurveTo(width/4-500+offset,height/2+100,width/2-500+offset,height/2);
+            ctx.quadraticCurveTo(width/4*3-500+offset,height/2-100,width-500+offset,height/2);
+
+            ctx.moveTo(0+offset,height/2);
+            ctx.quadraticCurveTo(width/4+offset,height/2+100,width/2+offset,height/2);
+            ctx.quadraticCurveTo(width/4*3+offset,height/2-100,width+offset,height/2);
+       
+            ctx.stroke();
+            offset+=5;
+            offset%=500;  
+        },20);
+        
+
+    </script>
+</body>
+</html> 

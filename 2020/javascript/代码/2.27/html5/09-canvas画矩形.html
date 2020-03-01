@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='can' width="500px" height="300px"></canvas>
+    <script>
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+        
+        //用线画矩形
+        // ctx.lineWdith=10;
+        // ctx.moveTo(100,100);
+        // ctx.lineTo(300,100);
+        // ctx.lineTo(300,200);
+        // ctx.lineTo(100,200);
+        // ctx.closePath();
+        // ctx.stroke();
+
+
+        //简便方法画矩形
+        ctx.rect(100,100,200,100);//起点(100,100)，长200，宽100
+        ctx.stroke();
+        // ctx.fill();//填充颜色
+        ctx.stroke();
+
+
+        //直接一句话画出矩形
+        ctx.strokeRect(100,100,200,100);
+
+        ctx.fillRect(100,100,200,100);
+
+    </script>
+</body>
+</html>

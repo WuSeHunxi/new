@@ -34,6 +34,7 @@
                 <dt>学生管理</dt>
                 <dd class="active" data-id="student-list">学生列表</dd>
                 <dd data-id="student-add">新增学生</dd>
+                <dd data-id="student-search">查询学生</dd>
              </dl>
              <div class="content">
                 <div id="student-add" class="content-box">
@@ -86,10 +87,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="turn-page">
-                        <button id="prev-btn">上一页</button>
-                        <button id="next-btn">下一页</button>
-                    </div>
+                    <div class="turn-page"></div>                    
                     <div class="modal">
                         <div class="modal-content">
                             <h3>编辑表单</h3>
@@ -115,10 +113,20 @@
                         </div>
                     </div>
                 </div>
+                <div id="student-search" class="content-box">
+                    <input id="search-inp" type="text">
+                    <select id="search">
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                        <option value="-1">所有</option>
+                    </select>
+                    <button id="search-btn">查询</button>
+                </div>
              </div>
          </div>
      </div>
      <script src="./jquery-3.3.1.js"></script>
+     <script src="./page/index.js"></script>
      <script src="./demo.js"></script>
 
 </body>

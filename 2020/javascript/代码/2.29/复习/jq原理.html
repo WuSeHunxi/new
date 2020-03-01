@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../京东样式/jd-prev/jquery-3.3.1.js"></script>
+    <script>
+        var cb=$.Callbacks('memory');
+        function a(){
+            console.log('a');
+        }
+        cb.add(a);
+
+        function b(){
+            console.log('b');
+        }
+        cb.add(b);
+        cb.fire();
+
+
+        var df=$.Deferred();
+
+        // df.resolve(); 
+
+        // df.done(function(){
+        //     console.log('p');
+        // })
+        // df.fail(function(){
+        //     console.log('o');
+        // })
+        // df.progress(function(){
+        //     console.log("oo");
+        // })
+        df.resolve();
+        df.then(function(){
+            var inDf=$.Deferred();
+            inDf.resolve();
+            return inDf;
+        },function(){
+
+        },function(){
+
+        }).then(function(){
+            console.log("oo");
+        })
+
+
+        $.Callbacks=function(){
+            var options=arguments[0]||'';
+            var fired=false;
+            var args=null;
+            var list=[];
+            var i=0;
+            var fire=function(){
+                for(;i<list.length;i++){
+                    //每一个传进来函数可能也含有参数
+                    list[i].apply(window,args);
+                }
+                if(options.indexOf('once')>0){
+                    list=[];
+                }
+            }
+            return {
+                add:function(func){
+                    list.push(func);
+                    if(options.indexOf('memory')!=-1&&fired){
+                        fire();
+                    }                  
+                    return this;
+                },
+                fire:function(){//每一次fire的时候都需要从头执行
+                    i=0;
+                    list=[];
+                    fired=true;
+                    fire();
+                }
+            }
+        }
+ 
+        $.Deferred=function(){
+            var arr=[
+                [jQuery.myCallbacks('once memory'),'done','resolve'],
+                [jQuery.myCallbacks('once memory'),'fail','reject'],
+                [jQuery.myCallbacks('memory'),'progress','notify']
+            ];
+
+            var df={};
+            var pedding=true;
+            for(var i=0;i<arr.length;i++){
+                df[arr[i][1]]=(function(index){
+                    return function(func){
+                        arr[index][0].add(func);
+                    }
+                }(i))
+
+                df[arr[i][2]]=(function(index){
+                    return function(){
+                        var args=arguments;
+                        if(pedding){
+                            arr[index][0].fire.apply(window,args);
+                            arr[index][2]=='resolve'||arr[index][2]=='reject'?pedding=false:'';
+                        }
+                    }
+                }(i))
+            }
+        }
+    </script>
+</body>
+</html>

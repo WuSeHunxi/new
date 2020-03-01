@@ -1,3 +1,4 @@
+//通过分页接口使用到的变量
 var nowPage = 1;
 var pageSize = 10;
 var allPage = 1;
@@ -71,6 +72,26 @@ function bindEvent(){
             $(this).slideUp();
         }
     })
+
+    $('#search-btn').click(function(){
+        var val=$('#search-inp').val();
+        var sex=$('#search').val();
+        if(val){
+            requestData('/api/student/searchStudent',{
+                search:val,
+                sex:sex,
+                page:1,
+                size:7
+            },function(data){
+                tableData=data;
+                console.log(data);
+                renderDom(tableData.searchList);
+                $('.menu dd[data-id="student-list"]').click();
+            })
+        }else{
+            getTableData();
+        }
+    });
 }
 
 bindEvent();
@@ -145,6 +166,11 @@ function renderDom(data){
         </tr>`;
     })
     $('#tbody').html(str);
+    
+    $('.turn-page').page({
+        nowPage:nowPage,
+        allPage:allPage,
+    })
 }
 
 //表单数据回填

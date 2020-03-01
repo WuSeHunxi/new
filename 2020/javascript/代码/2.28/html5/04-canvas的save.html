@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid;
+            position: absolute;
+            left: 200px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='can' width="500px" height="300px"></canvas>
+    <!-- 坐标系的平移和旋转是全局的，无论你是否开启新的路径 -->
+    <script>
+        //save()--->存储当前的坐标平移，缩放以及旋转状态，在beginPath之前添加
+        //restore()--->恢复原来的平移的旋转状态，在beginPath之后添加
+        
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+        ctx.save();//坐标轴没进行变换的时候的最初状态
+        ctx.beginPath();
+        ctx.translate(200,100);
+        ctx.rotate(Math.PI/4);
+        ctx.strokeRect(0,0,100,50);
+
+        ctx.beginPath();
+        ctx.restore();
+        // ctx.translate(100,100);
+        ctx.fillRect(200,0,100,50);
+    </script>
+</body>
+</html>

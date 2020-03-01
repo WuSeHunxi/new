@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box1{
+            position: absolute;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        .box2{
+            position: absolute;
+            left: 300px;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        li{
+            position: relative;
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background-color: #abcdef;
+            margin: 10px auto 0 auto;
+        }        .box1{
+            position: absolute;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        .box2{
+            position: absolute;
+            left: 300px;
+            width: 150px;
+            height:auto;
+            border:1px solid ;
+            padding-bottom: 10px;
+        }
+        li{
+            position: relative;
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background-color: #abcdef;
+            margin: 10px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="box2"></div>
+    <script>
+        var oDrag=document.getElementsByClassName("box1")[0];
+        var oTarget=document.getElementsByClassName("box2")[0];
+        var liList=document.getElementsByTagName("li");
+        var dragDom;
+        for(var i=0;i<liList.length;i++){
+            liList[i].setAttribute("draggable",true);
+            liList[i].ondragstart=function(e){
+                dragDom=e.target;  
+            }
+        }
+        
+        oTarget.ondragover=function(e){
+            e.preventDefault();
+        }
+
+        oTarget.ondrop=function(){
+            oTarget.appendChild(dragDom);
+            dragDom=null;
+        }
+    </script>
+</body>
+</html>

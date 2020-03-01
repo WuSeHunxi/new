@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="500px" height="300px"></canvas>
+    <script>
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(100,100);
+        ctx.strokeRect(0,0,100,50);
+
+        ctx.beginPath();
+        ctx.restore();
+        ctx.strokeRect(0,0,100,50);
+    </script>
+</body>
+</html>

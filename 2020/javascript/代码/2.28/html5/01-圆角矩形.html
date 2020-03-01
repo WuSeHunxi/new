@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='can' width="500px" height="300px"></canvas>
+    <script>
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+        ctx.moveTo(100,110);//将圆角那一部分让出来(10px)
+        //参数 B(x,y)  C(x,y)-->提供的是方向  圆角的大小(10)
+        ctx.arcTo(100,200,200,200,10);
+        ctx.arcTo(200,200,200,100,10);
+        ctx.arcTo(200,100,100,100,10);
+        ctx.arcTo(100,100,100,200,10);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

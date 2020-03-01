@@ -34,20 +34,23 @@
             拖拽结束 
         拖拽组成：被拖动物体，目标区域
 
+        所有的标签元素，当拖拽周期结束时，默认事件是回到原处。
+
+
+        事件是由行为触发的，但是一个行为可以不止触发一个事件
+
+        ondragover 结束之后的下一件事情是：回到原处或者执行drop事件，但是默认都是回到原处，
+
+        事件的责任链模式。A->B->C
+
+
     -->
     <script>
         var oDragDiv=document.getElementsByTagName("div")[0];
-        var beginX=0;
-        var beginY=0;
 
         //开始移动的事件
         oDragDiv.ondragstart=function(e){
           
-        }
-
-        //移动事件
-        oDragDiv.ondrag=function(e){//在移动的一瞬间开始触发的
-
         }
 
         //拖拽结束事件
@@ -55,7 +58,32 @@
          
         }
 
+        var oTarget=document.getElementsByClassName('target')[0];
 
+        /*
+            目标区域的四个事件如下：
+        */
+
+        //该事件不是拖拽的图形触发的，而是鼠标进入才触发的
+        oTarget.ondragenter=function(e){
+
+        }
+
+        //只要鼠标进入就不停的触发
+        oTarget.ondragover=function(e){
+            // console.log(e);
+            e.preventDefault();
+        }
+
+        //
+        oTarget.ondragleave=function(e){
+
+        }
+
+        //ondragover要取消默认事件
+        oTarget.ondrop=function(e){
+
+        }
 
     </script>
 </body>

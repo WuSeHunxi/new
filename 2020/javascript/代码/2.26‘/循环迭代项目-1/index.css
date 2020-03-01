@@ -80,6 +80,10 @@ html, body, .wrapper {
     width: 500px;
     margin: 50px auto;
 }
+
+#student-search{
+    display: none;
+}
 form div label {
     width: 100px;
     display: inline-block;
@@ -169,4 +173,41 @@ table .btn.delete {
     display: none;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+.turn-page {
+    text-align: center;
+}
+.turn-page button {
+    display: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search-part {
+    height: 40px;
+    line-height: 40px;
+}
+
+.search-part #search-inp {
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    border: none;
+    outline: none;
+}
+
+.search-part #search-btn {
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    background-color: #354457;
+    cursor: pointer;
+    color: #fff;
+}
+
+#search-form {
+    display: inline-block;
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        line{
+            stroke: black;
+            stroke-width: 10px;
+            stroke-dasharray: 10px 20px;
+            /*这两个参数是填充区和非填充区，里面的参数是数组，可以填很多个，
+            虚线的每一段就是按照数组的值进行显示的，有几个值虚线的长度就有几个，且循环显示
+            */
+            /* stroke-dasharray: 200px; */
+            /* stroke-dashoffset: 200px; */
+            stroke-dashoffset: 10px;/*将线向左平移*/
+            /* animation: move1 1s linear infinite alternate-reverse; */
+        }
+        /*实现缩回来弹出去的效果*/
+        @keyframes move1 {
+            0%{
+                stroke-dashoffset: 200px;
+            }
+            100%{
+                stroke-dashoffset: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg width="500px" height="300px" style="border:1px solid #000">
+        <line x1="100" y1="100" x2="300" y2="100" class="line1"></line>
+    </svg>
+</body>
+</html>

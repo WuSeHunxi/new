@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='can' width="500px" height="300px"></canvas>
+    <script>
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+        
+        //画弧，画圆
+        //圆心 半径 弧度 方向(顺时针是0，逆时针是1)
+        // ctx.arc(100,100,50,0,Math.PI/2,1);
+        ctx.arc(100,100,50,0,Math.PI*1.8,0);//它的结束点作为(100,100)的起始点
+        
+        ctx.lineTo(100,100);
+        ctx.closePath();
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

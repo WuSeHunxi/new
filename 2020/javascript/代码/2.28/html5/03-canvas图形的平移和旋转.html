@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #000;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="500px" height="300px"></canvas>
+    <script>
+        //canvas的旋转方法是rotate，旋转中心是画布左上角，即为圆点，可以进行平移
+        var canvas=document.getElementById("can");
+        var ctx=canvas.getContext("2d");
+
+        ctx.beginPath();
+        // ctx.translate(100,100);//平移旋转中心
+        // ctx.rotate(Math.PI/6);//旋转60°
+        // ctx.moveTo(0,0);//从原点开始画
+        // ctx.lineTo(100,0);
+        // ctx.stroke();
+
+        ctx.beginPath();
+        ctx.translate(100,50);
+        // ctx.scale(2,1);//x轴上的每一个点都放大了2倍
+        ctx.strokeRect(100,100,100,100);
+        ctx.strokeRect(0,0,100,100);
+    </script>
+</body>
+</html>

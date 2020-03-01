@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        path{
+            stroke: rosybrown;
+            fill:transparent;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500px" height="300px" style="border:1px solid #000;">
+        <!-- <path d="M 100 100 L 200 100  L 200 200"></path> -->
+        <!--大写字母表示绝对位置，小写字母表示相对位置(相对于上一个点)-->
+        <!-- <path d="M 100 100 L 200 100  l 200 100"></path> -->
+
+        <!--H:横着走到200 V:竖着走到200    Z:闭合区间(不区分大小写)-->
+        <!-- <path d="M 100 100 H 200 V 200"></path> -->
+
+        <!--小写表示走了多少距离-->
+        <!-- <path d="M 100 100 h 200 v 200"></path> -->
+
+        <!--长半径：100 短半径：50  0：旋转角度  1：大弧 1：顺时针-->
+        <path d="M 100 100 A 100 50 0 1 1 150 200"></path><!--两个点确定两个圆-->
+
+        <!-- 使用渐变的时候必须定义，定义要写在defs标签里，利用fill:url()进行调用
+            LinearGradient的第二点点在不同的方向上渐变的方向也不同
+        -->
+        <!-- 定义 -->
+        <defs>
+            <!-- 线性渐变 从上到下渐变-->
+            <LinearGradient id="bg1" x1="0" y1="0" x2="0" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(255,255,0)"></stop>
+                <stop offset="100%" style="stop-color:rgb(255,0,0)"></stop>
+            </LinearGradient>
+
+            <!-- 高斯滤镜 stdDeviation="20":模糊值-->
+            <filter id="Gaussian">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="20"></feGaussianBlur>
+            </filter>
+
+        </defs>
+
+        <rect x="100" y="100" height="100" width="200" style="fill:url(#bg1);filter:url(#Gaussian)"></rect>
+
+    </svg>
+</body>
+</html>

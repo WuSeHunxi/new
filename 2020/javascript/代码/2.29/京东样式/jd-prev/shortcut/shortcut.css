@@ -1,0 +1,105 @@
+/* 
+    顶部区域样式
+*/
+.position {
+    float: left;
+}
+.nav {
+    float: right;
+}
+.nav > li {
+    float: left;
+    position: relative;
+}
+.nav > span {
+    float: left;
+    margin: 11px 5px 0;
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+}
+.nav li .dt {
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 1px solid transparent;
+}
+.nav a {
+    color: #999;
+}
+.nav .iconfont {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+}
+.nav li .dt.cw-icon {
+    padding-right: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.dropdown {
+    position: absolute;
+    top: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: none;
+    line-height: 24px;
+    z-index: 9;
+}
+.my-jd .dropdown {
+    width: 280px;
+}
+.my-jd .dropdown dd {
+    width: 126px;
+}
+.dropdown dl {
+    overflow: hidden;
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+.dropdown dl dd {
+    float: left;
+    white-space: nowrap;
+}
+.dropdown dl dt {
+    font-weight: 700;
+}
+a:hover {
+    color: red;
+}
+
+/* .nav li .dt.cw-icon:hover + .dropdown{
+    display: block;
+} */
+.nav li.dt-hover:hover .dropdown{
+    display: block;
+}
+.nav li.dt-hover:hover .dt {
+    background-color: #fff;
+    border-top-color: #ccc;
+    border-left-color: #ccc;
+    border-right-color: #ccc;
+    
+}
+.web-app .dropdown {
+    right: -84px;
+    padding: 15px 0;
+  
+}
+.web-app .dropdown dl {
+    float: left;
+    border-right: 1px solid #ccc;
+    padding-top: 0;
+    padding-left: 20px;
+    border-bottom: none;
+}
+.nav-service .dropdown{
+    right: 0;
+}
+a.red {
+    color: red;
+}
