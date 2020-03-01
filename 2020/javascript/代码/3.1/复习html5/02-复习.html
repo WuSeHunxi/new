@@ -8,11 +8,47 @@
         line{
             stroke:red;
         }
+        .rect{
+            fill:aquamarine;
+            stroke:aqua;
+            stroke-width: 12px;
+            stroke-opacity: 0.5;
+        }
+        circle{
+            fill:blueviolet;
+        }
+        ellipse{
+            fill:burlywood;
+        }
+
+        polyline{
+            fill:transparent;
+            stroke:yellowgreen;
+            stroke-width: 6px;
+            stroke-linecap: round;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 1;
+        }
+
+        polygon{
+            fill:thistle;
+            stroke:violet;
+        }
     </style>
 </head>
 <body>
     <svg style="width:500px;height:300px;border:1px solid #000;">
-        <line x1='100' y1='100' x2='200' y2='400'></line>
+        <!-- <line x1='100' y1='100' x2='200' y2='400'></line> -->
+        <!-- <rect class="rect" x='100' y='50' height="100" width="200" rx='10' ry='30'></rect> -->
+
+        <!-- <circle cx='200' cy='200' r='50' ></circle> -->
+
+        <!-- <ellipse rx="20" ry="40" cx="100" cy="100"></ellipse> -->
+
+        <!-- <polyline points="20,20,100,50,60,100"></polyline> -->
+
+        <polygon points="20,20,100,50,60,100"></polygon>
+        
     </svg>
 </body>
 </html>
