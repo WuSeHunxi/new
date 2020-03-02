@@ -12,9 +12,6 @@ body{
 }
 
 .header{
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 1263px;
     height: 30px;
     background-color: #e3e4e5;
@@ -23,4 +20,10 @@ body{
 .w{
     width: 1190px;
     margin: 0  auto;
+}
+
+.search{
+    height: 1263px;
+    background-color: #fff;
+    height: 140px;
 }

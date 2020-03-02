@@ -1,0 +1,151 @@
+.w{
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    width: 190px;
+    height: 120px;
+    display: inline-block;
+    background-image: url('http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/header/sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    cursor: pointer;
+}
+
+.search-box .search-content{
+    position: absolute;
+    left: 260px;
+    top: 25px;
+}
+
+.search-box .search-content .search-inp{
+    border:2px solid #e2231a;
+    background-color: #fff;
+    width: 546px;
+    height: 32px;
+}
+
+.search-box .search-content #search-inp{
+    display: inline-block;
+    padding: 2px 44px 2px 17px;
+    width: 425px;
+    height: 26px;
+    border: none;
+    outline: none;
+}
+
+.search-content #search-btn{
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 58px;
+    height: 32px;
+    line-height: 32px;
+    border: none;
+    background-color: #e1251b;
+    outline: none;
+    cursor: pointer;
+}
+
+.search-content #search-btn i{
+    color:#fff;
+    font-weight:700;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.search-content .hotwords ul li{
+    float: left;
+    margin-right: 14px;
+    margin-top: 5px;
+}
+
+.search-content .hotwords ul li a{
+    color:#999;
+}
+
+.cart{
+    width: 130px;
+    height: 34px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #e3e4e5;
+    position: absolute;
+    right: 230px;
+    top: 25px;
+}
+
+.cart i.iconfont{
+    margin-right: 13px;
+}
+
+.cart i{
+    color:red;
+}
+
+.cart i.num{
+    position: absolute;
+    top: 1px;
+    left: 29px;
+    font-style: normal;
+    background-color: red;
+    display: inline-block;
+    border-radius: 7px;
+    padding: 1px 3px;
+    line-height: 12px;
+    font-size: 12px; 
+    text-align: center;
+    color:#fff;
+}
+
+.cart span{
+    color:red;
+}
+
+.search-box .search-list{
+    position: absolute;
+    left: 203px;
+    bottom: 0;
+    height: 40px;
+}
+
+.search-list li{
+    float: left;
+}
+
+.search-list li a{
+    margin: 0 11px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size:15px;
+}
+
+.search-list li a.red{
+    font-weight: 700;
+    color:red;
+}
+
+.inp-list{
+    width: 488px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 34px;
+    z-index: 9;
+    display: none;
+    background-color: #fff;
+}
+
+.inp-list li{
+    padding: 8px 6px;
+    color:#999;
+}
+
+.inp-list li :hover{
+    color: red;
+}
