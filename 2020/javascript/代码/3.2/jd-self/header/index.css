@@ -1,0 +1,59 @@
+.h-l{
+    float: left;
+}
+
+.h-l a span{
+    color:#999;
+    line-height: 30px;
+}
+
+.h-r{
+    float:right;
+}
+
+.h-r li{
+    float: left;
+    line-height: 30px;
+    position: relative;
+    height: 30px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.h-r li.icf{
+    padding-right: 20px;
+}
+
+.h-r li a{
+    color:#999;
+}
+
+.h-r li a.red{
+    color:red;
+}
+
+.h-r li a:hover{
+    color:red;
+}
+
+.h-r span{
+    float: left;
+    color:#999;
+    line-height: 30px;
+    margin: 11px 5px 0;
+    height: 10px;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.h-r li i.iconfont{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    font-size:12px;
+    position: absolute;
+    top:10px;
+    right:5px;
+    line-height: 12px;
+    color:#999;
+}
