@@ -6,6 +6,40 @@ var allPage = 1;
 var tableData = [];
 
 function bindEvent(){
+
+    $('.btn').on('click','button',function(e){
+        // console.log($(e.target));
+        if($(e.target).attr('id')=='register'){
+            $('.box').fadeOut();
+            $('.btn-register').fadeIn();
+        }else{
+            var data=formatData($("#login-in").serializeArray());
+            if(data.status=='success'){
+                requestUrl('/api/student/stuLogin','post',data.data,function(res){
+                    alert(res.msg);
+                    $('.mask').fadeOut();
+                })
+            }else{
+                alert(data.msg);
+            }
+        }
+    })
+
+    $('.rbtn').click(function(e){
+        e.preventDefault();
+        var reData=formatData($('.f-register').serializeArray());
+        if(reData.status=='success'){
+            requestUrl('/api/student/stuRegister','post',reData.data,function(res){
+                alert(res.msg);
+                $('.btn-register').fadeOut();
+                $('.box').fadeIn();
+                $('.menu dd[data-id="student-list"]').click();
+            })
+        }else{
+            alert(reData.msg);
+        }       
+    })
+
     $('.menu').on('click','dd',function(e){
         $('.menu dd').removeClass("active")
             .eq($(e.target).index()-1).addClass("active");    
@@ -20,7 +54,7 @@ function bindEvent(){
         var formData=formatData(value);
         if(formData.status=='success'){
             //信息填写成功才能添加
-            requestUrl('/api/student/addStudent',formData.data,function(){
+            requestUrl('/api/student/addStudent','get',formData.data,function(){
                 alert("添加成功");
                 listTableData();
             })
@@ -40,7 +74,7 @@ function bindEvent(){
         var data=tableData[index];
         var isDel=confirm("确定删除吗？");
         if(isDel){
-            requestUrl("/api/student/delBySno",data,function(resData){
+            requestUrl("/api/student/delBySno",'get',data,function(resData){
                 alert(resData.msg);
                 listTableData();
             })
@@ -52,7 +86,7 @@ function bindEvent(){
         var data=formatData($('#student-edit-form').serializeArray());
         // console.log(data);
         if(data.status=='success'){
-            requestUrl("/api/student/updateStudent",data.data,function(res){
+            requestUrl("/api/student/updateStudent",'get',data.data,function(res){
                 alert(res.msg);
                 $('.modal').slideUp();
                 listTableData();
@@ -92,10 +126,10 @@ function formatData(dataArr){
     return result;
 }
 
-function requestUrl(url,data,cb){
+function requestUrl(url,type,data,cb){
     $.ajax({
         url:'http://open.duyiedu.com'+url,
-        type:'get',
+        type:type,
         data:$.extend({
             appkey:'77521ily__1571400791988'
         },data),
@@ -112,7 +146,7 @@ function requestUrl(url,data,cb){
 
 //获取所有的数据
 function listTableData(){
-    requestUrl('/api/student/findByPage',{
+    requestUrl('/api/student/findByPage','get',{
         page:nowPage,
         size:pageSize
     },function(res){
