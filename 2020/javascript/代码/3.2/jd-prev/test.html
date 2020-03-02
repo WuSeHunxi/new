@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a(res) {
+            console.log(res)
+        }
+    </script>
+    <script src="http://127.0.0.1:5500/test.txt?callback=a">
+    </script>
+
+    <!-- 
+        jsonp 的原理：
+            动态创建script 标签 把请求地址放在src 属性上
+            （script标签的src是不受同源策略的限制的）
+            要求后台将数据包裹一层
+     -->
+</body>
+</html>
