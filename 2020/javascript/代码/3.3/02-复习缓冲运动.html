@@ -5,21 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .dom{
             width: 200px;
             height: 200px;
             background-color: #0ff;
+            position: absolute;
+        }
+
+        .target{
+            position: absolute;
+            left: 500px;
+            border-right:1px solid #000;
+            top: 0;
+            height: 200px;
+            width: 1px;
         }
     </style>
 </head>
 <body>
-    <div></div>
+    <div class="dom"></div>
+    <div class="target"></div>
     <script>
-        function move(dom,target){
 
+        //缓冲的效果是先快后慢
+        function move(dom,target){
+            var timer=null, 
+                isSpeed=null;
+            timer=setInterval(function(){
+                isSpeed=(target-dom.offsetLeft)/7;
+                isSpeed=isSpeed>0?Math.ceil(isSpeed):Math.floor(isSpeed);
+                dom.style.left=dom.offsetLeft+isSpeed+"px";
+                if(isSpeed+dom.offsetLeft>=target){
+                    clearInterval(timer);
+                }
+            },200);
         }
 
-        move();
+        move(document.getElementsByTagName('div')[0],500);
     </script>
 </body>
 </html>
