@@ -109,23 +109,30 @@ function bindEvent(){
         }
     })
 
-    // $('#search-inp').on('input',function(){
-        
-    // })
+    $('#search-inp').on('input',function(){
+        if(!($(this)).val()){
+            listTableData();
+        }
+    })
 
     $('#search-btn').on('click',function(){
         var sex=$('#search-form input').val();
         var val=$('#search-inp').val();
         console.log(sex,val);
-        requestUrl('/api/student/searchStudent',{
-            search:val,
-            sex:sex,
-            page:1,
-            size:10
-        },function(res){
-            var tableData=res.data.searchList;
-            renderDom(tableData);
-        })
+        if(!($('#search-inp').val())){
+            listTableData();
+        }else{
+            requestUrl('/api/student/searchStudent','get',{
+                search:val,
+                sex:sex,
+                page:1,
+                size:10
+            },function(res){
+                var tableData=res.data.searchList;
+                // console.log(tableData);
+                renderDom(tableData);
+            })
+        }
     })
 }
 
@@ -178,7 +185,7 @@ function listTableData(){
     },function(res){
         tableData=res.data.findByPage;
         renderDom(tableData);
-        // console.log(tableData);
+        console.log(tableData);
     })
 }
 
