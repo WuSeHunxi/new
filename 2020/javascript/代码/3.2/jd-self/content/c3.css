@@ -1,0 +1,282 @@
+.content-wrapper{
+    background-color: #fff;
+    width: 100%;
+    height: 470px;
+    margin-top: 10px;
+}
+
+.content-wrapper .user{
+    height: 102px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.content-wrapper .user .user-inner .inner-logo{
+    width: 44px;
+    height: 44px;  
+    position: absolute;
+    left: 20px;
+    top: 13px;
+}
+
+.user .user-inner .inner-logo a{
+    display: inline-block;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    width: 100%;
+    height: 100%;
+}
+
+.user .user-inner .inner-logo a img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-inner .inner-text{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    text-align: left;
+}
+
+.user-inner .inner-text a{
+    color:#666;
+}
+
+.user .user-btn{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    bottom: 5px;
+}
+
+.user .user-btn .btn-new,
+.user .user-btn .btn-plus{
+    display: inline-block;
+    margin: 0 5px;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 13px;
+}
+
+.user .user-btn .btn-new{
+    background-color: #e1251b;
+    color:#fff;
+}
+
+.user .user-btn .btn-new:hover{
+    background-color: darkred;
+}
+
+.user .user-btn .btn-plus{
+    background: #363634;
+    color: #e5d790;
+}
+
+.user .user-btn .btn-plus:hover{
+    color:#fff;
+}
+
+.user::after{
+    content:"";
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(270deg,white,#eeeeee,#eeeeee,white);
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.news .news-head{
+    padding: 10px 0 0;
+    margin-bottom: 8px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.news .news-head h5{
+    display: inline-block;
+    color: #333;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.news .news-head a{
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    margin-left: 60px;
+}
+
+.news .news-content{
+    height: 88px;
+    margin: 0 15px;
+}
+
+.news .news-content span{
+    color:red;
+    background-color: rgba(225,37,27,.08);
+    padding: 0 4px;
+    margin-right: 8px;
+}
+
+.news .news-content li a{
+    color:#666;
+}
+
+.news .news-content li:hover a{
+    color:red;
+}
+
+.news .news-content li {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
+.service .service-entry{
+    padding: 10px 0.5px;
+}
+
+.service-entry .entry-menu{
+    height: 225px;
+    padding-top: 5px;
+}
+
+.entry-menu li{
+    float: left;
+    width: 63px;
+    height: 55px;
+    text-align: center;
+    position: relative;
+}
+
+.entry-menu li a{
+    color:#666;
+    display: inline-block;
+}
+
+.entry-menu li a i.iconfont{
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+}
+
+.entry-menu li a i img{
+    width: 100%;
+    height: 100%;
+}
+
+.entry-menu li:hover span{
+    color:red;
+}
+
+.service .huafei .hua-content{
+    height: 146px;
+    position: relative;
+    font-family: 'Microsoft Yahei';
+}
+
+.service .huafei .hua-content .hc{
+    width: 160px;
+    color:#666;
+}
+
+.service-pop{
+    position: absolute;
+    background-color: #fff;
+    z-index: 3;
+    top: 258px;
+    height: 206px;
+    width: 190px;
+}
+
+.service-pop .huafei{
+    width: 159px;
+    height: 206px;
+    padding: 0 15px;
+    position: relative;
+}
+
+.service-pop .huafei .hua-list{
+    padding-top: 10px;
+    height: 21px;
+}
+
+.service-pop .huafei .hua-list li{
+    float: left;
+    width: 53px;
+}
+
+.service-pop .huafei .hua-list li .red{
+    color:red;
+}
+
+.service-pop .huafei .hua-list li a:hover{
+    color:red;
+}
+
+.service .huafei .hua-content .hc{
+    color:#666;
+    overflow: hidden;
+}
+
+.hc .inp{
+    overflow: hidden;
+}
+
+.hc .bottom{
+    margin-top: 8px;
+    /* overflow: hidden; */
+}
+
+.hc div.inp span{
+    width: 34px;
+    color:#666;
+}
+
+.hc div.inp span{
+    float: left;
+}
+
+.hc div.inp input{
+    float: left;
+    width: 118px;
+    height: 20px;
+    border:1px solid #ccc;
+    padding-left: 4px;
+}
+
+.hc p.money{
+    color: #e40015;
+    margin-top: 5px;
+}
+
+.hc .quic-btn{
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    background: #e40015;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    border: 0px;
+    border-radius: 10px;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+.hc .increase a{
+    color:#5476db;
+    height: 20px;
+    line-height: 20px;
+    white-space: nowrap;
+}
