@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root{
+            width: 100%;
+            height:3000px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
         div{
             width: 200px;
             height: 200px;
             background-color: #0ff;
-            position: absolute;
+            position: fixed;
             left:calc(50% - 100px);
             top:calc(50% - 100px);
         }
@@ -17,5 +25,18 @@
 </head>
 <body>
     <div></div>
+    <script src="./jquery-3.3.1.js"></script>
+    <script>
+        console.log( $(document));
+        $(document).on('scroll',function(){
+            var yTop=$('div').offset().top;
+            var sTop=$(window).scrollTop();
+            console.log(sTop);
+            $('div').css({
+                top:sTop+yTop
+            })
+            // console.log($('div').offset().top);
+        })
+    </script>
 </body>
 </html>
