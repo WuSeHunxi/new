@@ -7,38 +7,45 @@ var tableData = [];
 
 function bindEvent(){
 
-    $('.btn').on('click','button',function(e){
-        // console.log($(e.target));
-        if($(e.target).attr('id')=='register'){
-            $('.box').fadeOut();
-            $('.btn-register').fadeIn();
-        }else{
-            var data=formatData($("#login-in").serializeArray());
-            if(data.status=='success'){
-                requestUrl('/api/student/stuLogin','post',data.data,function(res){
-                    alert(res.msg);
-                    $('.mask').fadeOut();
-                })
-            }else{
-                alert(data.msg);
-            }
-        }
-    })
+    // $('.btn').on('click','button',function(e){
+    //     // console.log($(e.target));
+    //     if($(e.target).attr('id')=='register'){
+    //         $('.box').fadeOut();
+    //         $('.btn-register').fadeIn();
+    //     }else{
+    //         var data=formatData($("#login-in").serializeArray());
+    //         if(data.status=='success'){
+    //             requestUrl('/api/student/stuLogin','post',data.data,function(res){
+    //                 alert(res.msg);
+    //                 $('.mask').fadeOut();
+    //             })
+    //         }
+    //     }
+    // })
 
-    $('.rbtn').click(function(e){
-        e.preventDefault();
-        var reData=formatData($('.f-register').serializeArray());
-        if(reData.status=='success'){
-            requestUrl('/api/student/stuRegister','post',reData.data,function(res){
-                alert(res.msg);
-                $('.btn-register').fadeOut();
-                $('.box').fadeIn();
-                $('.menu dd[data-id="student-list"]').click();
-            })
-        }else{
-            alert(reData.msg);
-        }       
-    })
+    // $('.rbtn').click(function(e){
+    //     e.preventDefault();
+    //     var reData=formatData($('.f-register').serializeArray());
+    //     if(reData.status=='success'){
+    //         requestUrl('/api/student/stuRegister','post',reData.data,function(res){
+    //             alert(res.msg);
+    //             $('.btn-register').fadeOut();
+    //             $('.box').fadeIn();
+    //             // $('.menu dd[data-id="student-list"]').click();
+    //             var data=formatData($("#login-in").serializeArray());
+    //             if(data.status=='success'){
+    //                 requestUrl('/api/student/stuLogin','post',data.data,function(res){
+    //                     alert(res.msg);
+    //                     $('.mask').fadeOut();
+    //                 })
+    //             }else{
+    //                 alert(data.msg);
+    //             }
+    //         })
+    //     }else{
+    //         alert(reData.msg);
+    //     }       
+    // })
 
     $('.menu').on('click','dd',function(e){
         $('.menu dd').removeClass("active")
@@ -100,6 +107,25 @@ function bindEvent(){
         if(this==e.target){
             $('.modal').slideUp();
         }
+    })
+
+    // $('#search-inp').on('input',function(){
+        
+    // })
+
+    $('#search-btn').on('click',function(){
+        var sex=$('#search-form input').val();
+        var val=$('#search-inp').val();
+        console.log(sex,val);
+        requestUrl('/api/student/searchStudent',{
+            search:val,
+            sex:sex,
+            page:1,
+            size:10
+        },function(res){
+            var tableData=res.data.searchList;
+            renderDom(tableData);
+        })
     })
 }
 
