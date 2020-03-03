@@ -30,12 +30,20 @@
             //获取从i开始的字符串--->可在字符串中抽取从 start 下标开始的指定数目的字符。
             var str = url.search.substr(1);//url.search的结果为"?ie=utf-8&f=8"
             params = str.split("&");
-            params.reduce(function (pre, cur) {
-                var items = cur.split('=')
-                pre[items[0]] = items[1]
-                return pre
-            }, result.search)
-            console.log(result)
+            console.log(params);
+
+            params.forEach(function(item,index){
+                var str=item.split('=');             
+                result.search[str[0]]=str[1];
+            })
+            console.log(result);
+            // params.reduce(function (pre, cur) {
+            //     var items = cur.split('=')
+            //     pre[items[0]] = items[1]
+            //     console.log(pre+"  "+cur);
+            //     return pre
+            // }, result.search)
+            // console.log(result)
         }
         urlToObj()
 
@@ -47,12 +55,15 @@
                 path: url.pathname,
                 search:{}
             }
-            for (param of url.searchParams) {
+            // console.log(url.searchParams)
+            for (param of url.searchParams) {//必须要直到url有这个属性才能使用。
+                // console.log(param);
+                //把它变成对象的形式
                 result.search[param[0]] = param[1]
             }
             console.log(result)
         }
-        urlToObj2()
+        // urlToObj2()
 
     </script>
     </body>
