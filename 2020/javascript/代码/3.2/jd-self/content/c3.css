@@ -3,6 +3,7 @@
     width: 100%;
     height: 470px;
     margin-top: 10px;
+    overflow: hidden;
 }
 
 .content-wrapper .user{
@@ -141,8 +142,14 @@
     margin-bottom: 8px;
 }
 
+.service{
+    overflow: hidden;
+    height: 230 px;
+}
+
 .service .service-entry{
     padding: 10px 0.5px;
+    z-index: 4;
 }
 
 .service-entry .entry-menu{
@@ -194,7 +201,7 @@
     position: absolute;
     background-color: #fff;
     z-index: 3;
-    top: 258px;
+    top:470px;
     height: 206px;
     width: 190px;
 }
@@ -209,6 +216,7 @@
 .service-pop .huafei .hua-list{
     padding-top: 10px;
     height: 21px;
+    margin-bottom: 4px;
 }
 
 .service-pop .huafei .hua-list li{
@@ -241,10 +249,8 @@
 .hc div.inp span{
     width: 34px;
     color:#666;
-}
-
-.hc div.inp span{
     float: left;
+    margin-top: 2px;
 }
 
 .hc div.inp input{
@@ -279,4 +285,27 @@
     height: 20px;
     line-height: 20px;
     white-space: nowrap;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.service-pop .close{
+    display: inline-block;
+    cursor: pointer;
+    background-color: #fefefe;
+    position: absolute;
+    bottom: -5px;
+    left: 85px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    font-size: 16px;
+    color:#666;
+    font-weight:lighter;
+}
+
+.service-pop::after:hover{
+    background-color: red;;
 }

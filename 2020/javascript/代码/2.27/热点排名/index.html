@@ -28,12 +28,14 @@
             color:#08f;
             cursor: pointer;
         }
-        li{
-            list-style: none;
-        }
-        li {
+        .showSection li {
             border-bottom:1px solid #ccc;
             padding: 5px 0;
+            height: 20px;
+            width: 100%;
+            /* background-color: #000; */
+            list-style: none;
+            position: relative;
         }
         li .number{
             width: 20px;
@@ -45,13 +47,22 @@
             display: inline-block;
         }
         li .mes{
-            float:right;
-            margin-right: 10px;
+             /* float:right; */
+           position: absolute;
+           right: 15px;
+           color:#000;
+           display: inline-block;
+           /* background-color: #000; */
         }
         .clearF{
             content:'';
             display: block;
             clear: both;
+        }
+        .showSection{
+            width: 324px;
+            height: 310px;
+            overflow: hidden;
         }
         .showSection .mes::after{
             content:"";
@@ -68,9 +79,6 @@
             background-image: url('img/down.png');
             background-position-y: 2px;
         }
-        .tpl {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -81,16 +89,16 @@
         </div>
         <div class="content">
             <ul class="showSection">
-                <li class="tpl clearF">
+                <!-- <li class="tpl clearF">
                     <span class="number">1</span>
                     <span class="title">金星秀停播</span>
                     <span class="mes">3433</span>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
     <script src="jquery.min.js"></script>
     <script src="serverData.js"></script>
-    <script src="./index.js"></script>
+    <script src="./demo.js"></script>
 </body>
 </html>
