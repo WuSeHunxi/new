@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <canvas id='can' width="500px" height="300px"></canvas>
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <canvas id='can' width="500px" height="300px" style="border:1px
+            solid#000;"></canvas>
+        <script>
         var canvas=document.getElementById("can");
         var ctx=canvas.getContext("2d");
         
         //画弧，画圆
         //圆心 半径 弧度 方向(顺时针是0，逆时针是1)
         // ctx.arc(100,100,50,0,Math.PI/2,1);
-        ctx.arc(100,100,50,0,Math.PI*1.8,0);//它的结束点作为(100,100)的起始点
-        
-        ctx.lineTo(100,100);
-        ctx.closePath();
-        ctx.stroke();
+        // ctx.arc(100,100,50,0,Math.PI*1.8,0);//它的结束点作为(100,100)的起始点
+        var height=0;
+        var timer=null,timer2=null;
+        var offset=0;
 
+        function luoxia(){
+            timer=setInterval(function(){
+                ctx.clearRect(0,0,155,300);
+                ctx.beginPath();
+                ctx.strokeRect(50,height,50,50);
+                height=height+5;
+                if(height==250){
+                    clearInterval(timer);
+                    jump(luoxia);   
+                    offset=0;      
+                }
+            },100);
+        }
+
+        function jump(cb){
+            timer2=setInterval(function(){
+                ctx.clearRect(0,0,155,300)
+                // ctx.beginPath();
+                ctx.strokeRect(50,height-offset,50,50);
+                offset+=5;
+                if(offset==250){
+                    clearInterval(timer2);
+                    height=0;
+                    luoxia();
+                }
+            },100);
+        }
+        
+        luoxia();
     </script>
-</body>
+    </body>
 </html>

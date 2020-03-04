@@ -13,6 +13,15 @@
             top: 0;
             background-color: #f0f;
         }
+        .target{
+            width: 300px;
+            height: 200px;
+            padding: 10px 8px;
+            border:1px solid #000;
+            position: absolute;
+            top: 20px;
+            left: 300px;
+        }
     </style>
 </head>
 <body>
@@ -21,23 +30,32 @@
 
     <!-- drag属性 -->
     <div class="drag" draggable="true"></div>
+    <div class="target"></div>
     <script>
 
         var oDrag=document.getElementsByClassName("drag")[0];
         var x=0,y=0;
+        var dom=null;
 
         oDrag.ondragstart=function(e){
-            x=e.clientX;
-            y=e.clientY;
-        }
-
-        oDrag.ondrag=function(){
-
+            // x=e.clientX;
+            // y=e.clientY;
+            dom=this;
         }
 
         oDrag.ondragend=function(e){
-            this.style.left=e.clientX-x+this.offsetLeft+"px";
-            this.style.top=e.clientY-y+this.offsetTop+'px';
+            // this.style.left=e.clientX-x+this.offsetLeft+"px";
+            // this.style.top=e.clientY-y+this.offsetTop+'px';
+        }
+
+        var oTarget=document.getElementsByClassName("target")[0];
+
+        oTarget.ondragover=function(e){
+            e.preventDefault();
+        }
+
+        oTarget.ondrop=function(e){
+            this.appendChild(dom);
         }
     </script>
 </body>
