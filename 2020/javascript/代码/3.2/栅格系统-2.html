@@ -186,24 +186,32 @@
 			3.x的版本使用的是.col-{breakpoint}-push-* .col-{breakpoint}-pull-*来排序
 		 -->
 		<div class="row mt-5">
+			<!-- 显示的位置发生变化 -->
 			<div class="col">第1列</div>
+			<!-- 把第二列放在第5列的位置 -->
 			<div class="col order-5">第2列</div>
 			<div class="col order-6">第3列</div>
 		</div>
 		<div class="row mt-5">
 			<div class="col">第1列</div>
+			<!-- 加上响应层，只有当屏幕的尺寸>1200的时候，才会进行排序 -->
 			<div class="col order-xl-5">第2列</div>	<!-- 只有当屏幕尺寸>=1200的时候，才会进行排序 -->
 			<div class="col order-xl-2">第3列</div>
 		</div>
 		<div class="row mt-5">
 			<div class="col">第1列</div>
+			<!-- 第一名和最后一名 
+				在3.x的版本中使用的是.col-{breakpoint}-push/pull进行排序
+			-->
 			<div class="col order-first">第2列</div>	<!-- order-first代表排在第1位，order-last代表排在最后一位 -->
 			<div class="col order-last">第3列</div>
 			<div class="col">第4列</div>
 		</div>
 
 
-		<!-- 列偏移，使用offset-{breakpoint}-* -->
+		<!-- 列偏移，使用offset-{breakpoint}-* 
+			便宜一个格子，后面的格子也会随之偏移
+		-->
 		<div class="row mt-5">
 			<div class="col-md-4">第1列</div>
 			<div class="col-md-4 offset-md-4">往右偏移4列</div>
