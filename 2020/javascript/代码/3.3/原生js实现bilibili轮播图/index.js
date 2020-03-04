@@ -18,7 +18,7 @@ var banner = {
     this.oActiveIndex = this.el.getElementsByClassName('index active')[0];  // 获取点击态的active元素
   },
   startMove() {
-    // 开始运动
+    // 开始运动--->自动轮播
     this.timer = setTimeout(this.autoMove.bind(this), 1500)
   },
   autoMove: function () {
