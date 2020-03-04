@@ -12,7 +12,8 @@
         <span>hello</span>
     </div><!--可修改内容，没有兼容性问题，而且该属性还可以继承，也可以覆盖-->
 
-    <div contenteditable='true'><!--如果他的子元素的contenteditable=false，那么子元素里面的内容确实删除不了，但是能够把子元素整个删除-->
+    <div contenteditable='true'>
+        <!--如果他的子元素的contenteditable=false，那么子元素里面的内容确实修改不了，但是能够把子元素整个删除-->
         <span contenteditable='false'>姓名</span>hello
         <br>
         <span contenteditable='false'>性别</span>男
