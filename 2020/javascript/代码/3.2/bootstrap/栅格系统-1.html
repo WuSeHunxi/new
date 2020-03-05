@@ -19,8 +19,8 @@
 
 <body>
 	<div class="container-fluid"><!--相对于屏幕的宽度来说-->
-		<div class="row">
-			<div class="col-xl-1">第1列</div>
+			<!-- 一行最多12列 xl后面的数字代表的是占了几列 -->
+			<!-- <div class="col-xl-1">第1列</div>
 			<div class="col-xl-1">第2列</div>
 			<div class="col-xl-1">第3列</div>
 			<div class="col-xl-1">第4列</div>
@@ -52,8 +52,13 @@
 		</div>
 		<div class="row">
 			<div class="col-xl-15">占15列</div>
+		</div> -->
+		<div class="row">
+			<!-- 只要满足中屏及其以上的条件,就可以在一行上正常显示 -->
+			<div class="col-md-2"></div>
+			<div class="col-md-7"></div>
+			<div class="col-md-3"></div>
 		</div>
-	</div>
 </body>
 
 </html>

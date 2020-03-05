@@ -56,9 +56,11 @@ body{
 .seckill{
     height: 260px;
     bottom: 20px;
+    margin-top: 20px;
 }
 
 .seckill .kill-pic{
+    float: left;
     width: 190px;
     height: 100%;
     background-color: #e83632;
@@ -66,4 +68,14 @@ body{
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
+    margin-right: 20px;
 }
+
+.seckill .kill-swiper{
+    width: 610px;
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+}
+
