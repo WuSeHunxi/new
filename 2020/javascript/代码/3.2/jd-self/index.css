@@ -37,13 +37,11 @@ body{
 .c1{
     height: 100%;
     width: 190px;
-    background-color: #0ff;
     float: left;
     margin-right: 10px;
 }
 
 .c2{
-    background-color: #ff0;
     width: 790px;
     height: 100%;
     float: left;
@@ -53,7 +51,6 @@ body{
     height: 100%;
     width: 190px;
     float:right;
-    background-color: #0f0;
 }
 
 .seckill{
