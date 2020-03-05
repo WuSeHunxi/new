@@ -1,0 +1,66 @@
+a.pic-cutdown{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pic-cutdown .title{
+    font-size:30px;
+    font-weight: 700;
+    margin-top: 31px;
+    text-align: center;
+    color:#fff;
+}
+
+.pic-cutdown .cutdown-desc{
+    margin-top: 90px;
+    font-size: 14px;
+    color:#fff;
+    text-align: center;
+   
+}
+
+.pic-cutdown .cutdown-desc span{
+    color:#fff;
+    font-weight: 700;
+    font-size:19px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.pic-cutdown .cutdown-timmer{
+    margin-top: 10px;
+    display: inline-block;
+    /* width: 130px; */
+    margin-left: 35px;
+    height: 30px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.pic-cutdown .cutdown-timmer .time{
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    background-color: #2f3430;
+    margin-right: 13px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+.pic-cutdown .cutdown-timmer .hour::after,
+.pic-cutdown .cutdown-timmer .minute::after{
+    content:":";
+    display: inline-block;
+    color:#fff;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    font-weight: bolder;
+    text-align: center;
+}
