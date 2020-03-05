@@ -28,7 +28,7 @@
                 cityStr+=`<li>${item[1]}</li>`;
             })
             console.log(cityStr)
-            $('ul.city').html(cityArr);
+            $('ul.city').html(cityStr);
             $('#selectName').html($(this).html());
         })
 

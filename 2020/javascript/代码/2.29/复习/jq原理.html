@@ -48,8 +48,9 @@
         })
 
 
+        //$.Callbacks是一个对象，并且含有两个方法
         $.Callbacks=function(){
-            var options=arguments[0]||'';
+            var options=arguments[0]||'';//不确定是否传参数
             var fired=false;
             var args=null;
             var list=[];
@@ -88,14 +89,17 @@
             ];
 
             var df={};
-            var pedding=true;
+            var pedding=true;//用来标记是谁执行(resolve  reject?)
+
             for(var i=0;i<arr.length;i++){
+                //第二个参数是函数
                 df[arr[i][1]]=(function(index){
                     return function(func){
                         arr[index][0].add(func);
                     }
                 }(i))
 
+                //第三个参数是执行
                 df[arr[i][2]]=(function(index){
                     return function(){
                         var args=arguments;

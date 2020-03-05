@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 默认的margin-top都设置为0，margin-bottom设置了不同的值 -->
+    
+    
+    <pre>
+        &lt;html&gt;
+    </pre><!--特定格式的文本-->
+
+    <table>
+        <caption>课程表</caption>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+
+
+    <form>
+        <fieldset>
+            <legend>标题</legend>
+            <p><label for="">用户名</label><input type="text"></p>
+        </fieldset>
+    </form>
+
+
+    <p class="h1">h1</p>
+    <p class="h2">h2</p>
+    <p class="h3">h3</p>
+    <p class="h4">h4</p>
+    <p class="h5">h5</p>
+    <p class="h6">h6</p>
+
+    <!-- 超大标题 -->
+    <h1 class="display-1">hello</h1>
+
+
+    <!-- 引言 -->
+    <p class="lead">我们的祖国是花园</p>
+    <p>我们的祖国是花园</p>
+    
+    <!-- 内联文本 -->
+    <p>我们的祖国是<mask>花园</mask></p>
+    <p><del>hello</del>,<ins>world</ins></p>
+    <p><strong>加粗文本</strong></p>
+    <!-- 用类名代替mask和small标签 -->
+    <p><span class="mask">hello world</span><span class="small">small</span></p>
+
+    <!-- 缩写,title里面是全称，.initialism可以让字体变得小一点 -->
+    <p><abbr title="attribute">attr</abbr></p>
+
+    <!-- 引用与署名 -->
+    <blockquote>
+        <p>我们的祖国是花园</p><!--放入引用的内容-->
+        <footer class="blockquote-footer">来自祖国之歌</footer><!--署名-->
+    </blockquote>
+
+    <!-- 对齐 -->
+    <p class='text-left'>我们的祖国是画圆</p>
+    <p class='text-center'>我们的祖国是画圆</p>
+    <p class='text-right'>我们的祖国是画圆</p>
+
+    <hr>
+
+    <!-- 无特效列表 -->
+    <ul class="list-unstyled"><!--无法对嵌套的内容生效-->
+        <li>red</li>
+        <li> 
+            <ul class="list-unstyled">
+                <li></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- 在一行显示 -->
+    <ul class="list-inline">
+        <li class="list-inline-item">red</li>
+        <li class="list-inline-item">green</li>
+        <li class="list-inline-item">blue</li>
+    </ul>
+
+    <div class="container-fluid">
+        <dl class="row">
+            <!-- 左右显示的结构 text-truncate超出的内容省略，在3.x的版本中使用的是text-overflow-->
+            <dt class="col-sm-3 text-truncate">矮，爱的没谁了，爱死了</dt>
+            <dd class="col-sm-9">hahaahahahhahahahahhahahahahqwudwq蝴蝶谷担保担保</dd>
+        </dl>
+    </div>
+
+    <p>这是一个标签<code>&lt;section&gt;</code></p>
+    <!-- 有一个固定高度，超过之后就会出现滚动条 -->
+    <pre class="pre-scrollable"></pre>
+    <!-- 变量 -->
+    <var>x</var>
+    <!-- 按钮：功能键 -->
+    <p>像保存的话，按下<kbd>ctrl+s</kbd></p>
+</body>
+</html>
