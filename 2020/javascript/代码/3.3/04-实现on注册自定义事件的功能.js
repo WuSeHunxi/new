@@ -7,7 +7,7 @@ $('div').on('read',function(){
 jQuery.prototype.on = function (type, handle) {//type-->自定义的事件类型 handle-->事件处理函数
     for (var i = 0; i < this.length; i++) {
         if (!this[i].cacheEvent) {
-            this[i].cacheEvent = {};//type:handle
+            this[i].cacheEvent = {};//type:handle，该对象的名称就叫cacheEvent
         }
         if (!this[i].cacheEvent[type]) {                        
             this[i].cacheEvent[type] = [handle];//属性=值
@@ -23,10 +23,11 @@ jQuery.prototype.trigger = function (type) {
     var params = arguments.length > 1 ? [].slice.call(arguments, 1) : [];
     var self = this;
     for (var i = 0; i < this.length; i++) {
-        if( this[i].cacheEvent[type] ) {                        
+        if( this[i].cacheEvent[type] ) {                      
+            //循环遍历事件函数  
             this[i].cacheEvent[type].forEach(function (ele, index) {
                 //事件函数里面的this谁调用的就是谁
-                ele.apply(self, params);
+                ele.apply(self, params);//$('div').trigger('read',[1,2,3,4]);
             }); 
         }
     }

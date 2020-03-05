@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        line{
+            stroke: aquamarine;
+            stroke-width: 8px;
+            stroke-linecap: round;
+        }
+        rect{
+            fill:blueviolet;
+
+        }
+
+        polyline{
+            fill:transparent;
+            stroke:yellowgreen;
+            stroke-width: 5px;
+        }
+
+        polygon{
+            fill:transparent;
+            stroke:turquoise;
+        }
+
+        path{
+            stroke:turquoise;
+            stroke-width: 4px;
+        }
+    </style>
+</head>
+<body>
+    <svg style="width: 500px;height:300px;border:1px solid #000;">
+
+        <!-- <line x1="100" y1="100" x2="200" y2="100"></line> -->
+
+        <!-- <rect x='100' y='100' height="100" width="200"></rect> -->
+
+        <!-- <polyline points="20,20,30,40,100,50"></polyline> -->
+
+        <!-- <polygon points="300,200,100,200,50,60"></polygon> -->
+
+        <!-- <defs>
+            <linearGradient id="bg" x1='0' y1='0' x2='100%' y2="100%">
+                <stop offset='0' style="stop-color:turquoise"></stop>
+                <stop offset='1' style='stop-color:thistle'></stop>
+            </linearGradient>
+        </defs>
+        <rect x='0' y='0' height='100' width='200' style="fill:url(#bg)"></rect> -->
+
+        <!-- <path d="M 100 100 L 200 100 l 50 50"></path> -->
+        <path d="M 100 100 L 200 100 h 100 v 200"></path>
+        
+    </svg>
+</body>
+</html>

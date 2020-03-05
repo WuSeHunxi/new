@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- canvas利用js进行画画 -->
+    <canvas width="500px" height="300px" style="border: 1px solid #000;"></canvas>
+    <script>
+        var canvas=document.getElementsByTagName("canvas")[0];
+        var ctx=canvas.getContext('2d');
+
+        //画线
+        ctx.beginPath();
+        // ctx.lineWidth=10;
+        // ctx.strokeStyle='red';
+        // ctx.lineCap='round';
+        // ctx.moveTo(100,100);
+        // ctx.lineTo(200,200);
+        // ctx.stroke();
+        
+        //画矩形
+        // ctx.strokeStyle='#0ff';
+        // ctx.fillStyle="#f0f";
+        // ctx.strokeRect(100,100,100,200);
+        // ctx.fillRect(100,100,200,100);
+
+        //画圆
+        // ctx.arc(100,100,100,0,Math.PI/2,1);
+        // ctx.fill();//填充的画会闭合路径
+
+        //画圆角矩形
+        // ctx.moveTo(100,110);
+        // ctx.arcTo(100,200,200,200,10);
+        // ctx.arcTo(200,200,200,100,10);
+        // ctx.arcTo(200,100,100,100,10);
+        // ctx.arcTo(100,100,100,200,10);
+        // ctx.stroke();
+
+        //渐进色
+        // var bg=ctx.createLinearGradient(100,100,200,100);
+        // bg.addColorStop(0,'#00f');
+        // bg.addColorStop(1,'#0ff');
+        // ctx.fillStyle=bg;
+        // ctx.fillRect(100,100,200,100);
+
+
+        // ctx.moveTo(0,150);
+        // ctx.quadraticCurveTo(100,250,250,150);
+        // ctx.stroke();
+
+        //平移的小波浪
+        // var timer=null;
+        // var width=500;
+        // var height=300;
+        // var offset=0;
+        // timer=setInterval(function(){
+        //     ctx.beginPath();
+        //     ctx.clearRect(0,0,500,300);
+        //     ctx.moveTo(-width+offset,height/2);
+        //     ctx.quadraticCurveTo(width/4-500+offset,height/4*3,width/2-500+offset,height/2);
+        //     ctx.quadraticCurveTo(width/4*3-500+offset,height/4,width-500+offset,height/2);
+        //     ctx.stroke();
+
+        //     ctx.beginPath();
+        //     ctx.moveTo(0+offset,height/2);
+        //     ctx.quadraticCurveTo(width/4+offset,height/4*3,width/2+offset,height/2);
+        //     ctx.quadraticCurveTo(width/4*3+offset,height/4,width+offset,height/2);
+        //     ctx.stroke();
+        //     offset+=5;
+        //     offset%=500;
+        // },1000/30);
+
+        //绘制文字
+        // ctx.strokeStyle='#0ff';
+        // ctx.font='30px Georgia';
+        // ctx.strokeText('hello world',100,100);
+
+        // ctx.fillStyle='#f0f';
+        // ctx.fillText("HI",200,200);
+
+        //阴影
+        ctx.shadowColor='#f0f';
+        ctx.shadowBlur=50;
+        ctx.fillRect(100,100,100,50);
+        
+    </script>
+</body>
+</html>

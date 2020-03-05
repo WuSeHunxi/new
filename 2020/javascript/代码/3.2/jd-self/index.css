@@ -55,3 +55,11 @@ body{
     float:right;
     background-color: #0f0;
 }
+
+.seckill{
+    width: 990px;
+    margin: 0 auto;
+    height: 260px;
+    bottom: 20px;
+    background-color: #f0f;
+}

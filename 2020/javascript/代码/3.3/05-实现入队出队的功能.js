@@ -5,7 +5,7 @@ jQuery.prototype.queue = function () {
         addFunc = arguments[1] || null;
         len = arguments.length;
 
-        // 参数为1个 根据名称获取队列
+        // 参数为1个 根据名称获取队列，参数名为两个就要入队
         if (len == 1) {
             return queueObj[0][queueName];
         }
@@ -15,7 +15,7 @@ jQuery.prototype.queue = function () {
         //其实内部有一个id 
         // 最终也是需要使用原生dom作为标记的
 
-        //队列赋值 赋值到dom的身上
+        //队列赋值 赋值到dom的身上  !=undefined--->true
         queueObj[0][queueName] != undefined ? queueObj[0][queueName].push(addFunc) :  queueObj[0][queueName] = [addFunc];
         return this;
 }
@@ -36,7 +36,7 @@ jQuery.prototype.dequeue = function () {
 
     // 获得next函数 该函数为递归dequeue
     var next = function () {
-        self.dequeue(queueName);
+        self.dequeue(queueName);//--->递归调用
     };
     currfunc(next);                
     return this;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script src="./jquery-3.3.1.js"></script>
+        <script>
+
+        jQuery.fn.on=function(type,handle){
+            for(var i=0;i<this.length;i++){
+                if(!this[i].cacheEvent){
+                    this[i].cacheEvent={};
+                }
+                if(this[i].cacheEvent[type]){
+                    this[i].cacheEvent[type].push(handle);
+                }else{
+                    this[i].cacheEvent[type]=[handle];
+                }
+            }
+        }
+
+        jQuery.fn.trigger=function(type){
+            var params=arguments.length>1?[].slice.call(arguments,1):[];
+            var self=this;
+            for(var i=0;this.length;i++){
+                if(this[i].cacheEvent[type]){
+                    this[i].cacheEvent[type].forEach(function(item,index){
+                        item.apply(self,params);
+                    })
+                }
+            }
+        }
+
+        //不确定参数到底是几个
+        jQuery.fn.queue=function(){
+            var queueName=arguments[0]||'fx';
+            var addFunc=arguments[1]||null;
+            var queueObj=this;
+            var len=arguments.length;
+            if(len==1){
+                return queueObj[0][queueName];
+            }else{
+                if(queueObj[0][queueName]){
+                    queueObj[0][queueName]=[addFunc];
+                }else{
+                    queueObj[0][queueName].push(addFunc);
+                }
+            }
+            return this;
+        }
+
+        jQuery.fn.dequeue=function(name){
+            var self=this;
+            var queueArr=this.queue(name);
+            var first=queueArr.shift();
+            var next=function(){
+                self.dequeue(name);
+            }
+            if(first==undefined){
+                return;
+            }else{
+                first(next);
+            }
+            return this;
+        }
+
+
+
+    </script>
+    </body>
+</html>
