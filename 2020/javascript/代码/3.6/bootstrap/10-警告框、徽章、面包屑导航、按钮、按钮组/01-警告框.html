@@ -75,14 +75,15 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<script>
-		//方法
+		//方法close
 		$('.closeBtn').click(function(){
 			//提供的关闭警告框的方法
 			$('.myAlert').alert('close');
 		});
 
+
 		//事件---提供的事件
-		//当调用close实例方法时，该事件会触发
+		//当调用close()实例方法时，该事件会触发
 		$('.myAlert').on('close.bs.alert',function(){
 			alert('close方法被调用了');
 		});
