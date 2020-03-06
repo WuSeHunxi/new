@@ -55,15 +55,18 @@
 		</div>
 
 		<div class="row mt-5">
-			<picture><!---->
+			<picture><!--配合媒体查询使用，用来解决不同屏幕图片加载的问题-->
+				<!--source的两个属性：媒体查询，srcset：图片地址-->
+				<!--在1200宽度时，显示1140的那张图片-->
 				<source media="(min-width:1200px)" srcset="images/1140.jpg">
 				<source media="(min-width:992px)" srcset="images/960.jpg">
 				<source media="(min-width:768px)" srcset="images/720.jpg">
 				<source media="(min-width:576px)" srcset="images/540.jpg">
 				<img src="images/img_01.jpg" alt="">	<!-- 当尺寸小于576的时候会显示这个图片 -->
 			</picture>
-			<!-- .webp	图片的格式 -->
+			<!-- .webp--图片的格式，针对网页设置的图片格式。一般只有高级浏览器才支持  -->
 			<!-- 支持情况：>=ios9.3 || >android4.4 -->
+
 		</div>
 	</div>
 </body>
