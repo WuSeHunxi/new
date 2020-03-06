@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 子元素的排列方式，要设置在父元素上 -->
+        <div class="row bg-success justify-content-between flex-row-reverse" style="height: 100px;">
+            <!-- <div class="col bg-primary d-flex">
+                <div style="height: 33px; width: 100%;" class="row bg-warning align-self-start">
+                    <div class="col"></div>
+                </div>
+                <div style="height: 33px; width: 100%;" class="row bg-info align-self-center">
+                    <div class="col"></div>
+                </div>
+                <div style="height: 33px; width: 100%;" class="row bg-dark align-self-end">
+                    <div class="col"></div>
+                </div>
+            </div> -->
+            <!-- <div class="col bg-success d-inline-flex"></div> -->
+            <div class="col-md-3 bg-info align-self-center">1</div>
+            <div class="col-md-3 bg-info align-self-end">2</div>
+            <div class="col-md-3 bg-info align-self-start">3</div>
+        </div>
+
+        <!-- 自动间距 -->
+        <div class="row bg-secondary mt-5">
+            <div class="col-3 bg-info py-2 ">1</div>
+            <div class="col-3 bg-warning py-2 m-auto">2</div>
+            <div class="col-3 bg-info py-2 ">3</div>
+        </div>
+        <div class="row mt-5 bg-secondary flex-column-reverse align-items-center">
+            <!-- 第一个子元素的右侧有间距 -->
+            <div class="bg-success text-white py-2 ">第1列</div>
+			<div class="bg-success text-white py-2 mx-auto">第2列</div>
+			<div class="bg-success text-white py-2">第3列</div>
+        </div>
+        
+        <!-- flex-wrap--多行元素的横向排列方式 -->
+        <div class="row mt-5 flex-wrap justify-content-center align-content-center bg-warning" style="height: 200px;">
+            <div class="col-1 bg-primary">1</div>
+            <div class="col-1 bg-primary">2</div>
+            <div class="col-1 bg-primary">3</div>
+            <div class="col-1 bg-primary">4</div>
+            <div class="col-1 bg-primary">5</div>
+            <div class="col-1 bg-primary">6</div>
+            <div class="col-1 bg-primary">7</div>
+            <div class="col-1 bg-primary">8</div>
+            <div class="col-1 bg-primary">9</div>
+            <div class="col-1 bg-primary">10</div>
+            <div class="col-1 bg-primary">11</div>
+            <div class="col-1 bg-primary">12</div>
+            <div class="col-1 bg-primary">13</div>
+            <div class="col-1 bg-primary">14</div>
+            <div class="col-1 bg-primary">15</div>
+            <div class="col-1 bg-primary">16</div>
+            <div class="col-1 bg-primary">17</div>
+            <div class="col-1 bg-primary">18</div>
+        </div>
+    </div>
+</body>
+</html>
