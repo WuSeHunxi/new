@@ -28,17 +28,17 @@
 		</div>
 
 
-		<!-- 
+		
 			子元素的排列方向
 				1、flex-row				正序水平排列
 				2、flex-row-reverse		倒序水平排列
 				3、flex-column			正序垂直排列
 				3、flex-column-reverse	倒序垂直排列
-		 -->
+		
 		<div class="row bg-dark mt-5 flex-row">	<!-- 正序水平排列 -->
-			<div class="bg-success text-white">第1列</div>
-			<div class="bg-success text-white">第2列</div>
-			<div class="bg-success text-white">第3列</div>
+			<div class="col bg-success text-white">第1列</div>
+			<div class="col bg-success text-white">第2列</div>
+			<div class="col bg-success text-white">第3列</div>
 		</div>
 		<div class="row bg-dark mt-1 flex-row-reverse">	<!-- 倒序水平排列 -->
 			<div class="bg-success text-white">第1列</div>
@@ -120,6 +120,7 @@
 			<div class="bg-danger text-white">第2列</div>
 			<div class="bg-danger text-white">第3列</div>
 		</div>
+		<!-- align-items-stretch--高度铺满row -->
 		<div class="row bg-dark mt-1 align-items-stretch" style="height: 100px;"><!-- 交叉轴上的对齐-如果子元素没有设置高或者设置成了auto，子元素将占满整个容器的高度 -->
 			<div class="bg-danger text-white">第1列</div>
 			<div class="bg-danger text-white" style="height: 50px;">第2列</div>
@@ -152,7 +153,7 @@
 		</div>
 
 
-		<!-- 填满 -->
+		<!-- 填满,在相邻元素上使用，来强制它们在相同的宽度上分配所有可用的空间，对于等宽导航栏特别有用  -->
 		<div class="row mt-5 bg-primary">
 			<div class="bg-info text-white border-right flex-fill">第1列</div>
 			<div class="bg-info text-white border-right flex-fill">第2列</div>
@@ -167,7 +168,7 @@
 
 
 		<!-- 
-			伸缩值
+			伸缩值：某一个元素可以伸缩
 				1、.flex-grow-*		扩展比例，数字为0表示不扩展，数字为1表示扩展。只有这两个数字
 				2、.flex-shrink-*	收缩比例，数字为0表示不收缩，数字为1表示收缩。只有这两个数字
 		 -->
