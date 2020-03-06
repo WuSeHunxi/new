@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #f0f;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        .target{
+            width: 1px;
+            height: 200px;
+            border-left:1px solid #000;
+            position: absolute;
+            left: 600px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <div class="target"></div>
+    <script>
+        var demo=document.getElementsByClassName("demo")[0];
+        function run(dom,target){
+            var speed=0;
+            var timer=setInterval(function(){
+                speed=(target-dom.offsetLeft)/7>0?Math.ceil((target-dom.offsetLeft)/7):Math.floor((target-dom.offsetLeft)/7);
+                dom.style.left=speed+dom.offsetLeft+"px";
+                if(dom.offsetLeft==target){
+                    clearInterval(timer);
+                }
+            },100);
+            
+        }
+        run(demo,600);
+    </script>
+</body>
+</html>

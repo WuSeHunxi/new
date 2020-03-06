@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生js实现瀑布流</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body {
+            background-color: #eee;
+        }
+        .wrapper {
+            width: 980px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        .wrapper li {
+            float: left;
+            width: 25%;
+        }
+        .wrapper .col .item {
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+        }
+        .item img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1. 封装ajax  简单请求的
+        2. 实现瀑布流效果
+     -->
+     <ul class="wrapper">
+        <li class="col">
+            <div class="item">
+                <img src="./image/0.png" alt="">
+                <p>我是文字</p>
+            </div>
+        </li>
+        <li class="col">
+            <div class="item">
+                <img src="./image/2.png" alt="">
+                <p>我是文字</p>
+            </div>
+        </li>
+        <li class="col">
+            <div class="item">
+                <img src="./image/3.png" alt="">
+                <p>我是文字</p>
+            </div>
+        </li>
+        <li class="col">
+            <div class="item">
+                <img src="./image/4.jpg" alt="">
+                <p>我是文字</p>
+            </div>
+        </li>
+     </ul>
+     <script src="./ajax.js"></script>
+     <script src="./index.js"></script>
+</body>
+</html>
