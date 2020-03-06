@@ -29,9 +29,11 @@
 						2、比它小的尺寸隐藏
 			 -->
 			<div class="col bg-primary text-white d-xl-block d-none">只在超大屏幕下显示</div>
+			<!-- 只在当前范围显示，大于我的或者小于我的都隐藏 -->
 			<div class="col bg-dark text-white d-none d-lg-block d-xl-none">只在大屏幕下显示</div>
 			<div class="col bg-success text-white d-none d-md-block d-lg-none">只在中等屏幕下显示</div>
 			<div class="col bg-warning text-white d-none d-sm-block d-md-none">只在小屏幕下显示</div>
+			<!-- 超小屏下默认就是显示的，只要大于超小屏就隐藏，所以sm即可 -->
 			<div class="col bg-info text-white d-sm-none">只在超小屏幕下显示</div>
 			<!-- 3.x的版本显示的类名为.visiable-*-block -->
 		</div>
