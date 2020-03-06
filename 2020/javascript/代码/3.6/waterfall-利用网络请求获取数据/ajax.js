@@ -26,6 +26,7 @@ function ajax(type, url, data, callback, flag) {
         xhr.open(type, url, flag);
         // application/json   json 字符串或json对象
         // multipart/form-data  上传文件 file  
+        
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(data);
     }
