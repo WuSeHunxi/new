@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+#app{
+  width: 864px;
+  margin: 100px auto;
+}
+
 li {
   list-style: none;
 }
