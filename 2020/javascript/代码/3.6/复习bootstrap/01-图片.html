@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- <img src="images/img_01.jpg" alt="" class="img-fluid"> -->
+            <!-- <img src="images/img_01.jpg" alt="" class="img-thumbnail"> -->
+            <!-- <div class="col bg-success text-center" style="height: 200px;">
+                <img src="images/img_01.jpg" style="height: 200px;" alt="">
+                <img src="images/img_01.jpg" style="height: 200px;" alt="">
+            </div> -->
+
+            <!-- 只有一张图片进行居中 -->
+            
+        </div>
+        <!-- <div class="row mt-5">
+            <div class="col bg-warning" style="height: 200px;">
+                <img src="images/img_01.jpg" style="height: 200px;" class="d-block mx-auto" alt="">
+            </div>
+        </div> -->
+
+        <!-- 设置picture -->
+        <div class="row mt-5">
+            <picture>
+                <source media="(min-width:1200px)" srcset="images/1140.jpg">
+				<source media="(min-width:992px)" srcset="images/960.jpg">
+				<source media="(min-width:768px)" srcset="images/720.jpg">
+				<source media="(min-width:576px)" srcset="images/540.jpg">
+                <img src="images/img_01.jpg" alt="">
+            </picture>
+        </div>
+
+    </div>
+</body>
+</html>
