@@ -146,7 +146,7 @@
 
 		<!-- 设置轮播图的选项 -->
 		<div class="row mt-5">
-			<div class="col">
+			<div class="col">       <!--data-interval也可以给每一个item设置    data-keyboard--按键-->
 				<div class="carousel slide" id="options" data-ride="carousel" data-interval='2000' data-keyboard='true'
 					data-pause='false' data-wrap='true'>
 					<div class="carousel-inner">
@@ -179,7 +179,7 @@
 			</div>
 		</div>
 
-		<!-- 方法与事件 -->
+		<!-- 方法与事件：将data-属性全部去掉 -->
 		<div class="row mt-5">
 			<div class="col">
 				<div class="carousel slide" id="methods">
@@ -228,7 +228,7 @@
 		//初始化以及开始播放
 		$('.play').click(function () {
 			$('#methods').carousel({
-				interval: 2000
+				interval: 2000//初始化并设置时间
 			});
 
 			$('#methods').carousel('cycle');
@@ -266,7 +266,7 @@
 			);	
 			console.log('开始走');
 		});
-		$('#methods').on('slid.bs.carousel', function () {	//结束切换的事件
+		$('#methods').on('slid.bs.carousel', function () {	//结束切换的事件(完完全全在轮播区域中)
 			// do something…
 			console.log('走完了');
 		});
