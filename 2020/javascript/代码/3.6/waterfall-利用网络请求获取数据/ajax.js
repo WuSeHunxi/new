@@ -19,14 +19,16 @@ function ajax(type, url, data, callback, flag) {
         xhr = new ActiveXObject('Microsoft.XMLHttp')
     }
     if (type == 'GET') {
-        //get请求将url盒数据拼接在一起进行请求
-        xhr.open(type, url + '?' + data, flag);
+        //get请求将url和数据拼接在一起进行请求
+        //建立连接
+        xhr.open(type, url + '?' + data, flag);//第三个参数是否异步
+        //发送请求
         xhr.send();
     } else if (type == 'POST') {
         xhr.open(type, url, flag);
         // application/json   json 字符串或json对象
         // multipart/form-data  上传文件 file  
-        
+        //以什么编码形式传递数据的
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(data);
     }

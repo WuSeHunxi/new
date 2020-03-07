@@ -2,12 +2,14 @@ var oLi = document.getElementsByClassName('col');
 var lock = false;
 var page = 1;
 var size = 5;
+
+//获取数据
 function getData() {
     if (lock) {
         return false;
     }
     lock = true;
-    ajax('GET', 'http://127.0.0.1:3000/data', "page="+page + '&size=' + size, function (res) {
+    ajax('GET', './data.json', '' + size, function (res) {
         // console.log(res)
         var data = JSON.parse(res);
         renderDom(data)
