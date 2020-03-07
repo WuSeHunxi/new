@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="500px" height="300px" style="border: 1px solid #000 ;"></canvas>
+    <script>
+        var canvas=document.getElementsByTagName("canvas")[0];
+        var ctx=canvas.getContext('2d');
+        ctx.beginPath();
+        var timer=null;
+        var deg=1;
+        ctx.arc(200,100,40,0,Math.PI/2*3,0);
+        ctx.lineTo(200,100);
+        ctx.closePath();
+        ctx.stroke();
+        
+    </script>
+</body>
+</html>

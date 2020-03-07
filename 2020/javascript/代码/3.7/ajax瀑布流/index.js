@@ -27,8 +27,8 @@ function renderDom(data) {
         var oDiv = document.createElement('div');
         oDiv.className = 'item';
         var img = new Image();
-        img.src = item.img;//图片没有加载出来的时候有默认的高度，但是很小，为了解决这种情况，在最开始就给图片设置好高度
-        //为了获取所有列的最小高度
+        img.src = item.img;//图片没有加载出来的时候有默认的高度，为了解决这种情况，在最开始就给图片设置好高度
+        //直接在加载出来之前就把图片的大小设置出来---固定宽高的延迟加载
         img.height = imgWidth * item.height / item.width;//根据图片的宽高比计算图片在页面的高度
         oDiv.appendChild(img);
         var oP = document.createElement('p');
@@ -64,8 +64,7 @@ function bindEvent() {
         var minHeight = getMinLi().minHeight;
         var clientHeight = document.documentElement.clientHeight;
         var scrollTop = document.documentElement.scrollTop;
-        //页面出现空白的时候加载数据 
-        //图片的懒加载
+        //页面出现空白的时候加载数据
         if (minHeight < scrollTop + clientHeight) {
             timer = this.setTimeout(function () {//定时器也是防抖
                 getData();

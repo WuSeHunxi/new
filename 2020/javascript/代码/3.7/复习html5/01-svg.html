@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1{
+            fill:transparent;
+            stroke:tomato;
+        }
+        .img_mask_svgPath{
+            fill:transparent;
+            stroke:turquoise;
+        }
+        .line1{
+            fill: transparent;
+            stroke:steelblue;
+        }
+        .line2{
+            fill:transparent;
+            stroke: #000;
+            stroke-width: 5px;
+        }
+    </style>
+</head>
+<body>
+    <svg style="height: 300px;width:500px;border:1px solid #000;">
+        <!-- 贝塞尔曲线需要三个点 C x1 y1 x2 y2 x y -->
+        <!--最后一个点x,y表示的是曲线的终点，另外两个终点是控制点 x1,y1是起点控制点 x2,y2是终点控制点 -->
+        <line class="line1" x1='200' y1='100' x2='250' y2='50'></line> 
+        <line class="line2" x1='250' y1='50' x2='300' y2='20'></line>
+        <path class="path1" d="M 10 10 C 40 40,40 40,70 10" stroke="black" fill='transparent'></path>
+        <path class="class1" d="M 10 10 L 100 50 C 200 100 250 50 300 20"></path>
+        <path class="img_mask_svgPath" 
+            d="M 750,1.70530257e-13 L 750,50 L 0,50 L 0,1.70530257e-13 
+                C 107.666667,33.3333333  232.666667,50  375,50 
+                C 517.333333,50  642.333333,33.3333333  750,1.70530257e-13  ">
+        </path>
+    </svg>
+</body>
+</html>
