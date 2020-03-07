@@ -17,7 +17,7 @@ $("#search-inp").on('input',function () {
     })
 })
 
-function render(res) {
+function render(res) { 
     var result=res.result;
     var str=''
     $.each(result,function (index,item) {

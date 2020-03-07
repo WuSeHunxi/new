@@ -14,7 +14,7 @@ function getSearchData(val) {
             callback: "renderDom"
         },
         // 使用者希望拿到的数据类型  
-        dataType: 'jsonp'
+        dataType: 'jsonp',
     })
 }
 $('#search-inp').on('input', function () {

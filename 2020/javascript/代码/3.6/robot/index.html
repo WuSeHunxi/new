@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天机器人</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- 
+        1.  jq.ajax
+        2.  聊天界面
+     -->
+     <div class="box">
+         <p class="name">小渡</p>
+         <div class="container">
+            <div class="mine">
+                <div class="avator"></div>
+                <div class="text">你好</div>
+            </div>
+            <div class="robot">
+                <div class="avator"></div>
+                <div class="text">我很好</div>
+            </div>
+         </div>
+         <div class="send-msg">
+             <input type="text" id="send-text">
+             <button id="send-btn">发送</button>
+         </div>
+     </div>
+     <script src="./jquery-3.3.1.js"></script>
+     <script src="./index.js"></script>
+     <script>
+        //  $.ajax({
+        //     //  GET, POST, PUT, DELETE---请求方式。
+        //     // https://developer.duyiedu.com/previewAPI/%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F
+        //      type: 'get',
+               //http明文传输，https有加密算法 
+        //      url: 'http://open.duyiedu.com/api/student/findAll',//两种协议均可以请求
+    //      data: {--可以是字符串也可以是对象
+        //          appkey: 'DuYimeiqi_1564986205860',
+        //          callback: 'aaa',
+        //      },
+        //      async: false,--->是否异步(默认值为true--异步)
+        //      // XMLHTTPRequest   data：传递到jquery的ajax 当中的参数  
+        //      beforeSend()是同步执行的
+        //      beforeSend: function (xhr, data) {//请求发送之前的处理函数(比如加载之前出现一些等待动画)
+        //         console.log(xhr, data);//xhr是引用值，data是ajax传递的值
+        //         // // 
+        //         // return false;
+        //      },
+        //     //  用户希望得到的数据类型
+        //      // jsonp ： 交互方式：动态的创建script标签 ---当前的请求不是ajax请求了，而是jsonp请求 
+        //     //  把接口地址放在script标签下面的src属性上
+
+        //      dataType: 'jsonp',//jq的ajax封装的jsonp
+        //      jsonp:'callback'
+        //      jsonpCallback:'aaa',//这个函数是自己写的，不是自动生成的，放在callback里面是后台决定的
+
+        //      success: function (res) {
+        //         //  a({})
+        //          console.log('====', res)
+        //      },
+        //      error: function () {
+
+        //      },
+
+        //  })
+
+        //  options.url + '?' + options.jsonp + '=' + options.jsonpCallback
+
+        /*
+            只要使用jsonp据必须要有callback这个属性和属性值(自己写一个函数)，success可以没有，如果二者都
+            有的话就会执行两变。success有的时候不会执行，有的时候会执行，一般用jsonp的时候都不用success。
+        */
+        
+
+
+     </script>
+</body>
+</html>

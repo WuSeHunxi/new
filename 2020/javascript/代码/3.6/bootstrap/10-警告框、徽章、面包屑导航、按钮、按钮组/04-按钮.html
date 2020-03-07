@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<!-- 按钮就是要hover和focus的样式 -->
 	<div class="container">
 		<div class="row d-block mt-5">
 			<button class="btn btn-primary">按钮</button>
@@ -53,22 +54,26 @@
 			<button class="btn btn-success btn-sm">小按钮</button>
 		</div>
 
-		<!-- block类型的按钮 -->
+		<!-- block类型的按钮占满一行的按钮 -->
 		<div class="row d-block mt-5">
 			<button class="btn btn-primary btn-lg btn-block">块级按钮</button>
 			<button class="btn btn-secondary btn-block">块级按钮</button>
 		</div>
 
-		<!-- 启用与停用状态的按钮 -->
+		<!-- 按钮的状态：启用与停用状态的按钮
+			启用状态：active---激活状态
+			禁用状态：disabled
+		-->
 		<div class="row d-block mt-5">
 			<button class="btn btn-primary active">启用状态</button>
 			<a href="#" class="btn btn-secondary active">启用状态</a>
 
+			<!-- a标签的停用状态是disabled类，button是disabled属性 -->
 			<button class="btn btn-primary" disabled>停用状态</button>
 			<a href="#" class="btn btn-secondary disabled">停用状态</a>
 		</div>
 
-		<!-- 切换按钮的active状态 -->
+		<!-- 点击切换按钮的active状态：data-toggle--切换状态 -->
 		<div class="row d-block mt-5">
 			<button class="btn btn-primary active" data-toggle='button'>点击切换状态</button>
 		</div>

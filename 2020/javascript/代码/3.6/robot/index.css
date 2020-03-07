@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 0;
+    
+}
+html, body {
+    height: 100%;
+}
+.box {
+    width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    border: 1px solid #eee;
+}
+.box .name {
+    text-align: center;
+    background-color: grey;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
+.box .container {
+    width: 100%;
+    height: calc(100% - 40px - 50px);
+    overflow-y: scroll;
+    background-color: #eee;
+}
+.send-msg {
+    height: 50px;
+    line-height: 50px;
+    background-color: #ddd;
+    text-align: center;
+}
+#send-text {
+    width: 500px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    text-indent: 4px;
+}
+#send-btn {
+    font-size: 16px;
+    padding: 3px 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.avator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: 100% 100%;
+}
+
+/* 设置聊天框位置的时候需要好几次浮动 */
+.mine .avator {
+    float: right;
+    background-image: url('./image/3.png');
+}
+.robot .avator {
+    float: left;
+    background-image: url('./image/dog1.jpg');
+}
+.mine {
+    float: right;
+    width: 100%;
+    margin: 5px 0;
+}
+.robot {
+    float: left;
+    width: 100%;
+    margin: 5px 0;
+}
+.text {
+    line-height: 30px;
+    padding: 0 10px;
+    max-width: 250px;
+    word-wrap: break-word;
+}
+.mine .text {
+    float: right;
+    background-color: greenyellow;
+}
+.robot .text {
+    float: left;
+    background-color: #fff;
+}
