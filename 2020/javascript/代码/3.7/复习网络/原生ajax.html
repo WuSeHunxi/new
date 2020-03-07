@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //封装一个请求的函数    
+        function ajax(url,type,data,flag){
+            var xhr=null;
+            //先兼容
+            if(window.XMLHttpRequest){
+                xhr=new XMLHttpRequest();
+            }else{  
+                xhr=new ActiveXObject('Microsoft.XMLHttp');
+            }
+
+            //判断请求的方式
+            if(type=='get'){
+                xhr.open(url+'?'+data,type,flag);
+                xhr.send();
+            }else if(type=='post'){
+                xhr.open(url,type,flag);
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+                xhr.send(data);
+            }
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4){
+                    if(xhr.status==200){
+                        console.log(xhr.responseText);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
