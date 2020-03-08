@@ -1,11 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <title>Document</title>
+        <style>
+            body{
+                padding-bottom: 1000px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">这是卡片的标题</h3>
+                            <h4 class="card-subtitle mb-3">这是卡片的副标题</h4>
+                            <p class="card-text">这是卡片的文本内容</p>
+                            <a href="#" class="card-link btn btn-primary">连接1</a>
+                            <a href="#" class="card-link btn btn-primary">链接2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card">
+                        <img class="card-img-top img-fluid"
+                            src="images/pic_01.jpg" alt="">
+                        <div class="card-body">
+                            <p class="card-text">这是文字</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header bg-danger">这是卡片的头部</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">1</li>
+                            <li class="list-group-item">2</li>
+                            <li class="list-group-item">3</li>
+                        </ul>
+                        <div class="card-footer">这是卡片底部</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">这是页眉</div>
+                        <img src="images/pic_02.jpg" alt=""
+                            class="card-img-top">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">2</li>
+                            <li class="list-group-item">3</li>
+                        </ul>
+                        <div class="card-body">
+                            <p class="card-text">文字段</p>
+                            <a href="#" class="card-link btn btn-success">链接</a>
+                        </div>
+                        <div class="card-footer text-muted">这是页脚</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="card w-75"><!--宽度还可以使用css进行设置-->
+                    <h4 class="card-title">这是标题</h4>
+                    <p class="card-text">这是文字</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card text-right">
+                        <p class="card-text">这是文字</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item"><a href="#" class="nav-link active">1</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">2</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header">页眉
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item"><a href="#" class="nav-link active">1</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">2</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">3</a></li>
+                            </ul>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">2</li>
+                            <li class="list-group-item">3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card">
+                        <img src="images/pic_02.jpg" alt="" class="card-img-top">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">这是一个标题</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card border-danger bg-success text-white">
+                        <div class="card-body">
+                            <p class="card-text">这是文本</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card border-success">
+                        <div class="card-header border-danger">页眉</div>
+                        <div class="card-body">
+                            <p class="card-text">文本</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-success">页脚</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片排版 -->
+            <div class="row mt-5 card-group">
+                <!-- <div class="col"> -->
+                    <div class="card">
+                        <img src="image/img_02.jpg" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">文字</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="image/img_02.jpg" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">文字</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="image/img_02.jpg" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">文字</p>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+
+            <div class="row card-deck mt-5">
+                    <div class="card">
+                        <img src="image/img_02.jpg" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">文字</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="image/img_02.jpg" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">文字</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="card-columns">
+                    <div class="card"><img src="image/img_04.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_03.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_02.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_03.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_02.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_04.jpg" alt="" class="card-img-top"></div>
+                    <div class="card"><img src="image/img_04.jpg" alt="" class="card-img-top"></div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item"><a href="#" class="nav-link active">1</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">2</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
 </html>
