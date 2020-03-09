@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- 总结：
+            1. card---卡片的基础类
+            2. card-body--存放文本等内容
+            3. list-group和list-group-flush--是列表，只能和card-body同级
+            4. nav,nav-tabs,card-header-tabs---导航，放在页眉处
+            5. card-img-top---图片的位置
+            6. card-img-overlay---将文字放在图片上面，该类写在card-body处
+            7. card-deck---卡片之间有空隙，且每个卡片的尺寸一样大
+            8. card-group---卡片在一组
+            9. card-columns---在row的下一级，是card的父级，可以用来实现页面的瀑布流
+    
+    -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">hello</h3>
+                        <he class="card-subtitle mb-3">world</he>
+                        <p class="card-text">hello world</p> 
+                        <a href="#" class="card-link">链接</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <img src="images/img_04.jpg" alt="" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text">pig</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body card-img-overlay text-white text-center">
+                    <p class="card-text">papaoa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header bg-success">页眉</div>
+                    <div class="card-body">
+                        <p class="card-text">ppp</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">1</li>
+                        <li class="list-group-item">2</li>
+                        <li class="list-group-item">3</li>
+                    </ul>
+                    <div class="card-footer border-danger">页脚</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row card-deck  mt-5">
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/img_02.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">0a0a0</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="card-columns">
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_03.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_04.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/img_02.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">0a0a0</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
