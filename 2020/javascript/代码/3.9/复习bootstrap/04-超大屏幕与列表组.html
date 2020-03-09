@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 总结：
+            1. 超大屏幕：占满整个宽度
+            2. jumbotron---超大屏幕的基础类
+            3. jumbotron+jumbotron-fluid+container-fluid---全屏显示
+    
+
+        列表组总结：
+            1. list-group---列表组
+            2. list-group-item---每一项 
+            3. list-group-item-action---每一项呈现hover样式
+            4. badge---徽章类 badge-pill---徽章圆角 badge-success---设置徽章颜色
+            5. 要设置子元素的对齐方式，通常是给父级添加d-flex
+            6. 选项卡：a标签直接锚点对应内容的id值，其他标签需要添加data-target，并且给每一项添加data-toggle="list"，最先开始选中的使用active
+                      内容的部分通常使用div.tab-pane，每一项内容的父级是tab-content，最先开始选中的使用active，
+                      如果切换的时候需要有动画效果的话，给每一项添加fade类，并且最先开始选中的内容要添加show，和active同级
+                      PS：ul不能作为选项卡的父级，会有bug
+            7. 方法与事件：
+                    点击选项卡的时候就会调用tab('show')这个方法，实现切换。
+                    开始切换，显示下一个内容的时候会触发show.bs.tab事件
+                    切换完成后会触发shown.bs.tab事件
+                    当前这一项开始切换到下一项触发的事件是hide.bs.tab
+                    当前这一项完成下一项的切换触发的事件是hidden.bs.tab  
+    -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="jumbotron">
+                    <h1 class="display-4">papapap</h1>
+                    <p class="lead">papa</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+            <h1 class="display-4">papap</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">hello</h1>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+            <h1 class="display-4">hello</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="active list-group-item list-group-item-action list-group-item-success">1</li>
+                    <li class="list-group-item list-group-item-action list-group-item-success">2</li>
+                    <li class="list-group-item list-group-item-action list-group-item-success">3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <ul class="list-group ">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>red</span>
+                        <span class="badge badge-pill badge-danger">11</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>green</span>
+                        <span class="badge badge-pill badge-success">11</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>9</span>
+                        <span class="badge badge-pill badge-warning">3</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row mt-5">
+            <div class="col">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-1">List</h5>
+                            <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Done</p>
+                        <small>Done</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-1">List</h5>
+                            <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Done</p>
+                        <small>Done</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-1">List</h5>
+                            <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Done</p>
+                        <small>Done</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 选项卡 -->
+        <div class="row mt-5">
+            <div class="col-4">
+                <div class="list-group">
+                    <a href="#list" class="active list-group-item list-group-item-action" data-toggle='list'>List</a>
+                    <a href="#file" class="list-group-item list-group-item-action" data-toggle="list">File</a>
+                    <a href="#note" class="list-group-item list-group-item-action" data-toggle='list'>Note</a>
+                </div>
+            </div>
+            <div class="col-8">
+                <di class="tab-content">
+                    <div class="tab-pane active" id="list">11</div>
+                    <div class="tab-pane" id="file">22</div>
+                    <div class="tab-pane" id="note">33</div>
+                </di>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-4">
+                <div class="list-group" id="myList">
+                    <a href="#list1" class="list-group-item list-group-item-action active">1</a>
+                    <a href="#note1" class="list-group-item list-group-item-action">2</a>
+                    <a href="#file1" class="list-group-item list-group-item-action">3</a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="list1">#</div>
+                    <div class="tab-pane" id="note1">#@</div>
+                    <div class="tab-pane" id="file1">!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-4">
+                <div class="list-group">
+                    <!-- <a href="#list3" class="list-group-item list-group-item-action active" data-toggle="list">1</a>
+                    <a href="#note3" class="list-group-item list-group-item-action" data-toggle="list">2</a>
+                    <a href="#file3" class="list-group-item list-group-item-action" data-toggle="list">3</a> -->
+                    <li data-target="#list3" class="list-group-item list-group-item-action active" data-toggle="list">1</li>
+                    <li data-target="#note3" class="list-group-item list-group-item-action" data-toggle="list">2</li>
+                    <li data-target="#data3" class="list-group-item list-group-item-action" data-toggle="list">3</li> 
+                     <!-- <span data-target="#list-settings" class="list-group-item list-group-item-action" data-toggle="list">Settings</span> -->
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="list3">11</div>
+                    <div class="tab-pane fade " id="note3">22</div>
+                    <div class="tab-pane fade " id="data3">33</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script>
+
+            $('#myList a').on('click',function(){
+                $(this).tab('show');
+            })
+
+        </script>
+</body>
+</html>

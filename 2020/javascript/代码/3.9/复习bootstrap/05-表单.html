@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 总结：
+            1. form-group---表单组，将label和各种表单元素组合在一起
+            2. form-control---input文本输入框和select的类
+            3. form-check-input和form-check-label是复选框和单选按钮input:checkbox和label的类
+            4. form-check-inline---横向显示
+            5. form-control-lg/sm---放在每一个表单元素中
+            6. readonly---只读属性
+            7. 栅格排列：(结构异常)form放在最外层，并且form-row代替row
+            8. 水平排列的表单：(结构异常)row和form-group同级，在一个class中，并且label使用col响应层，表单元素的父级也使用响应层
+            9. 内联表单：所有内容在一行显示，form标签使用form-inline，结构是正常的结构
+
+    -->
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <form action="#">
+                    <div class="form-group">
+                        <label for="name">用户名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password"  id="password" class="form-control" placeholder="密码">
+                    </div>
+                    <div class="from-group">
+                        <label for="area">所在地</label>
+                        <select id="area" class="form-control">
+                            <option value="">北京</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">选择文件</label>
+                        <input type="file"  id="file" class="form-control-file">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">兴趣爱好</label>
+                        <div class="form-check">
+                            <input type="checkbox" id="eat" class="form-check-input">
+                            <label for="eat" class="from-check-label">吃</label>  
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text"  class="form-control form-control-lg" placeholder="输入">
+                        <input type="text"  class="form-control form-control-sm mt-2" placeholder="输入">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <form action="#">
+            <div class="form-row mt-5">
+                <div class="col-md-6 form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="name1">名i</label>
+                    <input type="text" id="name1" class="form-control">
+                </div>
+            </div>
+            <div class="form-row mt-5">
+                <div class="col-md-4 form-group">
+                    <label for="location">地点</label>
+                    <select id="location" class="form-control">
+                        <option value="">北京</option>
+                        <option value="">上海</option>
+                        <option value="">武汉</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="file2">选择文件</label>
+                    <input type="file" id="file2" class="form-control-file">
+                </div>
+                <div class="col-md-3 form-group">
+                    <div class="form-check  form-check-inline">
+                        <input type="radio" id="male" class="form-check-input" name='sex'>
+                        <label for="male" class="form-control-label">男</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="female" name="sex" class="form-control-input">
+                        <label for="female" class="form-control-label">女</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form action="#">
+            <div class="row form-group mt-5">
+                <label for="email2" class="col-sm-2 col-form-label">Email</label>	<!-- col-form-lable用来决定下后面的表单进行垂直对齐 -->
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="email2" placeholder="请输入email">
+				</div>
+            </div>
+            <div class="row form-group mt-5">
+                <label for="pw" class="col-md-2">密码</label>
+                <div class="col-md-10">
+                    <input type="password" id="pw" class="form-control">
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col">
+                <form action="#" class="form-inline">
+                    <div class="form-group">
+                        <label for="user">用户名</label>
+                        <input type="text" id="user" class="form-control">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <form action="#">
+            <div class="row form-group mt-5">
+                <label for="usernam" class="col-md-2">用户名</label>
+                <input type="text" class="form-control col-md-10">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
