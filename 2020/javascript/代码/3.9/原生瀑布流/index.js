@@ -15,7 +15,7 @@ var note = {
       self.noteList = res;
     })
   },
-  render() {
+  render () {
     this.el.innerHTML = `
       ${this.renderColumn()}
       <div class="more">查看更多</div>
@@ -24,7 +24,7 @@ var note = {
   },
   renderColumn: function () {
     var template = '';
-    for (var i = 0; i < 5; i++) {
+    for(var i = 0; i < 5; i ++) {
       template += '<div class="note-column"></div>'
     }
     return template;
@@ -33,7 +33,7 @@ var note = {
     var noteListLength = this.noteList.length;
     var oColumn = this.el.getElementsByClassName('note-column');
 
-    for (var i = 0; i < noteListLength; i++) {
+    for(var i = 0; i < noteListLength; i ++) {
       var note = noteList[i];
       var oNoteDiv = document.createElement('div');
       var minIndex = this.getMinColumnInfo().index;
@@ -78,9 +78,9 @@ var note = {
     var minIndex = this.minColumnIndex;
     var minHeight = oColumn[0].offsetHeight;
 
-    for (var i = 1; i < columnLength; i++) {
+    for(var i = 1; i < columnLength; i ++) {
       var columnHeight = oColumn[i].offsetHeight;
-      if (columnHeight < minHeight) {
+      if(columnHeight < minHeight) {
         minHeight = columnHeight;
         minIndex = i;
       }
@@ -96,7 +96,7 @@ var note = {
     this.el.onclick = function (e) {
       var dom = e.target;
       var isMore = dom.classList.contains('more');
-      if (isMore) {
+      if(isMore) {
         self.handleMore();
       }
     }
