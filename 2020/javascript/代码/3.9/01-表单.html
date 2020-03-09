@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <form action="#">
+                    <!-- 用来放置表单组：一组匹配的表单 -->
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" class="form-control" placeholder="请输入用户名">
+                        <small class="form-text text-muted">用户名需要用英文及符号</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordAgain"></label>
+                        <!-- disabled禁用属性 -->
+                        <input type="password" id="passwordAgain" class="form-control" placeholder="请再次输入密码" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="area"></label>
+                        <!-- multiple让下拉框变成多选 -->
+                        <select name="" id="area" class="form-control" multiple>
+                            <option value="">上海</option>
+                            <option value="">北京</option>
+                            <option value="">广州</option>
+                            <option value="">深圳</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">选择文件</label>
+                        <input type="file" class="form-control-file" id="file">
+                    </div>
+                    <div class="form-group">
+                        <label for="range">滑块</label>
+                        <input type="range" class="form-control-range" id="range">
+                    </div>
+
+                    <!-- 复选框 单选框 -->
+                    <div class="form-group">
+                        <label for="">兴趣爱好</label>
+                        <!-- form-check-inline使表单内容在一行排列 -->
+                        <div class="form-check form-check-inline"><!--form-check：选择框类-->
+                            <input type="checkbox" id='eat' class="form-check-input">
+                            <label for="eat" class="form-check-label">吃饭</label>
+                        </div>
+                        <div class="form-check"><!--form-check：选择框类-->
+                            <input type="checkbox" id='sleep' class="form-check-input">
+                            <label for="sleep" class="form-check-label">睡觉</label>
+                        </div>
+                        <div class="form-check"><!--form-check：选择框类-->
+                            <input type="checkbox" id='play' class="form-check-input">
+                            <label for="play" class="form-check-label">打豆豆</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">性别</label>
+                        <div class="form-check form-check-inline"><!--form-check：选择框类-->
+                            <input type="radio" id='male' class="form-check-input" name="sex">
+                            <label for="male" class="form-check-label">男</label>
+                        </div>
+                        <div class="form-check form-check-inline"><!--form-check：选择框类-->
+                            <input type="radio" id='female' class="form-check-input" name='sex'>
+                            <label for="female" class="form-check-label">女</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 表单的尺寸：要将该类给输入框input/select
+                大尺寸：.form-control-lg || .col-form-label-lg
+                小尺寸：.form-control-sm || .col-form-label-sm
+            -->
+        <div class="row mt-5">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="大尺寸的表单">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="正常尺寸的表单">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="小尺寸的表单">
+                </div>
+            </div>
+        </div>
+
+        <!-- 只读属性 -->
+        <div class="row mt-5">
+            <div class="col">
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="只读文本" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control-plaintext" placeholder="没有边框的只读文本" readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 表单的栅格排列：此时form标签必须要放在行与列的外层 -->
+        <form action="#">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="栅格排列">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="栅格排列">
+                </div>
+            </div>
+        </form>
+
+        <!-- 表单表格式的排列 -->
+        <form action="#">
+            <!--form-row与row的区别是间距变小了-->
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="栅格排列">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="栅格排列">
+                </div>
+            </div>
+        </form>
+
+        <!-- 栅格系列的例子 -->
+        <form action="#">
+            <div class="form-row mt-5">
+                <div class="col-md-6 form-group">
+                    <label for="email1">Email</label>
+                    <input type="email" class="form-control" id="email1" placeholder="请输入邮箱地址">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="password2">Password</label>
+                    <input type="password" class="form-control" id="password2" placeholder="请输入密码">
+                </div>
+            </div>
+            <!-- 表单横跨12个列 -->
+            <div class="row">
+                <div class="form-group col">
+                    <label for="homeAdress">家庭地址</label>
+                    <input type="text" id="homeAdress" class="form-control" placeholder="请输入家庭地址">
+                </div>
+                <div class="form-group col">
+                    <label for="companyAdress">公司地址</label>
+                    <input type="text" class="form-control" id="companyAdress" placeholder="请输入公司地址">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <label for="city">城市</label>
+                    <input type="text" class="form-control" id="city" placeholder="请输入您的地址">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="marriage">婚姻状况</label>
+                    <select class="form-control" id="marriage">
+                        <option value="">已婚</option>
+                        <option value="">未婚</option>
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">
+                    <label for="education">学历</label>
+                    <select class="form-control" id="education">
+                        <option value="">博士</option>
+                        <option value="">硕士</option>
+                        <option value="">本科</option>
+                        <option value="">大专</option>
+                        <option value="">高中</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="grid">
+                    <label for="grid" class="form-check-label">同意所读内容</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+
+        <!-- 水平表单：内容水平排列 -->
+        <form action="#">
+            <div class="form-group row mt-5">
+                <!-- col-form-label用来决定与后面的表单垂直对齐 -->
+                <label for="email2" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email2" placeholder="请输入邮箱">
+                </div>
+            </div>
+            <div class="form-group row mt-5">
+                <!-- col-form-label用来决定与后面的表单垂直对齐 -->
+                <label for="password3" class="col-sm-2 col-form-label">password</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="password3" placeholder="请输入密码">
+                </div>
+            </div>
+        </form>
+
+        <!-- 内联表单 -->
+        <div class="row">
+            <div class="col">
+                <!-- form-inline是表单内容水平排列 -->
+                <form action="#" class="form-inline">
+                    <div class="form-group mr-5">
+                        <label for="">用户名</label>
+                        <input type="email" class="form-control" value="xxxqq.com">
+                    </div>
+                    <div class="form-group mr-5">
+                        <label for="">密码</label>
+                        <input type="password" class="form-control" value="">
+                    </div>
+                    <div class="form-group mr-5">
+                        <input type="checkbox" class="form-control-input">
+                        <label for="" class="form-control-label">用户名</label>
+                    </div>
+                    <div class="form-group mt-5">
+                        <button class="btn btn-primary">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 表单验证 -->
+        <!-- needs-validation--仅仅告诉我们当前的form标签需要验证； novalidate--禁用浏览器表单默认的验证功能
+        验证的那些样式是通过js动态添加一个类名was-validated来定义显示的
+        -->
+        <form action="#" class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 form-group">
+                    <label for="sername">姓</label>
+                    <!-- required谁验证就给谁 -->
+                    <input type="text" class="form-control" id="sername" placeholder="请输入姓" value="陈" required>
+                    <div class="valid-feedback"><!--验证成功对应的class-->
+                        验证通过！<!--验证成功的伪类是valid，只有当成功的时候才能选择得到 -->  
+                    </div>
+                    <!-- invalid-feedback--验证失败对应的class，验证失败的伪类是invalid -->
+                    <div class="invalid-feedback">验证失败</div>
+                </div>
+            </div>
+        </form>
+
+        <!-- 自定义表单 -->
+        <div class="row mt-5">
+            <div class="col">
+                <!-- custom-control--自定义表单必须添加的类名，custom-checkbox--自定义的是复选框 -->
+                <div class="form-group custom-control custom-checkbox">
+                    <!-- custom-control-input--干掉默认的样式 -->
+                    <input type="checkbox" id="eat" class="custom-control-input">
+                    <label for="eat" class="custom-control-label">吃饭</label>
+                </div>
+                <div class="form-group custom-control custom-radio">
+                    <!-- custom-control-input--干掉默认的样式 -->
+                    <input type="radio" id="male" class="custom-control-input" name='sex'>
+                    <label for="male" class="custom-control-label">男</label>
+                </div>
+                <div class="form-group custom-control custom-radio">
+                    <!-- custom-control-input--干掉默认的样式 -->
+                    <input type="radio" id="female" class="custom-control-input" name="sex">
+                    <label for="female" class="custom-control-label">女</label>
+                </div>
+
+                <!-- 在一行中排列：custom-control-inline -->
+                <div class="form-group custom-control custom-radio custom-control-inline">
+                    <!-- custom-control-input--干掉默认的样式 -->
+                    <input type="radio" id="male1" class="custom-control-input" name='sex1'>
+                    <label for="male1" class="custom-control-label">男</label>
+                </div>
+                <div class="form-group custom-control custom-radio custom-control-inline">
+                    <!-- custom-control-input--干掉默认的样式 -->
+                    <!-- disabled--禁用表单 -->
+                    <input type="radio" id="female1" class="custom-control-input" name="sex1" disabled>
+                    <label for="female1" class="custom-control-label">女</label>
+                </div>
+
+                <!-- 下拉菜单 -->
+                <select class="form-group custom-select">
+                    <option value="">北京</option>
+                    <option value="">上海</option>
+                    <option value="">武汉</option>
+                    <option value="">广州</option>
+                </select>
+
+                <!-- 滑块 -->
+                <div class="form-group">
+                    <label for="range1">滑块</label>
+                    <input type="range" id="range1" class="custom-range">
+                </div>
+
+                <div class="form-group">
+                    <label for="range2">有范围的滑块</label>
+                    <!-- mix和max是滑动的区间范围 -->
+                    <input type="range" id="range2" min="0" max="10" class="custom-range">
+                </div>
+
+                <div class="form-group">
+                    <label for="range3">规定步长滑块</label>
+                    <input type="range" id="range3" class="custom-range" min="0" max="10" step="0.5">
+                </div>
+
+                <!-- 文件选取 -->
+                <div class="form-group custom-file">
+                    <input type="file" id="file1" class="custom-file-input">
+                    <label for="file1" class="custom-file-label">选择文件</label>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        //验证功能---动态添加class
+        (function(){
+            var forms=document.querySelectorAll('.needs-validation');
+            forms.forEach(function(form,index){
+                //表单的一个属性--submit：当点击提交按钮的时候就会触发
+                form.addEventListener('submit',function(ev){
+                    //如果表单验证成功的话form.checkValidity()==true
+                    if(form.checkValidity()==false){//表示没通过验证
+                        ev.preventDefault();//阻止刷新功能
+                        ev.stopPropagation();//阻止冒泡
+                    }
+                    form.classList.add('was-validated');//提交事件发生后，无论成功与否都需要添加这个类名
+                })
+            })
+        }())
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 输入框组---用来提升用户提验 -->
+    <div class="container">
+        <div class="form-row mt-5">
+            <div class="col">
+                <div class="form-group input-group">
+                    <!-- input-group-prepend--表示该内容的位置 -->
+                    <div class="input-group-prepend">
+                        <!-- input-group-text--使二者能够完美的结合在一起 -->
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="用户名">
+                </div>
+
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" placeholder="邮箱名">
+                    <div class="input-group-append"><!--决定方向-->
+                        <!-- input-group-text--决定文本的样式 -->
+                        <span class="input-group-text">@</span>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+
+                <div class="form-group input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">http://</span>
+                    </div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="from-group input-group mt-5">
+                    <!-- input-group-prepend--使高度能够保持一致 -->
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">文本输入框</span>
+                    </div>
+                    <textarea class="form-control"></textarea>
+                </div>
+
+                <!-- 多选框和单选框 -->
+                <div class="form-group input-group mt-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <input type="checkbox">
+                        </span>
+                    </div>
+                    <input type="text" class="from-control">
+                </div>
+
+                <!-- 多个输入框与多个额外组件 -->
+                <div class="form-group input-group mt-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">多个输入框</span>
+                    </div>
+                    <input type="text" class="from-control">
+                    <input type="text" class="from-control">
+                    <input type="text" class="from-control">
+                </div>
+
+                <!-- 按钮组合 -->
+                <div class="form-group input-group mt-5">
+                    <div class="input-group-prepend">
+                        <!-- btn-outline-primary---按钮的边框 -->
+                        <!-- input-group-text类名对按钮不起作用，所以不需要添加 -->
+                        <button class="btn btn-outline-primary">左按钮</button>
+                    </div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <!-- 带下拉列表的按钮组合 -->
+                <div class="form-group input-group mt-5">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">左侧下拉菜单</button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="drop-item">北京</a>
+                            <a href="#" class="drop-item">上海</a>
+                            <a href="#" class="drop-item">广州</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="drop-item">深圳</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <!-- 自定义表单组合，自定义文件 -->
+                <div class="form-group input-group mt-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">上传在左边</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file1">
+                        <label for="file1" class="custom-file-label"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
