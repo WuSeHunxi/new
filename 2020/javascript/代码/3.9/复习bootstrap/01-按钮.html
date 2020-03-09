@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+    <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+        总结：
+            1. btn--按钮 btn-primary/warning/danger等表示按钮的颜色
+            2. btn-outline-primary--按钮的边框
+            3. active--表示选中状态
+            4. btn-group--按钮组或者下拉菜单的父级
+            5. btn-lg/sm---单个按钮的缩放
+            6. btn-group-lg/sm---按钮组的放大或缩小
+            7. d-block--如果给按钮设置的话，该按钮就会独占一行
+            8. dropdown-toggle--下拉小三角  data-toggle="dropdown"--与js交互进行下拉展示
+            9. dropdown-menu--下拉列表  dropdown-item---下拉菜单中的每一项
+            10. btn-group-vertical--垂直排列
+
+    -->
+    <div class="container">
+        <div class="row mt-5 d-block">
+            <button class="btn btn-primary">按钮1</button>
+            <button class="btn btn-primary">按钮2</button>
+        </div>
+
+        <div class="row mt-5 d-block">
+            <a href="#" class="btn btn-success">按钮</a>
+            <input type="submit" value="提交" class="btn btn-primary">
+        </div>
+
+        <div class="row mt-5">
+            <button class="btn btn-outline-dark">按钮</button>
+        </div>
+
+        <div class="row mt-5 d-block">
+            <button class="btn btn-primary btn-lg">大按钮</button>
+            <button class="btn btn-success btn-sm">小按钮</button>
+        </div>
+
+        <div class="row mt-5">
+            <button class="btn btn-success btn-block">按钮</button>
+        </div>
+
+        <div class="row mt-5 d-block">
+            <button class="btn btn-secondary active">按钮</button>
+            <button class="btn btn-secondary" disabled>按钮</button>
+        </div>
+
+        <div class="row mt-5"><button class="btn btn-warning active" data-toggle="button">按钮</button></div>
+        
+        <div class="row d-block mt-5">
+			<button class="btn btn-primary active" data-toggle='button'>点击切换状态</button>
+        </div>
+        
+        <!-- 选项卡 -->
+        <div class="row mt-5">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <!-- 利用单选按钮和label标签共同实现的 -->
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" checked>active
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options">active
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options">active
+                </label>
+            </div>
+        </div>
+
+
+        <!-- 按钮组 -->
+        <div class="row mt-5">
+            <div class="btn-group">
+                <button class="btn btn-secondary">按钮</button>
+                <button class="btn btn-secondary">按钮</button>
+                <button class="btn btn-secondary">按钮</button>
+            </div>
+        </div>
+
+        <div class="row mt-5 btn-toolbar">
+            <div class="btn-group">
+                <button class="btn btn-secondary">按钮</button>
+                <button class="btn btn-secondary">按钮</button>
+                <button class="btn btn-secondary">按钮</button>
+            </div>
+            <div class="btn-group mx-3">
+                <button class="btn btn-success">按钮</button>
+                <button class="btn btn-success">按钮</button>
+                <button class="btn btn-success">按钮</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-danger">按钮</button>
+                <button class="btn btn-danger">按钮</button>
+                <button class="btn btn-danger">按钮</button>
+            </div>
+        </div>
+
+        <div class="row mt-5 btn-toolbar">
+            <div class="btn-group mr-2">
+                <button class="btn btn-primary">1</button>
+                <button class="btn btn-primary">2</button>
+                <button class="btn btn-primary">3</button>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="btn-group btn-group-lg">
+                <button class="btn btn-danger">按钮</button>
+                <button class="btn btn-danger">按钮</button>
+                <button class="btn btn-danger">按钮</button>
+            </div>
+        </div>
+
+        <!-- 下拉菜单 -->
+        <div class="row mt-5">
+            <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" data-toggle='dropdown'>城市</button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">北京</a>
+                    <a href="#" class="dropdown-item">上海</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="btn-group-vertical">
+                <button class="btn btn-warning">北京</button>
+                <button class="btn btn-warning">上海</button>
+                <button class="btn btn-warning">深圳</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+</html>
