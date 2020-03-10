@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一次只能支持一个模态框(modal)
+        模态框内容的滚动：
+        垂直居中的模态框：modal-dialog-centered和modal-dialog同级
+        在模态框中使用栅格系统：核心的内容要放在modal-body当中,container-fluid及其基本结构 
+        不同的模态框：多个按钮对应一个模态框
+        show.bs.modal---当出现模态框的时候触发
+        ev.relatedTarget---这个值为点击的那个button
+        data('whatever')---这个是获取data-whatever的值
+        模态框的尺寸大小：超大尺寸：bd-example-modal-xl(和modal同级)+modal-xl(和modal-dialog同级)
+                        大尺寸：bd-example-modal-lg(和modal同级)+modal-lg(和modal-dialog同级)
+                        小尺寸：bd-example-modal-sm(和modal同级)+modal-sm(和modal-dialog同级)
+        data属性：需要添加在button上(前三个的默认值为true) 
+            data-backdrop--模态框是否要有遮罩层  
+            data-keyboard--是否可以通过ESC关闭模态框(此时必须得点击模态框上的一个按钮，除了关闭按钮，否则不好使)
+            data-focus--让模态框获取焦点，但是没有任何效果(因为模态框没有任何状态)
+            data-show--初始化的时候模态框是否要显示(默认值为false)
+        方法和事件：将按钮的data-属性删掉，通过js自行实现关闭和显示
+            方法：要显示的模态框.modal('show')
+                  要关闭的模态框.modal('hide')
+                  modal('toggle')---在隐藏和显示之间切换
+            事件：show.bs.modal---显示前
+                  shown.bs.modal---完全显示
+                  hide.bs.modal---隐藏前
+                  hidden.bs.modal---完全隐藏
+    -->
+    <div class="modal fade" id="modal1">
+        <div class="modal-dialog"><!--规定模态框的大小空间，规定定位-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">标题</h5>
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    这是主题内容
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal4">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="username" class="col-form-label">用户名：</label>
+                            <input type="text" class="form-control" id='usernamr'>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary close" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <button class="btn btn-success" data-toggle="modal" data-target="#modal1">普通模态框</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="modal4" data-whatever="marry">模态框相同内容不同</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="modal4" data-whatever="hello">模态框相同内容不同</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="modal4" data-whatever="world">模态框相同内容不同</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

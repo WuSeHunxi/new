@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 媒体对象：左右结构(图文混排)---多用于评论等
+                    右面还分上下
+                媒体对象的基本类：media
+                媒体对象的结构：左侧a标签里面套图片，右侧：div.media-body(放标题，文本)
+                媒体对象嵌套：直接在右侧的文字下面添加media及其结构。
+                媒体对象的对齐：顶部对齐：默认情况--align-self-start
+                               垂直对齐：align-self-center
+                               底部对齐：align-self-end(都给图片添加即可，想让谁以谁为标准对齐就给前面的谁添加)
+                媒体对象的列表：ul.list-unstyle
+                                  li.media，其他的内容和正常结构一样
+    -->
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <div class="media">
+                    <a href="#">
+                        <img src="" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h5>lalal</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list-unstyle">
+                    <li class="media">
+                        <a href="#">
+                            <img src="" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h5>kaka</h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
