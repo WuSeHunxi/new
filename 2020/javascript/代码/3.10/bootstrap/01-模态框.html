@@ -7,13 +7,15 @@
 </head>
 <body>
     <!-- 一次只能支持一个模态框(modal)
-        模态框内容的滚动：
+        模态框的基础类是modal，它的下一层是modal-dialog
+        模态框的内容放在modal-content，里面分为modal-header,modal-body,modal-footer
+
         垂直居中的模态框：modal-dialog-centered和modal-dialog同级
-        在模态框中使用栅格系统：核心的内容要放在modal-body当中,container-fluid及其基本结构 
-        不同的模态框：多个按钮对应一个模态框
-        show.bs.modal---当出现模态框的时候触发
-        ev.relatedTarget---这个值为点击的那个button
-        data('whatever')---这个是获取data-whatever的值
+        在模态框中使用栅格系统：核心的内容要放在modal-body当中,里面是container-fluid及其基本结构 
+        不同的模态框：多个按钮对应一个模态框，需要使用js进行操作
+                            show.bs.modal---当出现模态框的时候触发
+                            ev.relatedTarget---这个值为点击的那个button
+                            .data('whatever')方法---这个是获取data-whatever的值
         模态框的尺寸大小：超大尺寸：bd-example-modal-xl(和modal同级)+modal-xl(和modal-dialog同级)
                         大尺寸：bd-example-modal-lg(和modal同级)+modal-lg(和modal-dialog同级)
                         小尺寸：bd-example-modal-sm(和modal同级)+modal-sm(和modal-dialog同级)

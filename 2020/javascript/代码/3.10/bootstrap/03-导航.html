@@ -8,7 +8,7 @@
 <body>
     <!-- 导航：
             结构： 第一种方法：1. ul.nav
-                              2. a.nav-link--对应的是导航中具体的某一项
+                              2. li>a.nav-link--对应的是导航中具体的某一项
                    第二种方法：1. nav.nav
                               2. a.nav-link
             对齐方式：使用flex的类，写在父级
@@ -18,30 +18,38 @@
                     左右间距平分：justify-content-around
                     两端居中对齐justify-content-between
             垂直排列：flex-column(可以对应响应层，写在父级ul/nav)
-            Tabs标签(选项卡)：nav-tabs(给ul/nav添加)  
+            
+            Tabs标签(选项卡)：nav-tabs(给ul/nav添加)，和.nav同级 
                              选中的那一项添加active   
-                             li.nav-item---去掉下边框
+                             ul>li.nav-item / nav>a.nav-item---去掉下边框
                              .disabled---禁止点击
-            胶囊式标签：nav-pills代替nav-tabs
+            胶囊式标签：nav-pills代替nav-tabs(和Tabs标签同理)
+
             分配大小：宽度由内容撑开：(瓜分父级剩余空间：flex-fill)       
                             ul.nav-fill
                             nav.nav-fill，同时给a标签添加nav-item
                      子元素的宽度一样：
                             nav-justified代替nav-fill
+
             弹性布局：ul/nav.nav-justified.flex.column.flex-sm-row
-                    意思是：小尺寸竖着排，其他尺寸横着排
-            下拉菜单：父级dropdown
+                    意思是：等宽导航小尺寸竖着排，其他尺寸横着排
+
+            下拉菜单：父级dropdown，哪一项要变成菜单栏，哪一项就是父级
                      子级dropdown-toggle+data-toggle="dropdown"
                      下拉列表为div.dropdown-menu>a.dropdown-item
-            选项卡：ul.nav.nav-tabs，同时a添加data-toggle='tab'
-                   内容区：div.tab-content>div.tab-pane 
-                          并且第一个显示的项要添加fade+show+active
+                     dropdown-divider---下拉列表的横线
+            
+            选项卡：ul.nav+Tabs或者胶囊，同时a添加data-toggle='tab'
+                    内容区：div.tab-content>div.tab-pane 
+                        并且第一个显示的项要添加fade+show+active
+                     
+
             方法与事件：
                 方法：$().tab('show')---修改当前激活项
                 事件：show.bs.tab---要显示
                      shown.bs.tab--完全显示
                      hide.bs.tab--该内容要隐藏了
                      hidden.bs.tab--完全隐藏
-    -->
+    --> 
 </body>
 </html>
