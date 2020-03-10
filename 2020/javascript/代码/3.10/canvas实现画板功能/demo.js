@@ -1,51 +1,57 @@
 var canvas={
-    canvas:document.getElementsByTagName("canvas")[0],
-    ctx:document.getElementsByTagName("canvas")[0].getContext('2d'),
+    can:document.getElementsByClassName("canvas")[0],
+    ctx:document.getElementsByClassName('canvas')[0].getContext("2d"),
+    allBtns:document.getElementsByTagName("ul")[0].getElementsByTagName("input"),
     colorBtn:document.getElementById("color"),
-    rangeBtn:document.getElementById('range'),
+    rangeBtn:document.getElementById("range"),
     ulNode:document.getElementsByTagName("ul")[0],
-    btnAlls:document.getElementsByTagName('ul')[0].getElementsByTagName("input"),
     imgArr:[],
     init:function(){
         this.ctx.lineCap='round';
         this.ctx.lineJoin='round';
         this.drawing();
-        this.allClick();
+        this.btnClick();
     },
     drawing:function(){
         var self=this;
-        var top=this.canvas.offsetTop,
-            left=this.canvas.offsetLeft;
-        this.canvas.onmousedown=function(e){
-            var e_x=e.pageX;
-            var e_y=e.pageY;
+        this.can.onmousedown=function(e){
+            var x=e.pageX,
+                y=e.pageY,
+                left=self.can.offsetLeft,
+                top=self.can.offsetTop;
             self.ctx.beginPath();
-            self.ctx.moveTo(e_x-left,e_y-top);
-            var img=self.ctx.getImageData(0,0,700,330);
+            self.ctx.moveTo(x-left,y-top);
+            var img=self.ctx.getImageData(0,0,self.can.offsetWidth,self.can.offsetHeight);
             self.imgArr.push(img);
+            console.log(x-left)
+
             document.onmousemove=function(e){
                 self.ctx.lineTo(e.pageX-left,e.pageY-top);
+                // self.closePath();
                 self.ctx.stroke();
             }
+
             document.onmouseup=function(){
                 document.onmousemove=null;
                 self.ctx.closePath();
             }
-        }   
+        }
     },
-    allClick:function(){
+    btnClick:function(){
         var self=this;
         this.ulNode.onclick=function(e){
-            console.log(e.target.id);
+            // console.log(e.target.id);
             switch (e.target.id){
                 case 'clear':
                     self.ctx.clearRect(0,0,700,330);
                     break;
                 case 'eraser':
-                    self.ctx.strokeStyle='#fff';
+                    self.ctx.strokeStyle="#fff"
                     break;
                 case 'reset':
-                    self.ctx.putImageData(self.imgArr.pop(),0,0);
+                    if(self.imgArr.length>0){
+                        self.ctx.putImageData(self.imgArr.pop(),0,0);
+                    }
                     break;
             }
         }
@@ -53,7 +59,7 @@ var canvas={
         this.colorBtn.onchange=function(){
             self.ctx.strokeStyle=this.value;
         }
-        
+
         this.rangeBtn.onchange=function(){
             self.ctx.lineWidth=this.value;
         }
@@ -61,3 +67,5 @@ var canvas={
 }
 
 canvas.init();
+
+// console.log(canvas.can,canvas.ctx)

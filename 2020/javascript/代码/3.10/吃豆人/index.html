@@ -1,0 +1,153 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-07 21:07:01
+ * @LastEditTime: 2020-03-08 12:18:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /studyCode/案例/吃豆人/index.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="world">
+    </div>
+    <text>
+        分数在这：
+    </text>
+    <div class="box"></div>
+    <div class="text"></div>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            var html = '';
+            var a = "";
+            //1.墙 2.金币 3.地板 4.man
+            var map = [];
+            var world = $("#world");
+            // 获取min到max的整数随机数，包含min到max
+            function getRandom(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            for (var i = 0; i < 100; i++) {
+                a = getRandom(1, 3);
+                map.push(a);
+            }
+            map.splice(3, 1, 4)
+
+            function getMap() {
+                html = "";
+                world.html("");
+                for (var i = 0; i < map.length; i++) {
+                    // console.log(map[i]);
+                    if (map[i] === 1) {
+                        html += '<div class="wall"></div>'
+                    } else if (map[i] === 2) {
+                        html += '<div class="icon"></div>'
+                    } else if (map[i] === 3) {
+                        html += '<div class="ground"></div>'
+                    } else if (map[i] === 4) {
+                        html += '<div class="man"></div>'
+                    }
+                }
+
+                world.append(html);
+                console.log("重绘完毕");
+            }
+            getMap();
+            // 开始吃豆豆
+            var man = $(".man");
+            var manxy = 3;
+            var gra = 0;
+            $(document).on("keyup", function (e) {
+                if (e.keyCode === 37) {
+                    if (map[manxy - 1] !== 1 && manxy > 0 && manxy % 10 !== 0) {
+                        if (map[manxy - 1] === 2) {
+                            gra++;
+                            $(".box").html(gra);
+                        }
+                        console.log("左");
+                        map[manxy] = 3;
+                        manxy = manxy - 1;
+                        map[manxy] = 4;
+                        getMap();
+                        $(".man").addClass("left");
+                    }
+                } else if (e.keyCode === 38) {
+                    if (map[manxy - 10] !== 1 && manxy > 9) {
+                        if (map[manxy - 10] === 2) {
+                            gra++;
+                            $(".box").html(gra);
+                        }
+                        console.log("上");
+                        map[manxy] = 3;
+                        manxy = manxy - 10;
+                        map[manxy] = 4;
+                        getMap();
+                        $(".man").addClass("up");
+                    }
+
+                } else if (e.keyCode === 39) {
+                    if (map[manxy + 1] !== 1 && (manxy + 1) % 10 !== 0) {
+                        if (map[manxy + 1] === 2) {
+                            gra++;
+                            $(".box").html(gra);
+                        }
+                        console.log("右");
+                        map[manxy] = 3;
+                        manxy = manxy + 1;
+                        map[manxy] = 4;
+                        getMap();
+
+                    }
+
+                } else if (e.keyCode === 40) {
+                    if (map[manxy + 10] !== 1 && manxy < 90) {
+                        if (map[manxy + 10] === 2) {
+                            gra++;
+                            $(".box").html(gra);
+                        }
+                        console.log("下");
+                        map[manxy] = 3;
+                        manxy = manxy + 10;
+                        map[manxy] = 4;
+                        getMap();
+                        // 此处的man一定要在上面重绘地图后再次动态获取
+                        $(".man").addClass("down");
+                        // 也ok
+                        // var man = document.querySelector(".man")
+                        // man.className="down man";
+                        console.log(man);
+                    }
+                }
+       
+ 
+               if(map.indexOf(2)===-1){
+                   console.log("结束啦");
+                   $(".text").html("哈哈吃完了所有的豆豆～")
+                   
+               }
+ 
+               
+            })
+
+            $(document).ready(function () {
+
+            })
+        })
+    </script>
+</body>
+
+</html>

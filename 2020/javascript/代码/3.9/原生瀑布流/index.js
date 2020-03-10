@@ -1,12 +1,12 @@
 var note = {
   el: null,
   noteList: [],
-  minColumnHeight: 0,
-  minColumnIndex: 0,
+  minColumnHeight: 0,//最小高度
+  minColumnIndex: 0,//最小高度的列
   init: function (options) {
     this.initData(options);
     this.render();
-    this.handle();
+    this.handleMore();
   },
   initData: function (options) {
     var self = this;
@@ -17,14 +17,15 @@ var note = {
   },
   render () {
     this.el.innerHTML = `
-      ${this.renderColumn()}
-      <div class="more">查看更多</div>
-    `
+      ${this.renderColumn()}     
+    `;
+    // <div class="more">查看更多</div>
     this.renderNote(this.noteList);
   },
   renderColumn: function () {
     var template = '';
     for(var i = 0; i < 5; i ++) {
+      //创建很多个小红书列
       template += '<div class="note-column"></div>'
     }
     return template;
@@ -33,6 +34,7 @@ var note = {
     var noteListLength = this.noteList.length;
     var oColumn = this.el.getElementsByClassName('note-column');
 
+    //取到每一列，循环循环动态在里面生成dom结构
     for(var i = 0; i < noteListLength; i ++) {
       var note = noteList[i];
       var oNoteDiv = document.createElement('div');
@@ -46,6 +48,7 @@ var note = {
   noteCmp: function (note) {
     var cover = note.cover;
     var user = note.user;
+    // 每一列的具体内容
     var template = `
       <div class="note">
         <div class="note-info">
@@ -76,10 +79,11 @@ var note = {
     var oColumn = document.getElementsByClassName('note-column');
     var columnLength = oColumn.length;
     var minIndex = this.minColumnIndex;
-    var minHeight = oColumn[0].offsetHeight;
+    var minHeight = oColumn[0].offsetHeight;//默认最小高度是第一列
 
     for(var i = 1; i < columnLength; i ++) {
       var columnHeight = oColumn[i].offsetHeight;
+      //寻找最小高度
       if(columnHeight < minHeight) {
         minHeight = columnHeight;
         minIndex = i;
@@ -91,20 +95,32 @@ var note = {
       index: minIndex
     }
   },
-  handle: function () {
-    var self = this;
-    this.el.onclick = function (e) {
-      var dom = e.target;
-      var isMore = dom.classList.contains('more');
-      if(isMore) {
-        self.handleMore();
-      }
-    }
-  },
+  // handle: function () {
+  //   var self = this;
+  //   //点击加载更多按钮继续进行加载
+  //   this.el.onclick = function (e) {
+  //     var dom = e.target;
+  //     var isMore = dom.classList.contains('more');
+  //     if(isMore) {
+  //       self.handleMore();
+  //     }
+  //   }
+  // },
   handleMore: function () {
     var self = this;
-    getData('noteList', function (res) {
-      self.renderNote(res);
-    })
+    var clientHeight=document.documentElement.clientHeight;
+    var scrollTop=document.documentElement.scrollTop;
+    var minHeight=this.getMinColumnInfo().height;
+    if(clientHeight+scrollTop>minHeight){
+      console.log(0)
+      console.log(clientHeight,scrollTop,minHeight);
+      getData('noteList', function (res) {
+          self.renderNote(res);
+        })
+      // timer=setTimeout(function(){
+        
+      // },500);
+    }
+    
   }
 }
