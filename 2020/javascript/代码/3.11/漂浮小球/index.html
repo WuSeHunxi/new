@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="my.js"></script>
+    <!-- <script src="my.js"></script> -->
     <title>Document</title>
     <style>
         body {
@@ -44,14 +44,18 @@
         }
         // let minRadius = 1;
         let maxRadius = 40;
+
+        //更新鼠标位置
         window.addEventListener("mousemove", function (e) {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
         })
 
         function Ball(x, y, dx, dy, radius, color) {
+            //小球的圆点
             this.x = x;
             this.y = y;
+            //dx和dy为小球的速度
             this.dx = dx;
             this.dy = dy;
             this.radius = radius;//半径
@@ -60,32 +64,36 @@
 
             this.draw = function () {
                 ctx.beginPath();
+                //arc 最后一个参数代表的是方向：false为顺时针，true为逆时针
                 ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false)
                 ctx.fillStyle = this.color;
-                ctx.fill();
+                ctx.fill();//填充颜色
                 ctx.closePath();
                 ctx.beginPath();
             }
 
+            // 更新位置
             this.update = function () {
+                //到达边界，改变速度的方向
                 if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
                     this.dx = -this.dx;
-                    console.log(this.dx);
                 }
                 if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
                     this.dy = -this.dy;
                 }
                 this.x += this.dx;
                 this.y += this.dy;
-                // 鼠标交互
+                // 鼠标交互---靠近鼠标位置的小球变大
                 if (mouse.x - this.x < 50 && mouse.x - this.x > -50 &&
                     mouse.y - this.y < 50 && mouse.y - this.y > -50) {
-                    if (this.radius < maxRadius) {
+                        //球开始变大
+                    if (this.radius < maxRadius) {//防止过大
                         this.radius += 1;
                         console.log(this.maxRadius);
                     }
                 } else {
-                    if (this.radius > this.minRadius) {
+                    //球开始变小
+                    if (this.radius > this.minRadius) {//防止过小
                         this.radius += -1;
                     }
                 }
@@ -93,13 +101,18 @@
             }
         }
 
-        let ball = new Ball(300, 300, 10, 10, 50, 'red')
         let colorArr = ["#ffc2c2", "#ff9d9d", "#ff2e63", "#fcf8e8", "#142850", "#00a8cc"]
         let ballArr = [];
+
+        //屏幕上的其他小球
         for (let i = 0; i < 700; i++) {
-            let radius = Math.random() * 4 + 1;
+            let radius = Math.random() * 4 + 1;//圆的半径是1~5
+
+            //规定圆心的位置：最小是一个圆的半径，最大不能超过屏幕-圆的半径
             let x = Math.random() * (canvas.width - 2 * radius) + radius;
             let y = Math.random() * (canvas.height - 2 * radius) + radius;
+
+            //速度有正有负，因此需要-0.5，然后再扩大
             let dx = (Math.random() - 0.5) * 2;
             let dy = (Math.random() - 0.5) * 2;
             let color = colorArr[Math.floor(Math.random() * 6)]
@@ -108,6 +121,7 @@
         }
 
         function animate() {
+            //浏览器自带的函数
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let b of ballArr) {
