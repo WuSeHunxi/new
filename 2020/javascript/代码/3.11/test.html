@@ -15,13 +15,26 @@
 
         /*
             querySelector()--->如果获取不到的话得到的是null，因此需要防止异常
-            jQuery 对象的 iframe.contents() 返回的是 iframe 内的 document
-            iframe.contentDocument
+            jQuery 对象的 iframe.contents()，返回的是 iframe 内的 document
+            原生js中返回iframe内的document的方法是 iframe.contentDocument
+            定时器和计时器都是异步执行的，无论时间是多少。
         */
 
         // console.log(arr)
         // console.log(oDiv);
         
+        for(var i=0;i<5;i++){
+            setTimeout(function(){
+                console.log(i)
+            },i*10);
+
+            // 利用闭包解决问题
+            // (function(index){
+            //     setTimeout(function(){
+            //         console.log(index);
+            //     },index*1000);  
+            // }(i))
+        }
     </script>
 </body>
 </html>
