@@ -9,13 +9,15 @@
 
 var drawingBoard = {
     cavs: document.getElementById('cavs'),
-    ctx: this.cavs.getContext('2d'),
+    ctx: document.getElementById('cavs').getContext('2d'),
     ulNode: document.getElementsByTagName('ul')[0],
+    // liList:this.ulNode.getElementsByTagName("li"),-->这里的this指的是window
     colorBtn: document.getElementById('color'),
     lineRuler: document.getElementById('lineRuler'),
     imgArr: [],
     init: function () {
-        console.log(this.cavs);
+        console.log(this.liList);
+        console.log(this.ctx);
         this.ctx.lineCap = 'round'; //线条起始和结尾样式
         //属性设置或返回所创建边角的类型，当两条线交汇时。
         this.ctx.lineJoin = 'round'; //转弯

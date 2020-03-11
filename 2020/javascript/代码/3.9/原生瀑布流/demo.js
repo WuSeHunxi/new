@@ -88,16 +88,19 @@ var note={
     },
     loadMore(){
         var self=this;
-        var scrollTop=document.documentElement.scrollTop;
-        var clientHeight=document.documentElement.clientHeight;
-        var minHeight=this.getMinHeight().height;
-        console.log(0)
-        console.log(scrollTop);
-        if(scrollTop+clientHeight>minHeight){
-            console.log('p')
-            getData('noteList',function(res){
-                self.renderNote(res);
-            })
+        var timer=null;
+        window.onscroll=function(){
+            var scrollTop=document.documentElement.scrollTop;
+            var clientHeight=document.documentElement.clientHeight;
+            var minHeight=self.getMinHeight().height
+            if(scrollTop+clientHeight>minHeight){
+                // console.log('p')
+                timer=setTimeout(function(){
+                    getData('noteList',function(res){
+                        self.renderNote(res);
+                    })
+                })
+            }
         }
     }
 }

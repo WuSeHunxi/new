@@ -1,0 +1,135 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-08 20:01:19
+ * @LastEditTime: 2020-03-08 20:44:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /studyCode/canvas/重力小球/index.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanves"></canvas>
+
+    <script>
+        
+        let ballArr = [];
+        // 产生随机整数
+        function randomIntFromRange(low, high) {
+            return Math.floor(Math.random() * (high - low + 1) + low);
+        }
+        // 产生随机颜色
+        function randomColor(colors) {
+            console.log(colors[Math.floor(Math.random() * colors.length)]);
+
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        window.addEventListener("mousedown", function () {
+            ballArr = [];
+            init();
+        })
+        window.addEventListener("resize", function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            ballArr = [];
+            init();
+
+        })
+
+
+        // 开始绘图
+        // 1.拿到canvas
+        var canvas = document.querySelector("#myCanves");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // canvas.style.border = "1px solid #000";
+
+        // 2.拿到canvas的上下文
+        var ctx = canvas.getContext("2d");
+        let Gravity = 0.8;
+        let Firction = 0.9;
+        let colorArr = ["#ffc2c2", "#ff9d9d", "#ff2e63", "#fcf8e8", "#142850", "#00a8cc"]
+
+        function Ball(x, y, dx, dy, radius, color) {
+            this.x = x;
+            this.y = y;
+            this.dx = dx;
+            // y方向速度，可正可负
+            this.dy = dy;
+            this.radius = radius;
+            this.minRadius = radius;
+            this.color = color;
+
+            this.draw = function () {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            this.update = function () {
+                // 落到地面
+                if (this.y + this.radius + this.dy + Gravity > canvas.height) {
+                    this.dy = -this.dy;
+                    this.dy *= Firction;
+                    this.dx *= Firction;
+                } else {
+                    // 重力加速
+                    this.dy += Gravity;
+                }
+                if (this.x + this.radius + this.dx >= canvas.width || this.x - this.radius + this.dx <= 0) {
+                    this.dx = -this.dx;
+                }
+                this.y += this.dy;
+                this.x += this.dx;
+
+                this.draw();
+            }
+        }
+        let ball = new Ball(canvas.width / 2, canvas.height / 2, 10, 100, 'blue')
+
+        function init() {
+            for (let i = 0; i < 200; i++) {
+                let radius = randomIntFromRange(5, 15);
+                let x = randomIntFromRange(radius, canvas.width - radius);
+                let y = randomIntFromRange(radius, canvas.height - radius);
+                let dx = randomIntFromRange(-5, 5)
+                let dy = randomIntFromRange(1, 2);
+                let color = randomColor(colorArr);
+                ballArr.push(new Ball(x, y, dx, dy, radius, color));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let ball of ballArr) {
+                ball.update();
+            }
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+
+</html>

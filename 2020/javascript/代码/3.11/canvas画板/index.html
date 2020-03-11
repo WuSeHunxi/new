@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <canvas id="canvas" width="700" height="330"></canvas>
+        <ul>
+            <li><input class="colorBtn" type="color"></li>
+            <li><input class="eraser" type="button" value="橡皮"></li>
+            <li><input class="clear" type="button" value="清屏"></li>
+            <li><input class="reset" type="button" value="撤销"></li>
+            <li><input class="rangeBtn" type="range" min="0" max="20"></li>
+        </ul>
+    </div>
+    <script src="index.js"></script>
+    <script>
+        canvas.init({
+            el:document.getElementsByClassName("wrapper")[0]
+        })
+        // document.getElementById
+    </script>
+</body>
+</html>

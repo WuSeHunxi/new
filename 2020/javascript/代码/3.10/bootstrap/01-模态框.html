@@ -11,19 +11,24 @@
         模态框的内容放在modal-content，里面分为modal-header,modal-body,modal-footer
 
         垂直居中的模态框：modal-dialog-centered和modal-dialog同级
+
         在模态框中使用栅格系统：核心的内容要放在modal-body当中,里面是container-fluid及其基本结构 
+        
         不同的模态框：多个按钮对应一个模态框，需要使用js进行操作
                             show.bs.modal---当出现模态框的时候触发
                             ev.relatedTarget---这个值为点击的那个button
                             .data('whatever')方法---这个是获取data-whatever的值
+
         模态框的尺寸大小：超大尺寸：bd-example-modal-xl(和modal同级)+modal-xl(和modal-dialog同级)
                         大尺寸：bd-example-modal-lg(和modal同级)+modal-lg(和modal-dialog同级)
                         小尺寸：bd-example-modal-sm(和modal同级)+modal-sm(和modal-dialog同级)
-        data属性：需要添加在button上(前三个的默认值为true) 
+        
+                        data属性：需要添加在button上(前三个的默认值为true) 
             data-backdrop--模态框是否要有遮罩层  
             data-keyboard--是否可以通过ESC关闭模态框(此时必须得点击模态框上的一个按钮，除了关闭按钮，否则不好使)
             data-focus--让模态框获取焦点，但是没有任何效果(因为模态框没有任何状态)
             data-show--初始化的时候模态框是否要显示(默认值为false)
+            
         方法和事件：将按钮的data-属性删掉，通过js自行实现关闭和显示
             方法：要显示的模态框.modal('show')
                   要关闭的模态框.modal('hide')

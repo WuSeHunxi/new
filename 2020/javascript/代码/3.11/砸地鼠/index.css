@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #45454d;
+}
+
+.wrapper{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.wrapper .score{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color:#fff;
+}
+
+.wrapper .holes{
+    width: 100%;
+    height: 600px;
+    cursor: url('./image/hammer.ico'),auto;
+}
+
+.holes .hole{
+    width: 200px;
+    height: 200px;
+    background-image: url('./image/hole.png');
+    float: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative;
+}
+
+.hole div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center ;
+}
+
+.hole .mouse{
+    background-image: url('./image/mouse.png');
+   
+}
+
+.hole .boom{
+    background-image: url('./image/boom.png');
+    z-index: 2;
+}
