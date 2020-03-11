@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 提示框：
+            1. 依赖js，需要初始化
+            2. 按钮：data-toggle='popover'+title="xxx"+data-content="xxx"
+                $(function(){---能够显示提示框的内容，选中的页面中的所有提示框
+                    $('[data-toggle="popover"]').popover();
+                })
+            3. 四个弹出方向：data-placement='top/right/bottom/left'
+            4. 失去焦点后会隐藏提示框：data-trigger='focus'
+            5. 禁用的按钮弹出提示框：需要在外面添加一层，然后把交互的功能都添加到这一层，并且给当前的button添加style="pointer-events:none"
+                  style="pointer-events:none"---表示当前元素永远都不会触发事件
+                  button的父级：class="d-inline-block" data-toggle="popover" data-content="xxx"
+                  禁用元素也可以添加hover的效果，即：给外一层添加data-trigger="hover"
+    
+            6. data-属性：data-animation=true---显示和隐藏的时候有过渡效果
+                         data-container='body'---默认即可，无需修改
+                         data-delay="2000"---显示延迟，也可以分开设置："show":'100,"hide":'200'
+                         data-html='false'---如果该值为true的话，可以修改标题和内容的文字
+                         data-trigger---触发的方式
+            
+            7. 方法与事件：
+                方法：
+                    $().popover('show')---显示提示框
+                    $().popover('hide')---利用定时器隐藏提示框
+                    $().popover('toggle')---显示和隐藏的切换
+                    $().popover('enable')---相当于添加了一个data-toggle="popover"(添加提示框的功能)
+                    $().popover('disable')---取消提示框的功能
+                    $().popover('toggleEnable')---切换上面两个方法
+                事件：
+                    show.bs.popover---提示框要显示了
+                    shown.bs.popover---提示框完全显示
+                    hide.bs.popover---提示框要隐藏
+                    hidden.bs.popover---提示框完全隐藏
+                    inserted.bs.popover---提示框的dom已经动态添加到页面当中了
+            
+
+
+
+
+
+         提示气泡：有些单调
+            1. data-toggle='tooltip'(和提示框不一样，没有data-content，但是同样需要初始化，方向的设置也是一样的)
+            2. 提示小工具：在一段文字中出现弹出框，可以使用a标签
+            3. data-属性：
+                    data-toggle='tooltip'
+                    data-html='true'---可以修改
+                    data-animation='true'
+                    剩下的也差不多
+            
+            4. 方法和事件：
+                方法：$().tooltip('show/hide/toggle')
+
+
+
+
+
+    -->
+</body>
+</html>
