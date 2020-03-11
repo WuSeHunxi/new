@@ -32,7 +32,7 @@
                     $().popover('toggle')---显示和隐藏的切换
                     $().popover('enable')---相当于添加了一个data-toggle="popover"(添加提示框的功能)
                     $().popover('disable')---取消提示框的功能
-                    $().popover('toggleEnable')---切换上面两个方法
+                    $().popover('toggleEnabled')---切换上面两个方法
                 事件：
                     show.bs.popover---提示框要显示了
                     shown.bs.popover---提示框完全显示
@@ -45,7 +45,7 @@
 
 
 
-         提示气泡：有些单调
+         提示气泡：有些单调（触发方式就一种）
             1. data-toggle='tooltip'(和提示框不一样，没有data-content，但是同样需要初始化，方向的设置也是一样的)
             2. 提示小工具：在一段文字中出现弹出框，可以使用a标签
             3. data-属性：
@@ -55,8 +55,8 @@
                     剩下的也差不多
             
             4. 方法和事件：
-                方法：$().tooltip('show/hide/toggle')
-
+                方法：$().tooltip('show/hide/toggle/enable/disable/toggleEnabled')
+                事件：show.bs.tooltip
 
 
 
