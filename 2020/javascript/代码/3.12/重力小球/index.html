@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        var canvas=document.getElementById('canvas');
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        var ctx=canvas.getContext("2d");
+        var colorsArr=["#ffc2c2", "#ff9d9d", "#ff2e63", "#fcf8e8", "#142850", "#00a8cc"];
+        var gravity=0.8;
+        var increase=0.9;
+
+        function Ball(x,y,dx,dy,radius,color){
+            this.x=x;
+            this.y=y;
+            this.dx=dx;
+            this.dy=dy;
+            this.radius=radius;
+            this.color=color;
+
+            this.drawing=function(){
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,false);
+                ctx.fillStyle=this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            this.run=function(){
+                if(this.y+this.radius+gravity>canvas.height){
+                    this.dy=-this.dy;
+                    this.dy*=increase;
+                    this.dx*=increase;
+                }else{
+                    this.dy+=gravity;
+                }
+                if(this.radius+this.radius>=canvas.width||
+                    this.x-this.radius<=0){
+                        this.dx=-this.dx;
+                    }
+                this.x+=this.dx;
+                this.y+=this.dy;
+                this.drawing()
+            }
+
+        }
+
+        // var ball=new Ball(200,200,100,10,30,'green');
+
+        var ballArr=[];
+
+        function  renderBall(){
+            for(var i=0;i<200;i++){
+                var radius=Math.random()*16+1;
+                var x=Math.random()*(canvas.width+radius);
+                var y=Math.random()*(canvas.height+radius);
+                var dx=(Math.random()-0.5)*2;
+                var dy=(Math.random()-0.5)*5;
+                var color=colorsArr[Math.floor(Math.random()*colorsArr.length)];
+                ballArr.push(new Ball(x,y,dx,dy,radius,color));
+            }
+        }
+        
+        timer=setInterval(function(){
+            ctx.clearRect(0,0,canvas.width,canvas.height)
+            for(var i=0;i<200;i++){
+                ballArr[i].run()
+            }
+        },16);
+    
+        renderBall()
+
+        window.onresize=function(){
+            canvas.width=window.innerWidth;
+            canvas.height=window.innerHeight;
+            ballArr=[];//当页面的大小改变的时候需要重新绘制小球
+            renderBall()
+        }
+        
+    </script>
+</body>
+</html>

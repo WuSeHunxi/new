@@ -66,7 +66,7 @@
 
             this.update = function () {
                 // 落到地面
-                if (this.y + this.radius + this.dy + Gravity > canvas.height) {
+                if (this.y + this.radius+ Gravity > canvas.height) {
                     this.dy = -this.dy;
                     this.dy *= Firction;
                     this.dx *= Firction;
@@ -74,7 +74,7 @@
                     // 重力加速
                     this.dy += Gravity;
                 }
-                if (this.x + this.radius + this.dx >= canvas.width || this.x - this.radius + this.dx <= 0) {
+                if (this.x + this.radius >= canvas.width || this.x - this.radius <= 0) {
                     this.dx = -this.dx;
                 }
                 this.y += this.dy;
