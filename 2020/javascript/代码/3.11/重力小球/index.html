@@ -31,28 +31,6 @@
     <script>
         
         let ballArr = [];
-        // 产生随机整数
-        function randomIntFromRange(low, high) {
-            return Math.floor(Math.random() * (high - low + 1) + low);
-        }
-        // 产生随机颜色
-        function randomColor(colors) {
-            console.log(colors[Math.floor(Math.random() * colors.length)]);
-
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-        window.addEventListener("mousedown", function () {
-            ballArr = [];
-            init();
-        })
-        window.addEventListener("resize", function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            ballArr = [];
-            init();
-
-        })
-
 
         // 开始绘图
         // 1.拿到canvas
@@ -106,6 +84,29 @@
             }
         }
         let ball = new Ball(canvas.width / 2, canvas.height / 2, 10, 100, 'blue')
+
+        // 产生随机整数
+        function randomIntFromRange(low, high) {
+            return Math.floor(Math.random() * (high - low + 1) + low);
+        }
+        // 产生随机颜色
+        function randomColor(colors) {
+            console.log(colors[Math.floor(Math.random() * colors.length)]);
+
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        window.addEventListener("mousedown", function () {
+            ballArr = [];
+            init();
+        })
+        window.addEventListener("resize", function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            ballArr = [];
+            init();
+
+        })
+
 
         function init() {
             for (let i = 0; i < 200; i++) {
