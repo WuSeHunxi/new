@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 进度条：由两部分组成
+            1. progress---灰色层
+            2. progress-bar---进度条部分(可以通过style添加宽度，宽度必须是百分制，还可以通过w-25的类)
+            3. 进度条的高度必须给progress这层
+            4. 可以给progress-bar添加背景色
+            5. 多个进度条：可以在一个progress下添加多个progress-bar
+            6. 条纹进度条：progress-bar-striped(给progress-bar这层添加该类)
+            7. 动画进度条：progress-animate(progress-bar同级)
+         
+         
+         
+         滚动监控：只能够在导航和列表组中使用，需要用到js
+            1. 在导航中使用：图标+导航列表
+                    nav.navbar+id(滚动监控决定的)
+                        -a+ul.nav
+                            -li.nav-item
+                                -a.nav-link
+            
+            2. 滚动的元素和导航同级：需要给他设置一个class，并设置宽高
+                                   data-spy="scroll"---具有滚动监听的功能
+                                   data-target="导航栏的id值"
+                                   data-offset="0"---计算滚动时的偏移量，这个值是多少就从多少开始监听             
+                    h4+p存放内容
+
+            3. 滚动元素中的每一项内容的id值和导航栏中的a标签的href值相对应
+
+            4. 嵌套导航：在每一个a标签中接着添加导航，要给父级添加flex-column，为了让子元素竖着排列
+
+
+            5. 列表组：list-group+id
+
+
+
+    -->
+</body>
+</html>
