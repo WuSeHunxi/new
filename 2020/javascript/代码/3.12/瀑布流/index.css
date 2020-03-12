@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper{
+    width: 1220px;
+    position: relative;
+    margin: 50px auto;
+    /* box-shadow: 0px 0px 1px rgba(0,0,0,0.4); */
+}
+
+.wrapper .column{
+    width: 220px;
+    float: left;
+    margin-left: 12px;
+    margin-right: 12px;
+    position: relative;
+}
+
+.column .column-item{
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4); 
+}
+
+.column-item .item-img{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.column-item .item-img img{
+    width: 100%;
+}
+
+.item-info{
+    width: 100%;
+    font-size:12px;
+    margin-top: 8px;
+    text-align: center;
+    padding-left: 8px;
+    padding-bottom: 10px;
+}
+
+.item-info .info-pre{
+    width: 100%;
+    margin-top: 8px;
+}
+
+.info-pre .per-user{
+    width: 100px;
+    height: 28px;
+    float: left;
+    position: relative;
+    /* margin-top: 8px; */
+}
+
+.per-user img{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* .per-user span{
+    vertical-align: middle;
+} */
+
+.info-pre .pre-like{
+    float:right;
+}
+
+.per-like{
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    /* margin-top: 8px; */
+}
+
+.per-like .like{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url('./image/sprites.png');
+    background-position: -55px -10px;
+    vertical-align: middle;
+}
+
+.per-like .text{
+    font-size:12px;
+    color:#555;
+}
+
+.column-item::after{
+    content:'';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 220px;
+    /* height:360px; */
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 2;
+    display: none;
+}
+
+.verified {
+    position: absolute;
+    bottom: 0;
+    left: 28px;
+    width: 12px;
+    height: 12px;
+    background-image: url('./image/sprites.png');
+    background-position: -48px -55px;
+  }
+
+.heart.heart--red {
+    background-position: -10px -55px;
+  }
