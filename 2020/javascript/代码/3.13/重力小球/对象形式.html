@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /* html,body{
+            width: 100%;
+            height: 100%;
+        } */
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+
+            
+        var canvas={
+            dom:document.getElementsByTagName("canvas")[0],
+            ctx:document.getElementsByTagName("canvas")[0].getContext("2d"),
+            width:window.innerWidth,
+            height:window.innerHeight,
+            init(options){
+                this.dom.width=this.width;
+                this.dom.height=this.height;
+                this.draw(options);
+                // console.log(this.width)
+            },
+            draw(options){
+                this.ctx.beginPath();
+                this.ctx.arc(options.x,options.y,options.r,0,2*Math.PI,false);
+                this.ctx.fillStyle=options.c;
+                this.ctx.fill();
+                this.ctx.closePath();
+                // console.log(options.x)
+            }
+        }
+
+        var ballArr=[];
+        function Ball(x,y,dx,dy,r,c){
+            this.x=x;
+            this.y=y;
+            this.dx=dx;
+            this.dy=dy;
+            this.r=r;
+            this.c=c;
+        }
+
+        Ball.prototype.init=function(){
+            var self=this;
+            // this.initData();
+            this.timer=setInterval(function(){
+                // canvas.ctx.clearRect(0,0,canvas.dom.width,canvas.dom.height);
+                // console.log(canvas.dom.width)
+                self.run();
+                canvas.init({
+                    x:self.x,
+                    y:self.y,
+                    r:self.radius,
+                    dx:self.dx,
+                    dy:self.dy,
+                    c:self.color
+                });
+            },16);
+        }
+
+        Ball.prototype.run=function(){
+            if(this.x+this.radius>canvas.width-this.radius||this.x-this.radius<=0){
+                    this.dx=-this.dx;
+                }
+            if(this.y+this.dy+this.gravity>=canvas.height-this.radius){
+                this.dy=-this.dy;
+                this.dy*=this.gravity;
+                this.dx*=this.gravity;
+            }else{
+                this.dy+=this.gravity;
+            }
+            this.x+=this.dx;
+            this.y+=this.dy;
+        }
+
+        var colorsArr=["#ffc2c2", "#ff9d9d", "#ff2e63", "#fcf8e8", "#142850", "#00a8cc"];
+        function createBall(){
+            for(var i=0;i<200;i++){
+                var radius=Math.random()*16+1;
+                var x=Math.random()*(canvas.dom.width-radius)+radius;
+                var y=Math.random()*(canvas.dom.height-radius)+radius;
+                var dx=(Math.random()-0.5)*5;
+                var dy=(Math.random()-0.5)*2;
+                // console.log(x)
+                var color=colorsArr[Math.floor(Math.random()*colorsArr.length)];
+                var ball=new Ball(x,y,dx,dy,radius,color);
+                // console.log(x,y,dx,ra)
+                ballArr.push(ball);
+            }
+        }
+
+       
+        createBall()
+        // for(var i=0;i<ballArr.length;i++){
+        //     ballArr[i].init();
+        // }
+        // console.log(ballArr)
+         ballArr[0].init();
+
+
+    </script>
+</body>
+</html>

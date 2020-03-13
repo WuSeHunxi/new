@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // var canvas={
+        //     dom:document.getElementsByTagName("canvas")[0],
+        //     ctx:document.getElementsByTagName("canvas")[0].getContext("2d"),
+
+        // }
+
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        var colorsArr=["#ffc2c2", "#ff9d9d", "#ff2e63", "#fcf8e8", "#142850", "#00a8cc"];
+        var ballArr=[];
+        var gravity=0.8;
+
+        function Ball(x,y,dx,dy,radius,color){
+            this.x=x;
+            this.y=y;
+            this.dx=dx;
+            this.dy=dy;
+            this.radius=radius;
+            this.color=color;
+
+            //运动
+            this.run=function(){
+                if(this.x+this.radius>canvas.width-this.radius||this.x-this.radius<=0){
+                    this.dx=-this.dx;
+                }
+                if(this.y+this.radius+gravity>=canvas.height){
+                    this.dy=-this.dy;
+                    this.dy*=gravity;
+                    this.dx*=gravity;
+                }else{
+                    this.dy+=gravity;
+                }
+                this.x+=this.dx;
+                this.y+=this.dy;
+                this.drawing();
+            }
+
+            // 画
+            this.drawing=function(){
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,false);
+                ctx.fillStyle=this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+        }
+
+        function init(){
+            for(var i=0;i<200;i++){
+                var radius=Math.random()*16+1;
+                var x=Math.random()*(canvas.width-radius)+radius;
+                var y=Math.random()*(canvas.height-radius)+radius;
+                var dx=(Math.random()-0.5)*5;
+                var dy=(Math.random()-0.5)*2;
+                var color=colorsArr[Math.floor(Math.random()*colorsArr.length)];
+                var ball=new Ball(x,y,dx,dy,radius,color);
+                console.log(ball.run)
+                ballArr.push(ball);
+            }
+            // console.log(ballArr[0].x)
+        }
+
+        init()
+        render();
+
+        function render(){
+            clearInterval(timer);
+            var timer=setInterval(function(){
+            
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<ballArr.length;i++){             
+                    ballArr[i].run()
+                }
+                
+            },16);
+        }
+        
+        // console.log(ballArr.x)
+
+        function bindEvent(){
+            document.onclick=function(){
+                ballArr=[];
+                init();
+            }
+        }
+
+        bindEvent();
+    </script>
+</body>
+</html>

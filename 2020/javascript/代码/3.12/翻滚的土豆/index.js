@@ -38,8 +38,12 @@ var bar = {
   },
   //停止
   stop: function() {
+    
     clearInterval(this.timerId);
+    
+    console.log(this.timerId);
     this.timerId = null;
+    
   },
   clear: function() {
     this.value = 0;
@@ -61,6 +65,7 @@ var land = {
     this.left -= distance;
     this.render();
     var that = this;
+    //防止一直运动的话，大地会出现空白
     setTimeout(function() {
       if (that.left < -config.width) {
         that.dom.style.transition = ""; //回退时不能有动画
@@ -83,21 +88,21 @@ var tudou = {
   },
   // v表示速度，正数表示向下的速度，负数表示向上的速度
   // 单位：像素/秒
-  jump: function(v) {
+  jump: function(v) {//v表示向上的初速度
     if (this.timerId) {
       //已经在跳啦
       return;
     }
     var t = 0.016; //每次移动的间隔时间，单位秒
-    var a = 2000; //重力加速度，固定
+    var a = 2000; //重力加速度，固定(这个值是试出来)
     //旋转
     var allTime = ((2 * Math.abs(v)) / a) * 1000; //滞空时间 毫秒
-    this.dom.style.transition = "transform " + allTime + "ms";
+    this.dom.style.transition = "transform " + allTime + "ms linear";
     this.rotate += 90;
     this.dom.style.transform = "rotate(" + this.rotate + "deg)";
 
     //大地的移动
-    var hv = Math.abs(v) / 2; //大地水平速度 = 垂直的速度的一半 / 2
+    var hv = Math.abs(v) / 2; //大地水平速度 = 垂直的速度的一半 / 2(也是试出来的)
     var landDis = (hv * allTime) / 1000; //大地移动的距离
     land.move(landDis, allTime);
 
@@ -108,17 +113,17 @@ var tudou = {
       var dis = v * t + 0.5 * a * t * t; //这次移动的距离
       that.top += dis;
       //改变速度
-      v = a * t + v;
+      v = a * t + v;//速度是不断改变的
       if (that.top >= that.maxTop) {
-        //落地了
+        //落地了，清空蓄力条
         that.top = that.maxTop;
         clearInterval(that.timerId);
-        that.timerId = null;
+        that.timerId = null;//表示没有跳跃了
 
         bar.clear(); //清空蓄力条
       }
       that.render();
-    }, t * 1000);
+    }, t * 1000);//t*1000--->毫秒
   }
 };
 
@@ -129,7 +134,11 @@ window.onmousedown = function() {
 
 window.onmouseup = function() {
   bar.stop();
+  // bar.clear()
+  //利用百分比计算向上的初速度，公式是：300+700%
   var speed =
     (bar.value / 100) * (config.maxSpeed - config.minSpeed) + config.minSpeed;
+  
+  //调用土豆的跳跃方法9
   tudou.jump(-speed);
 };

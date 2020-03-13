@@ -8,6 +8,7 @@
 }
 
 .bg {
+    /* <bg-size> 只能紧接着 <position> 出现，以"/"分割，如： "center/80%". */
     background: url("./images/bg.png") no-repeat left top/100% 100%;
     width: 640px;
     height: 550px;
@@ -15,6 +16,7 @@
 
 .land {
     background: url("./images/land.png") repeat-x;
+    /* 大地滚动 */
     width: 300%;
     height: 194px;
 }
