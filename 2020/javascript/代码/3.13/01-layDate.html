@@ -13,7 +13,17 @@
             3. render里面的参数：elem：绑定元素(操作的是哪一个input)：分为id或class的形式
                                 type：控件选择的类型：'year'，'month','date'，'time'(只是从时间开始选择)，'dateTime'(所有的都包括)
                                 range：开启左右面板，范围的选择（从什么时候到什么时候），默认值为false
-                                format：自定义格式
+                                format：自定义格式（完全可以自定义，只需要把特定的字符留出来即可）
+                                value：初始值('遵循format的格式'，使用new Date('xxx')的格式)
+                                min，max：最小最大范围：只能选择在范围之内的
+                                    数字：min:-7,mzx:7(当前日期推前七天延后七天之内可选)
+                                    日期字符串：'2019-12-11 12:30:00'
+                                trigger：默认值为focus，自定义弹出控件的事件(如果绑定的对象不是input的话，这个值为click)
+                                position：默认值为absolute，定位的位置
+                                            fixed：当值为fixed时，和弹出层一起使用
+                                theme：主题(这个值默认四种情况：default,molv,#ff0,grid，但是也可以自己设置，这时候会出现一个类，可以通过这个类自行设置日历中的组件)
+                                                                
+
     -->
 </body>
 </html>
