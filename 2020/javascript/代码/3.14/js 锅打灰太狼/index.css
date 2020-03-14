@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:"微软雅黑";
+}
+
+#outer{ 
+    /* background: no-repeat center/80% url("../img/image.png"); */
+    background: url(img/game_bg.jpg) 0 0 no-repeat; 
+    height: 480px;
+    width: 320px;
+    position: relative;
+    margin: 0 auto;
+    }
+#scoring{
+    position:absolute;
+    font-weight:bold;
+    font-size:16px;
+    color:white;
+    left:65px;
+    top:13px;
+}
+#countDown{
+    position:absolute;
+    /*大背景图片自带黑色进度条*/
+    background:url(img/progress.png) 0 0 no-repeat;
+    width:180px;
+    height:16px;
+    left: 63px;
+    top: 66px;
+}
+#wolfs img{
+    position:absolute;
+}
+#menu{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    left:0; 
+    top:200px;
+}
+#start,#handle,#gameOver{
+    line-height:50px;
+    font-size:30px;
+    font-weight:bold;
+    color:#F60;
+    text-shadow:0 0 5px #FFFF00;
+    display:block;
+    text-decoration:none;
+}
+#gameOver{
+    position:absolute;
+    width:320px;
+    text-align:center;
+    top:200px;
+    left:0;
+    display:none;
+}

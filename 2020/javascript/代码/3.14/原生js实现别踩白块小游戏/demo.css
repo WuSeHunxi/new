@@ -21,7 +21,7 @@
 #go a{
     display:block;
     height:100px;
-    width:400px;
+    width:100%;
     color:cyan;
     background-color: #fff;
     text-decoration: none;
@@ -34,6 +34,7 @@
     height:600px;
     position: relative;
     top:-150px;
+    /* background-color: #ff0; */
     /* border:1px solid black; */
 }
 .row{
@@ -47,4 +48,13 @@
     border-bottom:1px solid #222;
     float: left;
     cursor: pointer;
+}
+
+
+.row div:nth-child(1){
+    border-left:none;
+}
+
+.row div:last-of-type{
+    width: 100px;
 }

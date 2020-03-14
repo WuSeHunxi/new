@@ -26,10 +26,17 @@ function drag() {
         lastY = event.clientY;
         body.on('mousemove', function (e) {
             var event = e || window.event;
+            /**
+             * PageX:鼠标在页面上的位置,从页面左上角开始,即是以页面为参考点,不随滑动条移动而变化
+               clientX:鼠标在页面上可视区域的位置,从浏览器可视区域左上角开始,即是以浏览器滑动条此
+                       刻的滑动到的位置为参考点,随滑动条移动 而变化.
+             */
             nowX = event.clientX;
             nowY = event.clientY;
+            //移动的距离
             disx = nowX - lastX;
             disy = nowY - lastY;
+            
             roY += disx * 0.2;
             roX -= disy * 0.2;
             oWrap.css({
@@ -38,8 +45,9 @@ function drag() {
             });
             lastX = nowX;
             lastY = nowY;//每次将当前触发对象的点为变化的初始点，
-                });
+        });
         body.on('mouseup', function () {
+            //off-->解除绑定方法
             body.off('mousemove')
             clearInterval(timer);
             timer = setInterval(function () {
@@ -49,7 +57,7 @@ function drag() {
                 roX -= disy * 0.2;
                 oWrap.css({
                     'transform': 'rotateX(' + roX + 'deg) rotateY(' + roY + 'deg)',
-                    'cursor':'pointer'
+                    'cursor': 'pointer'
                 })
             }, 20);
         });
