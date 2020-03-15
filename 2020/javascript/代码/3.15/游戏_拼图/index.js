@@ -1,8 +1,9 @@
+//直接给原型添加方法和属性
 Puzzle.prototype = {
   el: null,
   oPuzzle: null,
   oEmptyBlock: null,
-  puzzleHeight: 0,
+  puzzleWidth: 0,
   puzzleHeight: 0,
   row: 0,
   col: 0,
@@ -32,13 +33,14 @@ Puzzle.prototype = {
 
     setTimeout(function () {
       self.oEmptyBlock = self.oPuzzle.querySelector('div[ref=empty]');
+      //获取所有的点击块
       self.oBlockList = self.oPuzzle.querySelectorAll('div[ref=block]');
     }, 0)
   },
   getBlockImgPosition: function () {
     var arr = [];
-    for(var i = 0; i < this.row; i ++) {
-      for(var j = 0; j < this.col; j ++) {
+    for (var i = 0; i < this.row; i++) {
+      for (var j = 0; j < this.col; j++) {
         arr.push({
           x: j * this.blockWidth,
           y: i * this.blockHeight,
@@ -51,9 +53,10 @@ Puzzle.prototype = {
   getBlockPosition: function () {
     // 声明一个新数组
     var newArr = [];
-    for(var i = 0; i < this.blockImgPosition.length; i ++) {
+    for (var i = 0; i < this.blockImgPosition.length; i++) {
       newArr[i] = this.blockImgPosition[i];
     }
+    //每次刷新的时候最后一项的位置都不变
     var lastEle = newArr[newArr.length - 1]; // 获得新数组中最后一项
     newArr.length = newArr.length - 1; // 将新数组的长度减一，即删掉最后一项
     newArr.sort(function () { // 打乱新数组
@@ -64,8 +67,8 @@ Puzzle.prototype = {
   },
   render: function () {
     var template = '';
-    
-    for(var i = 0; i < this.blockImgPosition.length; i ++) {
+
+    for (var i = 0; i < this.blockImgPosition.length; i++) {
       var blockImgX = this.blockImgPosition[i].x;
       var blockImgY = this.blockImgPosition[i].y;
       var blockPositionX = this.blockPosition[i].x;
@@ -96,11 +99,12 @@ Puzzle.prototype = {
   },
   handle: function () {
     var self = this;
+    //事件委托
     this.oPuzzle.onclick = function (e) {
       var dom = e.target;
       var isBlock = dom.classList.contains('block') && dom.getAttribute('ref') === 'block';
 
-      if(isBlock) {
+      if (isBlock) {
         self.handleBlock(dom);
       }
     };
@@ -110,7 +114,7 @@ Puzzle.prototype = {
     // 判断当前点击元素是否和空白元素相邻
     var canMove = this.checkMove(dom);
     // 如果不相邻，则什么都不做
-    if(!canMove) { return };
+    if (!canMove) { return };
 
     // 交换点击元素和空白元素的位置
     this.moveBlock(dom);
@@ -138,8 +142,8 @@ Puzzle.prototype = {
     var left = dom.offsetLeft;
     var top = dom.offsetTop;
 
-    var row = Math.round( top / this.blockHeight );
-    var col = Math.round( left / this.blockWidth );
+    var row = Math.round(top / this.blockHeight);
+    var col = Math.round(left / this.blockWidth);
 
     return {
       row: row,
@@ -161,22 +165,22 @@ Puzzle.prototype = {
     // 在该函数中判断是否胜利
     var isWin = true;  // 声明一个变量isWin，存放是否胜利，默认为true
     // 遍历所有的block元素（除了empty）
-    for(var i = 0; i < this.oBlockList.length; i ++) {
+    for (var i = 0; i < this.oBlockList.length; i++) {
       var oBlock = this.oBlockList[i];
 
-      var blockLeft = parseInt( '-' + oBlock.style.left ); // 拿到元素的left值，取反，因为背景图片的方向都为负值
-      var blockTop = parseInt( '-' + oBlock.style.top ); // 拿到元素的top值，取反，因为背景图片的方向都为负值
+      var blockLeft = parseInt('-' + oBlock.style.left); // 拿到元素的left值，取反，因为背景图片的方向都为负值
+      var blockTop = parseInt('-' + oBlock.style.top); // 拿到元素的top值，取反，因为背景图片的方向都为负值
 
       var imgLeft = parseInt(oBlock.style.backgroundPositionX); // 拿到元素背景图片位置方向x
       var imgTop = parseInt(oBlock.style.backgroundPositionY);  // 拿到元素背景图片位置方向y
 
-      if(!(blockLeft === imgLeft && blockTop === imgTop)) {
+      if (!(blockLeft === imgLeft && blockTop === imgTop)) {
         isWin = false;
         break;
       }
     }
 
-    if(isWin) {
+    if (isWin) {
       this.winGame();
     }
   },
@@ -190,6 +194,6 @@ Puzzle.prototype = {
   },
 }
 
-function Puzzle (options) {
+function Puzzle(options) {
   this.init(options);
 }
