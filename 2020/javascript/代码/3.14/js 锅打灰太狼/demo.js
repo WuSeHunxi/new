@@ -31,11 +31,12 @@ function listenTime(){
     timer=setInterval(function(){
         // console.log(barWidth)
         $("#countDown").width(barWidth--)
-        if($("#countDown").width==0){
+        if($("#countDown").width()==0){
             
             clearInterval(timer);
+            clearInterval(wolfCreateTimer);
             setTimeout(function(){
-                clearInterval(wolfCreateTimer);
+                
                 $("#gameOver").show()
                 alert("游戏结束");
             },500);
@@ -44,44 +45,79 @@ function listenTime(){
 }
 
 var wolfCreateTimer=null;
-var wolfUpTimer=null;
-    var wolfDownTimer=null;
+// var wolfUpTimer=null;
+//     var wolfDownTimer=null;
     
 function wolfCreate(){
     var num=-1;
-    var index=0;
     wolfCreateTimer=setInterval(function(){
         var img=new Image();
-        
+        // img.index=0;
+        //每次定时器的时候都需要重新初始化
+        // var index=0;
+        img.index=0;
         var ranNum=Math.floor(Math.random()*wolfStartArr.length);
+        var ranType=Math.floor(Math.random()*100);
         if(ranNum==num){
             return;
         }
         num=ranNum;
+        if(ranType>90){
+            img.type='x';
+        }else{  
+            img.type='h';
+        }
+
         img.style.left=wolfStartArr[ranNum].left;
         img.style.top=wolfStartArr[ranNum].top;
+        img.src="img/"+img.type+img.index+".png";
         $("#wolfs").append(img)
         
-        wolfUpTimer=setInterval(function(){
-            index++;
-            if(index<=5){
-                img.src='img/h'+ index +'.png';
+        img.wolfUpTimer=setInterval(function(){
+            img.index++;
+            if(img.index<=5){
+                img.src='img/'+img.type+ img.index +'.png';
             }else{
-                clearInterval(wolfUpTimer);
-                wolfDownTimer=setInterval(function(){
-                    index--;
-                    if(index<=0){
-                        clearInterval(wolfDownTimer);
-                        // img.remove()
-                    }else{
-                        // console.log(index)
-                        img.src='img/h'+ index +'.png';
+                clearInterval(img.wolfUpTimer);
+                img.wolfDownTimer=setInterval(function(){
+                    img.index--;
+                    if(img.index<=0){
+                        clearInterval(img.wolfDownTimer);
+                        img.remove()
                     }
+                    img.src='img/'+img.type+ img.index +'.png';
                     
                 },100);
             }
         },150);
 
+        var bol=true;
+        $("#wolfs").click(function(){
+            img.index=5;
+            if(bol==true){
+                clearInterval(img.wolfUpTimer);
+                clearInterval(img.wolfDownTimer);
+                img.hitTimer=setInterval(function(){
+                    img.index++;
+                    if(img.index>=9){
+                        clearInterval(img.hitTimer);
+                        img.remove();
+                    }
+                    img.src="img/"+img.type+img.index+".png";
+                },100);
+            }
+            bol=false;
+            if(img.type="x"){
+                $("#scoring").html(parseInt($("#scoring").html())-10);
+            }else{
+                $("#scoring").html(parseInt($("#scoring").html())+10);
+            }
+        })
+
         
     },800);
+}
+
+document.onmousedown=function(e){
+    e.preventDefault()
 }
