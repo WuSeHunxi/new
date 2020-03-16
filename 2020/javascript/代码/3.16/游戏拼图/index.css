@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-.wrapper{
+.puzzle{
     position: relative;
     margin-bottom: 50px;
     border: 2px solid #ccc;
@@ -11,5 +11,7 @@
 
 .block{
     /* position: absolute; */
-    border:1px solid #000;
+    position: absolute;
+    border:1px solid #fff;
+    box-sizing: border-box;
 }
