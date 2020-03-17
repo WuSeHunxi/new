@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        const text='𠮷';//占用了两个码元(中文字符)
+        console.log("字符串的长度：",text.length);
+        console.log("使用正则表达式：",/^.$/.test(text));
+        console.log("使用带有flag的正则测试：", /^.$/u.test(text));
+        console.log("得到第一个码元：",text.charCodeAt(0));
+        console.log("得到第二个码元：",text.charCodeAt(1));
+
+
+        /**
+         * 早期的时候，Unicode是16位编码，后来内存扩大了Unicode就开始有了32位的编码，但是仅是某些特殊的
+         * 字符，因此要正确的判断字符串和长度就需要用到ES6提供的codePointAt()方法。
+        */
+        
+        /**
+         * charCodeAt()--->得到的是码元的位置
+         * codePointAt()--->是根据码元得到码点的位置，能够根据第一个码元的值判断该字符是多少位的
+         * 
+         * ES6为正则提供了一个新的flag:u，如果添加u的话，在进行字符串匹配的时候是按照码点进行匹配的。
+        */
+
+        //一个中文字符=第一个码元+第二个码元
+        console.log("得到第一个码点：",text.codePointAt(0));
+        console.log("得到第二个码点：",text.codePointAt(1));//此时输出的值和第二个码元是相等的，因为直接读取第二个无法判断完整的位数。
+        
+        /**
+         * 判断字符串char，是32位的还是16位的
+        */
+        function is32bit(char){
+            // 0x开头的表示的是16进制的数
+            return char.codePointAt(0)> 0xffff; 
+        }
+        
+        console.log("𠮷是否是32位的：",is32bit("𠮷"));
+
+        var str="haha𠮷";
+        console.log(str.length)
+
+        function getLengthOfCodePoint(str){
+            var len=0;
+            for(let i=0;i<str.length;i++){
+                if(is32bit(str,i)){
+                    i++;
+                }
+                len++;
+            }
+            return len;
+        }
+        console.log("ab𠮷ab的码点长度",getLengthOfCodePoint("ab𠮷ab"))
+
+        /**
+         * 
+         * 
+        */
+    </script>
+    </body>
+</html>
