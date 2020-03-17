@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <title>导航和导航栏</title>
+        <style>
+        body{
+            padding-bottom: 1000px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    <ul class="nav">
+                        <li><a href="#" class="nav-link">入门</a></li>
+                        <li><a href="#" class="nav-link">成长</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle"
+                                data-toggle="dropdown">精通</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">html</a>
+                                <a href="#" class="dropdown-item">css</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">js</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a data-toggle="tab" href="#demo"
+                                class="nav-link active">rumen</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#index"
+                                class="nav-link">rumen</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#text"
+                                class="nav-link">rumen</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="pane fade show" id="demo">121313</div>
+                        <div class="pane fade" id="index">4144</div>
+                        <div class="pane fade" id='text'>535353</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-4">
+                    <nav class="nav nav-pills flex-column">
+                        <a href="#one" class="nav-item active nav-link"
+                            data-toggle="tab">入门</a>
+                        <a href="#two" class="nav-item nav-link"
+                            data-toggle="tab">入门</a>
+                        <a href="#three" class="nav-item nav-link"
+                            data-toggle="tab">入门</a>
+                    </nav>
+                </div>
+                <div class="col-8">
+                    <div class="tab-cotent">
+                        active是必须得添加的
+                        <div class="tab-pane fade show active" id="one">dvf</div>
+                        <div class="tab-pane fade" id="two">rfre</div>
+                        <div class="tab-pane fade" id="three">free</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-4">
+                    <nav class="nav nav-pills flex-column" id="myPills">
+                        <a href="#demo1" class="nav-link nav-item active">入门</a>
+                        <a href="#demo2" class="nav-link nav-item">入门</a>
+                        <a href="#demo3" class="nav-link nav-item">入门</a>
+                        <a href="#demo4" class="nav-link nav-item">入门</a>
+                    </nav>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content">
+                        <div id="demo1" class="tab-pane fade show active">hellp1</div>
+                        <div id="demo2" class="tab-pane fade">hellp2</div>
+                        <div id="demo3" class="tab-pane fade">hellp3</div>
+                        <div id="demo4" class="tab-pane fade">hellp4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script>
+                $("#myPills a").on("click",function(){
+                    $(this).tab('show')
+                })
+            </script>
+    </body>
+</html>
