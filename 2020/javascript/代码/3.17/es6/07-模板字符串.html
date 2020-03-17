@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        /**
+         * 为了处理多行字符串以及字符串的拼接,ES6提供了模板字符串
+         * PS：尽量不要使用Tab键因为他会在页面中显示出来
+         * ${}--->里面是表达式，但是不能写if语
+         * 模板字符串可以嵌套
+         * 
+         * 
+         * 模板字符串的扩展
+        */
+        
+        // let str=`
+            // hello world
+        // `;
+
+        // var love1="hello";
+        // var love2="world";
+        // var text=`你喜欢的是${`他也喜欢的${love+love2}`};
+        // `
+
+        // console.log(str)
+
+
+        var love1="秋葵";
+        var love2="香菜";
+        //myTag是一个字符串标记
+        var text=myTag`邓哥喜欢${love1}，邓哥还喜欢${love2}。`;//得到的是myTag函数的返回值
+
+        //上面那一行相当于：--->有几个字符变量就会把字符串分割成几个+1。
+        //text=myTag({["邓哥喜欢","，邓哥也喜欢","。"],"香菜","秋葵"})
+        function myTag(parts){//默认的返回值是undefined
+            //利用arguments表示所有参数，parts表示第一个参数
+            const rest=Array.prototype.slice.apply(arguments).slice(1);//得到的是插值的数组
+            console.log(rest);//得到的是字符串中的插值
+            //parts.length=rest.length+1;
+            console.log(parts)
+            //arguments是parts和rest的结合
+
+            //下面的代码为了模拟实现模板字符串的拼接
+            let str="";
+            for (let i = 0; i < rest.length; i++) {
+                str += parts[i]+rest[i];
+                if(i==rest.length-1){
+                    str+=parts[i+1];
+                }
+            }
+            return str;
+        }
+        console.log(text);
+
+
+        //将所有字符全部转成普通的字符：利用String.raw`abc\n`
+
+
+        //将<>这样的字符就按正常的<>处理，禁止dom结构
+    </script>
+    </body>
+</html>

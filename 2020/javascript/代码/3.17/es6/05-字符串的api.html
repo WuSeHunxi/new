@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * includes：判断字符串中是否含有指定的字符(返回的是布尔值)
+         *      第二个参数表示开始查找的起始位置
+         * startsWith：判断字符串中是否以指定的字符串开始
+         *      第二个参数是从哪个位置作为开头，是否已指定的字符开头
+         * endsWith：判断字符串中是否以指定的字符串结尾
+         * repeat：将字符串重复指定的次数，然后返回一个新字符串。
+         * 
+        */
+
+        const text="勋勋很帅";
+        console.log("是否包含",text.includes("勋",3));
+        console.log("是否勋开头",text.startsWith("勋"));
+        console.log("是否以帅结尾",text.endsWith("帅"));
+        console.log(text.repeat(4));
+
+    </script>
+    </body>
+</html>
