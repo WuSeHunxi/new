@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        /**
+            函数默认值：
+                在书写形参时，直接给形参赋值，赋的值即为默认值
+                这样一来，当调用函数时，如果没有给对应的参数赋值，则会自动使用默认值。
+            只要给函数加上参数默认值，该函数就会自动变成严格模式下的规则：arguments和形参脱离
+        */
+
+        function sum(a,b=1,c=2){
+            return a+b+c;
+        }
+        console.log(sum(10,undefined,5));//不传参的直接用undefined代替
+        console.log(sum(11));
+
+        //举个例子
+        function getContainer(){
+            console.log("abc");
+            return document.getElementById("container");
+        }
+
+        function createElement(name="div",container=getContainer(),content=""){
+            const ele=document.createElement(name);
+            if(content){
+                ele.innerHTML=content;
+            }
+            container.appendChild(ele);
+        }
+        createElement(undefined,undefined,"ahahah");
+        createElement(undefined,undefined,'dudwehfewfe');
+        createElement(undefined,document.getElementById("container"),"89w9euh");
+        //问：此时的abc输出了几次？---》2次，因为前两个第二个参数没有传值，但是第三个函数调用第二个参数传值了
+        
+
+        //扩展知识：函数形参对arguments的影响
+        function test(a,b=1){
+            console.log("arguments",arguments[0],arguments[1]);
+            console.log("a:",a,"b:",b);
+            a=3;
+            console.log("arguments",arguments[0],arguments[1]);//此时的arguments不受形参的影响
+            console.log("a:",a,"b:",b);
+        }
+        
+        test(1,2);
+  </script>
+    </body>
+</html>
