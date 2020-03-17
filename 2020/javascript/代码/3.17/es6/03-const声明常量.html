@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * let和const完全相同，仅在于用const声明的变量，必须在声明的时候赋值，而且不可以重新赋值。
+         * 实际上，在开发中尽量使用const，以保证变量的之不会被修改。原因如下：因为在开发中很多变量都是不会修改的，也不应该更改。
+         *                                                              后续有很多框架或者第三方Js库，都要求数据不可变，使用常量可以在一定程度上保证这一点。
+         * 注意的细节：常量不可变，是指声明的常量的内存空间不可变，并不保证内存空间的地址指向其他的内存空间不可变。
+         *            常量的命名：特殊变量从字面意义上，一定是不可变的，该变量的名称全部使用大写，多个单词之间用下划线分割
+         *            在for循环中，循环变量不可以使用常量，但在for in里面是可以使用常量的。
+         * 
+         * 
+        */
+
+
+        // const a=1;
+        // a=2;
+        // console.log(a);
+
+        const obj={
+            a:1,
+            b:2
+        };
+        let peo={
+            name:"0"
+        }
+
+        // obj=peo//地址不可以修改，但是地址里面的内容是可以修改的
+        // console.log(obj.a);
+
+        var people={
+            name:'11',
+            age:19,
+            sex:true
+        }
+
+        for(const prop in people){
+            console.log(prop);
+        }
+    </script>
+    </body>
+</html>

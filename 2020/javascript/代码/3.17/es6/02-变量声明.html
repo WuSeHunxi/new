@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script> 
+            // let a=12;
+            // console.log(a);
+
+            // if(true){
+                // let b=3;
+                // console.log(b);
+            // }
+            // console.log(b);
+            // let b=1;//报错，不能再声明前使用
+            
+            // for(let i=0;i<3;i++){
+                // console.log(i);
+            // }
+            // console.log(i)//在全局没有声明i
+
+
+        /**
+         * var声明变量允许重复声明，导致数据覆盖；全局变量污染；怪异的数据访问产生闭包
+         * 
+         * 如何解决上述问题？
+         *     使用let声明变量。
+         *          let声明的变量不会挂在到全局对象；
+         *          不允许当前作用域下重复声明
+         *      ES6不仅仅引入关键字let解决变量声明的问题，还引入了块级作用域
+         *          块级作用域：代码执行时遇到花括号，会创建一个块级作用域
+         *          块级作用域中声明的变量在块级之外无法访问(里面能用外面，外面不能用里面)
+         *          使用let不会有变量提升，因此不能在声明之前使用
+         *                 底层实现上，let声明的变量也会提升，同时将其放入暂时性死区，因此可以认为他没有提升，当代码运行到该变量的声明语句时，将其从暂时性死区移除。
+         *          在循环中使用let，会特殊处理：每一次进入循环体都会开启一个新的作用域，并且将循环变量绑定到作用域，即：每次循环使用的都是全新的作用域。
+         *          在循环中使用let声明的循环变量再循环结束后会销毁。
+         *          
+         * 
+        */
+        
+        // let a=123;
+        // console.log(a);
+
+        // let test=2;
+        // function a(){
+            // let test=1;
+            // console.log(test);
+        // }
+        // a();
+// 
+        // let a=123;
+        // {
+            // let a=4567;
+            // console.log(a);//使用的是块级作用域的a，执行完后，块级作用域会立即销毁
+        // }
+// 
+        // console.log(a);
+
+    </script>
+    </body>
+</html>
