@@ -114,7 +114,7 @@ Puzzle.prototype = {
     // 判断当前点击元素是否和空白元素相邻
     var canMove = this.checkMove(dom);
     // 如果不相邻，则什么都不做
-    if (!canMove) { return };
+    // if (!canMove) { return };
 
     // 交换点击元素和空白元素的位置
     this.moveBlock(dom);
@@ -173,7 +173,7 @@ Puzzle.prototype = {
 
       var imgLeft = parseInt(oBlock.style.backgroundPositionX); // 拿到元素背景图片位置方向x
       var imgTop = parseInt(oBlock.style.backgroundPositionY);  // 拿到元素背景图片位置方向y
-
+      console.log(imgLeft, blockLeft)
       if (!(blockLeft === imgLeft && blockTop === imgTop)) {
         isWin = false;
         break;
