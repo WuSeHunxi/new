@@ -29,6 +29,132 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal2">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">标题</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">垂直居中的模态框</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-hearde">
+                        <h5 class="modal-title">标题</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="username" class="col-form-label">用户名</label>
+                                <input type="text" class="form-control"
+                                    id="username">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 栅格系统：在模态框中使用栅格系统 -->
+        <div class="modal fade" id="model3">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">标题</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4">1</div>
+                                <div class="col-md-4">2</div>
+                                <div class="col-md-4">3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    <button class="btn btn-secondary" data-toggle="modal"
+                        data-target="#modal1">普通模态框</button>
+
+
+                    <button class="btn btn-success" data-toggle="modal"
+                        data-target="#modal2">垂直居中的模态框</button>
+
+
+                    <button class="btn btn-danger" data-toggle="modal"
+                        data-target="#modal3">包含栅格系统的模态框</button>
+
+
+                    <button class="btn btn-info" data-toggle="modal"
+                        data-target="#modal4" data-whatever="1">统一模板</button>
+                    <button class="btn btn-info" data-toggle="modal"
+                        data-target="#modal4" data-whatever="2">统一模板</button>
+                    <button class="btn btn-info" data-toggle="modal"
+                        data-target="#modal4" data-whatever="3">统一模板</button>
+                    <button class="btn btn-warning" data-toggle="modal"
+                        data-whatever="43" data-target="#modal5">大尺寸</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bd-example-modal-sm" id="modal5">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">标题</h5>
+                        <button class="close" data-modal="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="usename" class="col-form-label">用户名</label>
+                                <input type="text" id="username"
+                                    class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- data属性：
+                data-toggle
+                data-dismiss
+                data-target
+                data-whatever
+
+            事件对象：
+                e.relatedTarget---可获取点击的那个对象设置的whatever的值
+        -->
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -38,7 +164,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script>
-        
+        $("#modal4").on('show.bs.modal',function(e){
+            var value=$(e.relatedTarget).data("whatever");
+            $(this).find('.modal-body input').val(value);
+        })
 
     </script>
 </html>
