@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <p><input type="text" value="0" name="" id=""></p>
+        <button id="btn">点击</button>
+        <p>
+            <span class="max">最大值</span>
+        </p>
+        <p>
+            <span class="min">最小值</span>
+        </p>
+        <script>
+
+        /**
+         * 练习：罗列的参数可以将数组打开进行值传递
+         * 
+         * **/
+        let btn=document.getElementById("btn");
+        let max=document.getElementsByClassName("max")[0];
+        let min=document.getElementsByClassName("min")[0];
+        let input=document.getElementsByTagName("input");
+       
+        function getValues(){
+            const number=[];
+            for (let i = 0; i < input.length; i++) {
+                number.push(+input[i].value);
+            } 
+            return number;
+        }
+        btn.onclick=function(){
+            const number=getValues();
+            max.innerText=Math.max(...number);
+            min.innerText=Math.min(...number)
+        }
+
+        
+        /**
+         * 函数的柯里化练习：
+         *      函数柯里化：用于固定某个函数的前面的参数，得到一个新的函数，新的函数调用时，接收剩余的参数
+         * 
+        */
+
+        function cal(a,b,c,d){
+            return a+b*c-d;
+        }
+
+        // console.log(cal(1,2,3,4));
+        // console.log(cal(1,2,5,4));
+        // console.log(cal(1,2,6,4));
+        // console.log(cal(1,2,8,9));
+
+        function curry(func,...args){
+            return function(...subArgs){
+                const allArgs=[...args,...subArgs];
+                //如果参数的长度相同的话，就可以执行cal()这个参数
+                if(allArgs.length>=func.length){
+                    return func(...allArgs);
+                }else{
+                    //参数不够，继续固定
+                    return curry(func,...allArgs);
+                }
+            }
+        }
+
+        //在这里返回了一个新的函数newCal
+        const newCal=curry(cal,1,2);//只需要传递变化的参数即可
+        console.log(newCal(3,4));
+        console.log(newCal(5,8))//只需要传递变化的参数即可
+        const newCal2=newCal(8);
+    </script>
+    </body>
+</html>

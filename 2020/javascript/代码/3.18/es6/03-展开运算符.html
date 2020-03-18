@@ -16,9 +16,9 @@
         */
 
         //复制一个数组，互相不影响
-        const arr1=[3,1,2,4,6,7];
-        const arr2=[...arr1];//想多添加的直接在数组里面写就可以了
-        console.log(arr2,arr1===arr2);
+        const arr=[3,1,2,4,6,7];
+        const arr2=[...arr];//想多添加的直接在数组里面写就可以了
+        console.log(arr2,arr===arr2);
 
 
         //克隆一个对象到obj2，但是它是浅克隆，要想实现深克隆的话，就需要每一层都展开
@@ -45,6 +45,29 @@
             }
         }
         console.log(obj3);
+
+        const arr1=["ane",'sjaiha',"lka"];
+        const arr3=[1,...arr1,53];
+        console.log(arr3)
+
+
+        var deng={
+            name:"Deng",
+            sex:true,
+            wife:{
+                name:"deng",
+                sex:false
+            }
+        }
+        var cheng={
+            ...deng,
+            name:"Cheng",
+            wife:{
+                ...deng.wife,
+                age:24
+            }
+        }
+        console.log(cheng,deng)
 
 
     </script>

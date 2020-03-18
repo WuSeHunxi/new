@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * 
+         * ES6提供了一个特殊的API，可以使用该API在函数内部判断该函数是否使用了new来调用
+         * 
+         * new.target:
+         *      该表达式得到的是，如果没有使用new来调用函数，则返回undefined，如果使用new调用函数，则得到的是new关键字后面的函数本身。
+         * 
+        */
+        
+        function Person(last,first){
+            if(new.target===undefined){//用来进行判断是否使用了new进行函数调用
+                throw Error("该函数没有new");
+            }
+            this.last=last;
+            this.first=first;
+        }
+
+        const p1=new Person("oo","pp");
+        console.log(p1)
+
+        const p2=Person("qq",'ss');
+        console.log(p2);
+
+        const p3=Person.call(p1,'ii','jj');
+        console.log(p3);
+
+    </script>
+    </body>
+</html>
