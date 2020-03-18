@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+            使用arguments的缺陷：
+                1.如果和形参配合使用，容易导致混乱
+                2.从语义上，使用arguments获取参数，由于形参缺失，无法从函数定义上理解函数的真实意图
+            
+            参数剩余变量：专门用于手机末尾的所有参数，然后将其放在一个形参数组中
+                语法：function xx(...形参名){}
+                细节：一个函数只能出现一个剩余参数
+                      一个函数如果有剩余参数，剩余参数必须是最后一个参数
+        */
+
+        function sum(a,b,c,...arg){
+            console.log(arg)
+            return a+b+c;
+        }
+
+        console.log(sum(1,2,3,4,5,6,7,9));
+
+    </script>
+    </body>
+</html>
