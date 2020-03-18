@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        console.log(Object.is(NaN,NaN));
+        console.log(Object.is(+0,-0))
+
+        const obj1={
+            name:"papa",
+            sex:true
+        }
+        const obj2={
+            age:10
+        }
+        const obj=Object.assign({},obj1,obj2)
+        console.log(obj);
+
+
+        const oo={
+            a:1,
+            b:2,
+            c:3,
+            1:'a',
+            2:'o'
+        }
+        console.log(Object.getOwnPropertyNames(oo))//对属性的顺序进行排序
+
+
+        const peo={
+            sex:true
+        }
+
+        const stu={
+            name:"alla",
+            sex:true
+        }
+
+        Object.setPrototypeOf(stu,peo);
+        console.log(stu)
+
+    </script>
+    </body>
+</html>

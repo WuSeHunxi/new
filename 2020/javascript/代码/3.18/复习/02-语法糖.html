@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        const prop1="name";
+        const prop2="sex";
+        const prop3="age";
+
+        const peo={//对象的属性名是变量
+            [prop1]:"xiao",
+            [prop2]:true,
+            [prop3]:12
+        }
+
+        console.log(peo);
+
+        function stu(name,sex,age){
+            return{
+                name,
+                sex,
+                age
+            }
+        }
+
+        console.log(stu("xiao",true,81));
+
+
+    </script>
+    </body>
+</html>
