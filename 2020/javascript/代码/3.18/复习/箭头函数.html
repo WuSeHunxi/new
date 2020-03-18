@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        var obj={
+            name:"xiao",
+            sex:true,
+            func(){
+                setTimeout(() => {
+                    console.log(this.name);
+                }, 1000);
+            }
+        }
+
+        obj.func()
+
+        const arr=[1,2,3,4,5,6];
+        console.log(arr.map(num=>num*2));//去掉括号和大括号以及return
+
+
+        const oo=num=>{
+            console.log(this);//箭头函数内部没有this
+            // console.log(arguments)
+            return num=10;
+        }
+        oo();
+
+    </script>
+    </body>
+</html>

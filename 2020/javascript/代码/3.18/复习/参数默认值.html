@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+
+        function test(a,b=1,c){
+            console.log(a,b,c);
+        }
+
+        test(1,undefined,3);
+
+        function getContainer(){
+            console.log("abc");
+            return document.getElementById("container");
+        }
+
+        function createElement(name,container=getContainer(),content){
+            const ele=document.createElement(name);
+            if(content){
+                ele.innerHTML=content;
+            }
+        }
+
+
+        createElement("div",undefined,undefined);
+        createElement("div",undefined,undefined)
+        createElement("div",document.getElementById("contaier"),"");
+
+
+        //剩余参数
+        function abc(a,b=5,...arg){
+            console.log(a,b,...arg)
+        }
+
+        abc(1,undefined,3,4,5,6);//没有给对应的参数传值，使用的是参数的默认值
+    </script>
+    </body>
+</html>

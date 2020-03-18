@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        function CreateElement(name){
+            if(new.target===undefined){
+                throw Error("你没有new构造函数");
+            }
+            this.name=name;
+        }
+
+        const c1=new CreateElement("pap");
+        console.log(c1)
+
+        const c2=CreateElement("oo");
+        console.log(c2)
+
+
+    </script>
+    </body>
+</html>
