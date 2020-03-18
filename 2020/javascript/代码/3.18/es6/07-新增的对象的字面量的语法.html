@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * 
+         * 语法糖：成员速写：变量名和值相同的时候可以直接写一个
+         * 
+         * 计算属性名：属性名来自于一个变量(属性名来自表达式)
+        */
+         
+        const prop1="name";
+        const prop2="age";
+        const prop3="sayHello";
+
+        const user={
+            [prop1]:"小",//[prop1]--->计算属性名
+            [prop2]:100,
+            [prop3](){
+                console.log(this[prop1],this[prop2]);
+            }
+        }
+
+        user[prop3]();
+
+
+
+
+    </script>
+    </body>
+</html>
