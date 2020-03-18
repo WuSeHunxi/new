@@ -15,9 +15,73 @@
          *      3.如果通过new调用函数，this指向新创建的对象
          *      4.如果通过apply，call，bind调用函数，this指向指定的数据
          * 
-         * 箭头函数是一个函数表达式
+         * 箭头函数是一个函数表达式，理论上，任何使用函数表达式的场景都可以使用箭头函数
+         * 
+         * 完整语法：(参数....)=>{函数体}
+         *          如果参数只有一个，可以省略大括号和return关键字
+         * 
+         * 细节：箭头函数的this取决于出现箭头函数的位置的this，而与如何调用无关
+         * 
+         * 箭头函数不存在this,arguments,new.target，如果使用的话，那就是外层的。
+         * 
+         * 箭头函数没有原型，因此不能作为构造函数使用
+         * 
+         * 应用场景：临时性使用的函数，不会调用该函数的
+         *              事件处理函数
+         *              异步处理函数
+         *              其他临时性的函数
+         *           为了绑定外层this的函数
+         *           在不影响其他代码的情况下
+         *           
         */
 
+        const print=num=>{
+            console.log(num)
+        }
+        print(2)
+
+        const isOdd = num => num % 2 !==0
+
+        const sum=(a,b)=>({//返回值是对象的简写模式
+            a:a,
+            b:b,
+            sum:a+b
+        })
+        console.log(sum(2,3))
+
+
+        //箭头函数不存在this的例子如下：
+        const func=()=>{
+            console.log(this);//此时的this指向的是window，所以证明箭头函数没有this
+        }
+
+        const obj={
+            method:func
+        }
+
+        obj.method();
+
+
+        const obj={
+            method=function(){
+                const func=()=>{
+                    console.log(this);
+                    console.log(arguments);
+                }
+                func();
+            }
+        }
+
+        obj.method(234);
+
+
+
+        //在数组的方法中使用箭头函数代替回调函数
+        const numbers=[3,7,78,3,5,345];
+        const result=numbers.filter(num=>num%2!==0)
+                                .map(num=>num*2)
+                                    .reduce((a,b)=>a+b)
+        console.log(result);
     </script>
     </body>
 </html>
