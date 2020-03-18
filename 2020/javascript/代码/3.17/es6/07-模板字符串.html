@@ -17,16 +17,16 @@
          * 模板字符串的扩展
         */
         
-        // let str=`
-            // hello world
-        // `;
+        let str=`
+            hello world
+        `;
 
-        // var love1="hello";
-        // var love2="world";
-        // var text=`你喜欢的是${`他也喜欢的${love+love2}`};
-        // `
+        var love1="hello";
+        var love2="world";
+        var text=`你喜欢的是${`他也喜欢的${love1+love2}`};
+        `
 
-        // console.log(str)
+        console.log(str)
 
 
         var love1="秋葵";
@@ -38,21 +38,21 @@
         //text=myTag({["邓哥喜欢","，邓哥也喜欢","。"],"香菜","秋葵"})
         function myTag(parts){//默认的返回值是undefined
             //利用arguments表示所有参数，parts表示第一个参数
-            const rest=Array.prototype.slice.apply(arguments).slice(1);//得到的是插值的数组
-            console.log(rest);//得到的是字符串中的插值
-            //parts.length=rest.length+1;
-            console.log(parts)
-            //arguments是parts和rest的结合
+            // const rest=Array.prototype.slice.apply(arguments).slice(1);//得到的是插值的数组
+            // console.log(rest);//得到的是字符串中的插值
+            // //parts.length=rest.length+1;
+            // console.log(parts)
+            // //arguments是parts和rest的结合
 
-            //下面的代码为了模拟实现模板字符串的拼接
-            let str="";
-            for (let i = 0; i < rest.length; i++) {
-                str += parts[i]+rest[i];
-                if(i==rest.length-1){
-                    str+=parts[i+1];
-                }
-            }
-            return str;
+            // //下面的代码为了模拟实现模板字符串的拼接
+            // let str="";
+            // for (let i = 0; i < rest.length; i++) {
+            //     str += parts[i]+rest[i];
+            //     if(i==rest.length-1){
+            //         str+=parts[i+1];
+            //     }
+            // }
+            // return str;
         }
         console.log(text);
 

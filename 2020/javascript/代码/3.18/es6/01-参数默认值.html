@@ -28,16 +28,16 @@
             return document.getElementById("container");
         }
 
-        function createElement(name="div",container=getContainer(),content=""){
-            const ele=document.createElement(name);
-            if(content){
-                ele.innerHTML=content;
-            }
-            container.appendChild(ele);
-        }
-        createElement(undefined,undefined,"ahahah");
-        createElement(undefined,undefined,'dudwehfewfe');
-        createElement(undefined,document.getElementById("container"),"89w9euh");
+        // function createElement(name="div",container=getContainer(),content=""){
+        //     const ele=document.createElement(name);
+        //     if(content){
+        //         ele.innerHTML=content;
+        //     }
+        //     container.appendChild(ele);
+        // }
+        // createElement(undefined,undefined,"ahahah");
+        // createElement(undefined,undefined,'dudwehfewfe');
+        // createElement(undefined,document.getElementById("container"),"89w9euh");
         //问：此时的abc输出了几次？---》2次，因为前两个第二个参数没有传值，但是第三个函数调用第二个参数传值了
         
 
@@ -45,7 +45,8 @@
         function test(a,b=1){
             console.log("arguments",arguments[0],arguments[1]);
             console.log("a:",a,"b:",b);
-            a=3;
+            // a=3;
+            arguments[0]=5;
             console.log("arguments",arguments[0],arguments[1]);//此时的arguments不受形参的影响
             console.log("a:",a,"b:",b);
         }

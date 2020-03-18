@@ -51,13 +51,13 @@
         // }
         // a();
 // 
-        // let a=123;
-        // {
-            // let a=4567;
-            // console.log(a);//使用的是块级作用域的a，执行完后，块级作用域会立即销毁
-        // }
-// 
-        // console.log(a);
+        let a=123;
+        {
+            let a=4567;
+            console.log(a);//使用的是块级作用域的a，执行完后，块级作用域会立即销毁
+        }
+
+        console.log(a);
 
     </script>
     </body>

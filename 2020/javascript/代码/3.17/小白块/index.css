@@ -8,7 +8,7 @@
     border: 1px solid #000;
     box-sizing: border-box;
     width: 400px;
-    margin: 100px auto;
+    margin: 150px auto;
     position: relative;
     overflow: hidden;
 }
@@ -35,16 +35,21 @@
 
 .container {
     width: 100%;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     box-sizing: border-box;
     height: 600px;
     position: absolute;
     top: -150px;
-    background-color: #f0f;
-    display: none;
+    /* background-color: #f0f; */
+    /* display: none; */
 }
 
-.container div {
+.container .row {
+    width: 100%;
+    height: 150px;
+}
+
+.container .row div {
     width: 100px;
     height: 150px;
     border: 1px solid #000;
