@@ -24,37 +24,46 @@
          *      有俩个参数
          * 
         */
-
+ 
         console.log(NaN===NaN);
         console.log(+0===-0);
         console.log(Object.is(NaN,NaN))
         console.log(Object.is(+0,-0))
 
         // const obj1={
-            // name:'123',
-            // age:12
+        //     name:'123',
+        //     age:12
         // };
         // const obj2={
-            // name:"09",
-            // age:13,
-            // sex:true
+        //     name:"09",
+        //     age:13,
+        //     sex:true
         // }
         // const obj=Object.assign(obj1,obj2);//如果不想修改第一个对象的话，可以在obj1前面添加{}
         // const ob=Object.assign({},obj1,obj2);
         // console.log(obj)
 
 
-        // const aa={
-            // a:1
-        // };
+        const aa={
+            a:1
+        };
 
-        // const bb={
-            // b:2
-        // }
+        const bb={
+            b:2
+        }
 
-        // Object.setPrototypeOf(aa,bb);//表示aa的原型是bb
-        // console.log(aa)
+        Object.setPrototypeOf(aa,bb);//表示aa的原型是bb
+        console.log(aa)
 
+        const pp={
+            c:"i",
+            a:'p',
+            b:'q',
+            1:'q',
+            2:0
+        }
+
+        console.log(Object.getOwnPropertyNames(pp))
 
         
 

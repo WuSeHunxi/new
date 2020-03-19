@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * 传统的构造函数的问题：
+         *      属性和原型方法定义分离，降低了可读性
+         *      原型成员可以被枚举（类的原型上成员没办法for in）
+         *      默认情况下，构造函数仍然可以被当作普通函数使用
+         * 
+         * 
+         * 在面向对象中，将对一个对象的所有成员的定义统称为类。
+         * 
+         * 类的相关特点：类要先定义再使用
+         *      类声明不会提升，与let和const一样，存在暂时性死区。
+         *      类中的所有代码均在严格模式下执行。
+         *      类的所有方法都是不可枚举的
+         *      类的所有方法都无法被当作构造函数使用（因为ES5的函数都有两种调用方法）
+         *      类的构造器必须使用new来调用
+         *  
+         * 
+        */
+
+        class Student{
+            constructor(name,sex,age){
+                this.name=name;
+                this.age=age;
+                this.sex=sex;
+            }
+
+            print(){
+                console.log(this.name+" "+this.age+" "+this.sex);
+            }
+        }
+
+        var stu=new Student("oo",true,12);
+        stu.print()
+
+
+        class Animal {
+            //相当于构造函数
+            constructor(type,name,age,sex){
+                this.type=type;
+                this.name=name;
+                this.age=age;
+                this.sex=sex;
+            }
+
+            print(){
+                console.log(`name:${this.name},type:${this.type}`)
+            }
+        }
+        const a =new Animal("狗",'旺财',3,"男");
+        a.print();
+        console.log(a);
+
+
+    </script>
+    </body>
+</html>
