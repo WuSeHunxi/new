@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        class Test{
+            //ES7的写法
+            //自动初始化器：不需传参直接赋值，它会自动将其放在构造函数中
+            // a=1;
+            // b=2;
+            // c=3;
+            // constructor(){
+            //     this.d=this.b+this.c;//5
+            // }
+            
+            constructor(){
+                this.a=123;
+                //this.print=()=>{
+
+                // }
+            }
+
+            //字段出始化器
+            print=()=>{//将一个箭头函数赋值给了print
+                console.log(this.a);//此时的this指向的是当前对象
+            }//但是此时该方法不在原型上，因此每一创建一个对象都要写这个方法
+            //严格模式下的this指向的不是window而是undefined
+        }
+
+        const t=new Test();
+        console.log(t)
+        const p=t.print;
+        p()
+    </script>
+    </body>
+</html>

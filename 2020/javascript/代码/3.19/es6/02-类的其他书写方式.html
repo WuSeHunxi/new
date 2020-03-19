@@ -10,22 +10,41 @@
 
         /**
          * 计算属性名
-         * getter和setter：对属性的赋值和读取，并且使用setter和getter控制的属性，不在原型上
+         * getter和setter：对属性的赋值和读取。
          * Object.defineProperty：可定义某个对象成员属性的读取和设置
+         *      并且使用setter和getter控制的属性，不在原型上
+         * 静态成员：构造函数本身的成员（构造函数Student里面的成员）
+         *      使用static定义的成员
+         * 字段初始化器：
          * 
+         * 注意：使用static的字段初始化器，添加的是静态成员，
+         *      没有使用static的字段初始化器，添加的成员位于对象上
+         *      箭头函数在字段初始化器位置上指向当前对象。
+         * 
+         * 类表达式
+         * 
+         * 装饰器：装饰器的本质是一个函数
         */
         class Student{
             constructor(name,sex,age){
+                //通过构造函数创建的对象stu里面的成员是实例成员
                 this.name=name;
                 this.sex=sex;
-                this.setAge(age);
+                this.age=age;
             }
 
-            getAge(){
-                return this.age+"岁";
+            static width=50;//静态成员（ES6的书写方式）
+            static method(){
+
             }
 
-            setAge(age){
+            //创建一个age属性，并给他加上setter，读取该属性时，会运行该函数
+            get age(){
+                return this._age+"岁";
+            }
+
+            //创建一个age属性，并给它加上setter，给该属性赋值时，会运行该函数
+            set age(age){
                 if(typeof age!=='number'){
                     throw new TypeError("age不是数字");
                 }
@@ -34,7 +53,7 @@
                 }else if(age>1000){
                     age=1000;
                 }
-                this.age=age;
+                this._age=age;
             }
 
             print(){
@@ -42,9 +61,19 @@
             }
         }
 
+        Student.abc="ppp";//静态成员(ES5的写法)
         var stu=new Student("oo",true,12);
         stu.print()
+        console.log(Student.width);
+        Student.method();
 
+
+
+        /**
+         * 什么时候会用到静态成员：
+         *      为一个项目进行配置的时候，每一个对象的值都相等的话就会用到
+         * 
+        */
     </script>
     </body>
 </html>

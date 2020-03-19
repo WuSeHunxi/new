@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        const A=class {//匿名类，类表达式
+            a=1;
+            b=2;
+        }
+
+        const a=new A();
+
+
+        class Test {
+
+            // @Obsolete//--->装饰器（用来装饰方法）
+            print(){
+                console.log("print方法！");
+            }
+        }
+
+        function Obsolete(target,methodName,descriptor){
+            console.log(target,methodName,descriptor);
+            //将函数进行标记
+            const oldFunc=descriptor.value;
+            descriptor.value=function(...args){
+                console.warn(`${methodName}方法已经过时`);
+                oldFunc.apply(this.args)
+            }
+        }
+
+    </script>
+    </body>
+</html>
