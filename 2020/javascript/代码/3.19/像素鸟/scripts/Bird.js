@@ -44,7 +44,7 @@ class Bird extends Rectangle {
         this.timer = null;
     }
 
-    move(duration) {
+    move(duration) {//父级的move()渲染了
         super.move(duration); //调用父类方法
         //根据加速度改变速度
         this.ySpeed += this.g * duration;
@@ -60,6 +60,7 @@ class Bird extends Rectangle {
         }
     }
 
+    //jump和move是两个功能
     //向上跳，直接给一个向上的速度
     jump() {
         this.ySpeed = -450;
