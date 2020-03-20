@@ -10,6 +10,7 @@ const gameHeight = gameDom.clientHeight;
 class Bird extends Rectangle {
     constructor() {
         super(birdWidth, birdHeight, birdLeft, birdTop, 0, 0, birdDom);
+        //小鸟自身特有的属性
         this.g = 1500; //向下的加速度，单位：像素/秒²
         //最大的y坐标
         this.maxY = gameHeight - landHeight - this.height;
