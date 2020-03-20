@@ -27,11 +27,29 @@
                 return this.age;
             }
 
+            p=()=>{
+                console.log(this.name);
+            }
+
             static a=1;
         }
 
         const t=new Test("jaj",12);
         console.log(t);
+        t.p();
+        const tt=t.p;
+        tt();
+
+
+        const Studet=class{
+            print(){
+                console.log("jjj")
+            }
+        };
+
+        const stu=new Studet();
+        stu.print()
+
     </script>
     </body>
 </html>

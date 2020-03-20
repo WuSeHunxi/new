@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        class Animal{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+
+            print(){
+                console.log(this.name,this.age);
+                if(this.happy){
+                    this.happy();
+                }
+            }
+
+        }
+
+        class Dog extends Animal{
+            constructor(){
+                super('pp',1)
+                this.abc=123;
+            }
+
+            // print(){
+            //     super.print();
+            //     console.log(this.abc);
+            // }
+
+            happy(){
+                console.log("happy")
+            }
+        }
+
+        var dog=new Dog("oo",12);
+        dog.print()
+        console.log(dog);
+
+    </script>
+    </body>
+</html>

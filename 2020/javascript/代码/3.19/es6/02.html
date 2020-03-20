@@ -27,9 +27,9 @@
 
             //字段出始化器
             print=()=>{//将一个箭头函数赋值给了print
-                console.log(this.a);//此时的this指向的是当前对象
+                //严格模式下的this指向的不是window而是undefined,此时的this指向的是当前对象
+                console.log(this.a);
             }//但是此时该方法不在原型上，因此每一创建一个对象都要写这个方法
-            //严格模式下的this指向的不是window而是undefined
         }
 
         const t=new Test();

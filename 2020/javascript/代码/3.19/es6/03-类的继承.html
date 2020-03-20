@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * 什么是类的继承：
+         *      如果两个类A和B可以描述为：B是A，或者A是B，则A和B形成继承关系。
+         * 
+         * 如果B是A：
+         *     B继承A
+         *     A派生B
+         *     B是A的子类
+         *     A是B的父类
+         * 
+         * 如果A是B的父类，则B会自动拥有A中的所有成员
+         * 
+         * 新的关键字：expends用于类的定义
+         *            super直接当作函数调用，表示父类构造函数
+         *                 如果当作对象使用，表示的是父类的原型
+         * ES6要求如果定义了constructor，并且该类是子类，则必须在constructor的第一行手动调用父类的构造函数
+         * 如果子类不写constructor，则会有默认的构造器，该构造器的参数和父级一致
+         * 
+         * js制作抽象类：
+         *      不能通过该类创建对象，通常在抽象类的构造函数中判断创建对象类，如果是抽象类，则抛出错误
+         *      正常情况下，this指向的是具体的类的对象
+         *  
+        */
+
+
+        class Animal{
+            constructor(type,name,age,sex){
+                this.type=type;
+                this.name=name;
+                this.age=age;
+                this.sex=sex;
+            }
+            print(){
+                console.log(this.name,this.age,this.sex,this.type);
+            }
+
+            jiao(){
+
+            }
+        }
+
+        class Dog extends Animal{
+            constructor(name,age,sex){
+                super("犬类",name,age,sex);
+                this.abc=12;//子类特有的属性
+            }
+            jiao(){
+                console.log("汪~");
+            }
+
+            print(){
+                super.print();
+                console.log(this.abc)
+            }
+        }
+
+        const d=new Dog("旺财",3,'公');
+        d.print();
+        console.log(d)
+    </script>
+    </body>
+</html>

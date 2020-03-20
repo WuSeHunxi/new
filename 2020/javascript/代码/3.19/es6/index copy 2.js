@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <script>
-
-        const printName = "print";
+const printName = "print";
 
 class Animal {
     constructor(type, name, age, sex) {
@@ -20,7 +10,7 @@ class Animal {
 
     //创建一个age属性，并给它加上getter，读取该属性时，会运行该函数
     get age() {
-        return this.age + "岁";
+        return this._age + "岁";
     }
 
     //创建一个age属性，并给它加上setter，给该属性赋值时，会运行该函数
@@ -34,7 +24,7 @@ class Animal {
         else if (age > 1000) {
             age = 1000;
         }
-        this._age = age;//一定要注意的是该处的_age不能为this.age
+        this._age = age;
     }
 
     [printName]() {
@@ -46,8 +36,3 @@ class Animal {
 }
 
 var a = new Animal("狗", "旺财", 3, "男");
-console.log(a)
-
-    </script>
-    </body>
-</html>

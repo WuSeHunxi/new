@@ -11,17 +11,22 @@
         /**
          * 计算属性名
          * getter和setter：对属性的赋值和读取。
+         * 
          * Object.defineProperty：可定义某个对象成员属性的读取和设置
          *      并且使用setter和getter控制的属性，不在原型上
+         * 
          * 静态成员：构造函数本身的成员（构造函数Student里面的成员）
          *      使用static定义的成员
-         * 字段初始化器：
+         * 
+         * 字段初始化器：不需要传参已经有值的成员变量
+         *      函数也可以字段初始化。
+         *          严格模式下的this指向的不是window而是undefined,此时的this指向的是当前对象
          * 
          * 注意：使用static的字段初始化器，添加的是静态成员，
          *      没有使用static的字段初始化器，添加的成员位于对象上
          *      箭头函数在字段初始化器位置上指向当前对象。
          * 
-         * 类表达式
+         * 类表达式：用接收类的表达式的变量来创建对象
          * 
          * 装饰器：装饰器的本质是一个函数
         */
@@ -64,6 +69,7 @@
         Student.abc="ppp";//静态成员(ES5的写法)
         var stu=new Student("oo",true,12);
         stu.print()
+        console.log(stu)
         console.log(Student.width);
         Student.method();
 
