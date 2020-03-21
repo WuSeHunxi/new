@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+         * 
+         * 符号：ES6新增的数据类型
+         *      通过Symbol(符号名)来创建的
+         *      符号设计的初衷：是为了给对象设置私有属性
+
+            符号的特点：
+                1.没有字面量 
+                2.使用typeof得到的类型是symbol
+                3.每次调用Symbol函数得到的符号永远不相等，无论符号名是否相同
+                4.符号可以作为对象的属性名存在，这种属性称之为符号属性。
+                        开发者通过精心设计，让这些属性无法通过常规方式被外界访问。
+                        符号属性是不能枚举的，因此在for-in中无法读取符号属性，Object.key方法也无法获取符号属性。
+                        Object.getOwnPropertyNames尽管可以得到所有无法枚举的属性，但仍然无法读取到符号属性。
+                        ES6新增的Object.getOwnPropertySymbols方法（得到符号数组）可以读取符号。
+         *      5.符号不能隐式转换（但是可以进行字符串的转换），不能用于数学运算和字符串拼接的场景
+        */
+
+        //创建一个符号
+        const syb1=Symbol();
+        const syb3=Symbol();
+        console.log(typeof syb1);
+        console.log(syb1===syb3);//false
+        const syb2=Symbol("abc");
+
+        const obj={
+            a:1,
+            b:2,
+            [syb1]:3
+        }
+        console.log(obj);
+
+        const ss=Symbol();
+        const obj1={
+            [ss]:1,
+            a:2,
+            b:3
+        }
+
+        for(const prop in obj1){
+            console.log(prop);
+        }
+
+        console.log(Object.keys(obj));
+
+        //得到符号数组
+        console.log(Object.getOwnPropertySymbols(obj));
+
+
+        const syb4=Symbol();
+        const str=String(syb4);
+        console.log(syb4);
+
+    </script>
+    </body>
+</html>

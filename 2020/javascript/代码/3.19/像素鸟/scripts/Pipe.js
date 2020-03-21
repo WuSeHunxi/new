@@ -47,6 +47,7 @@ class PipePare {
     }
 
     move(duration) {
+        //整个柱子队的移动就是分别上下两个的移动
         this.upPipe.move(duration);
         this.downPipe.move(duration);
     }

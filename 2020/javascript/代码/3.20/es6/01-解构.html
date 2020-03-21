@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+      /**
+       *
+       * 对象的结构
+       * 什么是解构？
+       *      解构不会对原始对象有影响
+       *
+       * 在解构中使用默认值：当解构出来的变量在对象中没有的话，需要使用默认值
+       *      {同名变量=默认值}
+       *
+       * 非同名属性解构：变量名和属性名不一样
+       *      {属性名：变量名}
+       *
+       *
+       * 数组解构：
+       * 
+       * 剩余项的收集：利用展开运算符
+       *
+       *
+       */
+
+      const user = {
+        name: "kevin",
+        age: 11,
+        sex: "男",
+        address: {
+          province: "四川",
+          city: "成都"
+        }
+      };
+
+      // let name,age,sex,address;
+      // //赋值符号后面是对象
+      // ({name,age,sex,address}=user);//将对象里面的内容解构
+
+      //上述两行代码的语法糖：先定义变量，然后从对象中读取同名函数放到变量中
+      // let {name,age,sex,address}=user;
+      // console.log(name,age,sex,address);
+
+      //先定义5个变量，分别是name，age，gender，address，然后再从对象user中读取同名属性赋值
+      let {name,age,sex: gender,address: { province } //深层次的解构
+      } = user;
+
+      console.log(gender)
+
+      // let numbers=[1,2,3,4,5];
+      // // const [n1,n2]=numbers;
+      // const [n1,,n4]=numbers;
+      // console.log(n1,n4,n5='9');
+
+      const numbers = [1, 2, 3, 4, ["a", "c", "v", "g"]];
+      const [, , , , [, , n]] = numbers;
+      console.log(n);
+
+      const numbers1=[1, 2, 3, 4,{
+          a:1,
+          b:2
+      }];
+      const {a:A}=numbers1[4];//将对象那一项取出来进行解构
+      console.log(A);
+
+     // 使用展开运算符收集剩余的信息
+      const user1 = {
+        name: "kevin",
+        age: 11,
+        sex: "男",
+        address: {
+          province: "四川",
+          city: "成都"
+        }
+      };
+      const {name,...obj}=user;
+      console.log(name,obj);
+
+
+      //交换两个变量
+      let a=1,b=2;
+      [b,a]=[a,b];
+      console.log(a,b)
+    </script>
+    </body>
+</html>

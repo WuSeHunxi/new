@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+            知名符号：一些具有特殊含义的共享符号，通过Symbol的静态属性得到。
+                对于js内部不能修改的属性要使用Object.defineProperty(x,xx)来修改。
+            1.obj instanceof A <===> A[Symbol.hasInstance](obj)
+                该符号用于定义构造函数的静态成员，它将影响instanceof的判定
+
+            2.Symbol.isConcatSpreadable：会影响数组的concat方法
+                当该属性的值为false的话就不会分割，为true的话就会分割
+            
+            3.Symbol.toPrimitive：该知名符号会影响类型转换的结果
+            
+            4.Symbol.toStringTag：该知名符号会影响Object.prototype.toString的返回值
+
+
+        */
+
+        // function A(){
+
+        // }
+
+        // Object.defineProperty(A,Symbol.hasInstance,{
+        //     value:function(obj){
+        //         console.log("object");
+        //         return false;
+        //     }
+        // })
+
+        // const obj=new A();
+
+        // console.log(obj instanceof A);
+        // console.log(A[Symbol.hasInstance](obj));
+
+
+
+        //2. 
+        //对拼接的数组分割
+        // const arr=[3];
+        // const arr2=[5,6,7,8];
+
+        // arr2[Symbol.isConcatSpreadable]=false;
+
+        // const result=arr.concat(56,arr2);
+
+        // console.log(result);
+        
+        // //对拼接的对象不分割
+        // const arr4=[1];
+        // const obj4={
+        //     0:3,
+        //     1:4,
+        //     length:2,
+        //     [Symbol.isConcatSpreadable]:true//当这个值为true的时候，对象也会分割
+        // }
+
+        // const result1=arr4.concat(2,obj4);
+        // console.log(result1);
+
+
+
+
+        // var o1 = {name: 'jackwen',age: 23}
+        // o1.toString();//"[object Object]"---->对象无法进行运算
+
+
+
+        //3.
+        const obj={
+            a:1,
+            b:2
+        }
+
+        obj[Symbol.toPrimitive]=function(){
+            return 2;
+        }
+        console.log(obj*123);//此时可以进行运算
+        
+        //举个例子：
+        class Person{
+            //将下面94，95行转成同样的
+            [Symbol.toStringTag]="Person"
+        }
+
+        const p=new Person();
+        const arr=[12,3,1223];
+
+        //toString()是原型上的方法，下面两行改变的是toString的指向
+        console.log(Object.prototype.toString.apply(p));
+        console.log(Object.prototype.toString.apply(arr));
+
+        console.log(p.toString())
+        console.log(arr.toString())
+
+
+    </script>
+    </body>
+</html>

@@ -1,3 +1,4 @@
+//用于整合功能
 class Game {
     constructor() {
         this.sky = new Sky();

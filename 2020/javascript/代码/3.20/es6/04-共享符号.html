@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        /**
+            共享符号：根据某个符号名称
+
+            如果符号的描述或者是符号名相同的话，共享符号是全局唯一的符号。
+        **/
+
+        const syb1=Symbol.for();
+        const syb2=Symbol.for("ppp");
+        console.log(syb1===syb2);
+
+        // const syb=Symbol("abc");
+        // const obj1={
+        //     a:1,
+        //     b:2,
+        //     // [syb]:3
+        //     [Symbol()]:"0"
+        // }
+
+        // const obj2={
+        //     a:'a',
+        //     b:'b',
+        //     [syb]:'c',
+        //     [Symbol.for("o")]:9
+        // }
+
+        // console.log(obj1,obj2);
+        // console.log(obj1[Symbol()]);//无法获取符号属性
+
+        // console.log(obj2[Symbol.for("o")])//共享符号
+
+
+        //模拟实现共享符号的原理
+        // const SymbolFor=(()=>{
+        //     const global={};
+        //     return function() {
+        //         console.log(global);
+        //         if(!gloabl[name]){
+        //             global[name]=Symbol(name);
+        //         }
+        //         console.log(global);
+        //         return global[name];
+        //     }
+        // })
+
+        // const syb1=SymbolFor("abc");
+        // const syb2=SymbolFor("abc");
+
+        // console.log(syb1===syb2);        
+
+    </script>
+    </body>
+</html>

@@ -13,7 +13,7 @@ class Rectangle {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         this.dom = dom;
-        this.render();
+        this.render();//为了能移动水管
     }
 
     render() {

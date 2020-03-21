@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+            /**
+             * 
+             * 参数解构的情况用到的时候会很多，直接在函数的参数列表中将其解构即可
+             * 
+             * 参数没有传值的时候，直接让解构的参数=默认值
+             * 
+            */
+
+        function print(user){
+
+        }
+
+        //参数解构：用的情况最多 
+        function print({name,age,sex,address:{province}}){
+
+        }
+
+        const user={
+            name:'kevin',
+            age:11,
+            sex:'男',
+            address:{
+                province:'四川',
+                city:'成都'
+            }
+        }
+
+        print(user);
+
+
+        function ajax({
+            method='get',
+            url='/'
+        }={}){//直接将参数解构并且有默认值
+            console.log(method,url);
+        }
+
+        ajax();//函数中没传参数，因此需要使用参数默认值
+
+
+    </script>
+    </body>
+</html>
