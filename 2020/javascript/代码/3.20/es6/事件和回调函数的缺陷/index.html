@@ -8,42 +8,72 @@
     <body>
         <script>
 
-            /**
-                回调地狱：
-            */
-            function biaobai(god,callback){
-                console.log(`邓哥向女神【${god}】发出表白短信`);
-                setTimeout(() => {
-                    if(Math.random()<0.1){
-                        callback(true);
-                    }else{
-                        callback(false);
-                    }
-                }, 1000);
+            function toData(obj) {
+            if (obj === null) {
+                return obj;
             }
-
-            biaobai("女神1",function(result){
-                if(result){
-                    console.log("女神1答应了，邓哥很开心！");
-                }else{
-                    console.log("女神1拒绝了，等个表示无压力！");
-                    biaobai("女神2",function(result){
-                        if(result){
-                            console.log("女神2答应了，邓哥很开心!")
-                        }else{
-                            console.log()
-                            biaobai("女神3",function(result){
-                                if(result){
-                                    console.log("女神3答应了，邓哥很开心!")  
-                                }else{
-                                    console.log("邓哥表式生无可恋")
-                                }
-                            });
+            let arr = [];
+            for (let i in obj) {
+                let str = i + "=" + obj[i];
+                arr.push(str);
+            }
+            return arr.join("&");
+        }
+        // 封装Ajax
+        function ajax(obj) {
+            return new Promise((resolve, reject) => {
+                //指定提交方式的默认值
+                obj.type = obj.type || "get";
+                //设置是否异步，默认为true(异步)
+                obj.async = obj.async || true;
+                //设置数据的默认值
+                obj.data = obj.data || null;
+                // 根据不同的浏览器创建XHR对象
+                let xhr = null;
+                if (window.XMLHttpRequest) {
+                    // 非IE浏览器
+                    xhr = new XMLHttpRequest();
+                } else {
+                    // IE浏览器
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                // 区分get和post,发送HTTP请求
+                if (obj.type === "post") {
+                    xhr.open(obj.type, obj.url, obj.async);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    let data = toData(obj.data);
+                    xhr.send(data);
+                } else {
+                    let url = obj.url + "?" + toData(obj.data);
+                    xhr.open(obj.type, url, obj.async);
+                    xhr.send();
+                }
+                // 接收返回过来的数据
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                            resolve(JSON.parse(xhr.responseText))
+                        } else {
+                            reject(xhr.status)
                         }
-                    })
+                    }
                 }
             })
+        }
+        const pro=ajax({
+            url:"./data/students.json"
+        })
 
-        </script>
+        const pro2=pro.then(resp=>{
+            for(var i=0;i<resp.length;i++){
+                if(resp[i].name==='李华'){
+                    const cid=resp[i].classId;
+                }
+            }
+        })
+
+        console.log(pro2);
+
+    </script>
     </body>
 </html>
