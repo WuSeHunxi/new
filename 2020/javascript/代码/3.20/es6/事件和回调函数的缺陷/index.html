@@ -8,7 +8,42 @@
     <body>
         <script>
 
-        
-    </script>
+            /**
+                回调地狱：
+            */
+            function biaobai(god,callback){
+                console.log(`邓哥向女神【${god}】发出表白短信`);
+                setTimeout(() => {
+                    if(Math.random()<0.1){
+                        callback(true);
+                    }else{
+                        callback(false);
+                    }
+                }, 1000);
+            }
+
+            biaobai("女神1",function(result){
+                if(result){
+                    console.log("女神1答应了，邓哥很开心！");
+                }else{
+                    console.log("女神1拒绝了，等个表示无压力！");
+                    biaobai("女神2",function(result){
+                        if(result){
+                            console.log("女神2答应了，邓哥很开心!")
+                        }else{
+                            console.log()
+                            biaobai("女神3",function(result){
+                                if(result){
+                                    console.log("女神3答应了，邓哥很开心!")  
+                                }else{
+                                    console.log("邓哥表式生无可恋")
+                                }
+                            });
+                        }
+                    })
+                }
+            })
+
+        </script>
     </body>
 </html>

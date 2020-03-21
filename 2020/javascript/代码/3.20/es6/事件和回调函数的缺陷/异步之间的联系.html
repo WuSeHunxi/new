@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         /*
             邓哥心中有二十个女神，他决定用更加高效的办法
             他同时给二十个女神表白，如果有女神同意，就拒绝其他的女神
@@ -31,8 +31,7 @@
         const results = []; //用于记录回复结果的数组
         for (let i = 1; i <= 20; i++) {
             biaobai(`女神${i}`, result => {
-                results.push(result);
-
+                results.push(result); 
                 if (result) {
                     console.log(`女神${i}同意了`)
                     if (agreeGod) {
@@ -44,14 +43,12 @@
                 } else {
                     console.log(`女神${i}拒绝了`)
                 }
-                
-
-                if (results.length === 20) {
+                if (results.length === 20) {//只有当所有的全部完成之后才能记录
                     console.log("日志记录", results)
                 }
             })
         }
     </script>
-</body>
+    </body>
 
 </html>
