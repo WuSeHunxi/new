@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         const pro = new Promise((resolve, reject) => {
-            throw new Error("abc");
+            throw new Error("abc");//直接是rejected的状态
             resolve(1); //无效
             reject(2); //无效
             resolve(3); //无效
@@ -24,6 +24,6 @@
             console.log(err)
         })
     </script>
-</body>
+    </body>
 
 </html>

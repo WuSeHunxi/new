@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        // const pro=new Promise((resolve,reject)=>{
+        //     console.log(`邓哥像女神发短信表白`);
+        //     setTimeout(() => {
+        //         if(Math.random()<0.1){
+        //             resolve(true);
+        //         }else{
+        //             resolve(false)
+        //         }
+        //     }, 3000);
+        // })
+
+        // pro.then(result=>{
+        //     console.log(result)
+        // })
+
+        
+        // const pro=new Promise((resolve,reject)=>{
+        //     console.log("未决状态");
+        //     resolve(1);
+        // })
+
+
+        //已决的事件队列
+        // pro.then(data=>{
+        //     console.log(data);
+        // })
+
+        // pro.then(data=>{
+        //     console.log(data);
+        // })
+
+
+
+        // function pro(){
+        //     return new Promise((resolve,reject)=>{
+        //         throw new Error("Pig!");
+        //         resolve(1);//无效
+        //     })
+        // }
+
+        // pro().then(data=>{
+        //     console.log(data)
+        // })
+
+
+        // function pro(){
+        //     return new Promise((resolve,reject)=>{
+        //         if(Math.random()<0.5){
+        //             resolve(2);
+        //         }else{
+        //             reject(new Error("wrong~"));
+        //         }
+        //     })
+        // }
+
+        // pro().then(data=>{
+        //     console.log(data);
+        // })
+
+        // pro().catch(err=>{
+        //     console.log(err)
+        // })
+        
+
+
+
+        const pro=new Promise((resolve,reject)=>{
+            throw new Error("abc");//直接是rejected的状态
+            reject(1)
+        })
+
+        pro.catch(err=>{
+            console.log(err);
+        })
+    </script>
+    </body>
+</html>
