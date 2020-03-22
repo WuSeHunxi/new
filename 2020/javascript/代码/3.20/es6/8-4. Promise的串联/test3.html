@@ -16,18 +16,23 @@
 
         const pro2 = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(2);
+                // resolve(2);
+                reject(3)
+                // throw new Error("p")
             }, 3000);
         })
 
-        pro1.then(result => {
+        const pro3=pro1.then(result => {
             console.log("结果出来了，得到的是一个Promise")
             return pro2;
-        }).then(result => {
-            console.log(result)
-        }).then(result => {
-            console.log(result)
         })
+        
+        pro3.then(result => {
+            console.log(result)
+        },err=>{
+            console.log(err)
+        })
+        console.log(pro3);
     </script>
     </body>
 
