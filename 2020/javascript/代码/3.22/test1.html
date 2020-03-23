@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>HTML基础-注册表单</h1>
+        <hr>
+        <form name="myform" id="myform" action="#" method="post">
+            <table width="100%">
+                <tr>
+                    <td align="right">
+                        <b>登录名称:</b>
+                    </td>
+                    <td>
+                        <input name="name" id="name" type="text"
+                            style="width:250;hight:22">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>登录密码:</b>
+                    </td>
+                    <td>
+                        <input name="pw" id="pw" type="password"
+                            style="width:250;hight:22">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>密码确认:</b>
+                    </td>
+                    <td>
+                        <input name="pw1" id="pw1" type="password"
+                            style="width:250;hight:22">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>密码保护问题:</b>
+                    </td>
+                    <td>
+                        <select name="question" style="width:250;hight:22">
+                            <option>你的身份证号后6位是什么？</option>
+                            <option>你最喜欢的歌手是谁？</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>问题答案:</b>
+                        </td>
+                        <td>
+                            <input name="answer" id="answer" type="text"
+                                style="width:250;hight:22">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>性别:</b>
+                        </td>
+                        <td>
+                            <input name="sex" type="radio" value="男"
+                                checked="checked"><b>男</b>
+                            <input name="sex" type="radio" value="女"><b>女</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" value="提交" onclick="return
+                                check();">&nbsp;
+                            <input type="reset" value="重置">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <hr>
+            <script>
+        function check() {
+            var name = document.getElementById("name");
+            var pw = document.getElementById("pw");
+            var pw1 = document.getElementById("pw1");
+            var answer = document.getElementById("answer");
+            if (name.value == "" || name.value.length < 6) {
+                alert("名称为空，或长度不足！");
+                name.select();
+                name.focus();
+                return false;
+            }
+            if (pw.value == "" || pw.value.length < 8) {
+                alert("密码为空，或长度不足！");
+                document.myform.pw.focus();
+                return false;
+            }
+            if (pw1.value == "") { 
+                alert("密码确认不能为空！");
+                document.myform.pw1.focus();
+                return false;
+            }
+            if (pw.value != pw1.value) {
+                alert("两次输入的密码不一致！");
+                document.myform.pw1.focus();
+                return false;
+            }
+            if (answer.value == "") {
+                alert("问题答案不能为空！");
+                document.myform.answer.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+        </body>
+
+    </html>

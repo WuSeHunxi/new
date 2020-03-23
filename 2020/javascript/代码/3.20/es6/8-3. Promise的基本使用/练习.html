@@ -71,17 +71,59 @@
         //     console.log(err)
         // })
         
+        
 
 
+        // const pro=new Promise((resolve,reject)=>{
+        //     throw new Error("abc");//直接是rejected的状态
+        //     // reject(1)
+        // })
+        // console.log(pro)
+        // pro.catch(err=>{
+        //     console.log(err);
+        // })
+
+        // const pro=new Promise((resolve,reject)=>{
+        //     // resolve(1)
+        //     setTimeout(() => {
+        //         console.log(0)
+        //     }, 3000);
+        // });
+
+        // const pro=new Promise((resolve,reject)=>{
+        //     reject(1)
+        // })
+
+        // //pro.then就是后续处理函数
+        // const pro1=pro.then(data=>{
+        //     console.log(data);
+        // },err=>{
+        //     throw new Error(1);//后续处理函数发生错误，将后续处理函数发生的错误应用到新的Promise中
+        // })
+
+        // pro1.then(data=>{
+        //     console.log(data)
+        // },err=>{
+        //     console.log(err)
+        // })
 
         const pro=new Promise((resolve,reject)=>{
-            throw new Error("abc");//直接是rejected的状态
-            reject(1)
+            // reject(new  Error("0"));
+            resolve(1)
         })
 
-        pro.catch(err=>{
-            console.log(err);
+        const pro1=pro.then(data=>{
+            // console.log(data);
+            throw new Error(0)
+        },err=>{
+            // throw new Error(0)
         })
+
+
+
+
+
+
     </script>
     </body>
 </html>

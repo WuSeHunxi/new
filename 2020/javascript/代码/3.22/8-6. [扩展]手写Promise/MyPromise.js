@@ -1,7 +1,7 @@
 const MyPromise = (() => {
     const PENDING = "pending",
         RESOLVED = "resolved",
-        REJECTED = "rejected",
+        REJECTED = "rejected",//这行以上的状态都是上一个Promise的状态
         PromiveValue = Symbol("PromiseValue"), //状态数据
         PromiseStatus = Symbol("PromiseStatus"),
         thenables = Symbol("thenables"), //thenable
@@ -26,7 +26,7 @@ const MyPromise = (() => {
             this[PromiseStatus] = newStatus;
             this[PromiveValue] = newValue;
             //执行相应队列中的函数
-            queue.forEach(handler => handler(newValue));
+            queue.forEach(handler => handler(newValue));//当状态发生变化的时候，需要执行相应队列里面的函数
         }
 
         /**
@@ -39,6 +39,7 @@ const MyPromise = (() => {
             this[thenables] = []; //后续处理函数的数组 -> resolved
             this[catchables] = []; //后续处理函数的数组 -> rejected
 
+            //改变状态
             const resolve = data => {
                 this[changeStatus](RESOLVED, data, this[thenables]);
             }
@@ -56,11 +57,12 @@ const MyPromise = (() => {
 
         /**
          * 处理 后续处理函数
-         * @param {*} handler 后续处理函数
-         * @param {*} immediatelyStatus 需要立即执行的状态
+         * @param {*} handler 后续处理函数(catchables或者是thenables)
+         * @param {*} immediatelyStatus 需要立即执行的状态(resolved或者是reject)
          * @param {*} queue 作业队列
          */
         [settleHandle](handler, immediatelyStatus, queue) {
+            //为了解决只传了then的第一个参数，没传第二个参数的情况
             if (typeof handler !== "function") {
                 return;
             }
@@ -75,6 +77,7 @@ const MyPromise = (() => {
             }
         }
 
+        //需要得到当前的处理函数，才能准确的判断到底是resolved还是rejected状态
         [linkPromise](thenalbe, catchable) {
             function exec(data, handler, resolve, reject) {
                 try {
@@ -95,7 +98,9 @@ const MyPromise = (() => {
                 }
             }
 
+            //正常使用形式
             return new MyPromise((resolve, reject) => {
+                //必须得知道thenables和catchables什么时候执行才能确定新返回的Promise对象什么时候改变状态
                 this[settleHandle](data => {
                     exec(data, thenalbe, resolve, reject);
                 }, RESOLVED, this[thenables])

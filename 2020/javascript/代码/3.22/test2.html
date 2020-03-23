@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>js九九乘法表</title>
+        <style type="text/css">
+        table {
+            width: 800px;
+            height: 300px;
+            border-collapse: collapse;
+        }
+
+        table th {
+            /* border: 1px solid #069; */
+        }
+
+        body {
+            /* text-align: center; */
+        }
+
+        h1 {
+            font-family: "微软雅黑", Verdana, sans-serif, "宋体";
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h1>JSP实验：九九乘法表口诀</h1>
+        <hr>
+        <script type="text/javascript">
+        document.write("<table>");
+        for (var x = 1; x <= 9; x++) {
+            document.write("<tr>");
+            for (var y = 1; y <= x; y++) {
+                document.write("<th>" + x + "*" + y + "=" + (x * y) + "</th>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        var str="张三编写，2020年3月20日"
+        document.write("<hr>")
+        document.write(str)
+    </script>
+    </body>
+
+</html>
