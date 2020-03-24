@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         // const pro = new Promise((resolve, reject) => {
         //     resolve(1);
         // })
@@ -29,7 +29,12 @@
         //等效于
         const pro = p;
         console.log(pro === p)
+
+        const pp=Promise.resolve(1);//用法和直接调用resolve一样
+        pp.then(data=>{
+            console.log(data)
+        })
     </script>
-</body>
+    </body>
 
 </html>

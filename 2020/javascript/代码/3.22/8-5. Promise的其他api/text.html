@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        let proms=[];
+        for (let i = 0; i < 10; i++) {
+            proms.push(new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    // resolve(i)
+                    if(Math.random()<0.5){
+                        resolve(1)
+                    }else{
+                        reject(1)
+                    }
+                }, 1000);
+            }))
+        }
+
+        
+        //Promise.all()返回的一个新的Promise
+        const pro=Promise.all(proms);
+
+        pro.then(data=>{
+            console.log(data);
+        },err=>{
+            console.log("有失败的");
+        })
+        
+
+    </script>
+    </body>
+</html>
