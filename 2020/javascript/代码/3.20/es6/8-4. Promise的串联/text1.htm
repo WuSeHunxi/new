@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        //追女神：需要用Promise对象解决回调地狱
+        function biaobai(god) {
+            return new Promise((resolve, reject) => {
+                console.log(`邓哥向${god}发出了表白短信`);
+                setTimeout(() => {
+                    if (Math.random() < 0.5) {
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                }, 500);
+            })
+        }
+
+        const gods = ["女神1", "女神2", "女神3", "女神4", "女神5"];
+        let pro;
+        for (let i = 0; i < gods.length; i++) {
+            if (i === 0) {
+                pro = biaobai(gods[i]);
+            }
+            //需要用到前一个
+            pro = pro.then(resp => {
+                if (resp === undefined) {
+                    return;
+                } else if (resp) {
+                    console.log(`${gods[i]}同意了`)
+                    return;
+                } else {
+                    console.log(`${gods[i]}拒绝了`)
+                    if (i < gods.length - 1) {
+                        return biaobai(gods[i + 1]);
+                    }
+                }
+            })
+        }
+    </script>
+    </body>
+
+</html>
