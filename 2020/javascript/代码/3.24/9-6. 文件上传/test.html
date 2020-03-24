@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <img src="" alt="" id="imgAvatar">
-    <input type="file" id="avatar">
-    <button>上传</button>
-    <script>
+    <body>
+        <img src="" alt="" id="imgAvatar">
+        <input type="file" id="avatar">
+        <button>上传</button>
+        <script>
         async function upload() {
             const inp = document.getElementById("avatar");
+            //inp.files-->获取到的是文件的信息
             if (inp.files.length === 0) {
                 alert("请选择要上传的文件");
                 return;
@@ -36,6 +37,6 @@
             img.src = result.path;
         }
     </script>
-</body>
+    </body>
 
 </html>
