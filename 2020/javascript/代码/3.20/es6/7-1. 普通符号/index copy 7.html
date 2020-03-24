@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        const syb = Symbol();
+
+        const obj = {//符号属性名没有办法通过对象的遍历得到，但是可以通过ES6新增的方法得到
+            [syb]: 1,
+            a: 2,
+            b: 3
+        }
+
+        for (const prop in obj) {
+            console.log(prop)
+        }
+        console.log(obj[syb])
+
+        console.log(Object.keys(obj))
+        console.log(Object.getOwnPropertyNames(obj))
+        //得到的是一个符号属性的数组
+        const sybs = Object.getOwnPropertySymbols(obj);
+        console.log(sybs, sybs[0] === syb)
+    </script>
+    </body>
+
+</html>
