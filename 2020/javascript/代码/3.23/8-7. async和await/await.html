@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         async function test1() {
             console.log(1);
             return 2;
         }
 
         async function test2() {
-            const result = await test1();
+
+            return new Promise((resolve,reject)=>{
+                test1().then(data=>{
+                    const result=data;
+                    console.log(result);
+                    resolve();
+                })
+            })//这几句话相当于下面几句话
+
+            const result = await test1();//这句代码运行的时候一定是成功之后
             console.log(result);
         }
 
         test2();
     </script>
-</body>
+    </body>
 
 </html>

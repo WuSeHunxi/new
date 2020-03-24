@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         // 辅助函数,把传进来的对象拼接成url的字符串
         function toData(obj) {
             if (obj === null) {
@@ -70,10 +70,18 @@
         //2. 根据班级id获取李华所在班级的老师id   Promise
         //3. 根据老师的id查询老师信息   Promise
         async function getTeacher() {
+            ajax({
+                url:'./data/students.json'
+            }).then(resp=>{
+                const stu=resp;
+                console.log(stus);
+            })//这几句相当于下面81-83
+
+
             const stus = await ajax({
                 url: "./data/students.json"
             })
-            let cid;
+            let cid;//后续代码都在then里面
             for (let i = 0; i < stus.length; i++) {
                 if (stus[i].name === "李华") {
                     cid = stus[i].classId;
@@ -103,6 +111,6 @@
 
         console.log("123")
     </script>
-</body>
+    </body>
 
 </html>
