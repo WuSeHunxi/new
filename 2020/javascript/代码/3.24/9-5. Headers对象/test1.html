@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        function getCommonHeaders(){
+            return new Headers({
+                a:1,
+                b:2
+            })
+        }
+
+        function printHeaders(headers){
+            const data=headers.extries();
+            for(const pair of datas){
+                console.log(pair[0]+":"+pair[1]);
+            }
+        }
+
+        let req;
+        function getRequestInfo(){
+            if(!req){
+                const  url="./data/classes.json";
+                const headers=getCommonHeaders();
+                headers.set("a","name");
+                headers.append("c","hello")
+                req=new Request(url,{
+                    headers
+                })
+            }
+            return req.clone();
+        }
+
+        async function getClass(){
+            const resp=await fetch(getRequestInfo());
+            const datas=await resp.json();
+            console.log(datas);
+        }
+
+
+        getClass();
+
+    </script>
+    </body>
+</html>

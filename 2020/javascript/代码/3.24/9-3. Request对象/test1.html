@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        let req;//将request对象放在全局了，就需要重新克隆新的
+
+        //先创建请求对象才能请求
+        function getRequestInfo(){
+            if(!req){
+                const url="./data/classes.json";
+                req=new Request(url,{});
+            }
+            return req.clone()
+        }
+
+        async function getClass(){
+            const resp=await fetch(getRequestInfo());
+            const datas=await resp.json();
+            console.log(datas);
+        }
+
+        getClass()
+
+    </script>
+    </body>
+</html>

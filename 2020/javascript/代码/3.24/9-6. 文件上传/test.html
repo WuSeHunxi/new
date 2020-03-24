@@ -27,7 +27,7 @@
             const url = "http://101.132.72.36:5100/api/upload"
             const resp = await fetch(url, {
                 method: "POST",
-                body: formData //自动修改请求头
+                body: formData //自动修改配置参数
             });
             const result = await resp.json();
             return result;
@@ -36,7 +36,7 @@
         document.querySelector("button").onclick = async function() {
             const result = await upload();
             const img = document.getElementById("imgAvatar")
-            img.src = result.path;
+            img.src = result.path;//图片的路径
         }
     </script>
     </body>

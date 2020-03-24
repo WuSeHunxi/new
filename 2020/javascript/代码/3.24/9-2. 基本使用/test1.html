@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        async function test(){
+            const url="./data/classes.json";
+            const resp=await fetch(url);//得到的使Reaponse对象
+            const datas=await resp.json();//获取的数据流也需要await
+            // console.log(datas)
+            console.log(resp)
+        }
+
+
+        test();
+
+
+    </script>
+    </body>
+</html>

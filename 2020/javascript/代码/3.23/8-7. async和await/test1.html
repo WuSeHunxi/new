@@ -70,13 +70,12 @@
         //2. 根据班级id获取李华所在班级的老师id   Promise
         //3. 根据老师的id查询老师信息   Promise
         async function getTeacher() {
-            ajax({
-                url:'./data/students.json'
-            }).then(resp=>{
-                const stu=resp;
-                console.log(stus);
-            })//这几句相当于下面81-83
-
+            // ajax({
+            //     url:'./data/students.json'
+            // }).then(resp=>{
+            //     const stu=resp;
+            //     console.log(stus);
+            // })  //这几句相当于下面81-83
 
             const stus = await ajax({
                 url: "./data/students.json"

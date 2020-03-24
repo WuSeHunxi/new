@@ -8,24 +8,56 @@
     <body>
         <script>
 
-        function test(){
+        // function test(){
+        //     return new Promise((resolve,reject)=>{
+        //         resolve(1);
+        //     })
+        // }
+
+        // test().then(data=>{
+        //     console.log(data);
+        // })
+
+        // async function func(){
+        //     return 1;
+        // }
+
+        // func().then(data=>{
+        //     console.log(data)
+        // })
+
+
+        //实现串联
+        function test1(){
             return new Promise((resolve,reject)=>{
                 resolve(1);
             })
         }
 
-        test().then(data=>{
-            console.log(data);
-        })
+        function test2(){
+            return new Promise((resolve,reject)=>{
+                test1().then(data=>{
+                    console.log(data);   
+                })  
+                resolve(100)
+            })
+        }
+
+        test2()
+        // console.log(test2())
+
 
         async function func(){
             return 1;
         }
 
-        func().then(data=>{
+        async function func1(){
+            const data=await func();
             console.log(data)
-        })
+            return 100;
+        }
 
+        func1()
 
     </script>
     </body>
