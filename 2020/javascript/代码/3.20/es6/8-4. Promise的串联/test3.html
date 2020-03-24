@@ -22,6 +22,7 @@
             }, 3000);
         })
 
+        //pro3的状态和pro2的状态相同，并且数据也给相应的后续函数使用
         const pro3=pro1.then(result => {
             console.log("结果出来了，得到的是一个Promise")
             return pro2;
@@ -30,9 +31,9 @@
         pro3.then(result => {
             console.log(result)
         },err=>{
-            console.log(err)
+            console.log(err);//3
         })
-        console.log(pro3);
+        // console.log(pro3);
     </script>
     </body>
 

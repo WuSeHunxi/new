@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         // const pro = new Promise((resolve, reject) => {
         //     console.log("未决阶段")
         //     resolve(123);
@@ -25,6 +25,8 @@
                 resolve(123);
             }, 3000);
         })
+
+        //当加入执行队列的时候pro是pending，当到达已决状态的时候就开始执行
         pro.then(data => {
             // pro的状态是pending
             console.log(data);
@@ -37,7 +39,25 @@
             // pro的状态是pending
             console.log(data);
         })
+
+        console.log(pro)
+
+        const pro1=new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve(11);//等到3秒钟之后才能推向resolved状态
+            }, 3000);
+        })
+
+        //组成事件队列
+        pro1.then(data=>{
+            console.log(data)
+        })
+
+        pro1.then(data=>{
+            console.log(data,12)
+        })
+
     </script>
-</body>
+    </body>
 
 </html>

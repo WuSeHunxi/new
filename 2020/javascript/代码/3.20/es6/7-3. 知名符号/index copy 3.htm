@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        const arr = [1];
+        const obj = {
+            0: 3,
+            1: 4,
+            length: 2,
+            [Symbol.isConcatSpreadable]: true//该值是否为true有很大的影响
+        }
+
+        const result = arr.concat(2, obj)
+
+        console.log(result)
+    </script>
+    </body>
+
+</html>

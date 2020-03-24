@@ -24,9 +24,25 @@
 
 
         const pro=new Promise((resolve,reject)=>{
-            resolve(1)
+            // resolve(1)
+            // reject(1)
+            throw new Error(0)
         })
 
+        //后续处理函数没出错，则新的Promise对象是resolved状态；如果后续处理函数出错，则是新的Promise对象是rejected
+        const pro2=pro.then(data=>{
+            console.log(data)
+        },err=>{
+            throw 1;//抛出了错误，此时新的Promise为rejected状态
+        })
+
+        // pro2.then(data=>{//
+        //     console.log(1)
+        // },err=>{
+        //     console.log(err,"wrong")
+        // })
+        console.log(pro2)
+        console.log(pro)//rejected
     </script>
     </body>
 </html>

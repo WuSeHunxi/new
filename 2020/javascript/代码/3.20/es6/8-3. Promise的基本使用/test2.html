@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         // 辅助函数,把传进来的对象拼接成url的字符串
         function toData(obj) {
             if (obj === null) {
@@ -67,11 +67,11 @@
         ajax({
             url: "./data/students.json?name=李华"
         }).then(resp => {
-            console.log(resp)
+            console.log(resp)//得到学生信息
         }, err => {
             console.log(err)
         })
     </script>
-</body>
+    </body>
 
 </html>

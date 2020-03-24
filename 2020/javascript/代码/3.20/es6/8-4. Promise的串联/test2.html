@@ -18,13 +18,14 @@
         }, err => {
             return err * 3;
         });
+
         console.log(pro2)
+
         pro1.catch(err => {
             return err * 2;
         })
         //pro2类型：Promise对象
         //pro2的状态：
-        console.log(pro2)
         pro2.then(result => console.log(result * 2), err => console.log(err * 3))
 
         //输出：6

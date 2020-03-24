@@ -11,6 +11,7 @@
     <body>
         <script>
         const pro = new Promise((resolve, reject) => {
+            //只能有一个已决状态，不能再修改
             throw new Error("abc");//直接是rejected的状态
             resolve(1); //无效
             reject(2); //无效

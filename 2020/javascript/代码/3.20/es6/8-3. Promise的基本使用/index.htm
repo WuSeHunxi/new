@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        const pro=new Promise((resolve,reject)=>{
+            resolve(1);//表示此时已经是resolved的状态了
+        })
+
+        pro.then(data=>{//异步
+            console.log(data);
+        })
+
+        console.log(pro)//同步
+
+    </script>
+    </body>
+</html>

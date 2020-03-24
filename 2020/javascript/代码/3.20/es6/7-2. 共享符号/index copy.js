@@ -13,4 +13,4 @@ const obj2 = {
     [syb2]: "c"
 }
 
-console.log(obj1, obj2);
+console.log(obj1[syb1], obj2[syb2]);

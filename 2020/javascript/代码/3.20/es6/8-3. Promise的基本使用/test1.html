@@ -27,7 +27,12 @@
 
 
         biaobai("女神1").then(result => {
-            console.log(result);
+            // console.log(result);
+            if(result){//通过判断推向状态的数据，得出结果
+                console.log(`女神1同意了`);
+            }else{
+                console.log("女神1拒绝了")
+            }
         })
 
     </script>
