@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        const arr=[1,2,3,4,5];
+        
+        //迭代器
+        const iterator={
+            i:0,
+            next(){
+                var result={
+                    value: arr[this.i],
+                    done: this.i >= arr.length
+                }
+                this.i++;
+                return result;
+            }
+        }
+
+        const ite={
+            i:0,
+            next(){
+                return {
+                    value:arr[this.i++],
+                    done:this.i>=arr.length
+                }
+            }
+        }
+
+        //让迭代不断地输出下一个数据
+        let data=iterator.next();
+        while(!data.done){
+            console.log(data.value);
+            data=iterator.next();
+        }
+        
+        console.log("迭代完成");
+
+
+        //如果有多个数据的话，需要封装一个迭代器一个
+        const arr1=[1,3,4,5,6,7];
+        const arr2=[6,7,8,9];
+        function createIterator(arr){//需要在返回对象的时候使用
+            let i=0;
+            return {
+                next(){
+                    var result={
+                        value:arr[i],
+                        done:i>arr.length
+                    }
+                    i++;
+                    return result;
+                }
+            }
+        }
+
+        const iter1=createIterator(arr1);
+
+
+        //创建一个非波那且数列
+        function craeteFeiboIterator(){
+            let prev1=1,
+                prev2=1;
+                n=1;
+            
+            return {
+                next(){
+                    let value;
+                    if(n<=2){
+                        value=1;
+                    }else{
+                        value=prev1+prev2;
+                    }
+
+                    const result={
+                        value,
+                        done:false
+                    }
+                    //prev2是处在前面的那一个
+                    prev2=prev1;
+                    prev1=result.value;
+                    n++;
+                    return result;
+                }
+            }
+
+        }
+    </script>
+    </body>
+</html>
