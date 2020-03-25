@@ -39,12 +39,32 @@
              * 
              * requestAnimationFrame()：相当于是一个setTimeout，可以准时执行每一帧
              *      该方法是每秒60帧
+             *      该方法的兼容性极差，实际开发中用到的也较少
              * setInterval或者setTimeout上一帧不执行完是不会执行下一帧的，因此如果动画复杂则会出现丢帧的情况
              * 
              * 
              * cancleAnimationFrame相当于clearTimeout
              * 
             */
+
+
+            //封装兼容cancelAnimationFrame
+            window.cancelAnimationFrame=(function(){
+                return window.cancelAnimationFrame||
+                        window.webkitCancelAnimationFrame||
+                        window.mozCancelAnimationFrame||
+                        function (id){
+                            window.clearTimeout(id);
+                        }
+            })();
+
+            window.requestAnimationFrame=(function(){
+                return window.requestAnimationFrame||
+                        function (id){
+                            window.setTimeout(id,1000/60)
+                        }
+            })()
+
     </script>
     </body>
 </html>
