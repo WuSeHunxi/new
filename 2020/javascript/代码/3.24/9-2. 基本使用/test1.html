@@ -10,6 +10,7 @@
 
         async function test(){
             const url="./data/classes.json";
+            // await必须得和fetch一起使用才能进行异步请求
             const resp=await fetch(url);//得到的使Reaponse对象
             const datas=await resp.json();//获取的数据流也需要await
             // console.log(datas)
