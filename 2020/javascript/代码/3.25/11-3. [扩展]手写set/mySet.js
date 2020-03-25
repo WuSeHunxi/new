@@ -1,4 +1,5 @@
 class MySet {
+    //传入的参数利用了参数的默认值
     constructor(iterator = []) {
         //验证是否是可迭代的对象
         if (typeof iterator[Symbol.iterator] !== "function") {
@@ -10,7 +11,7 @@ class MySet {
         }
     }
 
-    get size() {
+    get size() {//不需要写括号就能够读取
         return this._datas.length;
     }
 
@@ -51,6 +52,7 @@ class MySet {
         }
     }
 
+    //forEach的参数是一个回调函数
     forEach(callback) {
         for (const item of this._datas) {
             callback(item, item, this);
