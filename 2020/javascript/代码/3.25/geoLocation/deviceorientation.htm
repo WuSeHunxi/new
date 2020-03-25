@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script>
+        //陀螺仪，只有在有陀螺仪的设备下才能支持体感
+
+        //alpha：指北[0,360)，当为0的时候指北，180指南
+        //beta：平放的时候beta为0.如果将手机立起来，直立的时候beta为90，头朝上
+        //gamma：侧着翻：长边接触桌面（左侧-90，右侧+90）
+
+        window.addEventListener("deviceorientation",function(event){
+            // console.log(event)
+            document.getElementById("main").innerHTML="alpha:"+event.alpha+"<br/>"+"beta:"+event.beta+"<br/>"+"gamma:"+event.gamma;
+        })
+
+        //手机如何访问电脑
+        /**
+         * 1.手机和电脑要在同意局域网下
+         * 2.获取电脑的ip地址
+         * 3.在手机上输入相应的ip和端口进行访问
+         * 
+        */
+
+        //实现手机摇一摇的功能
+        window.addEventListener("devicemotion",function(event){
+            document.getElementById("main").innerHTML=event.acceleration.x+"<br/>"+event.acceleration.y+"<br/>"+event.acceleration.z;
+            if(Math.abs(event.acceleration.x)>9||Math.abs(event.acceleration.y)>9||Math.abs(event.acceleration.z)>9){
+                alert("在晃")
+            }
+        })
+    </script>
+    </body>
+</html>

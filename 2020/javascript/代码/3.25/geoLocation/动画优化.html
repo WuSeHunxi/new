@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #main{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: #abcdef;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script>
+            var timer=null;
+            function move(){
+                var square=document.getElementById("main");
+                if(square.offsetLeft>700){
+                    //取消timer
+                    cancelAnimationFrame(timer);
+                    return;
+                }
+                square.style.left=square.offsetLeft+20+"px";
+                timer=requestAnimationFrame(move);
+
+            }
+            // setInterval(move,16);
+            
+            /**
+             * 屏幕刷新的频率：每秒钟60次
+             *  如果变化一秒钟超过60次，必然会有一些动画帧被丢掉
+             * 
+             * 定时器的帧数都是自己定义的
+             * 
+             * 
+             * requestAnimationFrame()：相当于是一个setTimeout，可以准时执行每一帧
+             *      该方法是每秒60帧
+             * setInterval或者setTimeout上一帧不执行完是不会执行下一帧的，因此如果动画复杂则会出现丢帧的情况
+             * 
+             * 
+             * cancleAnimationFrame相当于clearTimeout
+             * 
+            */
+    </script>
+    </body>
+</html>
