@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            /**
+             * 为了网页的性能进行单页面操作
+             *      通过history记录页面的每一个状态，能够更好的进行回退和前进，并渲染页面
+             *      
+             * history.back()--->回退到上一页
+             * history.forward()--->进入下一个页面
+            */
+
+            var data=[{name:"html"},
+                {name:"css"},
+                {name:"js"},
+                {name:"panda"},
+                {name:"denge"}
+            ]
+            function search(){
+                var value=document.getElementById("search").value;
+                var result=data.filter(function(obj){
+                    if(obj.name.indexOf(value)>-1){
+                        return obj;
+                    }
+                })
+                render(result)
+                //第一个参数是当前页面的那个值   第三个参数是一个url
+                history.pushState({inpVal:value},null,"#"+value)
+            }
+
+            function render(renderData){
+                var content="";
+                for(var i=0;i<renderData.length;i++){
+                    content+="<div>"+renderData[i].name+"</div>";
+                }
+                document.getElementById("main").innerHTML=content;
+            }
+
+            //后退时触发的事件
+            window.addEventListener("popstate",function(e){
+                document.getElementById("search").value=e.state.inpVal?e.state.inpVal:"";
+                var value=document.getElementById("search").value;
+                var result=data.filter(function(obj){
+                    if(obj.name.indexOf(value)>-1){
+                        return obj;
+                    }
+                })
+                render(result)
+            })
+
+            //也是回退可以触发的事件
+            window.addEventListener("hashchange",function(e){
+
+            })
+        </script>
+    </head>
+    <body>
+        <input type="text" name="" id="search">
+        <button onclick="search()">搜索</button>
+        <div id="main"></div>
+        <script>
+            render(data);
+        </script>
+    </body>
+</html>

@@ -8,7 +8,38 @@
     <body>
         <script>
 
-        
+            /***
+             * 
+             * 存储：
+             * cookie的问题：每次请求的时候都有可能传送许多无用的信息
+             * 
+             * localStorage：长期存放在浏览器的写入localStorage，无论窗口是否关闭都需要存储。
+             *      只能存储字符串
+             *      存放在自己的域下
+             * 域：相同协议，相同端口，相同域名成为一个域
+             * 
+             * 
+             * sessionStorage：这次会话临时需要存储的变量，关闭窗口时，sessionStorage自动清空。
+             * 
+             * localStorage和cookie的区别：
+             * 1.localStorage在发送请求的时候不会把数据发出去，这样更安全，但是cookie会把数据发送出去
+             * 2.cookie存储的内容较少，localStorage能够存放较多的内容，大约在5M左右
+             * 
+             *
+             * localStorage的方法：
+             *      localStorage.setItem(xxx,xxx);---》写入
+             *      localStorage.getItem(xx);---》获取
+             *      localStorage.removeItem(xxx);---》移除
+            */
+
+            localStorage.name="panda";
+            //对象也需要这样使用：先转成字符串然后再区、取出
+            localStorage.arr=JSON.stringify([1,2,3]);
+            console.log(JSON.parse(localStorage.arr));
+
+
+            sessionStorage.name="panda";
+
 
     </script>
     </body>
