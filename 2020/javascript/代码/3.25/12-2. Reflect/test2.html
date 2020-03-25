@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         // function method(a, b){
         //     console.log("method", a, b);
         // }
 
         // // method(3, 4);
 
-        // Reflect.apply(method, null, [3, 4])
+        // Reflect.apply(method, null, [3, 4])//null表示this没有特殊的指向，就是window即可
 
         // const obj = {
         //     a: 1,
@@ -46,6 +46,6 @@
         // console.log("a" in obj);
         console.log(Reflect.has(obj, "a"));
     </script>
-</body>
+    </body>
 
 </html>
