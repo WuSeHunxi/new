@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <div id="container">
+    <body>
+        <div id="container">
 
-    </div>
+        </div>
 
-    <script>
+        <script>
         //创建一个观察者
         function observer(target) {
             const div = document.getElementById("container");
@@ -45,12 +45,15 @@
 
             return ob;
         }
+
+        //属性变化的时候观察者是会接收到通知的
         const target = {
             a: 1,
             b: 2
         }
+        //通过观察者修改obj中属性的值，不仅目标对象target变化，页面也跟着变化
         const obj = observer(target)
     </script>
-</body>
+    </body>
 
 </html>
