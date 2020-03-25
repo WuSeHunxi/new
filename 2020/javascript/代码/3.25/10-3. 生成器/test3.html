@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         //创建一个斐波拉契数列的迭代器
         function* createFeiboIterator() {
             let prev1 = 1,
@@ -17,7 +17,7 @@
                 n = 1; //当前是第几位
             while (true) {
                 if (n <= 2) {
-                    yield 1;
+                    yield 1;//只需要考虑怎么给数据，不需要再创建对象什么的了
                 } else {
                     const newValue = prev1 + prev2
                     yield newValue;
@@ -29,7 +29,9 @@
         }
 
         const iterator = createFeiboIterator();
+        console.log(iterator.next());
+        
     </script>
-</body>
+    </body>
 
 </html>

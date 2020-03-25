@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
+        //自己写一个可迭代的对象
         var obj = {
             a: 1,
             b: 2,
             [Symbol.iterator]() {
-                const keys = Object.keys(this);
+                const keys = Object.keys(this);//拿不到Symbol类型属性
+                // console.log(this)//就是这个obj对象
                 let i = 0;
                 return {
                     next: () => {
@@ -43,6 +45,6 @@
 
         test(...obj);
     </script>
-</body>
+    </body>
 
 </html>

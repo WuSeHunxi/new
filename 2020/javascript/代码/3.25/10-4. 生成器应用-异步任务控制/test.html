@@ -10,11 +10,13 @@
 
     <body>
         <script>
+
+        //用生成器解决异步任务控制
         function* task() {
             const d = yield 1;
             console.log(d)
             // //d : 1
-            const resp = yield fetch("http://101.132.72.36:5100/api/local")
+            const resp = yield fetch("./data/classes.json")
             const result = yield resp.json();
             console.log(result);
         }
@@ -34,16 +36,17 @@
                 //迭代没有完成，分为两种情况
                 //1. 迭代的数据是一个Promise
                 //2. 迭代的数据是其他数据
-                if (typeof result.value.then === "function") {
+                if (typeof result.value.then === "function") {//如果迭代的数据是Promise那么他一定就具有then方法
                     //1. 迭代的数据是一个Promise
                     //等待Promise完成后，再进行下一次迭代
+                    console.log(result.value)
                     result.value.then(data => {
                         result = generator.next(data)
                         handleResult();
                     })
                 } else {
                     //2. 迭代的数据是其他数据，直接进行下一次迭代
-                    result = generator.next(result.value)
+                    result = generator.next(result.value)//为了要得到d，resp等上面的数据，直接给传参赋给yield表达式
                     handleResult();
                 }
             }

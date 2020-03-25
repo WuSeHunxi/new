@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         const s1 = new Set();
         console.log(s1);
 
         const s2 = new Set("asdfasfasf");
         console.log(s2);
+
+
+        const s3=new Set([1,2,3,4]);//可迭代对象，参数也是
+        for (const item of s3) {//Set使用for-of进行遍历
+            console.log(item);
+        }
     </script>
-</body>
+    </body>
 
 </html>

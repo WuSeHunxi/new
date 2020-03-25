@@ -90,6 +90,7 @@ class MyMap {
 
     *[Symbol.iterator]() {
         for (const item of this._datas) {
+            //迭代一次得到一个   格式是数组
             yield [item.key, item.value];
         }
     }

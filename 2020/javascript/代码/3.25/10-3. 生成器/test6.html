@@ -15,6 +15,7 @@
             yield "b"
         }
 
+        //在生成器函数中调用另一个生成器函数
         function* test() {
             yield* t1();//调用上一个生成器函数
             //  yield "a"

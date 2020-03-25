@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script>
+    <body>
+        <script>
         function* test() {
             console.log("第1次运行")
             yield 1;
             console.log("第2次运行")
             yield 2;
             console.log("第3次运行");
-            return 10;
+            return 10;//返回值为10：再done=true的时候，value=10，而不是undefined
         }
 
         const generator = test();
     </script>
-</body>
+    </body>
 
 </html>

@@ -10,7 +10,7 @@
 
     <body>
         <script>
-            //该函数只调用的时候是不会执行的，他就是为了迭代服务的，迭代了才会执行
+        //该函数只调用的时候是不会执行的，他就是为了迭代服务的，迭代了才会执行
         function* test() {
             console.log("第1次运行")
             yield 1;
@@ -20,7 +20,19 @@
         }
 
         const generator = test();
-        console.log(generator.next())
+        console.log(generator.next())//调用next方法才能够执行
+
+
+        function* func(){
+            console.log("第一次调用");
+            yield 1;
+            console.log("第二次调用");
+            yield 2;
+        }
+
+        const gen=func();
+        console.log(gen.next());
+        console.log(gen.next())
     </script>
     </body>
 

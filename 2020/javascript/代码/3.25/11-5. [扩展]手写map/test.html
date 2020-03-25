@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <script src="./myMap.js"></script>
-    <script>
+    <body>
+        <script src="./myMap.js"></script>
+        <script>
         const mp1 = new MyMap([
             ["a", 3],
             ["b", 4],
@@ -21,9 +21,9 @@
         mp1.set("a", "abc");
         mp1.set(obj, 111);
 
-        // for (const item of mp1) {
-        //     console.log(item)
-        // }
+        for (const item of mp1) {
+            console.log(item)
+        }
 
         // const result = [...mp1];
         // console.log(result)
@@ -31,6 +31,6 @@
             console.log(a1, a2, a3);
         })
     </script>
-</body>
+    </body>
 
 </html>

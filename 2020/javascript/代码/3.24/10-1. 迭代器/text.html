@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        //迭代器--->具有一个能够返回对象的next方法
+        const arr=[1,2,3,4,5];
+
+        const iterator={
+            i:0,
+            next(){
+                return {
+                    value:arr[this.i++],
+                    done:this.i>arr.length
+                }
+            }
+        }
+
+        //不断取出数据
+
+        let result=iterator.next();
+        while(!result.done){
+            console.log(result.value);//全部输出
+            result=iterator.next();
+        }
+
+
+        //斐波那契数列
+        function FeiboCreateIterator(){
+            return{
+                next(){
+                    
+                }
+            }
+        }
+
+
+
+    </script>
+    </body>
+</html>
