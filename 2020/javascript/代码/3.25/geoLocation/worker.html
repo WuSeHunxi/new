@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        /**
+         * 之前说js都是单线程的，但是worker是多线程的，是真正的多线程，不是伪多线程
+         * worker是有很多限制的：只要在worker线程中执行的操作都不能执行DOM
+         *      1.不能操作DOM
+         *      2.没有window对象
+         *      3.不能读取文件
+         *   但是可以法ajax，可以计算
+         * 
+         * 主线程和辅线程都要使用postMessage发送消息，使用onMessage接收消息
+         * 
+         * terminate()：停止工作(再没执行完就停止了)
+         * 
+         * 在worker中能否创建worker？
+         *      理论上是合理的，但是实际上没有任何一款浏览器是支持的。
+        */
+
+        console.log("====");
+        const a=10000;
+        //在执行的时候并没有阻塞在这里
+        var worker=new Worker("./worker.js");//参数是js的文件名
+        worker.postMessage({
+            num:a
+        })
+        worker.onmessage=function(e){
+            console.log(e.data);
+        }
+        console.log("======");
+        worker.terminate();
+    </script>
+    </body>
+</html>

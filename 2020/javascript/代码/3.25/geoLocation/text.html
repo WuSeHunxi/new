@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        // let obj = {name: 'duyi',age: 10};
+        // obj[Symbol.iterator]=function(){
+        //     let props=Object.keys(obj);
+        //     let i=0;
+        //     return{
+        //         next(){                        
+        //             let result={
+        //                 value:props[i],
+        //                 done:i>=props.length
+        //             };
+        //             i++;
+        //             return result;
+        //         }
+        //     }
+        // }
+
+        // for (const item of obj) {
+        //     console.log(obj[item])
+        // }
+
+
+        // fs.readFile('./number.txt', 'utf-8', function (err, data) {
+        //     student.number = data;
+        // });
+
+        // fs.readFile('./name.txt', 'utf-8', function (err, data) {
+        //     student.name = data;
+        // });
+
+        // fs.readFile('./des.txt', 'utf-8', function (err, data) {
+        //     student.des = data;
+        // });
+
+        //利用fetch进行高级版的ajax请求
+        // function findInfo(){
+        //     info("./data/students.json")
+
+        //     info("./data/classes.json")
+        // }
+        // findInfo()
+
+        // async function info(url){
+        //     const respC=await fetch(url,{});
+        //     const jsonC=await respC.json();
+        //     for (const item of jsonC) {
+        //         cid=item;
+        //     }
+        // }
+
+
+        // fs.readFile('./number.txt', 'utf-8', function (err, data) {
+        //     fs.readFile(data, 'utf-8', function (err, data) {
+        //         fs.readFile(data, 'utf-8', function (err, data) {
+        //             console.log(data);
+        //         });
+        //     });
+        // });
+
+
+        // async function getInfo(){
+        //     const resp1=await fetch("./data/students.json");
+        //     const json1=await resp1.json();
+        //     let cid;
+        //     for (const item of json1) {
+        //         if(item.name==='李华'){
+        //             cid=item.classId;
+        //         }
+        //     }
+
+        //     const resp2=await fetch("./data/students.json");
+        //     const json2=await resp2.json();
+        //     let tid;
+        //     for (let i = 0; i < cls.length; i++) {
+        //         if (cls[i].id === cid) {
+        //             tid = cls[i].teacherId;
+        //         }
+        //     }
+        //     const resp3=await fetch("./data/students.json");
+        //     const json3=await resp3.json();
+        //     for (let i = 0; i < ts.length; i++) {
+        //         const element = ts[i];
+        //         if (element.id === tid) {
+        //             console.log(element);
+        //         }
+        //     }
+
+        // }
+
+        // getInfo()
+
+        function _classCallCheck(_this, _constructor) { // 监测是否以new的方式执行
+            // 在new的同时构造函数内部会发生：this对象内有一个_proto_属性指向构造函数(这里是Plane)的prototype
+            if (!(_this instanceof _constructor)) { // 判断this的原型链上有没有_constructor的原型
+                throw "TypeError:Class constructor Plane cannot be invoked without 'new'";
+            }
+        }
+
+        function _definedProperties(target, props) { // 属性设置
+            props.forEach(function (ele) {
+                // 不配置枚举属性默认为false
+                Object.defineProperty(target, ele.key, {
+                    value: ele.value,
+                    writable: true, // 可写
+                    configurable: true // 可配置
+                })
+            })
+        }
+
+        function _createClass(_constructor, _prototypePropeties, _staticProperties) {
+            if (_prototypePropeties) { // 原型属性
+                _definedProperties(_constructor.prototype, _prototypePropeties)
+            }
+            if (_staticProperties) { // 静态属性
+                _definedProperties(_constructor, _staticProperties)
+            }
+        }
+
+        var Plane = (function () { // es6中class源码就是用立即执行函数写的：优点可以私有化变量防止变量污染
+            function Plane(name) {
+                // 判断是否以new的方式执行
+                _classCallCheck(this, Plane)
+                // 私有属性
+                this.name = name || '';
+                this.blood = 100;
+            }
+            _createClass(Plane, [{
+                key: 'fly',
+                value: function () {
+                    console.log('fly')
+                }
+            }], [{
+                key: 'alive',
+                value: function () {
+                    return true;
+                }
+            }])
+            return Plane;
+        })();
+
+        var myPlane = new Plane('steven的飞机');
+
+        function _inherit(o, p) {
+            // Object.setPrototypeOf 内部执行了 o.prototype._proto_ = p.prototype
+            Object.setPrototypeOf(o.prototype, p.prototype);
+        }
+
+        var AttackPlane = (function (Plane) {
+            _inherit(AttackPlane, Plane); // 公有属性继承
+            function AttackPlane(name) {
+                _classCallCheck(this, AttackPlane)
+                this.logo = '战斗机';
+                Plane.call(this, name); // 私有属性继承
+            }
+            _createClass(AttackPlane, [{
+                key: 'attack',
+                value: function () {
+                    console.log('duang~duang~duang~')
+                }
+            }], [{
+                key: 'alive',
+                value: function () {
+                    return true;
+                }
+            }])
+            return AttackPlane;
+        })(Plane)
+        console.log(new AttackPlane('1').attack()); // 原型属性-公有属性 : duang~duang~duang~
+        console.log(new AttackPlane('1').fly()); // 继承的公有属性: fly
+        console.log(AttackPlane.alive()); // 静态属性：true
+        console.log(new AttackPlane); // 私有属性+继承的私有属性 ：AttackPlane { logo: '战斗机', name: '', blood: 100 }
+    </script>
+    </body>
+
+</html>

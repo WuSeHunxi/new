@@ -11,6 +11,10 @@
              *      
              * history.back()--->回退到上一页
              * history.forward()--->进入下一个页面
+             * 
+             * 页面回退出发的事件：popstate和haschange（而这也会同时使用，即：当锚点变化的时候，这俩个方法都会触发，而且第一个比第二个快）
+             *      popstate：url发生改变就会触发，而且比haschange先触发，通常情况下使用这个
+             *      haschange：锚点变化就会触发
             */
 
             var data=[{name:"html"},
@@ -39,7 +43,7 @@
                 document.getElementById("main").innerHTML=content;
             }
 
-            //后退时触发的事件
+            //后退时触发的事件：只要url发生改变就会触发（永远都会比hashchange先触发），通常情况下使用这个
             window.addEventListener("popstate",function(e){
                 document.getElementById("search").value=e.state.inpVal?e.state.inpVal:"";
                 var value=document.getElementById("search").value;
@@ -51,7 +55,7 @@
                 render(result)
             })
 
-            //也是回退可以触发的事件
+            //也是回退可以触发的事件：锚点变就会触发haschange
             window.addEventListener("hashchange",function(e){
 
             })
