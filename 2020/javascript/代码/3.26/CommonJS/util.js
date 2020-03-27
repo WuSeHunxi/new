@@ -5,7 +5,7 @@ exports.getNumber = function () {
     return count;
 }
 
-//内部的实现原理：module.exports和exports指向同一个对象
+// 内部的实现原理：module.exports和exports指向同一个对象
 // 立即函数执行
 // (function (module) {
 //     module.exports = {};
