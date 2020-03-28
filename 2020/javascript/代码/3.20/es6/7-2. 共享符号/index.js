@@ -11,7 +11,7 @@ const SymbolFor = (() => {
 })();
 const SymbolFor = (name => {
     const global = {};//用于记录有哪些共享符号
-    console.log(global)
+    // console.log(global)
     if (!global[name]) {
         global[name] = Symbol(name);
     }

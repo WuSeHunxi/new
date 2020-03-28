@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" name="" id="search" />
+        <button>搜索</button>
+        <div id="main"></div>
+        <script>
+            var data = [
+                { name: "html" },
+                { name: "css" },
+                { name: "js" },
+                { name: "panda" },
+                { name: "denge" }
+            ];
+
+            render(data);
+
+            function render(data){
+                var content="";
+                for (const item of data) {
+                    content+=`<div>${item.name}</div>`;
+                }
+                document.getElementById("main").innerHTML=content;
+            }
+
+            function search(){
+                let value=document.getElementById("search").value;
+                //输入框里面你的内容得再data数组中
+                let result=data.filter(function(item){
+                    if(item.name.indexOf(value)>-1){
+                        return item;
+                    }
+                })
+                render(result);
+                history.pushState({inVal:value},null,"#"+value);
+            }
+
+            window.addEventListener("popstate",function(e){
+                document.getElementById("search").value=e.state.inVal?e.state.inVal:"";
+                var value=document.getElementById("search").value;
+                var result=data.filter(function(item){
+                    if(item.name.indexOf(value)>-1){
+                        return item;
+                    }
+                })
+                render(result);
+            })
+
+            document.getElementsByTagName("button")[0].onclick=function(){
+                search()
+            }
+
+
+
+    </script>
+    </body>
+</html>
