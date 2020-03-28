@@ -51,6 +51,7 @@ export function isWin() {
     return true;
 }
 
+//移动就是位置交换
 function exchange(point1, point2) {
     var temp = map.content[point1.row][point1.col];
     map.content[point1.row][point1.col] = map.content[point2.row][point2.col];

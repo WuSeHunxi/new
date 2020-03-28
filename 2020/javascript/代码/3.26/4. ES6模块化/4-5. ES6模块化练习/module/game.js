@@ -2,7 +2,7 @@ import { playerMove, isWin } from "./play.js"
 import showUI from "./ui.js"
 
 showUI();
-var over = false
+var over = false//游戏结束之后按键就不能再继续反应了
 //完成整个游戏
 
 window.onkeydown = function (e) {

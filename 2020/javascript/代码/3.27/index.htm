@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        //函数闭包
+        // (function foo() {
+        //     foo = 2;
+        //     console.log(foo);
+        //     var foo = (function foo() {
+        //         foo = 1;
+        //         console.log(foo)
+        //     })();
+        // })();
+        // console.log(foo)
+
+        /**
+         * 在立即执行函数中，如果该函数有名字，则函数体内所有对这个名字的赋值等操作都无效/无视，甚至不会提
+         * 升在window中,需要注意的是有函数名的立即执行函数中是可以访问到该函数的，就像是arguments.callee
+         * 
+         * 
+         * 在立即执行函数中，如果该函数名和里面的变量同名，该函数内部的变量赋值等操作是是失效的
+         */
+        (function A() {
+            A = 1;
+            console.log(A)
+        }())
+
+
+        
+        function f1() {
+            console.log(1)
+        }
+
+        function f2() {
+            console.log(2)
+        }
+
+        f1.call(f2)
+        f1.call.call(f2)
+    </script>
+    </body>
+
+</html>

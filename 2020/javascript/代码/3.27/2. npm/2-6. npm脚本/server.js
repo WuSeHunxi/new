@@ -1,1 +1,1 @@
-console.log("server")
+console.log("server")//不需要在配置文件中写start该文件也能执行
