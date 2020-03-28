@@ -112,12 +112,17 @@
             resolve(1)
         })
 
-        const pro1=pro.then(data=>{
-            // console.log(data);
-            throw new Error(0)
-        },err=>{
-            // throw new Error(0)
+        console.log(pro)
+        pro.then(data=>{
+            console.log(data)
         })
+
+        // const pro1=pro.then(data=>{
+        //     // console.log(data);
+        //     throw new Error(0)
+        // },err=>{
+        //     // throw new Error(0)
+        // })
 
 
 

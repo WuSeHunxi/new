@@ -1,4 +1,5 @@
 const MyPromise = (() => {
+    //将内容放在立即执行函数中
     const PENDING = "pending",
         RESOLVED = "resolved",
         REJECTED = "rejected",//这行以上的状态都是上一个Promise的状态
@@ -63,11 +64,11 @@ const MyPromise = (() => {
          */
         [settleHandle](handler, immediatelyStatus, queue) {
             //为了解决只传了then的第一个参数，没传第二个参数的情况
-            if (typeof handler !== "function") {
+            if (typeof handler !== "function") {//err那个状态没有传参
                 return;
             }
             if (this[PromiseStatus] === immediatelyStatus) {
-                //直接运行
+                //直接运行 模拟加入微队列
                 setTimeout(() => {
                     handler(this[PromiveValue]);
                 }, 0);
@@ -82,7 +83,7 @@ const MyPromise = (() => {
             function exec(data, handler, resolve, reject) {
                 try {
                     const result = handler(data); //得到当前Promise的处理结果
-                    if (result instanceof MyPromise) {
+                    if (result instanceof MyPromise) {//如果当前的返回结果是Promise对象
                         result.then(d => {
                             resolve(d)
                         }, err => {

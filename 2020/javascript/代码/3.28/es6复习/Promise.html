@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+        // const pro=new Promise((resolve,reject)=>{
+        //     console.log("未决阶段");
+        //     setTimeout(() => {
+        //         resolve(100)
+        //         console.log("已决阶段");
+        //     }, 3000);
+        // })
+
+        // const pro2=pro.then(data=>{
+        //     console.log(data);
+        // })
+
+        // pro2.then(data=>{
+        //     console.log(data)
+        // })
+
+
+        // const pro=new Promise((resolve,reject)=>{
+        //     throw new Error("wrong")
+        // });
+
+        // const pro1=pro.then(data=>{
+        //     console.log(data)
+        // },err=>{
+        //     console.log(err)
+        //     throw new Error("p")
+        // })
+
+        // pro1.then(data=>{
+        //     console.log(data)
+        // },err=>{
+        //     console.log(err)
+        // })
+
+        const pro=new Promise((resolve,reject)=>{
+            resolve(1);
+        })
+
+        const pro1=new Promise((resolve,reject)=>{
+            reject(1);
+        })
+
+        const pro3=pro.then(data=>{
+            console.log(data);
+            return pro1;
+        },err=>{
+            console.log(err);
+        })
+
+        //pro3  reject状态
+        pro3.then(data=>{
+            console.log(data)
+        })
+
+    </script>
+    </body>
+</html>

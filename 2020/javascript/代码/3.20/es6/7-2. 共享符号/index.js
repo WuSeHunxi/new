@@ -1,3 +1,4 @@
+//立即执行函数能够形成一个单独的作用域
 const SymbolFor = (() => {
     const global = {};//用于记录有哪些共享符号
     return function (name) {
@@ -9,6 +10,8 @@ const SymbolFor = (() => {
         return global[name];
     }
 })();
+
+//形成闭包
 const SymbolFor = (name => {
     const global = {};//用于记录有哪些共享符号
     // console.log(global)

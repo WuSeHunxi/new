@@ -7,7 +7,6 @@
     </head>
     <body>
         <script>
-
         function getCommonHeaders(){
             return new Headers({
                 a:1,
@@ -17,19 +16,20 @@
 
         function printHeaders(headers){
             const data=headers.entries();
-            for(const pair of data){
-                console.log(pair[0]+":"+pair[1]);
+            for (const item of data) {
+                console.log(item[0]+":"+item[1]);
             }
         }
 
         let req;
+        //创建请求头
         function getRequestInfo(){
             if(!req){
-                const  url="./data/classes.json";
+                const url="./data/classes.json";
                 const headers=getCommonHeaders();
-                headers.set("a","name");
-                headers.append("c","hello")
-                printHeaders(headers)
+                headers.set("a",1);
+                headers.append("c","hello");
+                printHeaders(headers);
                 req=new Request(url,{
                     headers
                 })
@@ -39,13 +39,11 @@
 
         async function getClass(){
             const resp=await fetch(getRequestInfo());
-            const datas=await resp.json();
-            console.log(datas);
+            const data=await resp.json();
+            console.log(data);
         }
 
-
-        getClass();
-
+        getClass()
     </script>
     </body>
 </html>

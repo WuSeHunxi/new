@@ -13,12 +13,6 @@
         const pro = new Promise((resolve, reject) => {
             //抛出错误就是rejected
             throw new Error("123"); // pro: rejected
-            // try{
-            //     // reject(1)
-            //     throw 1
-            // }catch{
-            //     // throw new Error("new")
-            // }
         })
         pro.then(data => {
             console.log(data)

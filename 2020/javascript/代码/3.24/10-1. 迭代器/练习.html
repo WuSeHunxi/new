@@ -10,17 +10,29 @@
         const arr=[1,2,3,4,5];
         
         //迭代器
+        // const iterator={
+        //     i:0,
+        //     next(){
+        //         var result={
+        //             value: arr[this.i],
+        //             done: this.i >= arr.length
+        //         }
+        //         this.i++;
+        //         return result;
+        //     }
+        // }
         const iterator={
             i:0,
             next(){
-                var result={
-                    value: arr[this.i],
-                    done: this.i >= arr.length
+                return {
+                    value:arr[this.i++],
+                    done:this.i>arr.length
                 }
-                this.i++;
-                return result;
             }
         }
+
+        console.log(iterator.next())
+
 
         const ite={
             i:0,
@@ -88,8 +100,8 @@
                     return result;
                 }
             }
-
         }
+        craeteFeiboIterator()
     </script>
     </body>
 </html>
