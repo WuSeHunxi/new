@@ -13,18 +13,25 @@
             b:2,
             [Symbol.iterator](){
                 var prop=Object.keys(this);//数组
+                console.log(prop)
                 let i=0;
                 return {
                     next:()=>{
-                        return {
-                            value:prop[i++],
+                        // console.log(prop[i])
+                        // console.log(i)
+                        const result={
+                            value:prop[i],
                             done:i>=prop.length
                         }
+                        i++;
+                        return result;
                     }
                 }
             }
         }
-
+        for (const item of obj) {
+            console.log(item); // {propName:"a", propValue:1}
+        }
     </script>
     </body>
 </html>
