@@ -7,5 +7,7 @@
     "abc": "dir",
     "start": "node index.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
