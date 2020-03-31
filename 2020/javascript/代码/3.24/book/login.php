@@ -9,10 +9,10 @@ form {
 </style>
 
 <form method="post">
-    <label>�û���:<input type="text" name="name"></label>
+    <label>用户名:<input type="text" name="name"></label>
     <br /><br />
 
-    <label>��&nbsp;&nbsp;&nbsp;��:<input type="password" name="password"></label>
+    <label>&nbsp;&nbsp;&nbsp;密码:<input type="password" name="password"></label>
     <br /><br />
 
     <label>��֤�룺</label>
@@ -22,16 +22,16 @@ form {
     </td>
     <td colspan="2">
         <a href="javascript:void(0)"
-            onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()">��һ��?</a>
+            onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()">验证码</a>
     </td>
     <br /><br />
-    <label>��������֤�룺</label>
+    <label></label>
     <td></td>
     <td><input type="text" name='authcode' value='' /></td>
     <br /><br />
 
-    <button type="submit" name="submit">��¼</button>
-    <button type="submit" name="submit0">ע��</button>
+    <button type="submit" name="submit">注册</button>
+    <button type="submit" name="submit0">登录</button>
 
 
 
@@ -41,11 +41,11 @@ form {
 <?php 
 $link = mysqli_connect('localhost', 'root', 'root', 'test');
 if (!$link){
-    echo"<script>alert('���ݿ�����ʧ�ܣ�')</script>";
+    echo"<script>alert('连接数据库失败')</script>";
 }else {
 	/*if(isset($_REQUEST['authcode'])){
     session_start();
-    strtolower()Сд����
+    strtolower()
 		if(strtolower($_REQUEST['authcode'])== $_SESSION['authcode']){*/
 
 			if (isset($_POST['submit'])){
@@ -67,7 +67,7 @@ if (!$link){
 						header("Location:superUser.php");
 					}
 				}else{
-					echo "�û������������";
+					echo "登陆失败";
 				}
 				
 			}

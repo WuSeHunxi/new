@@ -14,6 +14,7 @@ export default class NumberTimer {
             return;
         }
         this.timerId = setInterval(() => {
+            //在一件事请完成后，要进行接下来的操作，通常需要使用回调函数（要使得功能更加通用）
             this.onNumberCreated && this.onNumberCreated(this.number, isPrime(this.number))
             this.number++;
         }, this.duration)

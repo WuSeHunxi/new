@@ -1,6 +1,7 @@
 import NumberTimer from "../util/number"
 import appendNumber from "./appendNumber"
 var n = new NumberTimer(100);
+//创建数字之后才能添加数字
 n.onNumberCreated = function (n, isPrime) {
     appendNumber(n, isPrime);
 }
