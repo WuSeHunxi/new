@@ -11,6 +11,7 @@ module.exports = {
         filename: "scripts/[name].[chunkhash:5].js"
     },
     plugins: [
+        //每个文件对应一个js的情况
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "./public/index.html",

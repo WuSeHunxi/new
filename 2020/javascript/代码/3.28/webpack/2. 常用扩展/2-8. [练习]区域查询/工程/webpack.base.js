@@ -28,7 +28,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/detail.html",
             filename: "detail.html",
-            chunks: ["detail"]
+            chunks: ["detail"]//控制chunk
         }),
         new CopyWebpackPlugin([
             { from: './public', to: './' }
