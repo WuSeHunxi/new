@@ -3,10 +3,20 @@ module.exports = {
     devtool: "source-map",
     watch: true,
     module: {
-        rules: [
-            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+        // rules: [
+        //     { test: /\.css$/, use: ["style-loader", "css-loader"] },
+        //     {
+        //         test: /\.png$/, use: "file-loader"
+        //     }
+        // ]
+        rule: [
             {
-                test: /\.png$/, use: "file-loader"
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.png$/,
+                use: "file-loader"
             }
         ]
     }

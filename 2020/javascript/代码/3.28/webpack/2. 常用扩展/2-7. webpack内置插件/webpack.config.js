@@ -18,9 +18,13 @@ module.exports = {
             corporation:duyi
             `
         }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     _: 'lodash'
+        // })
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            _: 'lodash'
+            $: "jquery",
+            _: "lodash"
         })
     ]
 }

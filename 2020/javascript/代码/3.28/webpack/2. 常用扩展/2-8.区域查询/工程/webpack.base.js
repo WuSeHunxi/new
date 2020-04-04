@@ -10,7 +10,7 @@ module.exports = {
     output: {
         filename: "scripts/[name].[chunkhash:5].js"
     },
-    resolve: {
+    resolve: {//别名配置，更加方便处理依赖
         alias: {
             "@": path.resolve(__dirname, "src")
         }
