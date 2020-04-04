@@ -9,12 +9,12 @@ module.exports = {
                 //     loader: "css-loader",
                 //     options: {
                 //         // modules: {
-                //         //     localIdentName: "[local]-[hash:5]"
+                //         //     localIdentName: "[local]-[hash:5]"//控制最终的类名
                 //         // }
                 //         modules:true
                 //     }
                 // }]
-                test: /\.css$/, use:["style-loader", "css-loader?modules"]
+                test: /\.css$/, use: ["style-loader", "css-loader?modules"]
             }
         ]
     },
