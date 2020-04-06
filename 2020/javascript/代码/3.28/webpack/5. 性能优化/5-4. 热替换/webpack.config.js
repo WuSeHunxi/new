@@ -5,11 +5,11 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     open: true,
-    hot: true
+    hot: true//开启热更新
   },
-  module:{
-    rules:[
-      {test:/\.css$/, use:["style-loader", "css-loader"]}
+  module: {
+    rules: [
+      { test: /\.css$/, use: ["style-loader", "css-loader"] }
     ]
   },
   plugins: [

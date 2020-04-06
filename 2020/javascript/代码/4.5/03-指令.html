@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            [v-cloak]{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div v-once>{{ name }}</div>
+            <div v-html="dom"></div>
+            <div v-text="name"></div>
+            <div v-if='flag'></div>
+            <template v-if="flag">
+                <div>shanshan</div>
+            </template>
+        </div>
+        <!-- v-pre -->
+        <!-- v-cloak：当元素没有被编译的时候存在该指令，多应用再网页刚开始打开还没有被渲染的那一瞬间，再样式中添加display:none -->
+        <!-- v-once：更改元素也不会渲染，它的值始终是第一次渲染的结果 -->
+        <!-- v-html：等价于innerHTML -->
+        <!-- XSS：根据innerHTML的值对网页进行攻击 -->
+        <!-- v-text：等价于innerText -->
+        <!-- v-if：当值为true的时候，该元素就会存在，反之不存在，完完全全的移除或者添加 -->
+        <!-- template：和正常的标签一样能够判断，但是不会再页面中显示 -->
+        <!-- v-else：配合v-if一起使用，但是他们之间不能有任何内容 -->
+        <!-- v-else-if：三个一起使用 -->
+        <!-- v-show：该值为true的时候显示，只是控制css样式的显示和隐藏，并且在template上没效果 -->
+        <script>
+            const vm=new Vie({
+                el:"#app",
+                data:{
+                    dom:'<div>jsjsjsjsj</div>',
+                    name:"shanshan",
+                    flag:true
+                }
+            })
+
+    </script>
+    </body>
+</html>

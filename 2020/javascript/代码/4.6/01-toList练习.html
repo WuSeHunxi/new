@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- v-model：value+input（边输入边显示）的语法糖 
+            如果添加了.lazy修饰符，则变成了value+change的语法糖
+            .number：将数字类型的字符串转成数字
+            .trim：去除字符串前后端的空格-->
+        <!-- $event -->
+        <!-- 修饰符：@key.enter键盘的修饰符，鼠标也有修饰符 -->
+        <div id="app">
+            <input type="text" v-model="task" @keyup.f1-key="addTask">
+            <!-- <input type="text" v-model="task" @keyup="addTask($event,'up')"> -->
+            <!-- <input type="text" v-model.number="task" @keyup.enter="addTask"> -->
+            <!-- <input type="text" v-model.trim="task" @keyup.enter="addTask"> -->
+            <!-- <button @click="addTask($event,'click')">提交</button> -->
+            <button @click="addTask">提交</button>
+            <p>正在添加的任务：{{task}}</p>
+            <h4>所有任务</h4>
+            <ul>
+                <li v-for='(task,index) in taskList' :key="index">
+                    {{task}}
+                    <button @click="deleteTask(index)">删除</button>
+                </li>
+            </ul>
+        </div>
+        <script>
+            //给键盘起个别名：配合shift+f1
+            Vue.config.keyCodes={
+                'f1-key':112//别名必须是连字符的命名方式
+            }
+
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    task:'',
+                    taskList:[]
+                },
+                methods:{
+                    // addTask(e,type){
+                    //     //处理点击事件和键盘事件
+                    //     if(type==='up'&&e.keyCode!==13){
+                    //         return;
+                    //     }
+                    //     this.taskList.push(this.task);
+                    //     this.task='';
+                    // },
+                    addTask(){
+                        this.taskList.push(this.task);
+                        this.task='';
+                    },
+                    deleteTask(index){
+                        this.taskList.splice(index,1)
+                    }
+                }
+            })
+    </script>
+    </body>
+</html>

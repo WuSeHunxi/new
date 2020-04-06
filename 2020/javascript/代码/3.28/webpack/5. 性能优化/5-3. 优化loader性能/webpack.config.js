@@ -9,7 +9,7 @@ module.exports = {
           // {
           //   loader: "cache-loader",
           //   options:{
-          //     cacheDirectory: "./cache"
+          //     cacheDirectory: "./cache"//编译文件缓存的路径
           //   }
           // },
           "thread-loader",

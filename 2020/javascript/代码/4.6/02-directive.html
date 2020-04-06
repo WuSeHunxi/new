@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- 修饰符为number 参数为9 -->
+            <!-- <input type="text" v-slice:9.number="content" v-model="content"> -->
+            <input type="text" v-slice:9.number="content">
+            {{content}}
+        </div>
+        <script>
+        //指令名称  函数/对象      (绑定的DOM元素，指令的信息，vnode)
+        // Vue.directive('slice',(el,bindings,vnode)=>{//该函数是下面两个函数的结合
+        //     // console.log(el);
+        //     // console.log(bindings);//修饰符和参数在第二个参数中显示
+        //     // console.log(vnode);
+        //     console.log(bindings.def)
+        //     const value=bindings.value.slice(0,5);//content这个变量的值在bindings上
+        //     vnode.context.content=value;//在虚拟节点上能够找到vue实例
+        // })
+
+        Vue.directive("slice", {
+            /**
+            1.将content的内容在输入框中显示
+            2.实现数据双向绑定(改变vue实例中的content值)
+            */
+            // (绑定的DOM元素，指令的信息，vnode)
+            bind(el, bindings, vnode) { //绑定指令的时候就会执行，但只执行一次
+                const context = vnode.context;
+                const length = bindings.arg || 5;
+                const numberFlag=bindings.modifiers.number;
+                let initVal = context[bindings.expression];
+                if(numberFlag){
+                    initVal=initVal.replace(/[^0-9]/g,"");   
+                }    
+                el.value = initVal.slice(0, length);
+                e.value=initVal;
+                context[bindings.expression] = initVal;
+                el.oninput = (e) => {
+                    let value = e.target.value;
+                    if(numberFlag){
+                        value=initVal.replace(/[^0-9]/g,"");   
+                    }
+                    let val = value.slice(0, length);
+                    context[bindings.expression] = val;
+                    el.value = val;
+                }
+            },
+            update(el, bindings, vnode) { //当虚拟DOM更新的时候就会执行，但是第一次的时候不执行
+                let context=vnode.context;
+                const numberFlag=bindings.modifiers.number;
+                let value=context[bindings.expression];
+                if(numberFlag){
+                    value=initVal.replace(/[^0-9]/g,"");   
+                }
+                el.value=value;
+                context[bindings.expression]=value;
+            },
+            inserted(el) { //当绑定指令的元素插入到页面的时候执行
+                el.focus();//一进入聚焦
+            }
+        })
+
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                content: 'dsfe2342'
+            }
+        })
+    </script>
+    </body>
+
+</html>

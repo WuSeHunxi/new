@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- v-for：item index arr -->
+        <!-- key值必须是唯一的，目的是为了减少DOM的操作，尽量不要是index，通常从后端获取的数据会带一个id，此id就可以作为key -->
+        <div id="app">
+            <!-- <div v-for="(item,index) in arr" :key="index">{{ item }}</div>
+            <div v-for="(key,value) in person">{{item}}</div> -->
+            <div v-for="item in 8">{{item}}</div>
+            <div v-for="item in 'shanshan'">{{item}}</div>
+        </div>
+        <script>
+        const vm=new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,2],
+                person:{
+                    name:"shanshan",
+                    desc:"beautiful",
+                    age:18
+                }
+            }
+        })
+
+    </script>
+    </body>
+</html>

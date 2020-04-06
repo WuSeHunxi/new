@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 插值表达式：将里面的结果运算出来显示在页面 -->
+            {{ 'a' }}
+            {{ 1+1 }}
+            <!-- {{ var a=10; return a; }} 这是js语句，不是表达式，所以不能这么写 -->
+            {{ {a:1,b:2} }}
+            <!-- 流程控制也不能写 -->
+            <!-- {{ if(true) {return 'a'} }} -->
+
+            {{ name }}
+            {{ desc }}
+            <!-- 我们使用的数据必须得在data中存在，只有存在了修改数据的时候视图才能够刷新 -->
+            <!-- 通过索引的方式去改变数组，不能渲染视图；或者改变其长度，也无法渲染视图 -->
+            <!-- 数组变异方法：push pop shift unshift sort reverse splice -->
+            <!-- $set：改变vue的数据并渲染 (数据名 属性 值)-->
+            <!-- vm.$set(vm.obj,'xxx',90) -->
+            <!-- $el：挂载在vue的元素 -->
+            <!-- $nextTick：当DOM元素重新渲染到页面之后执行 -->
+            <!-- $mount：挂在方法  vm.$mount("#app") -->
+        </div>
+
+        <script>
+            const vm=new Vue({
+                el:'#app',//vue工作在哪个区域
+                data:{
+                    name:"shasha",
+                    desc:'zuimei'
+                }
+            })
+            vm.name="duyi";
+            vm.name="duyi1";
+            vm.name="duyi2";
+            vm.desc="nb";
+            vm.desc="hoho";
+            vm.$nextTick(()=>{
+                console.log(vm.$el.innerText)
+            })
+        </script>
+    </body>
+</html>

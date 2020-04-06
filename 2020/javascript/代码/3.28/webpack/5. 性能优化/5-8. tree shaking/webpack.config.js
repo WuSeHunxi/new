@@ -3,9 +3,11 @@ const DeepScope = require("webpack-deep-scope-plugin").default;
 const MiniCss = require("mini-css-extract-plugin");
 const Purgecss = require("purgecss-webpack-plugin");
 const path = require("path");
+//多个规则进行匹配
 const globAll = require("glob-all");
 const srcAbs = path.resolve(__dirname, "src"); //得到src的绝对路径
 const htmlPath = path.resolve(__dirname, "public/index.html");
+//匹配两个路径
 const paths = globAll.sync([`${srcAbs}**/*.js`, htmlPath]);
 
 module.exports = {
