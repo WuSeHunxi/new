@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="msg">
+            <input type="checkbox" name="" id="" v-model="msg">{{msg}}
+            <br>
+            <input type="radio" value="huahua" v-model="pick">花花
+            <input type="radio" value="dudu" v-model="pick">嘟嘟
+            <input type="radio" value="didi" v-model="pick">滴滴
+        </div>
+        <script>
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    msg:"hello",
+                    pick:''
+                }
+            })
+
+
+        </script>
+    </body>
+</html>
