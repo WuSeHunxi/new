@@ -77,7 +77,7 @@
           this.curMask = '';
         },
         doCheck(index, type) {
-
+          //任务切换
           if (type === 'need') {
             const completeMask = this.needDoList.splice(index, 1);
             this.completeList.push(...completeMask);
