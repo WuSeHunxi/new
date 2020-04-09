@@ -1,82 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="./index.css">
-  <script src="./vue.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./vue.js"></script>
+  </head>
 
-<body>
+  <body>
 
-  <div id="app">
-    <div class="store">
-      <input 
-        type="checkbox" 
-        class="select-all" 
-        v-model="checkedAll"
-      />
-      <span class="store-name">渡一教育Web前端</span>
-    </div>
-    <ul class="course-list">
-      <li 
-        class="course"
-        v-for="course in courseList"
-        :key="course.id"
-      >
-        <input 
-          type="checkbox" 
-          class="course-radio" 
-          v-model="course.checked"
-        />
-        <div class="poster">
-          <img :src="course.poster" :alt="course.title">
-        </div>
-        <div class="content">
-          <div class="title">{{ course.title }}</div>
-          <div class="price-container">
-            <div class="price">￥{{ course.price }}</div>
-            <div class="control-cart">
-              <button 
-                class="minus-cart"
-                @click="controlCart('-', course)"
-              >-</button>
-              <input 
-                type="text" 
-                class="cart-num" 
-                v-model.number="course.cart"
-              >
-              <button 
-                class="add-cart"
-                @click="controlCart('+', course)"
-              >+</button>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="control">
-      <div class="select">
-        <input 
-          type="checkbox" 
+    <div id="app">
+      <div class="store">
+        <input
+          type="checkbox"
           class="select-all"
           v-model="checkedAll"
-        >
-        <span>全选</span>
+          />
+        <span class="store-name">渡一教育Web前端</span>
       </div>
-      <div class="price-container">
-        <span>合计：</span>
-        <span class="price">￥{{ selectTotalPrice }}</span>
-        <button class="accounts">结算({{ selectNum }})</button>
+      <ul class="course-list">
+        <li
+          class="course"
+          v-for="course in courseList"
+          :key="course.id">
+          <input
+            type="checkbox"
+            class="course-radio"
+            v-model="course.checked"
+            />
+          <div class="poster">
+            <img :src="course.poster" :alt="course.title">
+          </div>
+          <div class="content">
+            <div class="title">{{ course.title }}</div>
+            <div class="price-container">
+              <div class="price">￥{{ course.price }}</div>
+              <div class="control-cart">
+                <button
+                  class="minus-cart"
+                  @click="controlCart('-', course)">-</button>
+                <input
+                  type="text"
+                  class="cart-num"
+                  v-model.number="course.cart">
+                <button
+                  class="add-cart"
+                  @click="controlCart('+', course)">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="control">
+        <div class="select">
+          <input
+            type="checkbox"
+            class="select-all"
+            v-model="checkedAll">
+          <span>全选</span>
+        </div>
+        <div class="price-container">
+          <span>合计：</span>
+          <span class="price">￥{{ selectTotalPrice }}</span>
+          <button class="accounts">结算({{ selectNum }})</button>
+        </div>
       </div>
+
     </div>
 
-  </div>
-
-  <script>
+    <script>
 
     const vm = new Vue({
       el: '#app',
@@ -172,6 +167,6 @@
 
     vm.courseList.forEach(course => vm.$set(course, 'checked', false));
   </script>
-</body>
+  </body>
 
 </html>
