@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script src="./vue.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
 
-  <div id="app">
-    <ul v-if="shouldShow">
-      <!-- <li v-for="(person, index) of persons">
+    <div id="app">
+      <ul v-if="shouldShow">
+        <!-- <li v-for="(person, index) of persons">
         {{ person.name }}--{{ index }}
       </li> -->
-      <!-- <li v-for="(value, key, index) of shan">
+        <!-- <li v-for="(value, key, index) of shan">
         {{ value }}--{{ key }}--{{ index }}
       </li> -->
-      <!-- <li v-for="item in 10">
+        <!-- <li v-for="item in 10">
         {{ item }}
       </li> -->
-      <!-- <li v-for="item in 'shanshan'">
+        <!-- <li v-for="item in 'shanshan'">
         {{ item }}
       </li> -->
-
-      <!-- <li></li>
+        <!-- <li></li>
       <span></span>
       <li></li>
       <span></span>
@@ -32,44 +31,39 @@
       <span></span>
       <li></li>
       <span></span> -->
-
-      <!-- <li v-for="person in persons">{{ person.name }}</li>
+        <!-- <li v-for="person in persons">{{ person.name }}</li>
       <span v-for="person in persons">{{ person.age }}</span> -->
-      <!-- <template v-for="person in persons">
+        <!-- <template v-for="person in persons">
         <li>{{ person.name }}</li>
         <span>{{ person.age }}</span>
-      </template> -->
-      <!-- <li v-for="(person, index) in persons" :key="person.name">
-        {{ person.name }}
-        <input type="text">
-        <button @click="handleClick(index)">下移</button>
-      </li> -->
-      <!-- <button @click="handleClick">点击</button>
-      <li v-for="(person, index) in persons" :key="index">
-        {{ person.name }}
-      </li> -->
-
-      <!-- <button @click="show = !show">{{ show ? '显示' : '隐藏'}}</button>
+     </template> -->
+        <li v-for="(person, index) in persons" :key="person.name">
+          {{ person.name }}
+          <input type="text">
+          <button @click="handleClick(index)">下移</button>
+        </li>
+        <!-- <button @click="handleClick">点击</button>
+        <li v-for="(person, index) in persons" :key="index">
+          {{ person.name }}
+        </li> -->
+        <!-- <button @click="show = !show">{{ show ? '显示' : '隐藏'}}</button>
       <input type="text" v-if="show" key="a">
       <input type="text" v-else key="b"> -->
-
-      <!-- <li 
-        v-for="person in activePersons"
-        v-if="person.isActive"
-      >
-        {{ person.name }}
-      </li> -->
-
+        <li
+          v-for="person in activePersons"
+          v-if="person.isActive">
+          {{ person.name }}
+        </li>
+        <!-- 
       <li 
         v-for="person in persons"
       >
         {{ person.name }}
-      </li>
+      </li> -->
+      </ul>
+    </div>
 
-    </ul>
-  </div>
-
-  <script>
+    <script>
     // [1, 2, 3].forEach((item, index) => {
     //   console.log(item)
     // })
@@ -84,7 +78,7 @@
           { name: '邓哥', age: 88, isActive: true },
         ],
         activePersons: [],
-        shouldShow: false,
+        shouldShow: true,
         shan: {
           name: '杉杉',
           age: 18,
@@ -94,9 +88,9 @@
       },
       methods: {
         handleClick (index) {
-          // const deleteItem = this.persons.splice(index, 1);
-          // this.persons.splice(index + 1, 0, ...deleteItem);
-          this.persons.reverse();
+          const deleteItem = this.persons.splice(index, 1);
+          this.persons.splice(index + 1, 0, ...deleteItem);
+          // this.persons.reverse();
         }
       }
     })
@@ -105,5 +99,5 @@
     // 计算属性
     
   </script>
-</body>
+  </body>
 </html>

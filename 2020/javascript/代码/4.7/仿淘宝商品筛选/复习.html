@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="goods" v-for="(good,goodIndex) in goodsList"
+                :key="good.id">
+                <div class="title">{{good.title}}：</div>
+                <ul class="type-list">
+                    <li class="type" v-for="(type,typeIndex) in good.typeList"
+                        :key="type"
+                        :class="{active:typeIndex===good.index}"
+                        @click="chooseType(good,goodIndex,typeIndex,type)">{{type}}</li>
+                </ul>
+            </div>
+            <div class="choose-type">
+                <div>已选条件：</div>
+                <span class="no-goods" v-if="showFilter">暂时没有选择过滤条件</span>
+                <ul class="filter-list">
+                    <li v-for="(item,itemIndex) in selectList">{{item}}
+                        <span class="delete-goods"
+                            @click="deleteType(itemIndex)">X</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                goodsList: [{
+                        title: '上装',
+                        typeList: ['全部', '针织衫', '毛呢外套', 'T恤', '羽绒服', '棉衣', '卫衣', '风衣'],
+                        id: 1,
+                    },
+                    {
+                        title: '裤装',
+                        typeList: ['全部', '牛仔裤', '小脚/铅笔裤', '休闲裤', '打底裤', '哈伦裤'],
+                        id: 2,
+                    },
+                    {
+                        title: '裙装',
+                        typeList: ['全部', '连衣裙', '半身裙', '长袖连衣裙', '中长款连衣裙'],
+                        id: 3,
+                    }
+                ],
+                selectList:[],
+                showFilter:true
+            },
+            methods:{
+                chooseType(good,goodIndex,typeIndex,type){
+                    if(type==='全部'){
+                        return;
+                    }
+                    this.showFilter=false;
+                    good.index=typeIndex;
+                    // this.selectList.splice(goodIndex,0,type);
+                    vm.$set(this.selectList, goodIndex, type);
+                },
+                deleteType(typeIndex){
+                    // this.selectList.length--;
+                    this.$delete(this.selectList,typeIndex);
+                    this.goodsList[typeIndex].index=0;
+                    if(this.selectList.length===0){
+                        this.showFilter=true;
+                    }
+                    
+                }
+            }
+        });
+        vm.goodsList.forEach(item => vm.$set(item, 'index', 0));
+    </script>
+    </body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="header">
+                <div class="container">
+                    <div class="logo">toDoList</div>
+                    <div class="input-area">
+                        <input type="text" @input="handleInput" />
+                        <button @click="addList">添加</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2>
+                    <span>正在进行</span>
+                    <span class="mask-num">{{needList.length}}</span>
+                </h2>
+                <ul class="mask-list">
+                    <li v-for="(item,index) in needList" :key="item.id">
+                        <div>
+                            <input type="checkbox"
+                                @click="doCheck(index,'need')" />
+                            <span>{{item.title}}</span>
+                        </div>
+                        <button @click="deleteMask(index,'need')">删除</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>
+                    <span>已经完成</span>
+                    <span class="mask-num">{{completeList.length}}</span>
+                </h2>
+                <ul class="mask-list complete-list">
+                    <li v-for="(item,index) in completeList" :key="item.id">
+                        <div>
+                            <input type="checkbox"
+                                @click="doCheck(index,'complete')" />
+                            <span>{{item.title}}</span>
+                        </div>
+                        <button @click="deleteMask(index,'complete')">删除</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    curMask:"",
+                    needList:[],
+                    completeList:[]
+                },
+                methods:{
+                    handleInput(e){
+                        this.curMask=e.target.value;
+                    },
+                    addList(){
+                        this.needList.push({
+                            title:this.curMask,
+                            id:Math.random()
+                        });
+                        // console.log(this.curMask);
+                    },
+                    doCheck(index,type){
+                        if(type==='need'){
+                            const complete=this.needList.splice(index,1);
+                            this.completeList.push(...complete)
+                        }else if(type==='complete'){
+                            const noComplete=this.completeList.splice(index,1);
+                            this.needList.push(...noComplete)
+                        }
+                    },
+                    deleteMask(index,type){
+                        // if(type==='need'){
+                        //     this.$delete(this.needList,item);
+                        //     this.needList.length--;
+                        // }else if (type==='complete'){
+                        //     this.$delete(this.completeList,item);
+                        //     this.completeList.length--;
+                        // }
+                        const toDoList = type === 'need' ? this.needList : this.completeList;
+                        toDoList.splice(index, 1);
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
