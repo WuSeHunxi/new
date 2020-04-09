@@ -1,54 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <script src="./vue.js"></script>
     </head>
     <body>
         <div id="app">
             {{msg}}
-            <div v-on:click="add(1,$event)">haha</div>
+            <!-- <div v-on:click="add(1,$event)">haha</div>
             <div @click="alert('div')">
                 <button @click.stop="alert('button')">点击</button>
             </div>
-            <button v-on:keyup.v="alert('keyup')">up</button>
+            <button v-on:keyup.v="alert('keyup')">up</button> -->
             <!-- <div v-bind:text-content.prop="text"></div> -->
-            <input @keyup.17="alert('17')">
-            <div @click.right.prevent="alert('d')">点击</div>
+            <!-- <input @keyup.17="alert('17')">
+            <div @click.right.prevent="alert('d')">点击</div> -->
+            <ul>
+                <li v-for="(user, index) in activeUsers" :key="user.id">
+                    {{ user }}
+                    <input type="text" />
+                    <button @click="handleClick(index)">下移</button>
+                </li>
+            </ul>
         </div>
         <script>
-            Vue.config.keyCodes={
-                f1:112,
-                v:86
-            }
-            const vm=new Vue({
-                el:"#app",
-                data:{
-                    msg:'haha'
-                },
-                methods:{
-                    add(count,e){
-                        count+=1;
-                        // console.log(count)
-                        console.log(count,e.target)
-                    },
-                    alert(str){
-                        alert(str)
-                    }
-                }
-            })
+      Vue.config.keyCodes = {
+        f1: 112,
+        v: 86,
+      };
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          persons: ["shan", "jc", "cst", "deng"],
+          msg: "haha",
+          users:[
+                { name: "shan", isActive: true, id: 1 },
+                { name: "jc", isActive: false, id: 2 },
+                { name: "cst", isActive: false, id: 3 },
+                { name: "deng", isActive: true, id: 4 }, 
+            ],
+            activeUsers:[]
+        },
+        methods: {
+          add(count, e) {
+            count += 1;
+            // console.log(count)
+            console.log(count, e.target);
+          },
+          alert(str) {
+            alert(str);
+          },
+          handleClick(index) {
+            const deleteItem = this.persons.splice(index, 1);
+            this.persons.splice(index + 1, 0, ...deleteItem);
+          },
+        },
+      });
 
-            // vm.msg='hoho';
-            // console.log(vm.msg)
-            // vm.$nextTick(()=>{
-            //     console.log(vm.$el.innerHTML)
-            // })
-            // vm.$nextTick().then(()=>{
-            //     console.log(vm.$el.innerHTML);
-            // })
-    
-        </script>
+      vm.activeUsers=vm.users.filter((user) => user.isActive)
+      // vm.msg='hoho';
+      // console.log(vm.msg)
+      // vm.$nextTick(()=>{
+      //     console.log(vm.$el.innerHTML)
+      // })
+      // vm.$nextTick().then(()=>{
+      //     console.log(vm.$el.innerHTML);
+      // })
+    </script>
     </body>
 </html>

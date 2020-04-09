@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>遗传算法</title>
+    </head>
+    <body>
+        <button type="button" id="button">计算结果</button>
+        <h1>计算结果在控制台输出：</h1>
+        <script>
+        var totalNum = 10, // 种群中染色体的总数
+            bit = 5, // 基因数为5位
+            total = new Array(); // 种群中的染色体
+            bestFitness = 0, // 最佳适应值
+            generation = 0, // 染色体代号
+            bestGeneration = 0, // 最好的一旦染色体代号
+            bestStr = ''; // 最好的染色体基因序列
+        /**
+        * 初始化一条染色体
+        */
+        function initChar() {
+            var res = '';
+            for(var i=0;i<bit;i++){
+                if (Math.random() > 0.5) { // 随机创建一个二进制长度为5的字符串
+                    res += '0';
+                }
+                else{
+                    res += '1';
+                }
+            }
+            return res;
+        }
+        /* 初始化一个种群 */
+        function initTotal() {
+            for(var i=0;i<totalNum;i++){
+                total[i] = initChar()
+            }
+            return total;
+        }
+        /* 将染色体转化为十进制的值 */
+        function calculateFitness(string) {
+            var a = parseInt(string,2);
+            var x = a*30/(Math.pow(2,bit) - 1);
+            var fitness = Math.pow(x,3)-60*Math.pow(x,2)+900*x+100;
+            var result = new Array();
+            result.push({x,fitness});
+            return result;
+        }
+        /* 轮盘选择 */
+        function select() {
+            var evals = new Array(totalNum); // 所有染色体适应值 
+            var p = new Array(totalNum); // 各染色体选择概率
+            var q = new Array(totalNum); // 累计概率
+            var F = 0; // 累计适应值总合
+            for(var i=0;i<totalNum;i++){ // 记录下种群的最优解
+                evals[i] = calculateFitness(total[i]);
+                if(evals[i][0].fitness > bestFitness) {
+                    bestFitness = evals[i][0].fitness;
+                    bestGeneration = generation;
+                    bestStr = total[i];
+                }
+                F += evals[i][0].x;
+            }
+
+            for(var j=0;j<totalNum;j++){ // 计算累计概率
+                p[j] = evals[j][0].x/F;
+                if(j == 0){
+                    q[j] = p[j];
+                }
+                else{
+                    q[j]=q[j-1]+p[j];
+                }
+            }
+
+            var temp = new Array(10);
+            for(var k=0;k<totalNum;k++){ //
+                var r = Math.random();
+                if(r <= q[0]){
+                    temp[k] = total[0];
+                }
+                else{
+                    for(var z=1;z<totalNum;z++){
+                        if(r<q[z]){
+                            temp[k] = total[z];
+                            break;
+                        }
+                    }
+                }
+            }
+            total = temp;
+        }
+
+        /* 交叉 设概率为70%*/
+        function cross() {
+            var temp1,
+                temp2;
+            for(var i=0;i<totalNum;i++){
+                if(Math.random() < 0.7){
+                    var pos = Math.ceil(Math.random()*bit); // 向上取整
+                    temp1 = total[i].substring(0,pos) + total[(i+1)%totalNum].substring(pos);
+                    temp2 = total[(i+1)%totalNum].substring(0,pos)+total[i].substring(pos);
+                }
+            }
+        }
+
+        /* 变异，百分之一的几率出现变异*/
+        function mutation() {
+            var s = new Array();
+            for(var i=0;i<totalNum;i++){
+                s = total[i];
+                if(Math.random()<0.01){
+                    var temp = Math.ceil(Math.random()*bit); // 向上取整
+                    if(total[i].charAt(temp) == '0'){
+                        changeNode = total[i].split(''); 
+                        changeNode.splice(temp,1,'1'); 
+                        changeNode.join('');
+                    }
+                    else{
+                        changeNode = total[i].split('');  
+                        changeNode.splice(temp,1,'0'); 
+                        changeNode.join('');
+                    }
+                }
+            }
+        }
+        /*执行*/
+        document.getElementById('button').onclick = function () {
+            total = initTotal();
+            for(var i=0;i<10000;i++){
+                select();
+                cross();
+                mutation();
+                generation = i;
+            }
+            var x = calculateFitness(bestStr);
+            console.log(bestFitness);
+            console.log(x[0]);
+        }
+    </script>
+    </body>
+</html>
