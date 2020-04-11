@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-cmp>hahahaha</my-cmp>
+            <my-cmp1>{{name}}</my-cmp1>
+
+            <my-first>
+                <!-- <template v-slot:header> -->
+                <template #header>
+                    <h1>头部</h1>
+                </template>
+                <template v-slot:default>
+                    <p>内容</p>
+                </template>
+                <template v-slot:footer>
+                    <p>底部</p>
+                </template>
+            </my-first>
+
+            <!-- <my-second>
+                <template v-slot:header="props">{{props.user}}</template>
+            </my-second> -->
+            <my-second v-slot="props">{{props.user}}</my-second>
+        </div>
+        <script>
+            Vue.component('my-cmp',{
+                template:`
+                <div>
+                    <slot></slot>
+                </div>`
+            })
+
+            Vue.component('my-cmp1',{
+                template:`
+                <div>
+                    <slot>Submit</slot>
+                </div>`
+            })
+
+            Vue.component('my-first',{
+                template:`
+                    <div class="container">
+                        <header>
+                            <slot name="header"></slot>
+                        </header>
+                        <main>
+                            <slot></slot>
+                        </main>
+                        <footer>
+                            <slot name="footer"></slot>
+                        </footer>
+                    </div>
+                `
+            })
+
+            Vue.component('my-second',{
+                data(){
+                    return {
+                        user:{
+                            name:"杉杉",
+                            age:11
+                        }
+                    }
+                },
+                template:`
+                    <span>
+                        <slot :user="user"></slot>
+                    </span>
+                `
+            })
+
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    name:"hello"
+                }
+            })
+            
+        </script>
+    </body>
+</html>

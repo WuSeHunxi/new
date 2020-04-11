@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./vue.js"></script>
+        <script src="./jquery.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="logo">
+                <img src="https://www.baidu.com/img/bd_logo1.png?where=super"
+                    alt="">
+            </div>
+            <div class="search-box">
+                <span class="search-area">
+                    <input type="text" maxlength="100" v-model="inputVal"
+                        @blur="()=>onfocus=false" @focus="()=>onfocus=true">
+                    <span class="icon icon-paizhao"></span>
+                </span>
+                <span class="search-btn">百度一下</span>
+            </div>
+            <ul class="search-list" v-show="onfocus&&searchList.length">
+                <li v-for="res in searchList">{{res}}</li>
+            </ul>
+        </div>
+        <script>
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    inputVal:'', 
+                    searchList:[],
+                    onfocus:false
+                },
+                methods:{
+                    searchRes(res){
+                        this.searchList=res.s;
+                        // console.log(this.searchList)
+                    }
+                },
+                watch:{
+                    inputVal(){
+                        $.ajax({
+                            url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+                            data:{
+                                wd: this.inputVal,
+                                cb: 'vm.searchRes'
+                            },
+                            dataType:'jsonp'
+                        })
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <button-fly></button-fly>
+        </div>
+        <script>
+            Vue.component("button-counter", {
+                data() {
+                    return {
+                        count: 0,
+                    };
+                },
+                template: `
+                    <button @click="count ++">你按了我{{ count }}次</button>
+                `,
+            });
+
+            const buttonFly={
+                data(){
+                    return {
+                        a:10
+                    }
+                },
+                template:`<div>{{a}}</div>`
+            }
+
+            const vm = new Vue({
+                el: "#app",
+                components:{
+                    "button-fly":buttonFly
+                }
+            });
+        </script>
+    </body>
+
+</html>

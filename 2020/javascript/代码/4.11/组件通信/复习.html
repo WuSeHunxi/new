@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-cmp @click="fn">
+
+            </my-cmp>
+            <cmp-a></cmp-a>
+        </div>
+        <script>
+            Vue.prototype.$bus=new Vue();
+
+            Vue.component('my-cmp',{
+                data(){
+                    return {
+                        name:"ooao"
+                    }
+                },
+                methods:{
+                    onClick(){
+                       this.$bus.$emit('click',this.name); 
+                        console.log(0)
+                    }
+                },
+                template:`<div @click="onClick">cmp</div>`
+            })
+
+            Vue.component('cmp-a',{
+                mounted(){
+                    this.$bus.$on('click',(val)=>{
+                        console.log(val)
+                    })
+                },
+                template:`<div>cmp-a</div>`
+            })
+            const vm=new Vue({
+                el:"#app",
+                data:{
+
+                },
+                methods:{
+                    fn(name){
+                        console.log(name)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

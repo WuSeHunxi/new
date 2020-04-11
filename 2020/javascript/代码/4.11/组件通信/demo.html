@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-cmp @click="fn">
+                <cmp-a @click="fn"></cmp-a>
+            </my-cmp>
+        </div>
+        <script>
+            Vue.component('my-cmp',{
+                data(){
+                    return {
+                        name:"my-cmp"
+                    }
+                },
+                provide(){
+                    return {
+                        name:this.name
+                    }
+                },
+                methods:{
+                    onClick(){
+                        this.$listeners.click(this.name);
+                        console.log(this.$listeners);
+                    }   
+                },
+                template:`<div @click="onClick">my-cmp
+                    <slot></slot>
+                </div>`
+            })
+
+            Vue.component('cmp-a',{
+                inject:['name'],
+                methods:{
+                    onclick(){
+                        console.log(0);
+                        console.log(this.name)
+                    }
+                },
+                template:`<div @click="onclick">cmp-a</div>`
+            })
+
+            const vm=new Vue({
+                el:"#app",
+                data:{
+
+                },
+                methods:{
+                    fn(name){
+                        console.log(name)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

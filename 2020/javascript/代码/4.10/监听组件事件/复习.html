@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 绑定自定义事件 -->
+            <div :style="{fontSize:postFontSize+'em'}">
+                <!-- <blog-post v-for="post in posts"
+                    @enlarge-text="postFontSize+=0.3"
+                    :post="post" :key="post.id"></blog-post> -->
+                <blog-post v-for="post in posts"
+                    @enlarge-text="onEnlargetText"
+                    :post="post" :key="post.id"></blog-post>
+            </div>
+            <base-input @input="input"></base-input>
+
+            <!-- 绑定原生事件 -->
+            <base-button @click.native="click"></base-button>
+            <text-input @focus.native="onFocus"></text-input>
+            <br>
+            <text-input1 @focus.native="onFocus"></text-input1>
+            <br>
+
+            <!-- v-model -->
+            <text-inp v-model="value"></text-inp>
+            <inp-check v-model="checked"></inp-check>
+        </div>
+        <script>
+            Vue.component('blog-post',{
+                props:{
+                    post:Object
+                },
+                template:`
+                    <div>
+                        <h3>{{post.title}}</h3>
+                        <button @click="$emit('enlarge-text')">放大字号</button>
+                        <div>{{post.content}}</div>
+                    </div>
+                `
+            })
+
+            Vue.component('base-input',{
+                template:`
+                    <label>
+                        姓名：
+                        <input type="text" @input="$emit('input')">
+                    </label>
+                `
+            })
+
+            Vue.component('base-button',{
+                template:`
+                    <button>点击</button>
+                `
+            })
+
+            Vue.component("text-input",{
+                template:`
+                    <input type="text"/>
+                `
+            })
+
+            Vue.component("text-input1",{
+                mounted(){
+                    console.log(this.$listeners)
+                },
+                template:`
+                    <label>
+                        姓名：
+                        <input type="text" v-on="$listeners"/>
+                    </label>
+                `
+            })
+
+            Vue.component('text-inp',{
+                props:['value'],
+                template:`
+                    <input :value="value" @input="$emit('input',$event.target.value)"/>
+                `
+            })
+
+            Vue.component('inp-check',{
+                model:{
+                    prop:'checked',
+                    event:'change'
+                },
+                props:{
+                    checked:Boolean
+                },
+                template:`
+                    <input type="checkbox" :checked="checked" @change="$emit('change',$event.target.checked)"/>
+                `
+            })
+
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    posts: [
+                        { title: '标题', content: '内容内容内容', id: 0 },
+                        { title: '标题1', content: '内容内容内容', id: 1 },
+                        { title: '标题2', content: '内容内容内容', id: 2 },
+                        { title: '标题3', content: '内容内容内容', id: 3 },
+                    ],
+                    postFontSize:1,
+                    value:'',
+                    checked:true
+                },
+                methods:{
+                    onEnlargetText(e){
+                        this.postFontSize+=0.2;
+                    },
+                    input(){
+                        console.log('pp')
+                    },
+                    click(){
+                        console.log("click");
+                    },
+                    onFocus(){
+                        console.log('foucs')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

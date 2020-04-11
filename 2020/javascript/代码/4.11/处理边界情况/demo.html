@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-cmp @click.native="fn" :name="name">
+                <cmp-a>
+                    <cmp-b></cmp-b>
+                </cmp-a>
+            </my-cmp>
+        </div>
+        <script>
+            Vue.component('my-cmp',{
+                // props:['name'],
+                provide(){
+                    return {
+                        share:this.share
+                    }
+                },
+                data(){
+                    return {
+                        share:'shanshan'
+                    }
+                },
+                template:`
+                    <div>ahah
+                        <slot></slot>
+                    </div>
+                `,
+                mounted(){
+                    // console.log(this.$root.name)
+                }
+                // methods:{
+                //     fn(){
+                //         console.log(this.$root.name)
+                //     }
+                // }
+            })
+            Vue.component('cmp-a',{
+                inject:['share'],
+                template:`
+                    <div>cmp-a{{share}}
+                        <slot></slot>
+                    </div>
+                `
+            })
+
+            Vue.component("cmp-b",{
+                // inject:['name'],
+                template:`
+                    <div>cmp-b</div>
+                `
+            })
+            const vm=new Vue({
+                el:"#app",
+                data:{
+                    name:"duyi"
+                },
+                methods:{
+                    fn(){
+                        console.log('haha')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

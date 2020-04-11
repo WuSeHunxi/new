@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{name}}
+        </div>
+        <script>
+        const vm=new Vue({
+            el:"#app",
+            data:{
+                name:"papa",
+                person:{
+                    name:"papap",
+                    son:{
+                        name:"ooo"
+                    }
+                }
+            },
+            methods:{
+                change(){
+                    console.log("改变了，值是字符串")
+                }
+            },
+            watch:{
+                // name(){//属性监听
+                //     console.log("改变了~");
+                // },
+                // name(newVal,oldVal){//函数监听
+                //     console.log("函数执行");
+                //     console.log(rnewVal,oldVal)
+                // },
+                // person:{//对象类型，需要配置一些参数
+                //     handler(){
+                //         console.log("值改变了")
+                //     },
+                //     deep:true,
+                //     immediate:true//直接执行
+                // },
+                // name:'change',
+                'person.name'(){//字符串类型
+                    console.log("name改变了")
+                }
+            }
+        })
+
+    </script>
+    </body>
+</html>
